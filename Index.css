@@ -1,0 +1,8949 @@
+
+/* =========================================================
+   AM ELECTRONICS
+   COMPLETE PROFESSIONAL RESPONSIVE STYLE.CSS
+   ========================================================= */
+
+/* =========================================================
+   GOOGLE FONT - ROBOTO
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   1. GLOBAL RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: 78px;
+    background: #dcdcdc;
+    color: #222222;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   2. PROFESSIONAL COLOUR PALETTE
+   ========================================================= */
+
+:root {
+    --primary-blue: #0077CC;
+    --dark-blue: #005FA3;
+
+    --light-blue: #F0F8FF;
+    --soft-blue: #D8EBF2;
+    --very-light-blue: #F7FBFF;
+
+    --accent-orange: #FF9800;
+
+    --dark-text: #222222;
+    --secondary-text: #666666;
+    --muted-text: #888888;
+
+    --white: #FFFFFF;
+
+    --border: #DDEAF3;
+
+    --success: #20B858;
+    --whatsapp: #25D366;
+
+    --card-shadow: 0 4px 14px rgba(0, 119, 204, 0.10);
+    --card-shadow-hover: 0 7px 20px rgba(0, 119, 204, 0.16);
+}
+
+
+
+/* =========================================================
+   3. FIXED NAVIGATION BAR
+   ========================================================= */
+
+.site-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    background: #000000;
+
+    z-index: 1000;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.navbar-container {
+    width: 94%;
+    max-width: 1500px;
+    height: 78px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   4. NAVBAR LOGO
+   ========================================================= */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.navbar-logo img {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   5. NAVBAR SEARCH BAR
+   ========================================================= */
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 500px;
+    height: 44px;
+
+    background: #ffffff;
+
+    border: 1px solid #f47721;
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Search focus effect */
+
+.navbar-search:focus-within {
+    border-color: none;
+
+    box-shadow: none;
+}
+
+
+/* Search input */
+
+.navbar-search input {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+    height: 100% !important;
+
+    margin: 0;
+    padding: 0 16px;
+
+    border: none;
+    outline: none;
+
+    background: #ffffff;
+    color: #000000;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+
+/* Search placeholder */
+
+.navbar-search input::placeholder {
+    color: #666666;
+    opacity: 1;
+}
+
+
+/* =========================================================
+   6. STYLISH ORANGE SEARCH BUTTON
+   ========================================================= */
+
+.navbar-search button {
+    flex-shrink: 0;
+
+    height: 100%;
+
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 0 25px 25px 0;
+
+    background: linear-gradient(
+        135deg,
+        #000000,
+        #0c0908
+    );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    box-shadow: -2px 0 8px rgba(244, 119, 33, 0.15);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Search button hover */
+
+.navbar-search button:hover {
+    background: linear-gradient(
+        135deg,
+        #24201e
+    );
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Search button click */
+
+.navbar-search button:active {
+    transform: scale(0.96);
+}
+
+
+/* Keyboard accessibility */
+
+.navbar-search button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -4px;
+}
+
+
+/* =========================================================
+   7. NAVIGATION MENU
+   ========================================================= */
+
+.navbar-menu {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+}
+
+.navbar-menu a {
+    position: relative;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    padding: 8px 0;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+
+/* Orange underline animation */
+
+.navbar-menu a:not(.navbar-cart)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #ffffff;
+
+    border-radius: 3px;
+
+    transition: width 0.25s ease;
+}
+
+
+/* Navigation hover */
+
+.navbar-menu a:not(.navbar-cart):hover {
+    color: #ffffff;
+}
+
+.navbar-menu a:not(.navbar-cart):hover::after {
+    width: 100%;
+}
+
+
+/* Active navigation link */
+
+.navbar-menu a.active {
+    color: #ffffff;
+}
+
+.navbar-menu a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   8. SHOPPING CART
+   ========================================================= */
+
+.navbar-cart {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 13px !important;
+
+    background: transparent;
+    color: #ffffff !important;
+
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Remove navigation underline from cart */
+
+.navbar-cart::after {
+    display: none !important;
+}
+
+
+/* Cart hover */
+
+.navbar-cart:hover {
+    background: #f47721;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+/* Cart icon */
+
+.cart-icon {
+    font-size: 17px;
+    line-height: 1;
+}
+
+
+/* Cart item counter */
+
+.cart-count {
+    min-width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    background: #f47721;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   9. MOBILE MENU BUTTON
+   ========================================================= */
+
+.mobile-menu-button {
+    display: none;
+
+    padding: 9px 12px;
+
+    background: transparent;
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 6px;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* Mobile button hover */
+
+.mobile-menu-button:hover {
+    background: #f47721;
+    border-color: #f47721;
+}
+
+
+/* Keyboard accessibility */
+
+.mobile-menu-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   10. TABLET RESPONSIVENESS
+   ========================================================= */
+
+@media screen and (max-width: 1100px) {
+
+    .navbar-container {
+        gap: 14px;
+    }
+
+    .navbar-search {
+        max-width: 320px;
+    }
+
+    .navbar-menu {
+        gap: 16px;
+    }
+
+    .navbar-menu a {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   11. MOBILE NAVIGATION
+   ========================================================= */
+
+@media screen and (max-width: 850px) {
+
+    .navbar-container {
+        width: 96%;
+        gap: 12px;
+    }
+
+    .navbar-logo img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .navbar-search {
+        flex: 1;
+        max-width: 400px;
+    }
+
+    .mobile-menu-button {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .navbar-menu {
+        display: none;
+
+        position: absolute;
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 15px 20px 20px;
+
+        box-sizing: border-box;
+
+        background: #000000;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+
+    /* JavaScript adds this class when the menu opens */
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu > a {
+        width: 100%;
+
+        padding: 12px 5px;
+
+        box-sizing: border-box;
+    }
+
+    .navbar-menu > a:not(.navbar-cart)::after {
+        bottom: 4px;
+    }
+
+    .navbar-menu .navbar-cart {
+        width: fit-content;
+        margin-top: 8px;
+    }
+}
+
+
+/* =========================================================
+   12. SMALL MOBILE SCREENS
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+    .navbar-container {
+        width: 100%;
+
+        padding: 0 10px;
+
+        gap: 9px;
+    }
+
+    .navbar-logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .navbar-search {
+        height: 38px;
+    }
+
+    .navbar-search input {
+        padding: 0 9px;
+
+        font-size: 12px;
+    }
+
+    .navbar-search button {
+        padding: 0 10px;
+
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+
+    .mobile-menu-button {
+        padding: 7px 9px;
+
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   8. AM ELECTRONICS HERO SECTION
+   ---------------------------------------------------------
+   FEATURES:
+   1. Matches Top Selling carousel width.
+   2. Independently adjustable hero dimensions.
+   3. Responsive image positioning.
+   4. Responsive text positioning.
+   5. Prevents text from crowding product imagery.
+   6. Compatible with existing hero JavaScript.
+========================================================= */
+
+
+/* =========================================================
+   1. MAIN HERO CONTAINER
+========================================================= */
+
+.hero,
+.hero * {
+    box-sizing: border-box;
+}
+
+.hero {
+
+    /* MATCH TOP SELLING SECTION WIDTH */
+
+    width: calc(min(93%, 1400px) - 30px);
+    max-width: 1370px;
+
+    height: 350px;
+
+    position: relative;
+
+    margin: 18px auto 12px;
+
+    background: #111111;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+}
+
+
+/* =========================================================
+   2. HERO SLIDER
+========================================================= */
+
+.hero-slider {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+}
+
+
+.hero-slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+
+}
+
+
+.hero-slide.active {
+
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+/* =========================================================
+   3. HERO IMAGE
+========================================================= */
+
+.hero-slide img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: var(--hero-image-position, 65% center);
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
+   4. INDIVIDUAL SLIDE IMAGE POSITIONING
+   ---------------------------------------------------------
+   Adjust these values independently when needed.
+========================================================= */
+
+
+/* SLIDE 1 */
+
+.hero-slide:nth-child(1) {
+
+    --hero-image-position: 65% center;
+
+}
+
+
+/* SLIDE 2 */
+
+.hero-slide:nth-child(2) {
+
+    --hero-image-position: 65% center;
+
+}
+
+
+/* SLIDE 3 */
+
+.hero-slide:nth-child(3) {
+
+    --hero-image-position: 65% center;
+
+}
+
+
+/* SLIDE 4 */
+
+.hero-slide:nth-child(4) {
+
+    --hero-image-position: 65% center;
+
+}
+
+
+/* SLIDE 5 */
+
+.hero-slide:nth-child(5) {
+
+    --hero-image-position: 65% center;
+
+}
+
+
+/* =========================================================
+   5. HERO IMAGE/TEXT SEPARATION
+========================================================= */
+
+.hero-slide::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.82) 0%,
+        rgba(0, 0, 0, 0.68) 30%,
+        rgba(0, 0, 0, 0.35) 43%,
+        rgba(0, 0, 0, 0.05) 58%,
+        transparent 70%
+    );
+    display: none;
+
+}
+
+
+/* =========================================================
+   6. HERO TEXT CONTENT
+========================================================= */
+
+.hero-content {
+
+    position: absolute;
+
+    left: 5%;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42%;
+    max-width: 480px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    color: #ffffff;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   7. HERO HEADING
+========================================================= */
+
+.hero-content h1 {
+
+    width: 100%;
+
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: clamp(25px, 2.8vw, 36px);
+
+    font-weight: 800;
+
+    line-height: 1.12;
+
+    overflow-wrap: break-word;
+
+}
+
+
+/* =========================================================
+   8. HERO DESCRIPTION
+========================================================= */
+
+.hero-content p {
+
+    width: 100%;
+
+    margin: 0 0 20px;
+
+    color: #ffffff;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: clamp(13px, 1.3vw, 17px);
+
+    font-weight: 400;
+
+    line-height: 1.45;
+
+    overflow-wrap: break-word;
+
+}
+
+
+/* =========================================================
+   9. HERO BUTTON
+========================================================= */
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 23px;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.hero-button:hover {
+
+    background: #ff9800;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+
+
+/* =========================================================
+   10. HERO SLIDER NAVIGATION ARROWS
+========================================================= */
+
+.hero-prev,
+.hero-next {
+
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* PREVIOUS ARROW */
+
+.hero-prev {
+
+    left: 20px;
+
+}
+
+
+/* NEXT ARROW */
+
+.hero-next {
+
+    right: 20px;
+
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR INTERACTION */
+
+.hero:hover .hero-prev,
+.hero:hover .hero-next,
+
+.hero:focus-within .hero-prev,
+.hero:focus-within .hero-next,
+
+.hero.is-scrolling .hero-prev,
+.hero.is-scrolling .hero-next {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* ARROW HOVER EFFECT */
+
+.hero-prev:hover,
+.hero-next:hover {
+
+    background: #FF9800;
+
+    color: #ffffff;
+
+    transform: translateY(-50%) scale(1.08);
+
+}
+
+
+/* ARROW ACTIVE EFFECT */
+
+.hero-prev:active,
+.hero-next:active {
+
+    transform: translateY(-50%) scale(0.95);
+
+}
+
+
+/* KEYBOARD FOCUS */
+
+.hero-prev:focus-visible,
+.hero-next:focus-visible {
+
+    outline: 3px solid #FF9800;
+
+    outline-offset: 3px;
+
+}
+
+
+/* DISABLED ARROWS */
+
+.hero-prev:disabled,
+.hero-next:disabled {
+
+    opacity: 0.35;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   MOBILE AND TOUCHSCREEN DEVICES
+========================================================= */
+
+@media (hover: none) {
+
+    .hero-prev,
+    .hero-next {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        width: 38px;
+        height: 38px;
+
+        font-size: 17px;
+
+    }
+
+    .hero-prev {
+
+        left: 10px;
+
+    }
+
+    .hero-next {
+
+        right: 10px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE SCREENS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-prev,
+    .hero-next {
+
+        width: 34px;
+        height: 34px;
+
+        font-size: 15px;
+
+    }
+
+    .hero-prev {
+
+        left: 8px;
+
+    }
+
+    .hero-next {
+
+        right: 8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-prev,
+    .hero-next {
+
+        transition: none;
+
+    }
+
+}
+
+
+
+
+/* =========================================================
+   11. HERO NAVIGATION DOTS
+========================================================= */
+
+.hero-dots {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 13px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    z-index: 5;
+
+}
+
+
+.hero-dot {
+
+    width: 9px;
+    height: 9px;
+
+    flex: 0 0 9px;
+
+    padding: 0;
+
+    border: 1px solid #ffffff;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.hero-dot.active {
+
+    background: #ff9800;
+
+    border-color: #ff9800;
+
+    transform: scale(1.2);
+
+}
+
+
+/* =========================================================
+   12. LARGE TABLET
+   901PX - 1024PX
+========================================================= */
+
+@media (min-width: 901px) and (max-width: 1024px) {
+
+    .hero {
+
+        width: calc(min(93%, 1400px) - 30px);
+
+        height: 280px;
+
+        border-radius: 17px;
+
+    }
+
+
+    .hero-content {
+
+        left: 5%;
+
+        width: 44%;
+
+        max-width: 420px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: clamp(23px, 3vw, 30px);
+
+        margin-bottom: 9px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 14px;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .hero-button {
+
+        padding: 9px 19px;
+
+        font-size: 13px;
+
+    }
+
+
+    .hero-prev,
+    .hero-next {
+
+        width: 35px;
+        height: 35px;
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+/* =========================================================
+   13. SMALL TABLET
+   601PX - 900PX
+
+   MATCH TOP SELLING SECTION:
+   12PX HORIZONTAL PADDING
+========================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .hero {
+
+        width: calc(min(93%, 1400px) - 24px);
+
+        height: 260px;
+
+        margin: 16px auto 12px;
+
+        border-radius: 15px;
+
+    }
+
+
+    /* IMAGE POSITION */
+
+    .hero-slide img {
+
+        object-position: var(--hero-image-position, 70% center);
+
+    }
+
+
+    /* TEXT SEPARATION */
+
+    .hero-slide::after {
+
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.72) 35%,
+            rgba(0, 0, 0, 0.30) 55%,
+            transparent 75%
+        );
+
+    }
+
+
+    /* TEXT CONTENT */
+
+    .hero-content {
+
+        left: 5%;
+
+        width: 46%;
+
+        max-width: 350px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: clamp(20px, 3vw, 27px);
+
+        line-height: 1.12;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 13px;
+
+        line-height: 1.4;
+
+        margin-bottom: 13px;
+
+    }
+
+
+    .hero-button {
+
+        padding: 8px 16px;
+
+        font-size: 12px;
+
+    }
+
+
+    /* ARROWS */
+
+    .hero-prev,
+    .hero-next {
+
+        width: 32px;
+        height: 32px;
+
+        font-size: 12px;
+
+    }
+
+
+    .hero-prev {
+
+        left: 8px;
+
+    }
+
+
+    .hero-next {
+
+        right: 8px;
+
+    }
+
+
+    /* DOTS */
+
+    .hero-dots {
+
+        bottom: 10px;
+
+        gap: 7px;
+
+    }
+
+
+    .hero-dot {
+
+        width: 8px;
+        height: 8px;
+
+        flex-basis: 8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   14. MOBILE
+   381PX - 600PX
+
+   MATCH TOP SELLING SECTION:
+   8PX HORIZONTAL PADDING
+========================================================= */
+
+@media (min-width: 381px) and (max-width: 600px) {
+
+    .hero {
+
+        width: calc(min(93%, 1400px) - 16px);
+
+        height: 220px;
+
+        margin: 12px auto;
+
+        border-radius: 12px;
+
+    }
+
+
+    /* IMAGE POSITION */
+
+    .hero-slide img {
+
+        object-position: var(--hero-image-position, 75% center);
+
+    }
+
+
+    /* TEXT/IMAGE SEPARATION */
+
+    .hero-slide::after {
+
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(0, 0, 0, 0.78) 38%,
+            rgba(0, 0, 0, 0.45) 55%,
+            rgba(0, 0, 0, 0.08) 75%,
+            transparent 100%
+        );
+
+    }
+
+
+    /* TEXT CONTENT */
+
+    .hero-content {
+
+        left: 5%;
+
+        width: 49%;
+
+        max-width: none;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: clamp(17px, 4.5vw, 22px);
+
+        line-height: 1.13;
+
+        margin-bottom: 6px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: clamp(11px, 3vw, 13px);
+
+        line-height: 1.35;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    /* BUTTON */
+
+    .hero-button {
+
+        padding: 7px 13px;
+
+        font-size: 11px;
+
+        border-radius: 5px;
+
+    }
+
+
+    /* ARROWS */
+
+    .hero-prev,
+    .hero-next {
+
+        width: 29px;
+        height: 29px;
+
+        font-size: 11px;
+
+    }
+
+
+    .hero-prev {
+
+        left: 6px;
+
+    }
+
+
+    .hero-next {
+
+        right: 6px;
+
+    }
+
+
+    /* DOTS */
+
+    .hero-dots {
+
+        bottom: 9px;
+
+        gap: 6px;
+
+    }
+
+
+    .hero-dot {
+
+        width: 7px;
+        height: 7px;
+
+        flex-basis: 7px;
+
+    }
+
+}
+
+
+/* =========================================================
+   15. EXTRA SMALL MOBILE
+   380PX AND BELOW
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .hero {
+
+        width: calc(min(93%, 1400px) - 16px);
+
+        height: 190px;
+
+        margin: 12px auto;
+
+        border-radius: 10px;
+
+    }
+
+
+    /* IMAGE POSITION */
+
+    .hero-slide img {
+
+        object-position: var(--hero-image-position, 78% center);
+
+    }
+
+
+    /* IMAGE/TEXT SEPARATION */
+
+    .hero-slide::after {
+
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.90) 0%,
+            rgba(0, 0, 0, 0.80) 42%,
+            rgba(0, 0, 0, 0.48) 60%,
+            rgba(0, 0, 0, 0.12) 82%,
+            transparent 100%
+        );
+
+    }
+
+
+    /* TEXT */
+
+    .hero-content {
+
+        left: 5%;
+
+        width: 52%;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 15px;
+
+        line-height: 1.12;
+
+        margin-bottom: 5px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 10px;
+
+        line-height: 1.3;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    /* BUTTON */
+
+    .hero-button {
+
+        padding: 6px 10px;
+
+        font-size: 10px;
+
+        border-radius: 4px;
+
+    }
+
+
+    /* ARROWS */
+
+    .hero-prev,
+    .hero-next {
+
+        width: 25px;
+        height: 25px;
+
+        font-size: 10px;
+
+    }
+
+
+    .hero-prev {
+
+        left: 5px;
+
+    }
+
+
+    .hero-next {
+
+        right: 5px;
+
+    }
+
+
+    /* DOTS */
+
+    .hero-dots {
+
+        bottom: 7px;
+
+        gap: 5px;
+
+    }
+
+
+    .hero-dot {
+
+        width: 6px;
+        height: 6px;
+
+        flex-basis: 6px;
+
+    }
+
+}
+
+
+/* =========================================================
+   16. ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-slide,
+    .hero-button,
+    .hero-prev,
+    .hero-next,
+    .hero-dot {
+
+        transition: none;
+
+    }
+
+}
+
+
+
+
+
+/* =========================================================
+   SHOP BY CATEGORY CIRCLES
+========================================================= */
+
+.category-circles-section {
+    width: 100%;
+    margin: 15px auto 25px;
+    padding: 0 20px;
+}
+
+.category-circles-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+
+/* =========================================================
+   CATEGORY TRACK
+========================================================= */
+
+.category-circles-track {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    align-items: start;
+}
+
+
+/* =========================================================
+   CATEGORY ITEM
+========================================================= */
+
+.category-circle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CIRCULAR IMAGE
+========================================================= */
+
+.category-circle-image {
+    width: 100%;
+    max-width: 175px;
+    aspect-ratio: 1 / 1;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 50%;
+
+    overflow: hidden;
+    background: #f5f5f5;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.category-circle-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* =========================================================
+   CATEGORY NAME
+========================================================= */
+
+.category-circle-item h3 {
+    margin: 12px 0 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #000000;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECTS
+========================================================= */
+
+.category-circle-item:hover .category-circle-image {
+    transform: translateY(-4px);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
+}
+
+.category-circle-item:hover .category-circle-image img {
+    transform: scale(1.07);
+}
+
+.category-circle-item:hover h3 {
+    color: #232323;
+}
+
+
+/* =========================================================
+   TABLET RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .category-circles-track {
+        display: flex;
+        gap: 15px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+
+        padding: 5px 2px 15px;
+
+        scrollbar-width: none;
+    }
+
+    .category-circles-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category-circle-item {
+        flex: 0 0 145px;
+        scroll-snap-align: start;
+    }
+
+    .category-circle-image {
+        max-width: 145px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .category-circles-section {
+        padding: 0 15px;
+        margin: 12px auto 20px;
+    }
+
+    .category-circles-heading h2 {
+        font-size: 20px;
+    }
+
+    .category-circles-heading p {
+        font-size: 13px;
+    }
+
+    .category-circles-track {
+        gap: 15px;
+    }
+
+    .category-circle-item {
+        flex: 0 0 125px;
+    }
+
+    .category-circle-image {
+        max-width: 125px;
+    }
+
+    .category-circle-item h3 {
+        font-size: 13px;
+        margin-top: 10px;
+    }
+
+}
+
+
+
+/* =========================================================
+   11. TOP SELLING PRODUCT SECTION
+   ========================================================= */
+
+
+/* =========================================================
+   1. MAIN SECTION
+   ========================================================= */
+
+.top-selling-section,
+.top-selling-section * {
+    box-sizing: border-box;
+}
+
+.top-selling-section {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 14px auto;
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   2. MAIN CAROUSEL CONTAINER
+   ========================================================= */
+
+.top-selling-slider {
+    position: relative;
+
+    width: 100%;
+
+    padding: 10px 12px 12px;
+
+    background: #ffb800;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   3. SECTION HEADER
+   ========================================================= */
+
+.top-selling-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.top-selling-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   4. VIEW ALL BUTTON
+   ========================================================= */
+
+.top-selling-shop-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 5px 0;
+
+    color: #ffffff;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    background: transparent;
+    border: none;
+
+    transition: opacity 0.25s ease;
+}
+
+.top-selling-shop-btn:hover {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.top-selling-shop-btn i {
+    font-size: 12px;
+
+    transition: transform 0.25s ease;
+}
+
+.top-selling-shop-btn:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   5. CAROUSEL TRACK
+   ========================================================= */
+
+.top-selling-track {
+    display: flex;
+    flex-wrap: nowrap;
+
+    gap: 10px;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.top-selling-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   6. PRODUCT CARD
+   DESKTOP: 5 CARDS VISIBLE
+   ========================================================= */
+
+.top-selling-card {
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    min-width: 0;
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    scroll-snap-align: start;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.top-selling-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   7. PRODUCT IMAGE AREA
+   DESKTOP AND TABLET: 210PX
+   ========================================================= */
+
+.top-selling-image {
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    flex: 0 0 210px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+.top-selling-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    object-fit: cover;
+    object-position: center;
+
+    border: none;
+}
+
+
+/* =========================================================
+   8. PRODUCT DETAILS AREA
+   DESKTOP AND TABLET: 140PX
+   ========================================================= */
+
+.top-selling-details {
+    width: 100%;
+    height: 140px;
+
+    flex: 0 0 140px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding: 9px 10px 6px;
+
+    background: #f5f5f5;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   9. PRODUCT TITLE
+   ========================================================= */
+
+.top-selling-details h3 {
+    width: 100%;
+
+    margin: 0 0 3px;
+
+    color: #222222;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   10. PRODUCT DESCRIPTION
+   ========================================================= */
+
+.top-selling-details > p {
+    width: 100%;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   11. PRODUCT PRICE STACK
+   COMPACT VERTICAL SPACING
+   ========================================================= */
+
+.top-selling-price {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 2px;
+
+    width: 100%;
+
+    margin: 5px 0 4px !important;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* ORIGINAL PRICE */
+
+.top-selling-price del {
+    margin: 0;
+    padding: 0;
+
+    color: #777777;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    text-decoration: line-through;
+    white-space: nowrap;
+}
+
+
+/* DISCOUNT BADGE */
+
+.top-selling-price .discount-badge {
+    display: inline-block;
+
+    width: fit-content;
+
+    padding: 2px 5px;
+
+    color: #ffffff;
+    background: #16a34a;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    border-radius: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* CURRENT PRICE */
+
+.top-selling-price .current-price {
+    margin: 0;
+    padding: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   12. CAROUSEL NAVIGATION ARROWS
+   HIDDEN WHEN IDLE
+   ========================================================= */
+
+.top-selling-prev,
+.top-selling-next {
+    position: absolute;
+
+    top: 50%;
+    z-index: 5;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #000000;
+    background: #ffffff;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        background 0.25s ease;
+}
+
+
+/* LEFT ARROW */
+
+.top-selling-prev {
+    left: 3px;
+}
+
+
+/* RIGHT ARROW */
+
+.top-selling-next {
+    right: 3px;
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR SCROLLING */
+
+.top-selling-slider:hover .top-selling-prev,
+.top-selling-slider:hover .top-selling-next,
+
+.top-selling-slider:focus-within .top-selling-prev,
+.top-selling-slider:focus-within .top-selling-next,
+
+.top-selling-slider.is-scrolling .top-selling-prev,
+.top-selling-slider.is-scrolling .top-selling-next {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* ARROW HOVER */
+
+.top-selling-prev:hover,
+.top-selling-next:hover {
+    background: #f5f5f5;
+}
+
+
+/* DISABLED ARROWS */
+
+.top-selling-prev:disabled,
+.top-selling-next:disabled {
+    display: none;
+}
+
+
+/* =========================================================
+   13. TABLET
+   901PX - 1024PX
+   4 CARDS VISIBLE
+   ========================================================= */
+
+@media (min-width: 901px) and (max-width: 1024px) {
+
+    .top-selling-card {
+        flex-basis: calc((100% - 30px) / 4);
+    }
+
+    .top-selling-heading h2 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   14. SMALL TABLET
+   601PX - 900PX
+   3 CARDS VISIBLE
+   ========================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .top-selling-section {
+        padding: 0 12px;
+    }
+
+    .top-selling-card {
+        flex-basis: calc((100% - 20px) / 3);
+    }
+
+    .top-selling-heading h2 {
+        font-size: 19px;
+    }
+
+    .top-selling-details h3 {
+        font-size: 13px;
+    }
+
+    .top-selling-details > p {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   15. MOBILE
+   600PX AND BELOW
+   2 CARDS VISIBLE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-selling-section {
+        padding: 0 8px;
+        margin: 12px auto;
+    }
+
+    .top-selling-slider {
+        padding: 9px;
+    }
+
+    .top-selling-header {
+        margin-bottom: 10px;
+    }
+
+    .top-selling-heading h2 {
+        font-size: 16px;
+    }
+
+    .top-selling-shop-btn {
+        font-size: 12px;
+    }
+
+    .top-selling-shop-btn i {
+        font-size: 11px;
+    }
+
+    .top-selling-track {
+        gap: 8px;
+    }
+
+    .top-selling-card {
+        flex-basis: calc((100% - 8px) / 2);
+        height: 350px;
+    }
+
+    .top-selling-image {
+        height: 205px;
+        flex-basis: 205px;
+    }
+
+    .top-selling-image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .top-selling-details {
+        height: 145px;
+        flex-basis: 145px;
+
+        padding: 9px 9px 6px;
+    }
+
+    .top-selling-details h3 {
+        margin-bottom: 3px;
+
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .top-selling-details > p {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .top-selling-price {
+        gap: 2px;
+        margin: 5px 0 4px !important;
+    }
+
+    .top-selling-price del {
+        font-size: 11px;
+    }
+
+    .top-selling-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .top-selling-price .current-price {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .top-selling-prev,
+    .top-selling-next {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   16. EXTRA SMALL MOBILE
+   380PX AND BELOW
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .top-selling-heading h2 {
+        font-size: 14px;
+    }
+
+    .top-selling-shop-btn {
+        font-size: 11px;
+    }
+
+    .top-selling-details {
+        padding: 8px 8px 6px;
+    }
+
+    .top-selling-details h3 {
+        font-size: 11px;
+    }
+
+    .top-selling-details > p {
+        font-size: 10px;
+    }
+
+    .top-selling-price .current-price {
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   19. PHONE COVERS SECTION
+   ========================================================= */
+
+
+/* =========================================================
+   1. MAIN SECTION
+   ========================================================= */
+
+.phone-covers-section,
+.phone-covers-section * {
+    box-sizing: border-box;
+}
+
+.phone-covers-section {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 14px auto;
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   2. CAROUSEL CONTAINER
+   ========================================================= */
+
+.phone-covers-slider {
+    position: relative;
+
+    width: 100%;
+
+    background: #ddecff;
+
+    border-radius: 18px;
+
+    padding: 10px 12px 12px 12px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   3. SECTION HEADER
+   ========================================================= */
+
+.phone-covers-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-bottom: 12px;
+
+    gap: 10px;
+}
+
+
+/* SECTION HEADING */
+
+.phone-covers-heading {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.phone-covers-heading h2 {
+    margin: 0;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   4. VIEW ALL BUTTON
+   ========================================================= */
+
+.phone-covers-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 4px 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: opacity 0.25s ease;
+}
+
+.phone-covers-view-all i {
+    color: #256ee6;
+
+    font-size: 12px;
+
+    transition: transform 0.25s ease;
+}
+
+.phone-covers-view-all:hover {
+    color: #0077CC;
+    opacity: 0.85;
+}
+
+.phone-covers-view-all:hover i {
+    color: #0077CC;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   5. PRODUCT CAROUSEL TRACK
+   ========================================================= */
+
+.phone-covers-track {
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.phone-covers-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   6. PRODUCT CARDS
+   DESKTOP: 5 CARDS VISIBLE
+   HEIGHT: 350PX
+   ========================================================= */
+
+.phone-cover-card {
+    position: relative;
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    width: auto;
+    min-width: 0;
+    max-width: none;
+
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.phone-cover-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   7. PRODUCT IMAGE AREA
+   DESKTOP AND TABLET: 210PX
+   ========================================================= */
+
+.phone-cover-card .product-details-link {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    flex: 0 0 210px;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    text-decoration: none;
+}
+
+.phone-covers-image {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* PRODUCT IMAGE */
+
+.phone-covers-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    transition: transform 0.35s ease;
+}
+
+.phone-cover-card:hover .phone-covers-image img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   8. PRODUCT DETAILS AREA
+   DESKTOP AND TABLET: 140PX
+   ========================================================= */
+
+.phone-covers-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 140px;
+
+    flex: 0 0 140px;
+
+    min-height: 0;
+
+    padding: 9px 10px 6px;
+
+    background: #f5f5f5;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   9. PRODUCT NAME
+   ========================================================= */
+
+.phone-covers-details h3 {
+    width: 100%;
+
+    margin: 0 0 3px;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+.phone-covers-details h3 a {
+    color: #222222;
+    text-decoration: none;
+}
+
+.phone-covers-details h3 a:hover {
+    color: #222222;
+}
+
+
+/* =========================================================
+   10. PRODUCT DESCRIPTION
+   ========================================================= */
+
+.phone-covers-details p {
+    width: 100%;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   11. PRODUCT PRICING AREA
+   COMPACT VERTICAL STACK
+   ========================================================= */
+
+.phone-covers-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+
+    gap: 2px;
+
+    margin: 5px 0 4px;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* ORIGINAL PRICE */
+
+.phone-covers-price del {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    color: #777777;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    text-decoration: line-through;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* DISCOUNT BADGE */
+
+.phone-covers-price .discount-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 2px 5px;
+
+    background: #16a34a;
+
+    border-radius: 2px;
+
+    color: #ffffff;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* CURRENT PRICE */
+
+.phone-covers-price strong,
+.phone-covers-price .current-price {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   12. CAROUSEL NAVIGATION BUTTONS
+   HIDDEN WHEN IDLE
+   ========================================================= */
+
+.phone-covers-prev,
+.phone-covers-next {
+    position: absolute;
+
+    top: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    color: #000000;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.25s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* PREVIOUS BUTTON */
+
+.phone-covers-prev {
+    left: 3px;
+}
+
+
+/* NEXT BUTTON */
+
+.phone-covers-next {
+    right: 3px;
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR SCROLLING */
+
+.phone-covers-slider:hover .phone-covers-prev,
+.phone-covers-slider:hover .phone-covers-next,
+
+.phone-covers-slider:focus-within .phone-covers-prev,
+.phone-covers-slider:focus-within .phone-covers-next,
+
+.phone-covers-slider.is-scrolling .phone-covers-prev,
+.phone-covers-slider.is-scrolling .phone-covers-next {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* BUTTON HOVER */
+
+.phone-covers-prev:hover,
+.phone-covers-next:hover {
+    background: #f5f5f5;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+
+/* BUTTON ICONS */
+
+.phone-covers-prev i,
+.phone-covers-next i {
+    color: #000000;
+}
+
+
+/* DISABLED BUTTONS */
+
+.phone-covers-prev:disabled,
+.phone-covers-next:disabled {
+    display: none;
+}
+
+
+/* =========================================================
+   13. WIDER TABLET
+   901PX - 1024PX
+   4 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (min-width: 901px) and (max-width: 1024px) {
+
+    .phone-cover-card {
+        flex-basis: calc((100% - 30px) / 4);
+    }
+
+    .phone-covers-heading h2 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   14. SMALLER TABLET
+   601PX - 900PX
+   3 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+    .phone-covers-section {
+        padding: 0 12px;
+    }
+
+    .phone-covers-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .phone-cover-card {
+        flex-basis: calc((100% - 20px) / 3);
+    }
+
+    .phone-covers-heading h2 {
+        font-size: 19px;
+    }
+
+    .phone-covers-details h3 {
+        font-size: 13px;
+    }
+
+    .phone-covers-details p {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   15. MOBILE
+   600PX AND BELOW
+   2 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .phone-covers-section {
+        padding: 0 8px;
+
+        margin: 12px auto;
+    }
+
+    .phone-covers-slider {
+        padding: 9px;
+
+        border-radius: 13px;
+    }
+
+    .phone-covers-header {
+        margin-bottom: 10px;
+    }
+
+    .phone-covers-heading h2 {
+        font-size: 16px;
+    }
+
+    .phone-covers-view-all {
+        font-size: 12px;
+
+        gap: 4px;
+    }
+
+    .phone-covers-view-all i {
+        font-size: 11px;
+    }
+
+    .phone-covers-track {
+        gap: 8px;
+    }
+
+    .phone-cover-card {
+        flex-basis: calc((100% - 8px) / 2);
+
+        height: 350px;
+    }
+
+    .phone-cover-card .product-details-link {
+        height: 205px;
+        flex-basis: 205px;
+    }
+
+    .phone-covers-details {
+        height: 145px;
+        flex-basis: 145px;
+
+        padding: 9px 9px 6px;
+    }
+
+    .phone-covers-details h3 {
+        font-size: 12px;
+
+        margin-bottom: 3px;
+    }
+
+    .phone-covers-details p {
+        font-size: 11px;
+
+        line-height: 1.35;
+    }
+
+    .phone-covers-price {
+        gap: 2px;
+        margin: 5px 0 4px;
+    }
+
+    .phone-covers-price del {
+        font-size: 11px;
+    }
+
+    .phone-covers-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .phone-covers-price strong,
+    .phone-covers-price .current-price {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+
+    /* MOBILE ARROWS */
+
+    .phone-covers-prev,
+    .phone-covers-next {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   16. EXTRA SMALL MOBILE
+   380PX AND BELOW
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .phone-covers-heading h2 {
+        font-size: 14px;
+    }
+
+    .phone-covers-view-all {
+        font-size: 11px;
+    }
+
+    .phone-covers-details {
+        padding: 8px 8px 6px;
+    }
+
+    .phone-covers-details h3 {
+        font-size: 11px;
+    }
+
+    .phone-covers-details p {
+        font-size: 10px;
+    }
+
+    .phone-covers-price strong,
+    .phone-covers-price .current-price {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   17. ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .phone-covers-track {
+        scroll-behavior: auto;
+    }
+
+    .phone-cover-card,
+    .phone-covers-image img,
+    .phone-covers-prev,
+    .phone-covers-next {
+        transition: none;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   GOOGLE FONT - ROBOTO
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   NEW ARRIVALS SECTION
+   AM ELECTRONICS AND ACCESSORIES
+   UNIFORM RESPONSIVE PRODUCT CARD DESIGN
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL BOX SIZING
+   ========================================================= */
+
+.new-arrivals-section,
+.new-arrivals-section * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. MAIN SECTION
+   ========================================================= */
+
+.new-arrivals-section {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 14px auto;
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   3. MAIN CAROUSEL CONTAINER
+   RETAIN STRAWBERRY RED
+   ========================================================= */
+
+.new-arrivals-slider {
+    position: relative;
+
+    width: 100%;
+
+    background: #b81104;
+
+    padding: 10px 12px 12px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   4. SECTION HEADER
+   ========================================================= */
+
+.new-arrivals-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-bottom: 12px;
+
+    gap: 10px;
+}
+
+.new-arrivals-heading {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   5. SECTION HEADING
+   ========================================================= */
+
+.new-arrivals-heading h2 {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   6. VIEW ALL BUTTON
+   ========================================================= */
+
+.new-arrivals-shop-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 4px 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    color: #FFFFFF;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: opacity 0.25s ease;
+}
+
+.new-arrivals-shop-btn:hover {
+    color: #FFFFFF;
+
+    background: transparent;
+
+    opacity: 0.85;
+}
+
+.new-arrivals-shop-btn i {
+    color: #FFFFFF;
+
+    font-size: 12px;
+
+    transition: transform 0.25s ease;
+}
+
+.new-arrivals-shop-btn:hover i {
+    color: #FFFFFF;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   7. PRODUCT CAROUSEL TRACK
+   ========================================================= */
+
+.new-arrivals-track {
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.new-arrivals-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   8. PRODUCT CARDS
+   DESKTOP: 5 CARDS VISIBLE
+   TOTAL HEIGHT: 350PX
+   ========================================================= */
+
+.new-arrival-card {
+    position: relative;
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    width: auto;
+    min-width: 0;
+    max-width: none;
+
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+
+    background: #FFFFFF;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.new-arrival-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   9. PRODUCT IMAGE LINK
+   DESKTOP AND TABLET: 210PX
+   ========================================================= */
+
+.new-arrival-card > a:first-child {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    height: 210px;
+
+    flex: 0 0 210px;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   10. PRODUCT IMAGE CONTAINER
+   ========================================================= */
+
+.new-arrival-image {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* PRODUCT IMAGE */
+
+.new-arrival-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center center;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    transition: transform 0.35s ease;
+}
+
+.new-arrival-card:hover .new-arrival-image img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   11. PRODUCT DETAILS AREA
+   DESKTOP AND TABLET: 140PX
+   ========================================================= */
+
+.new-arrival-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 140px;
+
+    flex: 0 0 140px;
+
+    min-height: 0;
+
+    padding: 9px 10px 6px;
+
+    background: #f5f5f5;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   12. PRODUCT TITLE
+   ========================================================= */
+
+.new-arrival-details h3 {
+    width: 100%;
+
+    margin: 0 0 3px;
+
+    color: #222222;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+.new-arrival-details h3 a {
+    color: #000000;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.new-arrival-details h3 a:hover {
+    color: #000000;
+}
+
+
+/* =========================================================
+   13. PRODUCT DESCRIPTION
+   MAXIMUM TWO LINES
+   ========================================================= */
+
+.new-arrival-details p {
+    width: 100%;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   14. PRODUCT PRICING AREA
+   COMPACT VERTICAL STACK
+   ========================================================= */
+
+.new-arrival-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+
+    gap: 2px;
+
+    margin: 5px 0 4px;
+
+    padding: 0;
+
+    text-align: left;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* ORIGINAL PRICE */
+
+.new-arrival-price del {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    color: #777777;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    text-decoration: line-through;
+
+    white-space: nowrap;
+}
+
+
+/* DISCOUNT BADGE */
+
+.new-arrival-price .discount-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 2px 5px;
+
+    background: #16a34a;
+
+    border-radius: 2px;
+
+    color: #FFFFFF;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* CURRENT PRICE */
+
+.new-arrival-price strong,
+.new-arrival-price .current-price {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   15. CAROUSEL NAVIGATION BUTTONS
+   HIDDEN WHEN IDLE
+   ========================================================= */
+
+.new-arrivals-arrow {
+    position: absolute;
+
+    top: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    background: #FFFFFF;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    color: #000000;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.25s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* PREVIOUS BUTTON */
+
+.new-arrivals-prev {
+    left: 3px;
+}
+
+
+/* NEXT BUTTON */
+
+.new-arrivals-next {
+    right: 3px;
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR SCROLLING */
+
+.new-arrivals-slider:hover .new-arrivals-arrow,
+
+.new-arrivals-slider:focus-within .new-arrivals-arrow,
+
+.new-arrivals-slider.is-scrolling .new-arrivals-arrow {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* BUTTON HOVER */
+
+.new-arrivals-arrow:hover {
+    background: #f5f5f5;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+.new-arrivals-arrow i {
+    color: #000000;
+
+    font-size: 13px;
+}
+
+
+/* DISABLED BUTTONS */
+
+.new-arrivals-arrow:disabled {
+    display: none;
+}
+
+
+/* =========================================================
+   16. WIDER TABLET
+   901PX - 1024PX
+   4 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (min-width: 901px) and (max-width: 1024px) {
+
+    .new-arrival-card {
+        flex-basis: calc((100% - 30px) / 4);
+    }
+
+    .new-arrivals-heading h2 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   17. SMALLER TABLET
+   601PX - 900PX
+   3 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+    .new-arrivals-section {
+        padding: 0 12px;
+    }
+
+    .new-arrivals-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .new-arrival-card {
+        flex-basis: calc((100% - 20px) / 3);
+    }
+
+    .new-arrivals-heading h2 {
+        font-size: 19px;
+    }
+
+    .new-arrival-details h3 {
+        font-size: 13px;
+    }
+
+    .new-arrival-details p {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   18. MOBILE
+   600PX AND BELOW
+   2 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .new-arrivals-section {
+        margin: 12px auto;
+
+        padding: 0 8px;
+    }
+
+    .new-arrivals-slider {
+        padding: 9px;
+
+        border-radius: 13px;
+    }
+
+    .new-arrivals-header {
+        margin-bottom: 10px;
+    }
+
+    .new-arrivals-heading h2 {
+        font-size: 16px;
+    }
+
+    .new-arrivals-shop-btn {
+        font-size: 12px;
+
+        gap: 4px;
+    }
+
+    .new-arrivals-shop-btn i {
+        font-size: 11px;
+    }
+
+    .new-arrivals-track {
+        gap: 8px;
+    }
+
+    .new-arrival-card {
+        flex-basis: calc((100% - 8px) / 2);
+
+        height: 350px;
+    }
+
+    /* MOBILE IMAGE AREA */
+
+    .new-arrival-card > a:first-child {
+        height: 205px;
+
+        flex-basis: 205px;
+    }
+
+    .new-arrival-image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center;
+    }
+
+
+    /* MOBILE DETAILS AREA */
+
+    .new-arrival-details {
+        height: 145px;
+
+        flex-basis: 145px;
+
+        padding: 9px 9px 6px;
+    }
+
+    .new-arrival-details h3 {
+        font-size: 12px;
+
+        margin-bottom: 3px;
+    }
+
+    .new-arrival-details p {
+        font-size: 11px;
+
+        line-height: 1.35;
+    }
+
+
+    /* MOBILE PRICING */
+
+    .new-arrival-price {
+        gap: 2px;
+
+        margin: 5px 0 4px;
+    }
+
+    .new-arrival-price del {
+        font-size: 11px;
+    }
+
+    .new-arrival-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .new-arrival-price strong,
+    .new-arrival-price .current-price {
+        font-size: 14px;
+
+        line-height: 1.2;
+    }
+
+
+    /* MOBILE ARROWS */
+
+    .new-arrivals-arrow {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   19. EXTRA SMALL MOBILE
+   380PX AND BELOW
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .new-arrivals-heading h2 {
+        font-size: 14px;
+    }
+
+    .new-arrivals-shop-btn {
+        font-size: 11px;
+    }
+
+    .new-arrival-details {
+        padding: 8px 8px 6px;
+    }
+
+    .new-arrival-details h3 {
+        font-size: 11px;
+    }
+
+    .new-arrival-details p {
+        font-size: 10px;
+    }
+
+    .new-arrival-price strong,
+    .new-arrival-price .current-price {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   20. ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .new-arrivals-track {
+        scroll-behavior: auto;
+    }
+
+    .new-arrival-card,
+    .new-arrival-image img,
+    .new-arrivals-arrow,
+    .new-arrivals-shop-btn,
+    .new-arrivals-shop-btn i {
+        transition: none;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   AM ELECTRONICS
+   DISCOVERY SLIDES CAROUSEL
+========================================================= */
+
+/* MAIN SECTION */
+
+.discovery-slides-section {
+    width: 93%;
+    max-width: 1400px;
+    margin: 8px auto;
+    padding: 0 15px;
+
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* CAROUSEL WRAPPER */
+
+.discovery-slides-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* SLIDES TRACK */
+
+.discovery-slides-track {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    gap: 15px;
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 5px 3px 8px;
+
+    /* IMPORTANT: Supports continuous JavaScript autoplay */
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.discovery-slides-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* INDIVIDUAL SLIDES */
+
+.discovery-slide {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    flex: 0 0 calc((100% - 30px) / 3);
+    width: calc((100% - 30px) / 3);
+    min-width: calc((100% - 30px) / 3);
+    max-width: calc((100% - 30px) / 3);
+
+    height: 175px;
+    min-height: 175px;
+
+    overflow: hidden;
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: #ffffff;
+    background: #eeeeee;
+
+    cursor: pointer;
+    isolation: isolate;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* SLIDE IMAGE */
+
+.discovery-slide > img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: -2;
+
+    transition: transform 0.4s ease;
+}
+
+/* IMAGE OVERLAY */
+
+.discovery-slide::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.40) 55%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+
+    z-index: -1;
+}
+
+/* HOVER EFFECT */
+
+@media (hover: hover) and (pointer: fine) {
+    .discovery-slide:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.13);
+    }
+
+    .discovery-slide:hover > img {
+        transform: scale(1.06);
+    }
+}
+
+/* BADGES */
+
+.discovery-slide-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    padding: 6px 11px;
+    border-radius: 30px;
+
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+
+    z-index: 2;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* BADGE COLORS */
+
+.trending-badge {
+    background: #f04438;
+}
+
+.featured-badge {
+    background: #f59e0b;
+}
+
+.recommended-badge {
+    background: #e83e72;
+}
+
+.must-have-badge {
+    background: #0077cc;
+}
+
+.explore-badge {
+    background: #16a34a;
+}
+
+/* SLIDE CONTENT */
+
+.discovery-slide-content {
+    position: relative;
+    width: 100%;
+    padding: 12px 15px;
+    z-index: 2;
+}
+
+.discovery-slide-content h3 {
+    margin: 0 0 5px;
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.discovery-slide-content p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* NAVIGATION ARROWS */
+
+.discovery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #000000;
+
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 10;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        background 0.2s ease;
+}
+
+/* ARROW POSITIONS */
+
+.discovery-arrow-left {
+    left: -5px;
+}
+
+.discovery-arrow-right {
+    right: -5px;
+}
+
+/* SHOW ARROWS ON INTERACTION */
+
+.discovery-slides-wrapper:hover .discovery-arrow,
+.discovery-slides-wrapper:focus-within .discovery-arrow,
+.discovery-slides-wrapper.is-interacting .discovery-arrow {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ARROW HOVER */
+
+.discovery-arrow:hover {
+    background: #f5f5f5;
+    color: #000000;
+}
+
+/* DISABLED ARROW */
+
+.discovery-arrow:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* TABLET: TWO SLIDES */
+
+@media screen and (max-width: 900px) {
+    .discovery-slide {
+        flex: 0 0 calc((100% - 15px) / 2);
+        width: calc((100% - 15px) / 2);
+        min-width: calc((100% - 15px) / 2);
+        max-width: calc((100% - 15px) / 2);
+    }
+}
+
+/* MOBILE: ONE SLIDE */
+
+@media screen and (max-width: 600px) {
+    .discovery-slides-section {
+        margin: 8px auto;
+        padding: 0 12px;
+    }
+
+    .discovery-slides-track {
+        gap: 10px;
+    }
+
+    .discovery-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+
+        height: 175px;
+        min-height: 175px;
+    }
+
+    .discovery-slide-content h3 {
+        font-size: 17px;
+    }
+
+    .discovery-slide-content p {
+        font-size: 11px;
+    }
+
+    .discovery-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+.discovery-slide:focus-visible,
+.discovery-arrow:focus-visible {
+    outline: 2px solid #0077cc;
+    outline-offset: 3px;
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .discovery-slides-track {
+        scroll-behavior: auto;
+    }
+
+    .discovery-slide,
+    .discovery-slide > img,
+    .discovery-arrow {
+        transition: none;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   20. SCREEN PROTECTORS SECTION
+   UNIFORM JUMIA-INSPIRED PRODUCT CARD DESIGN
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   1. GLOBAL BOX SIZING
+   ========================================================= */
+
+.screen-protectors-section,
+.screen-protectors-section * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. MAIN SECTION
+   ========================================================= */
+
+.screen-protectors-section {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 14px auto;
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   3. CAROUSEL CONTAINER
+   ========================================================= */
+
+.screen-protectors-slider {
+    position: relative;
+
+    width: 100%;
+
+    background: #ddecff;
+
+    border-radius: 18px;
+
+    padding: 10px 12px 12px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   4. SECTION HEADER
+   ========================================================= */
+
+.screen-protectors-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-bottom: 12px;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   5. SECTION HEADING
+   ========================================================= */
+
+.screen-protectors-heading {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.screen-protectors-heading h2 {
+    margin: 0;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   6. VIEW ALL BUTTON
+   ========================================================= */
+
+.screen-protectors-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 4px 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: opacity 0.25s ease;
+}
+
+.screen-protectors-view-all i {
+    color: #256ee6;
+
+    font-size: 12px;
+
+    transition: transform 0.25s ease;
+}
+
+.screen-protectors-view-all:hover {
+    color: #0077cc;
+    opacity: 0.85;
+}
+
+.screen-protectors-view-all:hover i {
+    color: #0077CC;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   7. PRODUCT CAROUSEL TRACK
+   ========================================================= */
+
+.screen-protectors-track {
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.screen-protectors-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   8. PRODUCT CARDS
+   DESKTOP: 5 CARDS
+   HEIGHT: 350px
+   ========================================================= */
+
+.screen-protector-card {
+    position: relative;
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    width: calc((100% - 40px) / 5);
+    min-width: 0;
+    max-width: none;
+
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.screen-protector-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   9. PRODUCT IMAGE AREA
+   DESKTOP / TABLET: 210px
+   ========================================================= */
+
+.screen-protector-card .screen-protector-image-link {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    flex: 0 0 210px;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    text-decoration: none;
+}
+
+.screen-protector-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* PRODUCT IMAGE */
+
+.screen-protector-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center center;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    transition: transform 0.35s ease;
+}
+
+.screen-protector-card:hover .screen-protector-image img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   10. PRODUCT DETAILS AREA
+   DESKTOP / TABLET: 140px
+   ========================================================= */
+
+.screen-protector-details {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 140px;
+
+    flex: 0 0 140px;
+
+    min-height: 0;
+
+    padding: 10px;
+
+    background: #f5f5f5;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   11. PRODUCT NAME
+   ========================================================= */
+
+.screen-protector-details h3 {
+    margin: 0 0 5px;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+.screen-protector-details h3 a {
+    color: #222222;
+    text-decoration: none;
+}
+
+.screen-protector-details h3 a:hover {
+    color: #222222;
+}
+
+
+/* =========================================================
+   12. PRODUCT DESCRIPTION
+   ========================================================= */
+
+.screen-protector-details p {
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.4;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   13. PRODUCT PRICING AREA
+   ========================================================= */
+
+.screen-protector-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 3px;
+
+    margin: 5px 0 0;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* ORIGINAL PRICE */
+
+.screen-protector-price del {
+    display: block;
+
+    margin: 0;
+
+    color: #777777;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+}
+
+
+/* DISCOUNT BADGE */
+
+.screen-protector-price .discount-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 2px 5px;
+
+    background: #16a34a;
+
+    border-radius: 2px;
+
+    color: #ffffff;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* CURRENT PRICE */
+
+.screen-protector-price strong,
+.screen-protector-price .current-price {
+    display: block;
+
+    margin: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   14. CAROUSEL NAVIGATION BUTTONS
+   HIDDEN WHEN IDLE
+   ========================================================= */
+
+.screen-protectors-prev,
+.screen-protectors-next {
+    position: absolute;
+
+    top: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    color: #000000;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.25s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+.screen-protectors-prev {
+    left: 3px;
+}
+
+.screen-protectors-next {
+    right: 3px;
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR SCROLLING */
+
+.screen-protectors-slider:hover .screen-protectors-prev,
+.screen-protectors-slider:hover .screen-protectors-next,
+
+.screen-protectors-slider:focus-within .screen-protectors-prev,
+.screen-protectors-slider:focus-within .screen-protectors-next,
+
+.screen-protectors-slider.is-scrolling .screen-protectors-prev,
+.screen-protectors-slider.is-scrolling .screen-protectors-next {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* BUTTON HOVER */
+
+.screen-protectors-prev:hover,
+.screen-protectors-next:hover {
+    background: #f5f5f5;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+.screen-protectors-prev i,
+.screen-protectors-next i {
+    color: #000000;
+}
+
+
+/* DISABLED BUTTONS */
+
+.screen-protectors-prev:disabled,
+.screen-protectors-next:disabled {
+    display: none;
+}
+
+
+/* =========================================================
+   15. WIDE TABLET
+   901px – 1024px
+   FOUR CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 1024px) and (min-width: 901px) {
+
+    .screen-protectors-section {
+        padding: 0 12px;
+    }
+
+    .screen-protectors-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .screen-protector-card {
+        flex: 0 0 calc((100% - 30px) / 4);
+
+        width: calc((100% - 30px) / 4);
+    }
+
+    .screen-protectors-heading h2 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   16. SMALL TABLET
+   601px – 900px
+   THREE CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 900px) and (min-width: 601px) {
+
+    .screen-protectors-section {
+        padding: 0 12px;
+    }
+
+    .screen-protectors-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .screen-protector-card {
+        flex: 0 0 calc((100% - 20px) / 3);
+
+        width: calc((100% - 20px) / 3);
+    }
+
+    .screen-protectors-heading h2 {
+        font-size: 19px;
+    }
+
+    .screen-protector-details {
+        padding: 10px;
+    }
+
+    .screen-protector-details h3 {
+        font-size: 13px;
+    }
+
+    .screen-protector-details p {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   17. MOBILE
+   TWO CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .screen-protectors-section {
+        padding: 0 8px;
+        margin: 12px auto;
+    }
+
+    .screen-protectors-slider {
+        padding: 9px;
+        border-radius: 13px;
+    }
+
+    .screen-protectors-header {
+        margin-bottom: 10px;
+    }
+
+    .screen-protectors-heading h2 {
+        font-size: 16px;
+    }
+
+    .screen-protectors-view-all {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .screen-protectors-view-all i {
+        font-size: 11px;
+    }
+
+    .screen-protectors-track {
+        gap: 8px;
+    }
+
+    .screen-protector-card {
+        flex: 0 0 calc((100% - 8px) / 2);
+
+        width: calc((100% - 8px) / 2);
+
+        height: 350px;
+    }
+
+    .screen-protector-card .screen-protector-image-link {
+        height: 205px;
+        flex: 0 0 205px;
+    }
+
+    .screen-protector-details {
+        height: 145px;
+        flex: 0 0 145px;
+
+        padding: 9px;
+    }
+
+    .screen-protector-details h3 {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .screen-protector-details p {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .screen-protector-price del {
+        font-size: 11px;
+    }
+
+    .screen-protector-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .screen-protector-price strong,
+    .screen-protector-price .current-price {
+        font-size: 14px;
+    }
+
+    /* MOBILE ARROWS */
+
+    .screen-protectors-prev,
+    .screen-protectors-next {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   18. VERY SMALL MOBILE SCREENS
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .screen-protectors-heading h2 {
+        font-size: 14px;
+    }
+
+    .screen-protectors-view-all {
+        font-size: 11px;
+    }
+
+    .screen-protector-details {
+        padding: 8px;
+    }
+
+    .screen-protector-details h3 {
+        font-size: 11px;
+    }
+
+    .screen-protector-details p {
+        font-size: 10px;
+    }
+
+    .screen-protector-price strong,
+    .screen-protector-price .current-price {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   19. ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .screen-protectors-track {
+        scroll-behavior: auto;
+    }
+
+    .screen-protector-card,
+    .screen-protector-image img,
+    .screen-protectors-prev,
+    .screen-protectors-next {
+        transition: none;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   21. HEADPHONES & EARPODS SECTION
+   UNIFORM JUMIA-INSPIRED PRODUCT CARD DESIGN
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   1. GLOBAL BOX SIZING
+   ========================================================= */
+
+.headphones-section,
+.headphones-section * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. MAIN SECTION
+   ========================================================= */
+
+.headphones-section {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 14px auto;
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   3. CAROUSEL CONTAINER
+   ========================================================= */
+
+.headphones-slider {
+    position: relative;
+
+    width: 100%;
+
+    background: #ddecff;
+
+    border-radius: 18px;
+
+    padding: 10px 12px 12px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   4. SECTION HEADER
+   ========================================================= */
+
+.headphones-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   5. SECTION HEADING
+   ========================================================= */
+
+.headphones-heading {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.headphones-heading h2 {
+    margin: 0;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   6. VIEW ALL BUTTON
+   ========================================================= */
+
+.headphones-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 4px 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: opacity 0.25s ease;
+}
+
+.headphones-view-all i {
+    color: #256ee6;
+
+    font-size: 12px;
+
+    transition: transform 0.25s ease;
+}
+
+.headphones-view-all:hover {
+    color: #0077cc;
+    opacity: 0.85;
+}
+
+.headphones-view-all:hover i {
+    color: #0077cc;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   7. PRODUCT CAROUSEL TRACK
+   ========================================================= */
+
+.headphones-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: stretch;
+
+    width: 100%;
+
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.headphones-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   8. PRODUCT CARDS
+   DESKTOP: 5 CARDS
+   HEIGHT: 350px
+   ========================================================= */
+
+.headphones-card {
+    position: relative;
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    width: calc((100% - 40px) / 5);
+    min-width: 0;
+    max-width: none;
+
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.headphones-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   9. PRODUCT LINK
+   ========================================================= */
+
+.headphones-product-link {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    flex: 1;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   10. PRODUCT IMAGE AREA
+   DESKTOP / TABLET: 210px
+   ========================================================= */
+
+.headphones-image {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    flex: 0 0 210px;
+
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+
+    background: transparent;
+}
+
+.headphones-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    object-fit: contain;
+    object-position: center center;
+
+    background: transparent;
+
+    transition: transform 0.35s ease;
+}
+
+.headphones-card:hover .headphones-image img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   11. PRODUCT DETAILS AREA
+   DESKTOP / TABLET: 140px
+   ========================================================= */
+
+.headphones-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 140px;
+
+    flex: 0 0 140px;
+
+    min-height: 0;
+
+    padding: 10px;
+
+    background: #f5f5f5;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   12. PRODUCT NAME
+   ========================================================= */
+
+.headphones-details h3 {
+    display: -webkit-box;
+
+    width: 100%;
+
+    margin: 0 0 5px;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    min-height: 0;
+
+    flex-shrink: 0;
+}
+
+.headphones-details h3 a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.headphones-details h3 a:hover {
+    color: #000000;
+}
+
+
+/* =========================================================
+   13. PRODUCT DESCRIPTION
+   ========================================================= */
+
+.headphones-details p {
+    display: -webkit-box;
+
+    width: 100%;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.4;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    min-height: 0;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   14. PRODUCT PRICING AREA
+   ========================================================= */
+
+.headphones-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 3px;
+
+    width: 100%;
+
+    margin: 5px 0 0;
+
+    padding: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    line-height: 1.3;
+
+    flex-shrink: 0;
+}
+
+
+/* ORIGINAL PRICE */
+
+.headphones-price del,
+.headphones-price .deleted-price {
+    display: block;
+
+    margin: 0;
+
+    color: #777777;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: line-through;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+}
+
+
+/* DISCOUNT BADGE */
+
+.headphones-price .discount-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 2px 5px;
+
+    background: #16a34a;
+
+    color: #ffffff;
+
+    border-radius: 2px;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* CURRENT PRICE */
+
+.headphones-price strong,
+.headphones-price .current-price {
+    display: block;
+
+    margin: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   15. CAROUSEL NAVIGATION BUTTONS
+   HIDDEN WHEN IDLE
+   ========================================================= */
+
+.headphones-prev,
+.headphones-next {
+    position: absolute;
+
+    top: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.25s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+.headphones-prev {
+    left: 3px;
+}
+
+.headphones-next {
+    right: 3px;
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR SCROLLING */
+
+.headphones-slider:hover .headphones-prev,
+.headphones-slider:hover .headphones-next,
+
+.headphones-slider:focus-within .headphones-prev,
+.headphones-slider:focus-within .headphones-next,
+
+.headphones-slider.is-scrolling .headphones-prev,
+.headphones-slider.is-scrolling .headphones-next {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* BUTTON HOVER */
+
+.headphones-prev:hover,
+.headphones-next:hover {
+    background: #f5f5f5;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+
+/* BUTTON ICONS */
+
+.headphones-prev i,
+.headphones-next i {
+    color: #000000;
+}
+
+
+/* DISABLED BUTTONS */
+
+.headphones-prev:disabled,
+.headphones-next:disabled {
+    display: none;
+}
+
+
+/* =========================================================
+   16. WIDE TABLET
+   901px – 1024px
+   FOUR CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 1024px) and (min-width: 901px) {
+
+    .headphones-section {
+        padding: 0 12px;
+    }
+
+    .headphones-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .headphones-card {
+        flex: 0 0 calc((100% - 30px) / 4);
+
+        width: calc((100% - 30px) / 4);
+    }
+
+    .headphones-heading h2 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   17. SMALL TABLET
+   601px – 900px
+   THREE CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 900px) and (min-width: 601px) {
+
+    .headphones-section {
+        padding: 0 12px;
+    }
+
+    .headphones-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .headphones-card {
+        flex: 0 0 calc((100% - 20px) / 3);
+
+        width: calc((100% - 20px) / 3);
+    }
+
+    .headphones-heading h2 {
+        font-size: 19px;
+    }
+
+    .headphones-details {
+        padding: 10px;
+    }
+
+    .headphones-details h3 {
+        font-size: 13px;
+    }
+
+    .headphones-details p {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   18. MOBILE
+   TWO CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .headphones-section {
+        padding: 0 8px;
+        margin: 12px auto;
+    }
+
+    .headphones-slider {
+        padding: 9px;
+        border-radius: 13px;
+    }
+
+    .headphones-header {
+        margin-bottom: 10px;
+    }
+
+    .headphones-heading h2 {
+        font-size: 16px;
+    }
+
+    .headphones-view-all {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .headphones-view-all i {
+        font-size: 11px;
+    }
+
+    .headphones-track {
+        gap: 8px;
+    }
+
+    .headphones-card {
+        flex: 0 0 calc((100% - 8px) / 2);
+
+        width: calc((100% - 8px) / 2);
+
+        height: 350px;
+    }
+
+    .headphones-image {
+        height: 205px;
+        flex: 0 0 205px;
+    }
+
+    .headphones-details {
+        height: 145px;
+        flex: 0 0 145px;
+
+        padding: 9px;
+    }
+
+    .headphones-details h3 {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .headphones-details p {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .headphones-price del,
+    .headphones-price .deleted-price {
+        font-size: 11px;
+    }
+
+    .headphones-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .headphones-price strong,
+    .headphones-price .current-price {
+        font-size: 14px;
+    }
+
+    /* MOBILE NAVIGATION ARROWS */
+
+    .headphones-prev,
+    .headphones-next {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   19. VERY SMALL MOBILE SCREENS
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .headphones-heading h2 {
+        font-size: 14px;
+    }
+
+    .headphones-view-all {
+        font-size: 11px;
+    }
+
+    .headphones-details {
+        padding: 8px;
+    }
+
+    .headphones-details h3 {
+        font-size: 11px;
+    }
+
+    .headphones-details p {
+        font-size: 10px;
+    }
+
+    .headphones-price strong,
+    .headphones-price .current-price {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   20. ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .headphones-track {
+        scroll-behavior: auto;
+    }
+
+    .headphones-card,
+    .headphones-image img,
+    .headphones-prev,
+    .headphones-next {
+        transition: none;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   SMARTWATCHES SECTION
+   UNIFORM JUMIA-INSPIRED PRODUCT CARD DESIGN
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   1. GLOBAL BOX SIZING
+   ========================================================= */
+
+.smartwatches-section,
+.smartwatches-section * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. MAIN SECTION
+   ========================================================= */
+
+.smartwatches-section {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 14px auto;
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   3. CAROUSEL CONTAINER
+   ========================================================= */
+
+.smartwatches-slider {
+    position: relative;
+
+    width: 100%;
+
+    background: #ddecff;
+
+    border-radius: 18px;
+
+    padding: 10px 12px 12px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   4. SECTION HEADER
+   ========================================================= */
+
+.smartwatches-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   5. SECTION HEADING
+   ========================================================= */
+
+.smartwatches-heading {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.smartwatches-heading h2 {
+    margin: 0;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   6. VIEW ALL BUTTON
+   ========================================================= */
+
+.smartwatches-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 4px 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: opacity 0.25s ease;
+}
+
+.smartwatches-view-all i {
+    color: #256ee6;
+
+    font-size: 12px;
+
+    transition: transform 0.25s ease;
+}
+
+.smartwatches-view-all:hover {
+    color: #0077CC;
+    opacity: 0.85;
+}
+
+.smartwatches-view-all:hover i {
+    color: #0077CC;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   7. PRODUCT CAROUSEL TRACK
+   ========================================================= */
+
+.smartwatches-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: stretch;
+
+    width: 100%;
+
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.smartwatches-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   8. PRODUCT CARDS
+   DESKTOP: 5 CARDS
+   HEIGHT: 350px
+   ========================================================= */
+
+.smartwatch-card {
+    position: relative;
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    width: calc((100% - 40px) / 5);
+    min-width: 0;
+    max-width: none;
+
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.smartwatch-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   9. PRODUCT LINK
+   ========================================================= */
+
+.smartwatch-product-link {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    flex: 1;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   10. PRODUCT IMAGE AREA
+   DESKTOP / TABLET: 210px
+   ========================================================= */
+
+.smartwatch-image {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    flex: 0 0 210px;
+
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+
+    background: transparent;
+}
+
+.smartwatch-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    object-fit: contain;
+    object-position: center center;
+
+    background: transparent;
+
+    transition: transform 0.35s ease;
+}
+
+.smartwatch-card:hover .smartwatch-image img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   11. PRODUCT DETAILS AREA
+   DESKTOP / TABLET: 140px
+   ========================================================= */
+
+.smartwatch-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 140px;
+
+    flex: 0 0 140px;
+
+    min-height: 0;
+
+    padding: 10px;
+
+    background: #f5f5f5;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   12. PRODUCT NAME
+   ========================================================= */
+
+.smartwatch-details h3 {
+    display: -webkit-box;
+
+    width: 100%;
+
+    margin: 0 0 5px;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    min-height: 0;
+
+    flex-shrink: 0;
+}
+
+.smartwatch-details h3 a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.smartwatch-details h3 a:hover {
+    color: #000000;
+}
+
+
+/* =========================================================
+   13. PRODUCT DESCRIPTION
+   ========================================================= */
+
+.smartwatch-description {
+    display: -webkit-box;
+
+    width: 100%;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.4;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    min-height: 0;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   14. PRODUCT PRICING AREA
+   ========================================================= */
+
+.smartwatch-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 3px;
+
+    width: 100%;
+
+    margin: 5px 0 0;
+
+    padding: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    line-height: 1.3;
+
+    flex-shrink: 0;
+}
+
+
+/* ORIGINAL PRICE */
+
+.smartwatch-price del,
+.smartwatch-price .deleted-price {
+    display: block;
+
+    margin: 0;
+
+    color: #777777;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: line-through;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+}
+
+
+/* DISCOUNT BADGE */
+
+.smartwatch-price .discount-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 2px 5px;
+
+    background: #16a34a;
+
+    color: #ffffff;
+
+    border-radius: 2px;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* CURRENT PRICE */
+
+.smartwatch-price strong,
+.smartwatch-price .current-price {
+    display: block;
+
+    margin: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   15. HIDE AVAILABILITY AND ADD TO CART
+   ========================================================= */
+
+.smartwatch-availability,
+.smartwatch-cart-btn {
+    display: none !important;
+}
+
+
+/* =========================================================
+   16. CAROUSEL NAVIGATION BUTTONS
+   HIDDEN WHEN IDLE
+   ========================================================= */
+
+.smartwatches-prev,
+.smartwatches-next {
+    position: absolute;
+
+    top: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.25s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+.smartwatches-prev {
+    left: 3px;
+}
+
+.smartwatches-next {
+    right: 3px;
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR SCROLLING */
+
+.smartwatches-slider:hover .smartwatches-prev,
+.smartwatches-slider:hover .smartwatches-next,
+
+.smartwatches-slider:focus-within .smartwatches-prev,
+.smartwatches-slider:focus-within .smartwatches-next,
+
+.smartwatches-slider.is-scrolling .smartwatches-prev,
+.smartwatches-slider.is-scrolling .smartwatches-next {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* BUTTON HOVER */
+
+.smartwatches-prev:hover,
+.smartwatches-next:hover {
+    background: #f5f5f5;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+
+/* BUTTON ICONS */
+
+.smartwatches-prev i,
+.smartwatches-next i {
+    color: #000000;
+}
+
+
+/* DISABLED BUTTONS */
+
+.smartwatches-prev:disabled,
+.smartwatches-next:disabled {
+    display: none;
+}
+
+
+/* =========================================================
+   17. WIDE TABLET
+   901px – 1024px
+   FOUR CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 1024px) and (min-width: 901px) {
+
+    .smartwatches-section {
+        padding: 0 12px;
+    }
+
+    .smartwatches-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .smartwatch-card {
+        flex: 0 0 calc((100% - 30px) / 4);
+
+        width: calc((100% - 30px) / 4);
+    }
+
+    .smartwatches-heading h2 {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   18. SMALL TABLET
+   601px – 900px
+   THREE CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 900px) and (min-width: 601px) {
+
+    .smartwatches-section {
+        padding: 0 12px;
+    }
+
+    .smartwatches-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .smartwatch-card {
+        flex: 0 0 calc((100% - 20px) / 3);
+
+        width: calc((100% - 20px) / 3);
+    }
+
+    .smartwatches-heading h2 {
+        font-size: 19px;
+    }
+
+    .smartwatch-details {
+        padding: 10px;
+    }
+
+    .smartwatch-details h3 {
+        font-size: 13px;
+    }
+
+    .smartwatch-description {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   19. MOBILE
+   TWO CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .smartwatches-section {
+        padding: 0 8px;
+        margin: 12px auto;
+    }
+
+    .smartwatches-slider {
+        padding: 9px;
+        border-radius: 13px;
+    }
+
+    .smartwatches-header {
+        margin-bottom: 10px;
+    }
+
+    .smartwatches-heading h2 {
+        font-size: 16px;
+    }
+
+    .smartwatches-view-all {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .smartwatches-view-all i {
+        font-size: 11px;
+    }
+
+    .smartwatches-track {
+        gap: 8px;
+    }
+
+    .smartwatch-card {
+        flex: 0 0 calc((100% - 8px) / 2);
+
+        width: calc((100% - 8px) / 2);
+
+        height: 350px;
+    }
+
+    .smartwatch-image {
+        height: 205px;
+        flex: 0 0 205px;
+    }
+
+    .smartwatch-details {
+        height: 145px;
+        flex: 0 0 145px;
+
+        padding: 9px;
+    }
+
+    .smartwatch-details h3 {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .smartwatch-description {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .smartwatch-price del,
+    .smartwatch-price .deleted-price {
+        font-size: 11px;
+    }
+
+    .smartwatch-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .smartwatch-price strong,
+    .smartwatch-price .current-price {
+        font-size: 14px;
+    }
+
+
+    /* MOBILE NAVIGATION ARROWS */
+
+    .smartwatches-prev,
+    .smartwatches-next {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   20. VERY SMALL MOBILE SCREENS
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .smartwatches-heading h2 {
+        font-size: 14px;
+    }
+
+    .smartwatches-view-all {
+        font-size: 11px;
+    }
+
+    .smartwatch-details {
+        padding: 8px;
+    }
+
+    .smartwatch-details h3 {
+        font-size: 11px;
+    }
+
+    .smartwatch-description {
+        font-size: 10px;
+    }
+
+    .smartwatch-price strong,
+    .smartwatch-price .current-price {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   21. ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .smartwatches-track {
+        scroll-behavior: auto;
+    }
+
+    .smartwatch-card,
+    .smartwatch-image img,
+    .smartwatches-prev,
+    .smartwatches-next {
+        transition: none;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   CHARGERS & CABLES SECTION
+   UNIFORM JUMIA-INSPIRED RESPONSIVE DESIGN
+   ========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL BOX SIZING
+   ========================================================= */
+
+.chargers-cables-section,
+.chargers-cables-section * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. MAIN SECTION
+   ========================================================= */
+
+.chargers-cables-section {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 14px auto;
+    padding: 0 15px;
+}
+
+
+/* =========================================================
+   3. CAROUSEL CONTAINER
+   ========================================================= */
+
+.chargers-cables-slider {
+    position: relative;
+
+    width: 100%;
+
+    background: #ddecff;
+
+    border-radius: 18px;
+
+    padding: 10px 12px 12px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   4. SECTION HEADER
+   ========================================================= */
+
+.chargers-cables-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   5. SECTION HEADING
+   ========================================================= */
+
+.chargers-cables-heading {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.chargers-cables-heading h2 {
+    margin: 0;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   6. VIEW ALL BUTTON
+   ========================================================= */
+
+.chargers-cables-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 4px 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition: opacity 0.25s ease;
+}
+
+.chargers-cables-view-all i {
+    color: #256ee6;
+
+    font-size: 12px;
+
+    transition: transform 0.25s ease;
+}
+
+.chargers-cables-view-all:hover {
+    color: #0077CC;
+
+    opacity: 0.85;
+}
+
+.chargers-cables-view-all:hover i {
+    color: #0077CC;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   7. PRODUCT CAROUSEL TRACK
+   ========================================================= */
+
+.chargers-cables-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    align-items: stretch;
+
+    width: 100%;
+
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    padding: 0;
+}
+
+.chargers-cables-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   8. PRODUCT CARDS
+   DESKTOP: 5 CARDS VISIBLE
+   CARD HEIGHT: 350px
+   ========================================================= */
+
+.chargers-cables-card {
+    position: relative;
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    width: calc((100% - 40px) / 5);
+    min-width: 0;
+    max-width: none;
+
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.chargers-cables-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   9. PRODUCT LINK
+   ========================================================= */
+
+.chargers-cables-product-link {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    flex: 1;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   10. PRODUCT IMAGE AREA
+   DESKTOP/TABLET: 210px
+   ========================================================= */
+
+.chargers-cables-image {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    flex: 0 0 210px;
+
+    padding: 0;
+    margin: 0;
+
+    overflow: hidden;
+
+    background: transparent;
+}
+
+.chargers-cables-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: transparent;
+
+    transition: transform 0.35s ease;
+}
+
+.chargers-cables-card:hover .chargers-cables-image img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   11. PRODUCT DETAILS AREA
+   DESKTOP/TABLET: 140px
+   ========================================================= */
+
+.chargers-cables-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 140px;
+
+    flex: 0 0 140px;
+
+    min-height: 0;
+
+    padding: 9px;
+
+    background: #f5f5f5;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   12. PRODUCT NAME
+   ========================================================= */
+
+.chargers-cables-details h3 {
+    display: -webkit-box;
+
+    width: 100%;
+
+    margin: 0 0 5px;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    min-height: 0;
+
+    flex-shrink: 0;
+}
+
+.chargers-cables-details h3 a {
+    color: #000000;
+
+    text-decoration: none;
+}
+
+.chargers-cables-details h3 a:hover {
+    color: #000000;
+}
+
+
+/* =========================================================
+   13. PRODUCT DESCRIPTION
+   ========================================================= */
+
+.chargers-cables-description {
+    display: -webkit-box;
+
+    width: 100%;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    min-height: 0;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   14. PRODUCT PRICING AREA
+   ========================================================= */
+
+.chargers-cables-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 2px;
+
+    width: 100%;
+
+    margin: 5px 0 0;
+
+    padding: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    line-height: 1.2;
+
+    flex-shrink: 0;
+}
+
+
+/* ORIGINAL PRICE */
+
+.chargers-cables-price del,
+.chargers-cables-price .deleted-price {
+    display: block;
+
+    margin: 0;
+
+    color: #777777;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: line-through;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* DISCOUNT BADGE */
+
+.chargers-cables-price .discount-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 2px 5px;
+
+    background: #16a34a;
+
+    color: #ffffff;
+
+    border-radius: 2px;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* CURRENT PRICE */
+
+.chargers-cables-price strong,
+.chargers-cables-price .current-price {
+    display: block;
+
+    margin: 0;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   15. HIDE AVAILABILITY AND ADD TO CART
+   ========================================================= */
+
+.chargers-cables-availability,
+.chargers-cables-cart-btn {
+    display: none !important;
+}
+
+
+/* =========================================================
+   16. CAROUSEL NAVIGATION BUTTONS
+   HIDDEN WHEN IDLE
+   ========================================================= */
+
+.chargers-cables-prev,
+.chargers-cables-next {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        background 0.25s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* PREVIOUS BUTTON */
+
+.chargers-cables-prev {
+    left: 3px;
+}
+
+
+/* NEXT BUTTON */
+
+.chargers-cables-next {
+    right: 3px;
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR SCROLLING */
+
+.chargers-cables-slider:hover .chargers-cables-prev,
+.chargers-cables-slider:hover .chargers-cables-next,
+
+.chargers-cables-slider:focus-within .chargers-cables-prev,
+.chargers-cables-slider:focus-within .chargers-cables-next,
+
+.chargers-cables-slider.is-scrolling .chargers-cables-prev,
+.chargers-cables-slider.is-scrolling .chargers-cables-next {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* BUTTON HOVER */
+
+.chargers-cables-prev:hover,
+.chargers-cables-next:hover {
+    background: #f5f5f5;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+
+/* BUTTON ICONS */
+
+.chargers-cables-prev i,
+.chargers-cables-next i {
+    color: #000000;
+}
+
+
+/* DISABLED BUTTONS */
+
+.chargers-cables-prev:disabled,
+.chargers-cables-next:disabled {
+    display: none;
+}
+
+
+/* =========================================================
+   17. WIDE TABLETS
+   901px – 1024px
+   4 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 1024px) and (min-width: 901px) {
+
+    .chargers-cables-section {
+        padding: 0 12px;
+    }
+
+    .chargers-cables-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .chargers-cables-heading h2 {
+        font-size: 20px;
+    }
+
+    .chargers-cables-card {
+        flex: 0 0 calc((100% - 30px) / 4);
+
+        width: calc((100% - 30px) / 4);
+    }
+}
+
+
+/* =========================================================
+   18. SMALL TABLETS
+   601px – 900px
+   3 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 900px) and (min-width: 601px) {
+
+    .chargers-cables-section {
+        padding: 0 12px;
+    }
+
+    .chargers-cables-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .chargers-cables-heading h2 {
+        font-size: 19px;
+    }
+
+    .chargers-cables-card {
+        flex: 0 0 calc((100% - 20px) / 3);
+
+        width: calc((100% - 20px) / 3);
+    }
+
+    .chargers-cables-details {
+        padding: 9px;
+    }
+}
+
+
+/* =========================================================
+   19. MOBILE
+   600px AND BELOW
+   2 CARDS VISIBLE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .chargers-cables-section {
+        padding: 0 8px;
+
+        margin: 12px auto;
+    }
+
+    .chargers-cables-slider {
+        padding: 9px;
+
+        border-radius: 13px;
+    }
+
+    .chargers-cables-header {
+        margin-bottom: 10px;
+    }
+
+    .chargers-cables-heading h2 {
+        font-size: 16px;
+    }
+
+    .chargers-cables-view-all {
+        font-size: 12px;
+
+        gap: 4px;
+    }
+
+    .chargers-cables-view-all i {
+        font-size: 11px;
+    }
+
+    .chargers-cables-track {
+        gap: 8px;
+    }
+
+    .chargers-cables-card {
+        flex: 0 0 calc((100% - 8px) / 2);
+
+        width: calc((100% - 8px) / 2);
+
+        height: 350px;
+    }
+
+    .chargers-cables-image {
+        height: 205px;
+
+        flex: 0 0 205px;
+    }
+
+    .chargers-cables-details {
+        height: 145px;
+
+        flex: 0 0 145px;
+
+        padding: 9px;
+    }
+
+    .chargers-cables-details h3 {
+        font-size: 12px;
+
+        margin-bottom: 4px;
+    }
+
+    .chargers-cables-description {
+        font-size: 11px;
+
+        line-height: 1.35;
+    }
+
+    .chargers-cables-price {
+        gap: 2px;
+
+        margin-top: 5px;
+    }
+
+    .chargers-cables-price del,
+    .chargers-cables-price .deleted-price {
+        font-size: 11px;
+    }
+
+    .chargers-cables-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .chargers-cables-price strong,
+    .chargers-cables-price .current-price {
+        font-size: 14px;
+    }
+
+
+    /* MOBILE NAVIGATION ARROWS */
+
+    .chargers-cables-prev,
+    .chargers-cables-next {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   20. VERY SMALL MOBILE SCREENS
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .chargers-cables-heading h2 {
+        font-size: 14px;
+    }
+
+    .chargers-cables-view-all {
+        font-size: 11px;
+    }
+
+    .chargers-cables-details {
+        padding: 8px;
+    }
+
+    .chargers-cables-details h3 {
+        font-size: 11px;
+    }
+
+    .chargers-cables-description {
+        font-size: 10px;
+    }
+
+    .chargers-cables-price del,
+    .chargers-cables-price .deleted-price {
+        font-size: 10px;
+    }
+
+    .chargers-cables-price strong,
+    .chargers-cables-price .current-price {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   21. ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .chargers-cables-track {
+        scroll-behavior: auto;
+    }
+
+    .chargers-cables-card,
+    .chargers-cables-image img,
+    .chargers-cables-prev,
+    .chargers-cables-next {
+        transition: none;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   POWER BANKS SECTION
+   UNIFORM RESPONSIVE PRODUCT CARD DESIGN
+   ========================================================= */
+
+
+/* GLOBAL BOX SIZING */
+
+.power-banks-section,
+.power-banks-section * {
+    box-sizing: border-box;
+}
+
+
+/* MAIN SECTION */
+
+.power-banks-section {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 14px auto;
+    padding: 0 15px;
+}
+
+
+/* CAROUSEL CONTAINER */
+
+.power-banks-slider {
+    position: relative;
+
+    width: 100%;
+
+    padding: 10px 12px 12px;
+
+    background: #ddecff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+}
+
+
+/* HEADER */
+
+.power-banks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+
+/* HEADING */
+
+.power-banks-heading {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.power-banks-heading h2 {
+    margin: 0;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.3;
+
+    color: #256ee6;
+}
+
+
+/* VIEW ALL */
+
+.power-banks-view-all {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 4px 0;
+
+    background: transparent;
+    border: none;
+
+    color: #256ee6;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: opacity 0.25s ease;
+}
+
+.power-banks-view-all:hover {
+    color: #0077CC;
+    opacity: 0.85;
+}
+
+.power-banks-view-all i {
+    font-size: 12px;
+    transition: transform 0.25s ease;
+}
+
+.power-banks-view-all:hover i {
+    transform: translateX(4px);
+}
+
+
+/* PRODUCT TRACK */
+
+.power-banks-track {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+    gap: 10px;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    padding: 0;
+}
+
+.power-banks-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* PRODUCT CARDS */
+
+.power-banks-card {
+    position: relative;
+
+    flex: 0 0 calc((100% - 40px) / 5);
+
+    width: calc((100% - 40px) / 5);
+    min-width: 0;
+    max-width: none;
+
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.power-banks-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* PRODUCT LINK */
+
+.power-banks-product-link {
+    display: block;
+
+    width: 100%;
+    height: 210px;
+
+    flex: 0 0 210px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+}
+
+
+/* IMAGE AREA */
+
+.power-banks-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: transparent;
+}
+
+
+/* TEMPORARY POWER BANK PLACEHOLDERS */
+
+.power-bank-placeholder {
+    background: #f1f3f5;
+
+    color: #0077CC;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.power-bank-placeholder i {
+    font-size: 65px;
+}
+
+.power-bank-placeholder span {
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #333333;
+}
+
+
+/* PRODUCT DETAILS */
+
+.power-banks-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 140px;
+
+    flex: 0 0 140px;
+
+    min-height: 0;
+
+    padding: 9px;
+
+    background: #f5f5f5;
+
+    overflow: hidden;
+}
+
+
+/* PRODUCT NAME */
+
+.power-banks-details h3 {
+    display: -webkit-box;
+
+    width: 100%;
+
+    margin: 0 0 5px;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+
+/* PRODUCT DESCRIPTION */
+
+.power-banks-description {
+    display: -webkit-box;
+
+    width: 100%;
+
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+
+/* PRODUCT PRICES */
+
+.power-banks-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 2px;
+
+    width: 100%;
+
+    margin: 5px 0 0;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.2;
+
+    color: #222222;
+}
+
+.power-banks-price del {
+    display: block;
+
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.power-banks-price .discount-badge {
+    display: inline-flex;
+
+    width: fit-content;
+
+    margin: 0;
+    padding: 2px 5px;
+
+    background: #16a34a;
+    color: #ffffff;
+
+    border-radius: 2px;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+.power-banks-price .current-price {
+    display: block;
+
+    margin: 0;
+
+    color: #111111;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* HIDE AVAILABILITY AND ADD TO CART */
+
+.power-banks-availability,
+.power-banks-cart-btn {
+    display: none !important;
+}
+
+
+/* CAROUSEL ARROWS */
+
+.power-banks-prev,
+.power-banks-next {
+    position: absolute;
+
+    top: 50%;
+    z-index: 5;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: #ffffff;
+    color: #000000;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.power-banks-prev {
+    left: 3px;
+}
+
+.power-banks-next {
+    right: 3px;
+}
+
+
+/* SHOW ARROWS ON HOVER, FOCUS OR SCROLLING */
+
+.power-banks-slider:hover .power-banks-prev,
+.power-banks-slider:hover .power-banks-next,
+
+.power-banks-slider:focus-within .power-banks-prev,
+.power-banks-slider:focus-within .power-banks-next,
+
+.power-banks-slider.is-scrolling .power-banks-prev,
+.power-banks-slider.is-scrolling .power-banks-next {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* ARROW HOVER */
+
+.power-banks-prev:hover,
+.power-banks-next:hover {
+    background: #f5f5f5;
+
+    transform: translateY(-50%) scale(1.08);
+}
+
+.power-banks-prev:disabled,
+.power-banks-next:disabled {
+    display: none;
+}
+
+
+/* =========================================================
+   WIDE TABLETS: 901px – 1024px
+   FOUR CARDS
+   ========================================================= */
+
+@media screen and (max-width: 1024px) and (min-width: 901px) {
+
+    .power-banks-section {
+        padding: 0 12px;
+    }
+
+    .power-banks-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .power-banks-heading h2 {
+        font-size: 20px;
+    }
+
+    .power-banks-card {
+        flex: 0 0 calc((100% - 30px) / 4);
+        width: calc((100% - 30px) / 4);
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLETS: 601px – 900px
+   THREE CARDS
+   ========================================================= */
+
+@media screen and (max-width: 900px) and (min-width: 601px) {
+
+    .power-banks-section {
+        padding: 0 12px;
+    }
+
+    .power-banks-slider {
+        padding: 10px 10px 12px;
+    }
+
+    .power-banks-heading h2 {
+        font-size: 19px;
+    }
+
+    .power-banks-card {
+        flex: 0 0 calc((100% - 20px) / 3);
+        width: calc((100% - 20px) / 3);
+    }
+}
+
+
+/* =========================================================
+   MOBILE: 600px AND BELOW
+   TWO CARDS
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .power-banks-section {
+        margin: 12px auto;
+        padding: 0 8px;
+    }
+
+    .power-banks-slider {
+        padding: 9px;
+        border-radius: 13px;
+    }
+
+    .power-banks-header {
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .power-banks-heading h2 {
+        font-size: 16px;
+    }
+
+    .power-banks-view-all {
+        gap: 4px;
+        font-size: 12px;
+    }
+
+    .power-banks-view-all i {
+        font-size: 11px;
+    }
+
+    .power-banks-track {
+        gap: 8px;
+    }
+
+    .power-banks-card {
+        flex: 0 0 calc((100% - 8px) / 2);
+
+        width: calc((100% - 8px) / 2);
+
+        height: 350px;
+    }
+
+    .power-banks-product-link {
+        height: 205px;
+        flex: 0 0 205px;
+    }
+
+    .power-banks-details {
+        height: 145px;
+        flex: 0 0 145px;
+
+        padding: 9px;
+    }
+
+    .power-banks-details h3 {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .power-banks-description {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .power-bank-placeholder i {
+        font-size: 48px;
+    }
+
+    .power-bank-placeholder span {
+        font-size: 12px;
+    }
+
+    .power-banks-price {
+        margin-top: 5px;
+    }
+
+    .power-banks-price del {
+        font-size: 11px;
+    }
+
+    .power-banks-price .current-price {
+        font-size: 14px;
+    }
+
+    .power-banks-prev,
+    .power-banks-next {
+        width: 30px;
+        height: 30px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE: 380px AND BELOW
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    .power-banks-heading h2 {
+        font-size: 14px;
+    }
+
+    .power-banks-view-all {
+        font-size: 11px;
+    }
+
+    .power-banks-details {
+        padding: 8px;
+    }
+
+    .power-banks-details h3 {
+        font-size: 11px;
+    }
+
+    .power-banks-description {
+        font-size: 10px;
+    }
+
+    .power-banks-price .current-price {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .power-banks-track {
+        scroll-behavior: auto;
+    }
+
+    .power-banks-card,
+    .power-banks-prev,
+    .power-banks-next,
+    .power-banks-view-all,
+    .power-banks-view-all i {
+        transition: none;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   MAKE ALL HOMEPAGE PRODUCT CARDS FULLY CLICKABLE
+   ========================================================= */
+
+.top-selling-section [class*="card"],
+.new-arrivals-section [class*="card"],
+.phone-covers-section [class*="card"],
+.screen-protectors-section [class*="card"],
+.headphones-section [class*="card"],
+.smartwatches-section [class*="card"],
+.chargers-cables-section [class*="card"],
+.power-banks-section [class*="card"] {
+    position: relative;
+}
+
+
+/* EXTEND PRODUCT NAME LINK OVER THE ENTIRE CARD */
+
+.top-selling-section [class*="card"] h3 a::after,
+.new-arrivals-section [class*="card"] h3 a::after,
+.phone-covers-section [class*="card"] h3 a::after,
+.screen-protectors-section [class*="card"] h3 a::after,
+.headphones-section [class*="card"] h3 a::after,
+.smartwatches-section [class*="card"] h3 a::after,
+.chargers-cables-section [class*="card"] h3 a::after,
+.power-banks-section [class*="card"] h3 a::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    cursor: pointer;
+}
+
+
+
+
+
+/* =========================================================
+   GOOGLE FONT - ROBOTO
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   FAQ SECTION
+   ========================================================= */
+
+.faq-section {
+    margin-top: -25px;
+    width: 100%;
+    padding: 30px 20px;
+    background: #dcdcdc;
+    font-family: 'Roboto', sans-serif;
+}
+
+.faq-section,
+.faq-section * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FAQ CONTAINER
+   ========================================================= */
+
+.faq-container {
+    width: 93%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 28px 30px;
+
+    background: #f5f5f5;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 18px;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* =========================================================
+   FAQ HEADING
+   ========================================================= */
+
+.faq-container > h2 {
+    margin: 0 0 22px;
+
+    color: #282828;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+
+    line-height: 1.3;
+    text-align: left;
+}
+
+
+/* =========================================================
+   FAQ GRID
+   ========================================================= */
+
+.faq-content {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    column-gap: 40px;
+    row-gap: 0;
+}
+
+
+/* =========================================================
+   FAQ ITEMS
+   ========================================================= */
+
+.faq-item {
+    padding: 18px 0;
+
+    background: transparent;
+
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    border-radius: 0;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
+
+.faq-item h3 {
+    margin: 0 0 8px;
+
+    color: #282828;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ANSWERS
+   ========================================================= */
+
+.faq-item p {
+    margin: 0;
+
+    color: #666666;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .faq-section {
+        padding: 25px 15px;
+    }
+
+    .faq-container {
+        padding: 24px 22px;
+    }
+
+    .faq-content {
+        column-gap: 25px;
+    }
+
+    .faq-container > h2 {
+        font-size: 22px;
+    }
+
+    .faq-item h3 {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+    .faq-section {
+        padding: 20px 12px;
+    }
+
+    .faq-container {
+        padding: 20px 16px;
+    }
+
+    .faq-container > h2 {
+        font-size: 21px;
+        margin-bottom: 15px;
+    }
+
+    .faq-content {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-item {
+        padding: 16px 0;
+    }
+
+    .faq-item h3 {
+        font-size: 15px;
+    }
+
+    .faq-item p {
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   GOOGLE FONT - ROBOTO
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   SERVICE BENEFITS - CLEAN MINIMAL DESIGN
+   ========================================================= */
+
+.service-benefits {
+    width: 100%;
+    padding: 45px 20px;
+
+    background: #dcdcdc;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.service-benefits,
+.service-benefits * {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BENEFITS CONTAINER
+   ========================================================= */
+
+.benefits-container {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* =========================================================
+   BENEFIT ITEMS
+   ========================================================= */
+
+.benefit-item {
+    padding: 15px 25px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-right: 1px solid #dddddd;
+}
+
+.benefit-item:last-child {
+    border-right: none;
+}
+
+
+/* =========================================================
+   ICONS
+   ========================================================= */
+
+.benefit-icon {
+    margin-bottom: 20px;
+
+    color: #000000;
+
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+.benefit-item h3 {
+    margin: 0 0 14px;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   DESCRIPTIONS
+   ========================================================= */
+
+.benefit-item p {
+    max-width: 300px;
+
+    margin: 0 auto;
+
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .benefits-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 30px;
+    }
+
+    .benefit-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .benefit-item:nth-child(3),
+    .benefit-item:nth-child(4) {
+        padding-top: 25px;
+        border-top: 1px solid #dddddd;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+    .service-benefits {
+        padding: 25px 15px;
+    }
+
+    .benefits-container {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-item {
+        padding: 25px 10px;
+
+        border-right: none;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .benefit-item:nth-child(3),
+    .benefit-item:nth-child(4) {
+        border-top: none;
+    }
+
+    .benefit-item:last-child {
+        border-bottom: none;
+    }
+
+    .benefit-icon {
+        font-size: 34px;
+        margin-bottom: 12px;
+    }
+
+    .benefit-item h3 {
+        font-size: 18px;
+        margin-bottom: 9px;
+    }
+
+    .benefit-item p {
+        font-size: 14px;
+        max-width: 320px;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   GOOGLE FONT - ROBOTO
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   SITE FOOTER
+   ========================================================= */
+
+.site-footer {
+    width: 100%;
+
+    padding: 22px 15px;
+
+    background: #000000;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* =========================================================
+   COPYRIGHT TEXT
+   ========================================================= */
+
+.site-footer p {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 550px) {
+
+    .site-footer {
+        padding: 18px 12px;
+    }
+
+    .site-footer p {
+        font-size: 12px;
+    }
+}
+
+

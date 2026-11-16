@@ -1,0 +1,3627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecommerce project</title>
+
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+  
+      <!-- External CSS -->
+  <link rel="stylesheet" href="Index.css"/>
+</head>
+
+<body>
+
+
+<!-- =========================================
+     FIXED BLACK NAVBAR
+========================================= -->
+
+<header class="site-navbar">
+
+    <div class="navbar-container">
+
+        <!-- LOGO -->
+        <a href="index.html" class="navbar-logo">
+            <img
+                src="images.html/AM Electronics Logo in White.png"
+                alt="AM Electronics and Accessories logo"
+            >
+        </a>
+
+
+        <!-- SEARCH BAR -->
+        <div class="navbar-search">
+
+            <input
+                type="search"
+                id="productSearch"
+                placeholder="Search products..."
+                aria-label="Search products"
+            >
+
+            <button
+                type="button"
+                id="searchButton"
+                aria-label="Search"
+            >
+                Search
+            </button>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+<nav class="navbar-menu" id="navbarMenu">
+
+    <a href="index.html" class="active">
+        Home
+    </a>
+
+    <a href="about.html">
+        About
+    </a>
+
+    <a href="contact.html">
+        Contact
+    </a>
+
+    <!-- CART -->
+    <a href="cart.html" class="navbar-cart">
+
+        <span class="cart-icon">🛒</span>
+
+        <span>Cart</span>
+
+        <span
+            class="cart-count"
+            id="cartCount"
+        >
+            0
+        </span>
+
+    </a>
+
+</nav>
+       
+
+        <!-- MOBILE MENU BUTTON -->
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+
+
+
+<!-- HERO SLIDES START -->
+
+<section class="hero" id="hero" aria-label="Featured promotions">
+
+    <div class="hero-slider">
+
+        <!-- SLIDE 1 -->
+        <div class="hero-slide active">
+
+            <img
+                src="images.html/image_512fc2ee.jpg"
+                alt="Electronics and accessories"
+            >
+
+            <div class="hero-content">
+
+                <h1>Stay Connected. Stay Ahead</h1>
+
+                <p>Calls, WhatsApp & Notifications-Right On Your Wrist</p>
+
+                <a href="shop.html" class="hero-button">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 2 -->
+        <div class="hero-slide">
+
+            <img
+                src="images.html/headphones hero slide with red background.jpg"
+                alt="Premium phone case collection"
+            >
+
+            <div class="hero-content">
+
+                <h1>Feel Every Beat. Hear Every Detail</h1>
+
+                <p>Immerse yourself in crystal-clear sound with stylish headphones made for every moment.</p>
+
+                <a href="shop.html" class="hero-button">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 3 -->
+        <div class="hero-slide">
+
+            <img
+                src="images.html/Powerbanks hero image with purple background.jpg"
+                alt="Modern smartwatches"
+            >
+
+            <div class="hero-content">
+
+                <h1>Keep Going. Keep Charging</h1>
+
+                <p>Keep your devices charged wherever life takes you</p>
+
+                <a href="shop.html" class="hero-button">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 4 -->
+        <div class="hero-slide">
+
+            <img
+                src="images.html/Chargers and cables hero slide.jpg"
+                alt="Power banks"
+            >
+
+            <div class="hero-content">
+
+                <h1>Charge Faster. Go Further</h1>
+
+                <p>Power up your devices with reliable fast chargers</p>
+
+                <a href="shop.html" class="hero-button">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 5 -->
+        <div class="hero-slide">
+
+            <img
+                src="images.html/Phone covers hero slide.jpg"
+                alt="Phone and laptop stands"
+            >
+
+            <div class="hero-content">
+
+                <h1>Explore Phone Covers</h1>
+
+                <p>Explore trendy, durable and stylish phone covers designed to complement your everyday look.</p>
+
+                <a href="shop.html" class="hero-button">
+                    Shop Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PREVIOUS BUTTON -->
+    <button
+        class="hero-prev"
+        type="button"
+        aria-label="Previous slide"
+    >
+        &#10094;
+    </button>
+
+
+    <!-- NEXT BUTTON -->
+    <button
+        class="hero-next"
+        type="button"
+        aria-label="Next slide"
+    >
+        &#10095;
+    </button>
+
+
+    <!-- NAVIGATION DOTS -->
+    <div class="hero-dots">
+
+        <button
+            class="hero-dot active"
+            data-slide="0"
+            type="button"
+            aria-label="Go to slide 1"
+        ></button>
+
+        <button
+            class="hero-dot"
+            data-slide="1"
+            type="button"
+            aria-label="Go to slide 2"
+        ></button>
+
+        <button
+            class="hero-dot"
+            data-slide="2"
+            type="button"
+            aria-label="Go to slide 3"
+        ></button>
+
+        <button
+            class="hero-dot"
+            data-slide="3"
+            type="button"
+            aria-label="Go to slide 4"
+        ></button>
+
+        <button
+            class="hero-dot"
+            data-slide="4"
+            type="button"
+            aria-label="Go to slide 5"
+        ></button>
+
+    </div>
+
+</section>
+
+<!-- HERO SLIDES END -->
+
+
+
+
+<!-- =========================================================
+     TOP SELLING PRODUCTS SECTION
+     ========================================================= -->
+
+<!-- GOOGLE FONT: POPPINS -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+
+<section class="top-selling-section" id="top-selling">
+
+    <!-- =====================================================
+         CAROUSEL CONTAINER
+         ===================================================== -->
+
+    <div class="top-selling-slider">
+
+
+        <!-- =================================================
+             CAROUSEL HEADER
+             ================================================= -->
+
+        <div class="top-selling-header">
+
+            <!-- SECTION HEADING: TOP LEFT -->
+
+            <div class="top-selling-heading">
+
+                <h2>Top Selling</h2>
+
+            </div>
+
+
+            <!-- VIEW ALL: TOP RIGHT -->
+
+            <a
+                href="shop.html?placement=top-selling"
+                class="top-selling-shop-btn"
+                aria-label="View all top-selling products">
+
+                View All
+
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             LEFT SCROLL BUTTON
+             ================================================= -->
+
+        <button
+            class="top-selling-arrow top-selling-prev"
+            id="topSellingPrev"
+            type="button"
+            aria-label="Scroll to previous products">
+
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+
+        </button>
+
+
+        <!-- =================================================
+             PRODUCT TRACK
+             ================================================= -->
+
+        <div class="top-selling-track" id="topSellingTrack">
+
+
+            <!-- =============================================
+                 PRODUCT 1: PLAYSTATION 5
+                 ============================================= -->
+
+            <article class="top-selling-card"
+                     data-product-id="ps5">
+
+                <a
+                    href="product-details.html?id=ps5"
+                    class="product-details-link"
+                    aria-label="View PlayStation 5 details">
+
+                    <div class="top-selling-image">
+
+                        <img
+                            src="images.html/Top selling items category, item 1.enc"
+                            alt="PlayStation 5 gaming console"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+
+                <div class="top-selling-details">
+
+                    <h3>
+                        <a
+                            href="product-details.html?id=ps5"
+                            class="product-details-link">
+
+                            PlayStation 5
+
+                        </a>
+                    </h3>
+
+
+                    <p>
+                        Powerful next-generation gaming console with
+                        immersive graphics and performance.
+                    </p>
+
+
+                    <div class="top-selling-price">
+
+                        <del>KSh 100,000</del>
+
+                        <span class="discount-badge">
+                            -15%
+                        </span>
+
+                        <strong>KSh 85,000</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 PRODUCT 2: JBL BLUETOOTH SPEAKER
+                 ============================================= -->
+
+            <article class="top-selling-card"
+                     data-product-id="jbl-speaker">
+
+                <a
+                    href="product-details.html?id=jbl-speaker"
+                    class="product-details-link"
+                    aria-label="View Bluetooth Speaker details">
+
+                    <div class="top-selling-image">
+
+                        <img
+                            src="images.html/Top selling items category, item 2.enc"
+                            alt="JBL Bluetooth speaker"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+
+                <div class="top-selling-details">
+
+                    <h3>
+                        <a
+                            href="product-details.html?id=jbl-speaker"
+                            class="product-details-link">
+
+                            JBL Bluetooth Speaker
+
+                        </a>
+                    </h3>
+
+
+                    <p>
+                        Powerful portable speaker delivering clear
+                        sound and deep bass.
+                    </p>
+
+
+                    <div class="top-selling-price">
+
+                        <del>KSh 8,000</del>
+
+                        <span class="discount-badge">
+                            -19%
+                        </span>
+
+                        <strong>KSh 6,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 PRODUCT 3: WIRELESS AIRPODS
+                 ============================================= -->
+
+            <article class="top-selling-card"
+                     data-product-id="airpods">
+
+                <a
+                    href="product-details.html?id=airpods"
+                    class="product-details-link"
+                    aria-label="View Wireless AirPods details">
+
+                    <div class="top-selling-image">
+
+                        <img
+                            src="images.html/Top selling items category, item 3.enc"
+                            alt="Wireless AirPods earbuds"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+
+                <div class="top-selling-details">
+
+                    <h3>
+                        <a
+                            href="product-details.html?id=airpods"
+                            class="product-details-link">
+
+                            Wireless AirPods
+
+                        </a>
+                    </h3>
+
+
+                    <p>
+                        Premium wireless earbuds with clear audio
+                        and convenient charging.
+                    </p>
+
+
+                    <div class="top-selling-price">
+
+                        <del>KSh 4,000</del>
+
+                        <span class="discount-badge">
+                            -13%
+                        </span>
+
+                        <strong>KSh 3,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 PRODUCT 4: SMARTWATCH
+                 ============================================= -->
+
+            <article class="top-selling-card"
+                     data-product-id="smartwatch">
+
+                <a
+                    href="product-details.html?id=smartwatch"
+                    class="product-details-link"
+                    aria-label="View Smartwatch details">
+
+                    <div class="top-selling-image">
+
+                        <img
+                            src="images.html/Top selling items category, item 4.enc"
+                            alt="Smartwatch"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+
+                <div class="top-selling-details">
+
+                    <h3>
+                        <a
+                            href="product-details.html?id=smartwatch"
+                            class="product-details-link">
+
+                            Smartwatch
+
+                        </a>
+                    </h3>
+
+
+                    <p>
+                        Stylish smartwatch with fitness tracking,
+                        notifications and smart features.
+                    </p>
+
+
+                    <div class="top-selling-price">
+
+                        <del>KSh 5,000</del>
+
+                        <span class="discount-badge">
+                            -10%
+                        </span>
+
+                        <strong>KSh 4,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 PRODUCT 5: FAST CHARGER
+                 ============================================= -->
+
+            <article class="top-selling-card"
+                     data-product-id="fast-charger">
+
+                <a
+                    href="product-details.html?id=fast-charger"
+                    class="product-details-link"
+                    aria-label="View Fast Charger details">
+
+                    <div class="top-selling-image">
+
+                        <img
+                            src="images.html/Top selling items category, item 5.enc"
+                            alt="Fast charger"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+
+                <div class="top-selling-details">
+
+                    <h3>
+                        <a
+                            href="product-details.html?id=fast-charger"
+                            class="product-details-link">
+
+                            Fast Charger
+
+                        </a>
+                    </h3>
+
+
+                    <p>
+                        High-speed charger designed for safe
+                        and efficient charging.
+                    </p>
+
+
+                    <div class="top-selling-price">
+
+                        <del>KSh 2,000</del>
+
+                        <span class="discount-badge">
+                            -25%
+                        </span>
+
+                        <strong>KSh 1,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 PRODUCT 6: PREMIUM PHONE COVER
+                 ============================================= -->
+
+            <article class="top-selling-card"
+                     data-product-id="phone-cover">
+
+                <a
+                    href="product-details.html?id=phone-cover"
+                    class="product-details-link"
+                    aria-label="View Premium Phone Cover details">
+
+                    <div class="top-selling-image">
+
+                        <img
+                            src="images.html/Top selling items category, item 6.enc"
+                            alt="Premium phone cover"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+
+                <div class="top-selling-details">
+
+                    <h3>
+                        <a
+                            href="product-details.html?id=phone-cover"
+                            class="product-details-link">
+
+                            Premium Phone Cover
+
+                        </a>
+                    </h3>
+
+
+                    <p>
+                        Durable and stylish phone cover providing
+                        excellent everyday protection.
+                    </p>
+
+
+                    <div class="top-selling-price">
+
+                        <del>KSh 1,500</del>
+
+                        <span class="discount-badge">
+                            -40%
+                        </span>
+
+                        <strong>KSh 900</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 PRODUCT 7: LED RING LIGHT
+                 ============================================= -->
+
+            <article class="top-selling-card"
+                     data-product-id="ring-light">
+
+                <a
+                    href="product-details.html?id=ring-light"
+                    class="product-details-link"
+                    aria-label="View LED Ring Light details">
+
+                    <div class="top-selling-image">
+
+                        <img
+                            src="images.html/Top selling items category, item 7.enc"
+                            alt="LED ring light"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+
+                <div class="top-selling-details">
+
+                    <h3>
+                        <a
+                            href="product-details.html?id=ring-light"
+                            class="product-details-link">
+
+                            LED Ring Light
+
+                        </a>
+                    </h3>
+
+
+                    <p>
+                        Adjustable lighting for photography,
+                        videos and livestreaming.
+                    </p>
+
+
+                    <div class="top-selling-price">
+
+                        <del>KSh 3,500</del>
+
+                        <span class="discount-badge">
+                            -20%
+                        </span>
+
+                        <strong>KSh 2,800</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 PRODUCT 8: USB TYPE-C CABLE
+                 ============================================= -->
+
+            <article class="top-selling-card"
+                     data-product-id="type-c-cable">
+
+                <a
+                    href="product-details.html?id=type-c-cable"
+                    class="product-details-link"
+                    aria-label="View USB Type-C Cable details">
+
+                    <div class="top-selling-image">
+
+                        <img
+                            src="images.html/Top selling items category, item 8.enc"
+                            alt="USB Type-C cable"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+
+                <div class="top-selling-details">
+
+                    <h3>
+                        <a
+                            href="product-details.html?id=type-c-cable"
+                            class="product-details-link">
+
+                            USB Type-C Cable
+
+                        </a>
+                    </h3>
+
+
+                    <p>
+                        Durable fast-charging cable suitable for
+                        modern smartphones and devices.
+                    </p>
+
+
+                    <div class="top-selling-price">
+
+                        <del>KSh 1,200</del>
+
+                        <span class="discount-badge">
+                            -33%
+                        </span>
+
+                        <strong>KSh 800</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+        <!-- END PRODUCT TRACK -->
+
+
+        <!-- =================================================
+             RIGHT SCROLL BUTTON
+             ================================================= -->
+
+        <button
+            class="top-selling-arrow top-selling-next"
+            id="topSellingNext"
+            type="button"
+            aria-label="Scroll to next products">
+
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+
+        </button>
+
+
+    </div>
+    <!-- END CAROUSEL CONTAINER -->
+
+</section>
+
+<!-- END TOP SELLING SECTION -->
+
+
+
+
+<!-- =========================================
+     SHOP BY CATEGORY CIRCLES
+========================================= -->
+
+<section class="category-circles-section" id="shop-by-category">
+
+    <div class="category-circles-container">
+
+        <div class="category-circles-track">
+
+            <!-- GAMING ACCESSORIES -->
+            <a href="shop.html?category=gaming-accessories"
+               class="category-circle-item"
+               aria-label="View all Gaming Accessories">
+
+                <div class="category-circle-image">
+                    <img src="images.html/Gaming accessories png"
+                         alt="Gaming Accessories"
+                         loading="lazy">
+                </div>
+
+                <h3>Gaming Accessories</h3>
+
+            </a>
+
+
+            <!-- PHOTOGRAPHY & LIGHTING -->
+            <a href="shop.html?category=photography-lighting"
+               class="category-circle-item"
+               aria-label="View all Photography and Lighting products">
+
+                <div class="category-circle-image">
+                    <img src="images.html/Camera Gear Studio Badge for photography and lighting section"
+                         alt="Photography and Lighting"
+                         loading="lazy">
+                </div>
+
+                <h3>Photography &amp; Lighting</h3>
+
+            </a>
+
+
+            <!-- AUDIO & SOUND -->
+            <a href="shop.html?category=audio-sound"
+               class="category-circle-item"
+               aria-label="View all Audio and Sound products">
+
+                <div class="category-circle-image">
+                    <img src="images.html/Premium Audio Gear Icon for audio and sound"
+                         alt="Audio and Sound"
+                         loading="lazy">
+                </div>
+
+                <h3>Audio &amp; Sound</h3>
+
+            </a>
+
+
+            <!-- STORAGE & MEMORY -->
+            <a href="shop.html?category=storage-memory"
+               class="category-circle-item"
+               aria-label="View all Storage and Memory products">
+
+                <div class="category-circle-image">
+                    <img src="images.html/Memory Storage Devices Product Collage for storage and memory"
+                         alt="Storage and Memory"
+                         loading="lazy">
+                </div>
+
+                <h3>Storage &amp; Memory</h3>
+
+            </a>
+
+
+            <!-- COMPUTER ACCESSORIES -->
+            <a href="shop.html?category=computer-accessories"
+               class="category-circle-item"
+               aria-label="View all Computer Accessories">
+
+                <div class="category-circle-image">
+                    <img src="images.html/Modern RGB Gaming PC Setup for computer accessories"
+                         alt="Computer Accessories"
+                         loading="lazy">
+                </div>
+
+                <h3>Computer Accessories</h3>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================================
+     GOOGLE FONTS: POPPINS
+========================================= -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<!-- =========================================
+     PHONE COVERS SECTION
+========================================= -->
+<section class="phone-covers-section" id="phone-covers">
+
+    <!-- MAIN CAROUSEL CONTAINER -->
+    <div class="phone-covers-slider">
+
+        <!-- SECTION HEADER -->
+        <div class="phone-covers-header">
+
+            <div class="phone-covers-heading">
+                <h2>Phone Covers</h2>
+            </div>
+
+            <!-- VIEW ALL BUTTON -->
+            <a href="shop.html?category=covers" class="phone-covers-view-all">
+                View All
+                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+
+        </div>
+
+
+        <!-- LEFT SCROLL BUTTON -->
+        <button
+            type="button"
+            class="phone-covers-prev"
+            id="phoneCoversPrev"
+            aria-label="Previous phone covers">
+
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+
+        </button>
+
+
+        <!-- PRODUCT TRACK -->
+        <div class="phone-covers-track" id="phoneCoversTrack">
+
+            <!-- PRODUCT 1 -->
+            <article class="phone-cover-card" data-product-id="iphone-silicone-cover">
+
+                <a href="product-details.html?id=iphone-silicone-cover" class="product-details-link">
+
+                    <div class="phone-covers-image">
+                        <img
+                            src="images.html/Phone cover category, cover 1..enc"
+                            alt="iPhone Silicone Cover"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="phone-covers-details">
+
+                    <h3>
+                        <a href="product-details.html?id=iphone-silicone-cover">
+                            iPhone Silicone Cover
+                        </a>
+                    </h3>
+
+                    <p>
+                        Soft silicone phone cover offering excellent protection and a comfortable grip.
+                    </p>
+
+                    <div class="phone-covers-price">
+                        <del>KSh 1,000</del>
+                        <span class="discount-badge">-20%</span>
+                        <strong>KSh 800</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+            <article class="phone-cover-card" data-product-id="transparent-phone-cover">
+
+                <a href="product-details.html?id=transparent-phone-cover" class="product-details-link">
+
+                    <div class="phone-covers-image">
+                        <img
+                            src="images.html/Phone cover category, cover 2.enc"
+                            alt="Transparent Phone Cover"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="phone-covers-details">
+
+                    <h3>
+                        <a href="product-details.html?id=transparent-phone-cover">
+                            Transparent Phone Cover
+                        </a>
+                    </h3>
+
+                    <p>
+                        Clear protective cover that keeps your phone protected while showing its original design.
+                    </p>
+
+                    <div class="phone-covers-price">
+                        <del>KSh 700</del>
+                        <span class="discount-badge">-29%</span>
+                        <strong>KSh 500</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+            <article class="phone-cover-card" data-product-id="shockproof-phone-cover">
+
+                <a href="product-details.html?id=shockproof-phone-cover" class="product-details-link">
+
+                    <div class="phone-covers-image">
+                        <img
+                            src="images.html/Phone cover category, cover 3.enc"
+                            alt="Shockproof Phone Cover"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="phone-covers-details">
+
+                    <h3>
+                        <a href="product-details.html?id=shockproof-phone-cover">
+                            Shockproof Phone Cover
+                        </a>
+                    </h3>
+
+                    <p>
+                        Strong shock-resistant cover designed to protect your phone from accidental drops.
+                    </p>
+
+                    <div class="phone-covers-price">
+                        <del>KSh 1,500</del>
+                        <span class="discount-badge">-33%</span>
+                        <strong>KSh 1,000</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+            <article class="phone-cover-card" data-product-id="premium-leather-cover">
+
+                <a href="product-details.html?id=premium-leather-cover" class="product-details-link">
+
+                    <div class="phone-covers-image">
+                        <img
+                            src="images.html/Phone cover category, cover 4.enc"
+                            alt="Premium Leather Cover"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="phone-covers-details">
+
+                    <h3>
+                        <a href="product-details.html?id=premium-leather-cover">
+                            Premium Leather Cover
+                        </a>
+                    </h3>
+
+                    <p>
+                        Elegant leather-style phone cover with a premium finish and durable protection.
+                    </p>
+
+                    <div class="phone-covers-price">
+                        <del>KSh 1,500</del>
+                        <span class="discount-badge">-20%</span>
+                        <strong>KSh 1,200</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 5 -->
+            <article class="phone-cover-card" data-product-id="premium-leather-cover-2">
+
+                <a href="product-details.html?id=premium-leather-cover-2" class="product-details-link">
+
+                    <div class="phone-covers-image">
+                        <img
+                            src="images.html/Phone cover category, cover 6.enc"
+                            alt="Premium Leather Cover Style 2"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="phone-covers-details">
+
+                    <h3>
+                        <a href="product-details.html?id=premium-leather-cover-2">
+                            Premium Leather Cover Style
+                        </a>
+                    </h3>
+
+                    <p>
+                        Elegant leather-style phone cover with an upgraded premium finish variant.
+                    </p>
+
+                    <div class="phone-covers-price">
+                        <del>KSh 1,500</del>
+                        <span class="discount-badge">-20%</span>
+                        <strong>KSh 1,200</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- RIGHT SCROLL BUTTON -->
+        <button
+            type="button"
+            class="phone-covers-next"
+            id="phoneCoversNext"
+            aria-label="Next phone covers">
+
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================================================
+     NEW ARRIVALS SECTION
+     AM ELECTRONICS AND ACCESSORIES
+========================================================= -->
+
+<section class="new-arrivals-section" id="new-arrivals">
+
+    <!-- MAIN CAROUSEL CONTAINER -->
+    <div class="new-arrivals-slider">
+
+        <!-- SECTION HEADER -->
+        <div class="new-arrivals-header">
+
+            <!-- LEFT: SECTION HEADING -->
+            <div class="new-arrivals-heading">
+                <h2>New Arrivals</h2>
+            </div>
+
+            <!-- RIGHT: VIEW ALL BUTTON -->
+            <a
+                href="shop.html?placement=new-arrivals"
+                class="new-arrivals-shop-btn"
+                aria-label="View all new arrivals">
+
+                View All
+
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- LEFT SCROLL BUTTON -->
+        <button
+            class="new-arrivals-arrow new-arrivals-prev"
+            id="newArrivalsPrev"
+            type="button"
+            aria-label="Previous new arrivals">
+
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+
+        </button>
+
+
+        <!-- PRODUCT TRACK -->
+        <div class="new-arrivals-track" id="newArrivalsTrack">
+
+
+            <!-- =========================================
+                 PRODUCT 1: NEW SMARTPHONE
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="new-smartphone">
+
+                <a
+                    href="product-details.html?id=new-smartphone"
+                    class="product-details-link"
+                    aria-label="View New Smartphone details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arrivals category, item 1.enc"
+                            alt="New Smartphone"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=new-smartphone">
+                            New Smartphone
+                        </a>
+                    </h3>
+
+                    <p>
+                        Stylish smartphone with powerful performance
+                        and modern features.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 30,000</del>
+                        <span class="discount-badge">-10%</span>
+                        <strong>KSh 25,000</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 2: PREMIUM SMARTWATCH
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="premium-smartwatch">
+
+                <a
+                    href="product-details.html?id=premium-smartwatch"
+                    class="product-details-link"
+                    aria-label="View Premium Smartwatch details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arrivals category, item 2.enc"
+                            alt="Premium Smartwatch"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=premium-smartwatch">
+                            Premium Smartwatch
+                        </a>
+                    </h3>
+
+                    <p>
+                        Modern smartwatch with fitness tracking,
+                        notifications and smart features.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 5,000</del>
+                        <span class="discount-badge">-20%</span>
+                        <strong>KSh 4,500</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 3: WIRELESS EARBUDS
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="wireless-earbuds">
+
+                <a
+                    href="product-details.html?id=wireless-earbuds"
+                    class="product-details-link"
+                    aria-label="View Wireless Earbuds details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arrivals category, item 3.enc"
+                            alt="Wireless Earbuds"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=wireless-earbuds">
+                            Wireless Earbuds
+                        </a>
+                    </h3>
+
+                    <p>
+                        Compact wireless earbuds with clear sound
+                        and powerful battery life.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 3,000</del>
+                        <span class="discount-badge">-15%</span>
+                        <strong>KSh 2,500</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 4: BLUETOOTH SPEAKER
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="bluetooth-speaker">
+
+                <a
+                    href="product-details.html?id=bluetooth-speaker"
+                    class="product-details-link"
+                    aria-label="View Bluetooth Speaker details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arriavals category, item 4.enc"
+                            alt="Bluetooth Speaker"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=bluetooth-speaker">
+                            Bluetooth Speaker
+                        </a>
+                    </h3>
+
+                    <p>
+                        Portable speaker delivering powerful sound
+                        for indoor and outdoor use.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 4,000</del>
+                        <span class="discount-badge">-30%</span>
+                        <strong>KSh 3,000</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 5: PREMIUM PHONE COVER
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="premium-phone-cover">
+
+                <a
+                    href="product-details.html?id=premium-phone-cover"
+                    class="product-details-link"
+                    aria-label="View Premium Phone Cover details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arrivals category, item 5.enc"
+                            alt="Premium Phone Cover"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=premium-phone-cover">
+                            Premium Phone Cover
+                        </a>
+                    </h3>
+
+                    <p>
+                        Stylish and durable phone cover offering
+                        excellent everyday protection.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 1,100</del>
+                        <span class="discount-badge">-20%</span>
+                        <strong>KSh 900</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 6: FAST CHARGER
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="fast-charger">
+
+                <a
+                    href="product-details.html?id=fast-charger"
+                    class="product-details-link"
+                    aria-label="View Fast Charger details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arrivals category, item 6.enc"
+                            alt="Fast Charger"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=fast-charger">
+                            Fast Charger
+                        </a>
+                    </h3>
+
+                    <p>
+                        High-speed charger designed for safe
+                        and efficient device charging.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 2,000</del>
+                        <span class="discount-badge">-25%</span>
+                        <strong>KSh 1,500</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 7: LED RING LIGHT
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="led-ring-light">
+
+                <a
+                    href="product-details.html?id=led-ring-light"
+                    class="product-details-link"
+                    aria-label="View LED Ring Light details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arrivals category, item 7.enc"
+                            alt="LED Ring Light"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=led-ring-light">
+                            LED Ring Light
+                        </a>
+                    </h3>
+
+                    <p>
+                        Adjustable LED lighting for photography,
+                        videos and livestreaming.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 3,000</del>
+                        <span class="discount-badge">-10%</span>
+                        <strong>KSh 2,800</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 8: USB TYPE-C CABLE
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="type-c-cable">
+
+                <a
+                    href="product-details.html?id=type-c-cable"
+                    class="product-details-link"
+                    aria-label="View USB Type-C Cable details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arrivals category, item 8.enc"
+                            alt="USB Type-C Cable"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=type-c-cable">
+                            USB Type-C Cable
+                        </a>
+                    </h3>
+
+                    <p>
+                        Durable fast-charging cable suitable for
+                        modern smartphones and devices.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 1,000</del>
+                        <span class="discount-badge">-10%</span>
+                        <strong>KSh 800</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 9: ADDITIONAL SMARTPHONE
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="new-smartphone">
+
+                <a
+                    href="product-details.html?id=new-smartphone"
+                    class="product-details-link"
+                    aria-label="View New Smartphone details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New arrivals category, item 9.enc"
+                            alt="New Smartphone"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=new-smartphone">
+                            New Smartphone
+                        </a>
+                    </h3>
+
+                    <p>
+                        Latest smartphone with modern features.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 30,000</del>
+                        <span class="discount-badge">-10%</span>
+                        <strong>KSh 25,000</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================================
+                 PRODUCT 10: ADDITIONAL SMARTWATCH
+            ========================================= -->
+
+            <article class="new-arrival-card" data-product-id="premium-smartwatch">
+
+                <a
+                    href="product-details.html?id=premium-smartwatch"
+                    class="product-details-link"
+                    aria-label="View Premium Smartwatch details">
+
+                    <div class="new-arrival-image">
+
+                        <img
+                            src="images.html/New Smartwatch.jpg"
+                            alt="Premium Smartwatch"
+                            loading="lazy">
+
+                    </div>
+
+                </a>
+
+                <div class="new-arrival-details">
+
+                    <h3>
+                        <a href="product-details.html?id=premium-smartwatch">
+                            Premium Smartwatch
+                        </a>
+                    </h3>
+
+                    <p>
+                        Stylish smartwatch with smart features.
+                    </p>
+
+                    <div class="new-arrival-price">
+                        <del>KSh 5,000</del>
+                        <span class="discount-badge">-10%</span>
+                        <strong>KSh 4,500</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+        <!-- END PRODUCT TRACK -->
+
+
+        <!-- RIGHT SCROLL BUTTON -->
+        <button
+            class="new-arrivals-arrow new-arrivals-next"
+            id="newArrivalsNext"
+            type="button"
+            aria-label="Next new arrivals">
+
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+
+        </button>
+
+    </div>
+    <!-- END MAIN CAROUSEL CONTAINER -->
+
+</section>
+
+<!-- END NEW ARRIVALS SECTION -->
+
+
+
+
+
+<!-- =====================================================
+     AM ELECTRONICS DISCOVERY SLIDES
+===================================================== -->
+
+<section class="discovery-slides-section">
+
+    <div class="discovery-slides-wrapper">
+
+        <!-- LEFT ARROW -->
+
+        <button
+            type="button"
+            class="discovery-arrow discovery-arrow-left"
+            id="discoveryPrev"
+            aria-label="Previous slides"
+        >
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+
+        <!-- SLIDES TRACK -->
+
+        <div
+            class="discovery-slides-track"
+            id="discoverySlidesTrack"
+        >
+
+            <!-- 1. TRENDING NOW -->
+
+            <a
+                href="Shop.html?category=trending"
+                class="discovery-slide trending-slide"
+            >
+
+                <img
+                    src="images.html/trending section"
+                    alt="Trending Now"
+                >
+
+                <span class="discovery-slide-badge trending-badge">
+                    <i class="fas fa-fire"></i> TRENDING
+                </span>
+
+                <div class="discovery-slide-content">
+                    <p>Explore what's popular right now.</p>
+                </div>
+
+            </a>
+
+
+            <!-- 2. FEATURED PRODUCTS -->
+
+            <a
+                href="Shop.html?category=featured"
+                class="discovery-slide featured-slide"
+            >
+
+                <img
+                    src="images.html/Amaya phone and laptop powerbank.jpg"
+                    alt="Featured Products"
+                >
+
+                <span class="discovery-slide-badge featured-badge">
+                    <i class="fas fa-star"></i> FEATURED
+                </span>
+
+                <div class="discovery-slide-content">
+                    <p>Discover our selected favourites.</p>
+                </div>
+
+            </a>
+
+
+            <!-- 3. RECOMMENDED FOR YOU -->
+
+            <a
+                href="Shop.html?category=recommended"
+                class="discovery-slide recommended-slide"
+            >
+
+                <img
+                    src="images.html/Oraimo shaving machine .jpg"
+                    alt="Recommended for You"
+                >
+
+                <span class="discovery-slide-badge recommended-badge">
+                    <i class="fas fa-heart"></i> RECOMMENDED
+                </span>
+
+                <div class="discovery-slide-content">
+                    <p>Find products worth discovering.</p>
+                </div>
+
+            </a>
+
+
+            <!-- 4. MUST-HAVE ACCESSORIES -->
+
+            <a
+                href="Shop.html?category=must-have"
+                class="discovery-slide must-have-slide"
+            >
+
+                <img
+                    src="images.html/Redmi 100W charger.jpg"
+                    alt="Must-Have Accessories"
+                >
+
+                <span class="discovery-slide-badge must-have-badge">
+                    <i class="fas fa-award"></i> MUST-HAVE
+                </span>
+
+                <div class="discovery-slide-content">
+                    <p>Discover your everyday essentials.</p>
+                </div>
+
+            </a>
+
+
+            <!-- 5. MORE TO EXPLORE -->
+
+            <a
+                href="Shop.html?category=explore"
+                class="discovery-slide explore-slide"
+            >
+
+                <img
+                    src="images.html/Explore more ps5.jpg"
+                    alt="More to Explore"
+                >
+
+                <span class="discovery-slide-badge explore-badge">
+                    <i class="fas fa-compass"></i> EXPLORE
+                </span>
+
+                <div class="discovery-slide-content">
+                    <p>Discover even more possibilities.</p>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- RIGHT ARROW -->
+
+        <button
+            type="button"
+            class="discovery-arrow discovery-arrow-right"
+            id="discoveryNext"
+            aria-label="Next slides"
+        >
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =======================================
+     SCREEN PROTECTORS SECTION
+========================================= -->
+<section class="screen-protectors-section" id="screen-protectors">
+
+    <!-- MAIN CAROUSEL CONTAINER -->
+    <div class="screen-protectors-slider">
+
+        <!-- SECTION HEADER INSIDE CAROUSEL -->
+        <div class="screen-protectors-header">
+
+            <!-- LEFT: SECTION HEADING -->
+            <div class="screen-protectors-heading">
+                <h2>Screen Protectors</h2>
+            </div>
+
+            <!-- RIGHT: VIEW ALL BUTTON -->
+            <a href="shop.html?category=screen-protectors"
+               class="screen-protectors-view-all">
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <!-- LEFT CAROUSEL ARROW -->
+        <button class="screen-protectors-arrow screen-protectors-prev"
+                id="screenProtectorsPrev"
+                type="button"
+                aria-label="Previous products">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+
+        <!-- PRODUCT CAROUSEL TRACK -->
+        <div class="screen-protectors-track" id="screenProtectorsTrack">
+
+
+            <!-- PRODUCT 1: TEMPERED GLASS PROTECTOR -->
+            <article class="screen-protector-card"
+                     data-product-id="tempered-glass-protector">
+
+                <a href="product-details.html?id=tempered-glass-protector"
+                   class="screen-protector-image-link">
+
+                    <div class="screen-protector-image">
+                        <img src="images.html/tempered-glass-protector.jpg"
+                             alt="Tempered Glass Screen Protector">
+                    </div>
+
+                </a>
+
+                <div class="screen-protector-details">
+
+                    <h3>
+                        <a href="product-details.html?id=tempered-glass-protector">
+                            Tempered Glass Protector
+                        </a>
+                    </h3>
+
+                    <p class="screen-protector-description">
+                        Strong tempered glass protection against scratches and accidental impacts.
+                    </p>
+
+                    <div class="screen-protector-price">
+                        <del class="deleted-price">KSh 500</del>
+
+                        <span class="discount-badge">20%</span>
+
+                        <span class="current-price">KSh 400</span>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- PRODUCT 2: PRIVACY SCREEN PROTECTOR -->
+            <article class="screen-protector-card"
+                     data-product-id="privacy-screen-protector">
+
+                <a href="product-details.html?id=privacy-screen-protector"
+                   class="screen-protector-image-link">
+
+                    <div class="screen-protector-image">
+                        <img src="images.html/privacy-screen-protector.jpg"
+                             alt="Privacy Screen Protector">
+                    </div>
+
+                </a>
+
+                <div class="screen-protector-details">
+
+                    <h3>
+                        <a href="product-details.html?id=privacy-screen-protector">
+                            Privacy Screen Protector
+                        </a>
+                    </h3>
+
+                    <p class="screen-protector-description">
+                        Protect your screen from scratches while keeping your personal information private.
+                    </p>
+
+                    <div class="screen-protector-price">
+                        <del class="deleted-price">KSh 800</del>
+
+                        <span class="discount-badge">15%</span>
+
+                        <span class="current-price">KSh 680</span>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- PRODUCT 3: FULL COVER GLASS -->
+            <article class="screen-protector-card"
+                     data-product-id="full-cover-glass">
+
+                <a href="product-details.html?id=full-cover-glass"
+                   class="screen-protector-image-link">
+
+                    <div class="screen-protector-image">
+                        <img src="images.html/full-cover-glass.jpg"
+                             alt="Full Cover Glass Screen Protector">
+                    </div>
+
+                </a>
+
+                <div class="screen-protector-details">
+
+                    <h3>
+                        <a href="product-details.html?id=full-cover-glass">
+                            Full Cover Glass
+                        </a>
+                    </h3>
+
+                    <p class="screen-protector-description">
+                        Full-screen glass coverage for reliable everyday phone protection.
+                    </p>
+
+                    <div class="screen-protector-price">
+                        <del class="deleted-price">KSh 700</del>
+
+                        <span class="discount-badge">20%</span>
+
+                        <span class="current-price">KSh 560</span>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- PRODUCT 4: MATTE SCREEN PROTECTOR -->
+            <article class="screen-protector-card"
+                     data-product-id="matte-screen-protector">
+
+                <a href="product-details.html?id=matte-screen-protector"
+                   class="screen-protector-image-link">
+
+                    <div class="screen-protector-image">
+                        <img src="images.html/matte-screen-protector.jpg"
+                             alt="Matte Screen Protector">
+                    </div>
+
+                </a>
+
+                <div class="screen-protector-details">
+
+                    <h3>
+                        <a href="product-details.html?id=matte-screen-protector">
+                            Matte Screen Protector
+                        </a>
+                    </h3>
+
+                    <p class="screen-protector-description">
+                        Anti-glare matte protection for a comfortable viewing experience.
+                    </p>
+
+                    <div class="screen-protector-price">
+                        <del class="deleted-price">KSh 600</del>
+
+                        <span class="discount-badge">15%</span>
+
+                        <span class="current-price">KSh 510</span>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- PRODUCT 5: CAMERA LENS PROTECTOR -->
+            <article class="screen-protector-card"
+                     data-product-id="camera-lens-protector">
+
+                <a href="product-details.html?id=camera-lens-protector"
+                   class="screen-protector-image-link">
+
+                    <div class="screen-protector-image">
+                        <img src="images.html/camera-lens-protector.jpg"
+                             alt="Camera Lens Protector">
+                    </div>
+
+                </a>
+
+                <div class="screen-protector-details">
+
+                    <h3>
+                        <a href="product-details.html?id=camera-lens-protector">
+                            Camera Lens Protector
+                        </a>
+                    </h3>
+
+                    <p class="screen-protector-description">
+                        Protect your camera lenses from scratches, dust and everyday damage.
+                    </p>
+
+                    <div class="screen-protector-price">
+                        <del class="deleted-price">KSh 400</del>
+
+                        <span class="discount-badge">10%</span>
+
+                        <span class="current-price">KSh 360</span>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- PRODUCT 6: HYDROGEL SCREEN PROTECTOR -->
+            <article class="screen-protector-card"
+                     data-product-id="hydrogel-screen-protector">
+
+                <a href="product-details.html?id=hydrogel-screen-protector"
+                   class="screen-protector-image-link">
+
+                    <div class="screen-protector-image">
+                        <img src="images.html/hydrogel-screen-protector.jpg"
+                             alt="Hydrogel Screen Protector">
+                    </div>
+
+                </a>
+
+                <div class="screen-protector-details">
+
+                    <h3>
+                        <a href="product-details.html?id=hydrogel-screen-protector">
+                            Hydrogel Screen Protector
+                        </a>
+                    </h3>
+
+                    <p class="screen-protector-description">
+                        Flexible hydrogel protection with smooth touch sensitivity.
+                    </p>
+
+                    <div class="screen-protector-price">
+                        <del class="deleted-price">KSh 900</del>
+
+                        <span class="discount-badge">20%</span>
+
+                        <span class="current-price">KSh 720</span>
+                    </div>
+
+                </div>
+            </article>
+
+
+        </div>
+
+
+        <!-- RIGHT CAROUSEL ARROW -->
+        <button class="screen-protectors-arrow screen-protectors-next"
+                id="screenProtectorsNext"
+                type="button"
+                aria-label="Next products">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =====================================================
+     HEADPHONES & EARPODS SECTION
+     ===================================================== -->
+
+<section class="headphones-section" id="headphones">
+
+    <!-- MAIN CAROUSEL CONTAINER -->
+    <div class="headphones-slider">
+
+        <!-- SECTION HEADER -->
+        <div class="headphones-header">
+
+            <div class="headphones-heading">
+                <h2>Headphones & Earpods</h2>
+            </div>
+
+            <a href="shop.html?category=headphones"
+               class="headphones-view-all">
+
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- LEFT CAROUSEL ARROW -->
+        <button
+            class="headphones-prev"
+            id="headphonesPrev"
+            type="button"
+            aria-label="Previous products">
+
+            <i class="fa-solid fa-chevron-left"></i>
+
+        </button>
+
+
+        <!-- PRODUCT CAROUSEL TRACK -->
+        <div class="headphones-track" id="headphonesTrack">
+
+
+            <!-- PRODUCT 1: AIRPODS PRO -->
+            <article class="headphones-card"
+                     data-product-id="airpods-pro">
+
+                <a href="product-details.html?id=airpods-pro"
+                   class="headphones-product-link">
+
+                    <div class="headphones-image">
+                        <img
+                            src="images.html/Headphones category, headphone 1.enc"
+                            alt="AirPods Pro">
+                    </div>
+
+                </a>
+
+                <div class="headphones-details">
+
+                    <h3>
+                        <a href="product-details.html?id=airpods-pro">
+                            AirPods Pro
+                        </a>
+                    </h3>
+
+                    <p>
+                        Premium wireless earpods with excellent sound quality,
+                        noise cancellation and a comfortable fit.
+                    </p>
+
+                    <div class="headphones-price">
+
+                        <del>KSh 4,000</del>
+
+                        <span class="discount-badge">-25%</span>
+
+                        <strong class="current-price">KSh 3,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2: JBL WIRELESS HEADPHONES -->
+            <article class="headphones-card"
+                     data-product-id="jbl-wireless-headphones">
+
+                <a href="product-details.html?id=jbl-wireless-headphones"
+                   class="headphones-product-link">
+
+                    <div class="headphones-image">
+                        <img
+                            src="images.html/Headphones category, earpods 2.enc"
+                            alt="JBL Wireless Headphones">
+                    </div>
+
+                </a>
+
+                <div class="headphones-details">
+
+                    <h3>
+                        <a href="product-details.html?id=jbl-wireless-headphones">
+                            JBL Wireless Headphones
+                        </a>
+                    </h3>
+
+                    <p>
+                        Powerful wireless headphones with deep bass,
+                        clear audio and long-lasting battery life.
+                    </p>
+
+                    <div class="headphones-price">
+
+                        <del>KSh 6,000</del>
+
+                        <span class="discount-badge">-20%</span>
+
+                        <strong class="current-price">KSh 5,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3: BLUETOOTH EARPODS -->
+            <article class="headphones-card"
+                     data-product-id="bluetooth-earpods">
+
+                <a href="product-details.html?id=bluetooth-earpods"
+                   class="headphones-product-link">
+
+                    <div class="headphones-image">
+                        <img
+                            src="images.html/Headphones category, headphone 3.enc"
+                            alt="Bluetooth Earpods">
+                    </div>
+
+                </a>
+
+                <div class="headphones-details">
+
+                    <h3>
+                        <a href="product-details.html?id=bluetooth-earpods">
+                            Bluetooth Earpods
+                        </a>
+                    </h3>
+
+                    <p>
+                        Compact wireless earpods offering clear calls,
+                        quality music and convenient touch controls.
+                    </p>
+
+                    <div class="headphones-price">
+
+                        <del>KSh 2,500</del>
+
+                        <span class="discount-badge">-40%</span>
+
+                        <strong class="current-price">KSh 2,000</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4: WIRELESS HEADPHONES -->
+            <article class="headphones-card"
+                     data-product-id="wireless-headphones">
+
+                <a href="product-details.html?id=wireless-headphones"
+                   class="headphones-product-link">
+
+                    <div class="headphones-image">
+                        <img
+                            src="images.html/Headphones category, neckbands 4.enc"
+                            alt="Wireless Headphones">
+                    </div>
+
+                </a>
+
+                <div class="headphones-details">
+
+                    <h3>
+                        <a href="product-details.html?id=wireless-headphones">
+                            Wireless Headphones
+                        </a>
+                    </h3>
+
+                    <p>
+                        Comfortable over-ear wireless headphones designed
+                        for music, gaming and everyday entertainment.
+                    </p>
+
+                    <div class="headphones-price">
+
+                        <del>KSh 4,500</del>
+
+                        <span class="discount-badge">-30%</span>
+
+                        <strong class="current-price">KSh 4,000</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 5: GAMING HEADSET -->
+            <article class="headphones-card"
+                     data-product-id="gaming-headset">
+
+                <a href="product-details.html?id=gaming-headset"
+                   class="headphones-product-link">
+
+                    <div class="headphones-image">
+                        <img
+                            src="images.html/Headphones category, headphone 5.enc"
+                            alt="Gaming Headset">
+                    </div>
+
+                </a>
+
+                <div class="headphones-details">
+
+                    <h3>
+                        <a href="product-details.html?id=gaming-headset">
+                            Gaming Headset
+                        </a>
+                    </h3>
+
+                    <p>
+                        Immersive gaming headset with powerful audio,
+                        comfortable ear cushions and a clear microphone.
+                    </p>
+
+                    <div class="headphones-price">
+
+                        <del>KSh 4,200</del>
+
+                        <span class="discount-badge">-15%</span>
+
+                        <strong class="current-price">KSh 3,800</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 6: SPORT EARPODS -->
+            <article class="headphones-card"
+                     data-product-id="sport-earpods">
+
+                <a href="product-details.html?id=sport-earpods"
+                   class="headphones-product-link">
+
+                    <div class="headphones-image">
+                        <img
+                            src="images.html/Headphones category, earpods 6.enc"
+                            alt="Sport Earpods">
+                    </div>
+
+                </a>
+
+                <div class="headphones-details">
+
+                    <h3>
+                        <a href="product-details.html?id=sport-earpods">
+                            Sport Earpods
+                        </a>
+                    </h3>
+
+                    <p>
+                        Lightweight wireless earpods designed for workouts,
+                        running and active lifestyles.
+                    </p>
+
+                    <div class="headphones-price">
+
+                        <del>KSh 3,000</del>
+
+                        <span class="discount-badge">-25%</span>
+
+                        <strong class="current-price">KSh 2,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- RIGHT CAROUSEL ARROW -->
+        <button
+            class="headphones-next"
+            id="headphonesNext"
+            type="button"
+            aria-label="Next products">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =========================================
+     SMARTWATCHES SECTION
+========================================= -->
+
+<section class="smartwatches-section" id="smartwatches">
+
+    <!-- MAIN CAROUSEL CONTAINER -->
+    <div class="smartwatches-slider">
+
+        <!-- SECTION HEADER -->
+        <div class="smartwatches-header">
+
+            <!-- LEFT: HEADING AND DESCRIPTION -->
+            <div class="smartwatches-heading">
+                <h2>Smartwatches</h2>
+            </div>
+
+            <!-- RIGHT: VIEW ALL -->
+            <a href="shop.html?category=smartwatches"
+               class="smartwatches-view-all">
+
+                View All <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- LEFT SCROLL BUTTON -->
+        <button type="button"
+                class="smartwatches-prev"
+                aria-label="Scroll to previous products">
+
+            <i class="fa-solid fa-chevron-left"></i>
+
+        </button>
+
+
+        <!-- PRODUCT CAROUSEL TRACK -->
+        <div class="smartwatches-track" id="smartwatchesTrack">
+
+
+            <!-- =====================================
+                 PRODUCT 1: SMART WATCH SERIES 1
+            ====================================== -->
+
+            <article class="smartwatch-card"
+                     data-product-id="smart-watch-series-1">
+
+                <a href="product-details.html?id=smart-watch-series-1"
+                   class="smartwatch-product-link">
+
+                    <div class="smartwatch-image">
+
+                        <img src="images.html/Smartwatch category, watch 1..enc"
+                             alt="Smart Watch Series 1">
+
+                    </div>
+
+                </a>
+
+
+                <div class="smartwatch-details">
+
+                    <h3>
+                        <a href="product-details.html?id=smart-watch-series-1">
+                            Smart Watch Series 1
+                        </a>
+                    </h3>
+
+                    <p class="smartwatch-description">
+                        Stylish smartwatch with fitness tracking, notifications,
+                        health monitoring and multiple smart features.
+                    </p>
+
+                    <div class="smartwatch-price">
+
+                        <del>KSh 4,000</del>
+
+                        <span class="discount-badge">-20%</span>
+
+                        <strong class="current-price">KSh 3,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 PRODUCT 2: PREMIUM SMART WATCH
+            ====================================== -->
+
+            <article class="smartwatch-card"
+                     data-product-id="premium-smart-watch">
+
+                <a href="product-details.html?id=premium-smart-watch"
+                   class="smartwatch-product-link">
+
+                    <div class="smartwatch-image">
+
+                        <img src="images.html/Smartwatch category, watch 2.enc"
+                             alt="Premium Smart Watch">
+
+                    </div>
+
+                </a>
+
+
+                <div class="smartwatch-details">
+
+                    <h3>
+                        <a href="product-details.html?id=premium-smart-watch">
+                            Premium Smart Watch
+                        </a>
+                    </h3>
+
+                    <p class="smartwatch-description">
+                        Premium smartwatch with activity tracking, call
+                        notifications and a stylish modern display.
+                    </p>
+
+                    <div class="smartwatch-price">
+
+                        <del>KSh 5,000</del>
+
+                        <span class="discount-badge">-20%</span>
+
+                        <strong class="current-price">KSh 4,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 PRODUCT 3: FITNESS SMART WATCH
+            ====================================== -->
+
+            <article class="smartwatch-card"
+                     data-product-id="fitness-smart-watch">
+
+                <a href="product-details.html?id=fitness-smart-watch"
+                   class="smartwatch-product-link">
+
+                    <div class="smartwatch-image">
+
+                        <img src="images.html/Smartwatch category, watch 3..enc"
+                             alt="Fitness Smart Watch">
+
+                    </div>
+
+                </a>
+
+
+                <div class="smartwatch-details">
+
+                    <h3>
+                        <a href="product-details.html?id=fitness-smart-watch">
+                            Fitness Smart Watch
+                        </a>
+                    </h3>
+
+                    <p class="smartwatch-description">
+                        Lightweight fitness smartwatch designed to monitor
+                        activities, steps, workouts and daily performance.
+                    </p>
+
+                    <div class="smartwatch-price">
+
+                        <del>KSh 3,300</del>
+
+                        <span class="discount-badge">-10%</span>
+
+                        <strong class="current-price">KSh 3,000</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 PRODUCT 4: SPORTS SMART WATCH
+            ====================================== -->
+
+            <article class="smartwatch-card"
+                     data-product-id="sports-smart-watch">
+
+                <a href="product-details.html?id=sports-smart-watch"
+                   class="smartwatch-product-link">
+
+                    <div class="smartwatch-image">
+
+                        <img src="images.html/Smartwatch category, watch 4..enc"
+                             alt="Sports Smart Watch">
+
+                    </div>
+
+                </a>
+
+
+                <div class="smartwatch-details">
+
+                    <h3>
+                        <a href="product-details.html?id=sports-smart-watch">
+                            Sports Smart Watch
+                        </a>
+                    </h3>
+
+                    <p class="smartwatch-description">
+                        Durable sports smartwatch with activity tracking,
+                        workout monitoring and a comfortable wrist design.
+                    </p>
+
+                    <div class="smartwatch-price">
+
+                        <del>KSh 4,500</del>
+
+                        <span class="discount-badge">-20%</span>
+
+                        <strong class="current-price">KSh 4,000</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 PRODUCT 5: KIDS SMART WATCH
+            ====================================== -->
+
+            <article class="smartwatch-card"
+                     data-product-id="kids-smart-watch">
+
+                <a href="product-details.html?id=kids-smart-watch"
+                   class="smartwatch-product-link">
+
+                    <div class="smartwatch-image">
+
+                        <img src="images.html/Smartwatch category, watch 5.enc"
+                             alt="Kids Smart Watch">
+
+                    </div>
+
+                </a>
+
+
+                <div class="smartwatch-details">
+
+                    <h3>
+                        <a href="product-details.html?id=kids-smart-watch">
+                            Kids Smart Watch
+                        </a>
+                    </h3>
+
+                    <p class="smartwatch-description">
+                        Fun and practical smartwatch with a colourful display
+                        and useful everyday features for kids.
+                    </p>
+
+                    <div class="smartwatch-price">
+
+                        <del>KSh 3,000</del>
+
+                        <span class="discount-badge">-25%</span>
+
+                        <strong class="current-price">KSh 2,500</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 PRODUCT 6: CLASSIC SMART WATCH
+            ====================================== -->
+
+            <article class="smartwatch-card"
+                     data-product-id="classic-smart-watch">
+
+                <a href="product-details.html?id=classic-smart-watch"
+                   class="smartwatch-product-link">
+
+                    <div class="smartwatch-image">
+
+                        <img src="images.html/Smartwatch category watch 6.enc"
+                             alt="Classic Smart Watch">
+
+                    </div>
+
+                </a>
+
+
+                <div class="smartwatch-details">
+
+                    <h3>
+                        <a href="product-details.html?id=classic-smart-watch">
+                            Classic Smart Watch
+                        </a>
+                    </h3>
+
+                    <p class="smartwatch-description">
+                        Elegant smartwatch combining a classic appearance
+                        with modern smart features and notifications.
+                    </p>
+
+                    <div class="smartwatch-price">
+
+                        <del>KSh 5,500</del>
+
+                        <span class="discount-badge">-10%</span>
+
+                        <strong class="current-price">KSh 5,000</strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- RIGHT SCROLL BUTTON -->
+        <button type="button"
+                class="smartwatches-next"
+                aria-label="Scroll to next products">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================================
+     CHARGERS & CABLES SECTION
+========================================= -->
+
+<section class="chargers-cables-section" id="chargers-cables">
+
+    <!-- MAIN CAROUSEL CONTAINER -->
+    <div class="chargers-cables-slider">
+
+        <!-- SECTION HEADER -->
+        <div class="chargers-cables-header">
+
+            <!-- LEFT: SECTION HEADING -->
+            <div class="chargers-cables-heading">
+                <h2>Chargers &amp; Cables</h2>
+            </div>
+
+            <!-- RIGHT: VIEW ALL -->
+            <a href="shop.html?category=chargers-cables"
+               class="chargers-cables-view-all">
+
+                View All <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- LEFT SCROLL BUTTON -->
+        <button type="button"
+                class="chargers-cables-prev"
+                aria-label="Scroll to previous products">
+
+            <i class="fa-solid fa-chevron-left"></i>
+
+        </button>
+
+
+        <!-- PRODUCT CAROUSEL TRACK -->
+        <div class="chargers-cables-track" id="chargersCablesTrack">
+
+
+            <!-- PRODUCT 1 -->
+            <article class="chargers-cables-card"
+                     data-product-id="fast-type-c-charger">
+
+                <a href="product-details.html?product=fast-type-c-charger"
+                   class="chargers-cables-product-link">
+
+                    <div class="chargers-cables-image">
+                        <img
+                            src="images.html/Chargers category, charger 1.enc"
+                            alt="Fast Type-C Charger"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="chargers-cables-details">
+
+                    <h3>
+                        <a href="product-details.html?product=fast-type-c-charger">
+                            Fast Type-C Charger
+                        </a>
+                    </h3>
+
+                    <p class="chargers-cables-description">
+                        High-speed Type-C charger designed for fast, safe and
+                        reliable charging of compatible devices.
+                    </p>
+
+                    <div class="chargers-cables-price">
+                        <del>KSh 2,000</del>
+                        <span class="discount-badge">-25%</span>
+                        <strong class="current-price">KSh 1,500</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+            <article class="chargers-cables-card"
+                     data-product-id="iphone-fast-charger">
+
+                <a href="product-details.html?product=iphone-fast-charger"
+                   class="chargers-cables-product-link">
+
+                    <div class="chargers-cables-image">
+                        <img
+                            src="images.html/Chargers category, charger 2.enc"
+                            alt="iPhone Fast Charger"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="chargers-cables-details">
+
+                    <h3>
+                        <a href="product-details.html?product=iphone-fast-charger">
+                            iPhone Fast Charger
+                        </a>
+                    </h3>
+
+                    <p class="chargers-cables-description">
+                        Compact and reliable fast charger suitable for iPhones
+                        and other compatible Apple devices.
+                    </p>
+
+                    <div class="chargers-cables-price">
+                        <del>KSh 2,500</del>
+                        <span class="discount-badge">-20%</span>
+                        <strong class="current-price">KSh 2,000</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+            <article class="chargers-cables-card"
+                     data-product-id="usb-charging-cable">
+
+                <a href="product-details.html?product=usb-charging-cable"
+                   class="chargers-cables-product-link">
+
+                    <div class="chargers-cables-image">
+                        <img
+                            src="images.html/Chargers category, charger 3.enc"
+                            alt="USB Charging Cable"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="chargers-cables-details">
+
+                    <h3>
+                        <a href="product-details.html?product=usb-charging-cable">
+                            USB Charging Cable
+                        </a>
+                    </h3>
+
+                    <p class="chargers-cables-description">
+                        Durable USB charging cable suitable for everyday
+                        charging and data transfer.
+                    </p>
+
+                    <div class="chargers-cables-price">
+                        <del>KSh 800</del>
+                        <span class="discount-badge">-13%</span>
+                        <strong class="current-price">KSh 700</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+            <article class="chargers-cables-card"
+                     data-product-id="lightning-cable">
+
+                <a href="product-details.html?product=lightning-cable"
+                   class="chargers-cables-product-link">
+
+                    <div class="chargers-cables-image">
+                        <img
+                            src="images.html/Cables category, cable 1.enc"
+                            alt="Lightning Cable"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="chargers-cables-details">
+
+                    <h3>
+                        <a href="product-details.html?product=lightning-cable">
+                            Lightning Cable
+                        </a>
+                    </h3>
+
+                    <p class="chargers-cables-description">
+                        Strong and flexible Lightning cable for charging and
+                        synchronizing compatible devices.
+                    </p>
+
+                    <div class="chargers-cables-price">
+                        <del>KSh 1,000</del>
+                        <span class="discount-badge">-20%</span>
+                        <strong class="current-price">KSh 800</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 5 -->
+            <article class="chargers-cables-card"
+                     data-product-id="dual-usb-car-charger">
+
+                <a href="product-details.html?product=dual-usb-car-charger"
+                   class="chargers-cables-product-link">
+
+                    <div class="chargers-cables-image">
+                        <img
+                            src="images.html/Cables category, cable 2.enc"
+                            alt="Dual USB Car Charger"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="chargers-cables-details">
+
+                    <h3>
+                        <a href="product-details.html?product=dual-usb-car-charger">
+                            Dual USB Car Charger
+                        </a>
+                    </h3>
+
+                    <p class="chargers-cables-description">
+                        Convenient dual-port car charger for charging your
+                        devices while travelling.
+                    </p>
+
+                    <div class="chargers-cables-price">
+                        <del>KSh 1,500</del>
+                        <span class="discount-badge">-20%</span>
+                        <strong class="current-price">KSh 1,200</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 6 -->
+            <article class="chargers-cables-card"
+                     data-product-id="usb-type-c-cable">
+
+                <a href="product-details.html?product=usb-type-c-cable"
+                   class="chargers-cables-product-link">
+
+                    <div class="chargers-cables-image">
+                        <img
+                            src="images.html/Cables category, cable 3.enc"
+                            alt="USB Type-C Cable"
+                            loading="lazy">
+                    </div>
+
+                </a>
+
+                <div class="chargers-cables-details">
+
+                    <h3>
+                        <a href="product-details.html?product=usb-type-c-cable">
+                            USB Type-C Cable
+                        </a>
+                    </h3>
+
+                    <p class="chargers-cables-description">
+                        High-quality Type-C cable built for fast charging
+                        and dependable data transfer.
+                    </p>
+
+                    <div class="chargers-cables-price">
+                        <del>KSh 1,100</del>
+                        <span class="discount-badge">-18%</span>
+                        <strong class="current-price">KSh 900</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+        <!-- END PRODUCT CAROUSEL TRACK -->
+
+
+        <!-- RIGHT SCROLL BUTTON -->
+        <button type="button"
+                class="chargers-cables-next"
+                aria-label="Scroll to next products">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================================
+     POWER BANKS SECTION
+     AM ELECTRONICS AND ACCESSORIES
+========================================= -->
+
+<section class="power-banks-section" id="power-banks">
+
+    <div class="power-banks-slider">
+
+        <!-- SECTION HEADER -->
+        <div class="power-banks-header">
+
+            <div class="power-banks-heading">
+                <h2>Power Banks</h2>
+            </div>
+
+            <a href="shop.html?category=power-banks"
+               class="power-banks-view-all">
+
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- PREVIOUS BUTTON -->
+        <button type="button"
+                class="power-banks-prev"
+                aria-label="Scroll to previous products">
+
+            <i class="fa-solid fa-chevron-left"></i>
+
+        </button>
+
+
+        <!-- PRODUCT TRACK -->
+        <div class="power-banks-track" id="powerBanksTrack">
+
+
+            <!-- PRODUCT 1 -->
+            <article class="power-banks-card">
+
+                <a href="shop.html?category=power-banks"
+                   class="power-banks-product-link"
+                   aria-label="View 10,000mAh Slim Power Bank">
+
+                    <div class="power-banks-image power-bank-placeholder">
+                        <i class="fa-solid fa-battery-half"></i>
+                        <span>10,000mAh</span>
+                    </div>
+
+                </a>
+
+                <div class="power-banks-details">
+
+                    <h3>10,000mAh Slim Power Bank</h3>
+
+                    <p class="power-banks-description">
+                        Compact portable charging for everyday use.
+                        Easy to carry when travelling or commuting.
+                    </p>
+
+                    <div class="power-banks-price">
+                        <strong class="current-price">
+                            Price coming soon
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+            <article class="power-banks-card">
+
+                <a href="shop.html?category=power-banks"
+                   class="power-banks-product-link"
+                   aria-label="View 20,000mAh Fast Charging Power Bank">
+
+                    <div class="power-banks-image power-bank-placeholder">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>20,000mAh</span>
+                    </div>
+
+                </a>
+
+                <div class="power-banks-details">
+
+                    <h3>20,000mAh Fast-Charging Power Bank</h3>
+
+                    <p class="power-banks-description">
+                        High-capacity portable charging with
+                        fast-charging support where compatible.
+                    </p>
+
+                    <div class="power-banks-price">
+                        <strong class="current-price">
+                            Price coming soon
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+            <article class="power-banks-card">
+
+                <a href="shop.html?category=power-banks"
+                   class="power-banks-product-link"
+                   aria-label="View 30,000mAh High Capacity Power Bank">
+
+                    <div class="power-banks-image power-bank-placeholder">
+                        <i class="fa-solid fa-battery-full"></i>
+                        <span>30,000mAh</span>
+                    </div>
+
+                </a>
+
+                <div class="power-banks-details">
+
+                    <h3>30,000mAh High-Capacity Power Bank</h3>
+
+                    <p class="power-banks-description">
+                        Extra charging capacity for extended use
+                        and powering compatible devices.
+                    </p>
+
+                    <div class="power-banks-price">
+                        <strong class="current-price">
+                            Price coming soon
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+            <article class="power-banks-card">
+
+                <a href="shop.html?category=power-banks"
+                   class="power-banks-product-link"
+                   aria-label="View Magnetic Wireless Power Bank">
+
+                    <div class="power-banks-image power-bank-placeholder">
+                        <i class="fa-solid fa-magnet"></i>
+                        <span>Wireless</span>
+                    </div>
+
+                </a>
+
+                <div class="power-banks-details">
+
+                    <h3>Magnetic Wireless Power Bank</h3>
+
+                    <p class="power-banks-description">
+                        Convenient wireless charging with magnetic
+                        attachment on compatible smartphones.
+                    </p>
+
+                    <div class="power-banks-price">
+                        <strong class="current-price">
+                            Price coming soon
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 5 -->
+            <article class="power-banks-card">
+
+                <a href="shop.html?category=power-banks"
+                   class="power-banks-product-link"
+                   aria-label="View Built-in USB-C Cable Power Bank">
+
+                    <div class="power-banks-image power-bank-placeholder">
+                        <i class="fa-solid fa-plug"></i>
+                        <span>Built-in Cable</span>
+                    </div>
+
+                </a>
+
+                <div class="power-banks-details">
+
+                    <h3>Built-in USB-C Cable Power Bank</h3>
+
+                    <p class="power-banks-description">
+                        Portable charging convenience with an
+                        integrated cable for compatible devices.
+                    </p>
+
+                    <div class="power-banks-price">
+                        <strong class="current-price">
+                            Price coming soon
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 6 -->
+            <article class="power-banks-card">
+
+                <a href="shop.html?category=power-banks"
+                   class="power-banks-product-link"
+                   aria-label="View Digital Display Power Bank">
+
+                    <div class="power-banks-image power-bank-placeholder">
+                        <i class="fa-solid fa-display"></i>
+                        <span>Digital Display</span>
+                    </div>
+
+                </a>
+
+                <div class="power-banks-details">
+
+                    <h3>Digital Display Power Bank</h3>
+
+                    <p class="power-banks-description">
+                        Check the remaining battery level easily
+                        with a built-in digital display.
+                    </p>
+
+                    <div class="power-banks-price">
+                        <strong class="current-price">
+                            Price coming soon
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- NEXT BUTTON -->
+        <button type="button"
+                class="power-banks-next"
+                aria-label="Scroll to next products">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================
+     FAQ SECTION
+========================= -->
+
+<section class="faq-section" id="faq">
+
+    <div class="faq-container">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-content">
+
+            <div class="faq-item">
+                <h3>What products do you sell?</h3>
+                <p>
+                    We sell a variety of electronics and phone accessories,
+                    including phone covers, headphones, earphones, smartwatches,
+                    chargers, cables, screen protectors, speakers and more.
+                </p>
+            </div>
+
+
+            <div class="faq-item">
+                <h3>How can I place an order?</h3>
+                <p>
+                    Select the product you want, add it to your shopping cart
+                    and proceed to checkout to complete your order.
+                </p>
+            </div>
+
+
+            <div class="faq-item">
+                <h3>How do I know if a product is available?</h3>
+                <p>
+                    Product availability is displayed on the product listing.
+                    Products marked "In Stock" are available for purchase.
+                </p>
+            </div>
+
+
+            <div class="faq-item">
+                <h3>Do you offer delivery?</h3>
+                <p>
+                    Yes. Delivery is available depending on your location.
+                    Delivery details can be confirmed when placing your order.
+                </p>
+            </div>
+
+
+            <div class="faq-item">
+                <h3>What payment methods do you accept?</h3>
+                <p>
+                    Available payment options are provided during the
+                    checkout process.
+                </p>
+            </div>
+
+
+            <div class="faq-item">
+                <h3>Can I return a product?</h3>
+                <p>
+                    Please contact us with your order details if you need
+                    to return a product. Return conditions may apply.
+                </p>
+            </div>
+
+
+            <div class="faq-item">
+                <h3>How can I contact AM Electronics?</h3>
+                <p>
+                    You can contact us through our Contact page or WhatsApp
+                    for product inquiries, orders and customer support.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     SERVICE BENEFITS
+========================= -->
+
+<section class="service-benefits">
+
+    <div class="benefits-container">
+
+        <!-- Great Value -->
+        <div class="benefit-item">
+
+            <i class="fa-solid fa-gem benefit-icon"></i>
+
+            <h3>Great Value</h3>
+
+            <p>
+                Quality electronics and accessories at prices
+                that give you great value for your money.
+            </p>
+
+        </div>
+
+
+        <!-- Shop With Confidence -->
+        <div class="benefit-item">
+
+            <i class="fa-solid fa-heart benefit-icon"></i>
+
+            <h3>Shop With Confidence</h3>
+
+            <p>
+                Shop with confidence knowing that we are
+                committed to providing quality products and service.
+            </p>
+
+        </div>
+
+
+        <!-- 24/7 Help Center -->
+        <div class="benefit-item">
+
+            <i class="fa-solid fa-circle-exclamation benefit-icon"></i>
+
+            <h3>24/7 Help Center</h3>
+
+            <p>
+                Get assistance whenever you need it for
+                your products, orders and general inquiries.
+            </p>
+
+        </div>
+
+
+        <!-- Safe Payment -->
+        <div class="benefit-item">
+
+            <i class="fa-solid fa-shield-halved benefit-icon"></i>
+
+            <h3>Safe Payment</h3>
+
+            <p>
+                Enjoy a secure shopping experience with
+                safe and convenient payment options.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="site-footer">
+
+    <p>
+        &copy; 2026 AM Electronics and Accessories. All Rights Reserved.
+    </p>
+
+</footer>
+
+ 
+ <script src="api-config.js"></script>
+ <script src="site-assets.js"></script>
+ <script src="products.js"></script>
+ <script src="Index.js"></script>
+ <script src="homepageProducts.js"></script>
+ <script src="global-search.js"></script>
+
+</body>
+</html>
+

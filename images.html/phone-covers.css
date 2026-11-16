@@ -1,0 +1,247 @@
+/* =========================================
+   PHONE COVERS SECTION
+   Everything is scoped under .phone-covers-section so it
+   will not affect other sections that share the
+   .top-selling-* classes.
+========================================= */
+
+.phone-covers-section {
+    /* Change these to match your brand */
+    --pc-text: #1f2328;
+    --pc-muted: #6b7075;
+    --pc-badge-bg: #d62828;
+    --pc-badge-text: #ffffff;
+    --pc-details-bg: rgba(211, 211, 211, 0.5);   /* light grey at 50% */
+    --pc-visible: 5;                             /* cards shown at once */
+    --pc-gap: 16px;
+    --pc-radius: 10px;
+
+    padding: 32px 16px;
+    color: var(--pc-text);
+}
+
+
+/* ---------- SECTION HEADER ---------- */
+
+.phone-covers-section .phone-covers-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.phone-covers-section .phone-covers-heading h2 {
+    margin: 0 0 6px;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    line-height: 1.2;
+}
+
+.phone-covers-section .phone-covers-heading p {
+    margin: 0;
+    max-width: 52ch;
+    color: var(--pc-muted);
+    line-height: 1.5;
+}
+
+.phone-covers-section .phone-covers-view-all {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: 1px solid var(--pc-text);
+    border-radius: 999px;
+    color: var(--pc-text);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.phone-covers-section .phone-covers-view-all:hover,
+.phone-covers-section .phone-covers-view-all:focus-visible {
+    background-color: var(--pc-text);
+    color: #ffffff;
+}
+
+
+/* ---------- SCROLL ROW (no carousel) ---------- */
+
+/* Plain scrolling row, no carousel.
+   The arrow buttons are not used; you can delete them from the HTML. */
+.phone-covers-section .phone-covers-prev,
+.phone-covers-section .phone-covers-next {
+    display: none;
+}
+
+.phone-covers-section .phone-covers-track {
+    display: flex;
+    align-items: stretch;            /* all cards share the tallest card's height */
+    gap: var(--pc-gap);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 14px;            /* room for the scrollbar */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #b5b8bc transparent;
+}
+
+.phone-covers-section .phone-covers-track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.phone-covers-section .phone-covers-track::-webkit-scrollbar-thumb {
+    background: #b5b8bc;
+    border-radius: 999px;
+}
+
+.phone-covers-section .phone-covers-track::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* ---------- PRODUCT CARD ---------- */
+
+.phone-covers-section .phone-cover-card {
+    /* Exactly --pc-visible cards fit across the row */
+    flex: 0 0 calc((100% - (var(--pc-visible) - 1) * var(--pc-gap)) / var(--pc-visible));
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--pc-radius);
+    overflow: hidden;
+    background: transparent;
+}
+
+.phone-covers-section .phone-cover-card .product-details-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ---------- IMAGE AREA ---------- */
+
+/* Transparent, so the picture's own background is the only
+   background you see. The image fills the whole area. */
+.phone-covers-section .phone-cover-card .top-selling-image {
+    aspect-ratio: 1 / 1;
+    background: transparent;
+    overflow: hidden;
+}
+
+.phone-covers-section .phone-cover-card .top-selling-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;               /* use "contain" if you never want cropping */
+    background: transparent;
+}
+
+
+/* ---------- DETAILS AREA ---------- */
+
+.phone-covers-section .phone-cover-card .top-selling-details {
+    flex: 1;                         /* fill the rest of the card */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 14px 16px;
+    background: var(--pc-details-bg);
+    text-align: left;
+}
+
+.phone-covers-section .phone-cover-card .top-selling-details h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+
+.phone-covers-section .phone-cover-card .top-selling-details h3 a {
+    color: var(--pc-text);
+    text-decoration: none;
+}
+
+.phone-covers-section .phone-cover-card .top-selling-details h3 a:hover,
+.phone-covers-section .phone-cover-card .top-selling-details h3 a:focus-visible {
+    text-decoration: underline;
+}
+
+.phone-covers-section .phone-cover-card .top-selling-details > p {
+    margin: 0 0 14px;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--pc-muted);
+}
+
+
+/* ---------- PRICES ---------- */
+
+/* Vertical stack, pinned to the bottom-left of the card:
+   original price -> discount badge -> current price */
+.phone-covers-section .phone-cover-card .top-selling-price {
+    margin-top: auto;                /* pushes the prices to the bottom */
+    align-self: flex-start;          /* keeps them on the left */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    text-align: left;
+}
+
+.phone-covers-section .phone-cover-card .top-selling-price del {
+    color: var(--pc-muted);
+    font-size: 0.85rem;
+}
+
+.phone-covers-section .phone-cover-card .discount-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--pc-badge-bg);
+    color: var(--pc-badge-text);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.phone-covers-section .phone-cover-card .top-selling-price strong {
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+
+/* ---------- KEYBOARD FOCUS ---------- */
+
+.phone-covers-section a:focus-visible {
+    outline: 2px solid var(--pc-text);
+    outline-offset: 2px;
+}
+
+
+/* ---------- SMALL SCREENS ---------- */
+
+/* 5 cards on desktop; fewer on narrower screens so they stay readable */
+@media (max-width: 1100px) {
+    .phone-covers-section {
+        --pc-visible: 4;
+    }
+}
+
+@media (max-width: 800px) {
+    .phone-covers-section {
+        --pc-visible: 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .phone-covers-section {
+        --pc-visible: 2;
+        padding: 24px 12px;
+    }
+
+    .phone-covers-section .phone-covers-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}

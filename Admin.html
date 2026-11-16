@@ -1,0 +1,1000 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AM Electronics and Accessories administration portal.">
+
+    <meta name="theme-color" content="#F5F5F5">
+
+    <title>Admin Portal | AM Electronics</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     ADMIN HEADER
+===================================================== -->
+
+<header class="admin-header">
+
+    <div>
+        <h1>AM Electronics</h1>
+        <p>Admin Management Portal</p>
+    </div>
+
+    <span id="connectionStatus" class="connection-status">
+        Not signed in
+    </span>
+
+</header>
+
+
+<!-- =====================================================
+     ADMIN LOGIN
+===================================================== -->
+
+<section id="adminLogin" class="login-wrapper">
+
+    <div class="panel login-panel">
+
+        <h2>Admin Login</h2>
+
+        <p>Sign in to manage your store.</p>
+
+        <form id="adminLoginForm">
+
+            <label for="adminPassword">
+                Admin password
+            </label>
+
+            <input
+                id="adminPassword"
+                type="password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button
+                id="loginButton"
+                class="btn primary"
+                type="submit"
+            >
+                Sign In
+            </button>
+
+            <div
+                id="loginMessage"
+                class="message"
+                role="alert"
+            ></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ADMIN APPLICATION
+===================================================== -->
+
+<main id="adminApp" class="container" hidden>
+
+
+    <!-- =================================================
+         DASHBOARD WELCOME
+    ================================================== -->
+
+    <section class="welcome-row">
+
+        <div>
+            <h2>Dashboard</h2>
+
+            <p>
+                Manage products, customer orders and website images.
+            </p>
+        </div>
+
+        <button
+            id="logoutButton"
+            class="btn secondary"
+            type="button"
+        >
+            Sign Out
+        </button>
+
+    </section>
+
+
+    <!-- =================================================
+         ADMIN NAVIGATION
+    ================================================== -->
+
+    <nav class="admin-tabs" aria-label="Admin sections">
+
+        <button
+            class="tab-button active"
+            data-panel="ordersPanel"
+            type="button"
+        >
+            Orders
+        </button>
+
+        <button
+            class="tab-button"
+            data-panel="productsPanel"
+            type="button"
+        >
+            Products
+        </button>
+
+        <button
+            class="tab-button"
+            data-panel="uploadPanel"
+            type="button"
+        >
+            Upload Products
+        </button>
+
+        <button
+            class="tab-button"
+            data-panel="assetsPanel"
+            type="button"
+        >
+            Website Images
+        </button>
+
+    </nav>
+
+
+    <!-- =================================================
+         CUSTOMER ORDERS
+    ================================================== -->
+
+    <section
+        id="ordersPanel"
+        class="panel admin-panel"
+    >
+
+        <div class="panel-heading">
+
+            <div>
+                <h2>Customer Orders</h2>
+
+                <p>
+                    Review orders and update their status.
+                </p>
+            </div>
+
+            <button
+                id="refreshOrders"
+                class="btn secondary"
+                type="button"
+            >
+                Refresh Orders
+            </button>
+
+        </div>
+
+        <div
+            id="ordersList"
+            class="orders-list"
+        >
+
+            <p class="empty-state">
+                Sign in to load orders.
+            </p>
+
+        </div>
+
+        <div
+            id="ordersMessage"
+            class="message"
+        ></div>
+
+    </section>
+
+
+    <!-- =================================================
+         PRODUCT MANAGEMENT
+    ================================================== -->
+
+    <section
+        id="productsPanel"
+        class="panel admin-panel"
+        hidden
+    >
+
+        <div class="panel-heading">
+
+            <div>
+                <h2>Manage Products</h2>
+
+                <p>
+                    View and remove products currently in your catalogue.
+                </p>
+            </div>
+
+            <button
+                id="refreshProducts"
+                class="btn secondary"
+                type="button"
+            >
+                Refresh Products
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT FILTERS -->
+
+        <div class="filter-row">
+
+            <!-- PRODUCT DESTINATION FILTER -->
+
+            <select
+                id="productScopeFilter"
+                aria-label="Filter product destination"
+            >
+
+                <option value="all">
+                    All products
+                </option>
+
+                <option value="homepage">
+                    Homepage products
+                </option>
+
+                <option value="shop">
+                    Shop-only products
+                </option>
+
+            </select>
+
+
+            <!-- CATEGORY AND PLACEMENT FILTER -->
+
+            <select
+                id="productCategoryFilter"
+                aria-label="Filter product category or homepage placement"
+            >
+
+                <option value="all">
+                    All categories and sections
+                </option>
+
+
+                <!-- ACTUAL PRODUCT CATEGORIES -->
+
+                <optgroup label="Product Categories">
+
+                    <option value="covers">
+                        Phone Covers
+                    </option>
+
+                    <option value="screen-protectors">
+                        Screen Protectors
+                    </option>
+
+                    <option value="headphones-earpods">
+                        Headphones & Earpods
+                    </option>
+
+                    <option value="smartwatches">
+                        Smartwatches
+                    </option>
+
+                    <option value="chargers-cables">
+                        Chargers & Cables
+                    </option>
+
+                    <option value="power-banks">
+                        Power Banks
+                    </option>
+
+                    <option value="gaming-accessories">
+                        Gaming Accessories
+                    </option>
+
+                    <option value="photography-lighting">
+                        Photography & Lighting
+                    </option>
+
+                    <option value="audio-sound">
+                        Audio & Sound
+                    </option>
+
+                    <option value="storage-memory">
+                        Storage & Memory
+                    </option>
+
+                    <option value="computer-accessories">
+                        Computer Accessories
+                    </option>
+
+                </optgroup>
+
+
+                <!-- HOMEPAGE PLACEMENTS -->
+
+                <optgroup label="Homepage Placements">
+
+                    <option value="top-selling">
+                        Top Selling
+                    </option>
+
+                    <option value="covers">
+                        Phone Covers Section
+                    </option>
+
+                    <option value="new-arrivals">
+                        New Arrivals
+                    </option>
+
+                    <option value="screen-protectors">
+                        Screen Protectors Section
+                    </option>
+
+                    <option value="headphones-earpods">
+                        Headphones & Earpods Section
+                    </option>
+
+                    <option value="smartwatches">
+                        Smartwatches Section
+                    </option>
+
+                    <option value="chargers-cables">
+                        Chargers & Cables Section
+                    </option>
+
+                </optgroup>
+
+            </select>
+
+        </div>
+
+
+        <!-- PRODUCT LIST -->
+
+        <div
+            id="productsList"
+            class="products-list"
+        >
+
+            <p class="empty-state">
+                Loading products...
+            </p>
+
+        </div>
+
+        <div
+            id="productsMessage"
+            class="message"
+        ></div>
+
+    </section>
+
+
+    <!-- =================================================
+         PRODUCT UPLOAD
+    ================================================== -->
+
+    <section
+        id="uploadPanel"
+        class="panel admin-panel"
+        hidden
+    >
+
+        <div class="panel-heading">
+
+            <div>
+                <h2>Upload Product</h2>
+
+                <p>
+                    Add a product to your Shop catalogue and optionally
+                    feature it on homepage sections.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- UPLOAD INFORMATION -->
+
+        <div class="notice">
+
+            Every product must have an actual product category.
+
+            Homepage placements are optional and can be multiple.
+
+            Each homepage placement has a maximum of 10 products.
+
+            The general Shop catalogue has no fixed product limit.
+
+        </div>
+
+
+        <form id="productForm">
+
+            <div class="form-grid">
+
+
+                <!-- =====================================
+                     ACTUAL PRODUCT CATEGORY
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label for="productCategory">
+                        Product category *
+                    </label>
+
+                    <select
+                        id="productCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select product category
+                        </option>
+
+                        <option value="covers">
+                            Phone Covers
+                        </option>
+
+                        <option value="screen-protectors">
+                            Screen Protectors
+                        </option>
+
+                        <option value="headphones-earpods">
+                            Headphones & Earpods
+                        </option>
+
+                        <option value="smartwatches">
+                            Smartwatches
+                        </option>
+
+                        <option value="chargers-cables">
+                            Chargers & Cables
+                        </option>
+
+                        <option value="power-banks">
+                            Power Banks
+                        </option>
+
+                        <option value="gaming-accessories">
+                            Gaming Accessories
+                        </option>
+
+                        <option value="photography-lighting">
+                            Photography & Lighting
+                        </option>
+
+                        <option value="audio-sound">
+                            Audio & Sound
+                        </option>
+
+                        <option value="storage-memory">
+                            Storage & Memory
+                        </option>
+
+                        <option value="computer-accessories">
+                            Computer Accessories
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =====================================
+                     OPTIONAL HOMEPAGE PLACEMENTS
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label>
+                        Homepage placements (optional)
+                    </label>
+
+                    <small>
+                        Select one or more homepage sections where this
+                        product should appear. Leave all unchecked if
+                        the product should appear only in the Shop.
+                    </small>
+
+
+                    <div class="homepage-placement-options">
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="homepage-placement-checkbox"
+                                value="top-selling"
+                            >
+
+                            Top Selling
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="homepage-placement-checkbox"
+                                value="covers"
+                            >
+
+                            Phone Covers
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="homepage-placement-checkbox"
+                                value="new-arrivals"
+                            >
+
+                            New Arrivals
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="homepage-placement-checkbox"
+                                value="screen-protectors"
+                            >
+
+                            Screen Protectors
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="homepage-placement-checkbox"
+                                value="headphones-earpods"
+                            >
+
+                            Headphones & Earpods
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="homepage-placement-checkbox"
+                                value="smartwatches"
+                            >
+
+                            Smartwatches
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="homepage-placement-checkbox"
+                                value="chargers-cables"
+                            >
+
+                            Chargers & Cables
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT NAME
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label for="productTitle">
+                        Product name *
+                    </label>
+
+                    <input
+                        id="productTitle"
+                        type="text"
+                        maxlength="150"
+                        placeholder="Enter product name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT PRICES
+                ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="originalPrice">
+                        Original price (KES) *
+                    </label>
+
+                    <input
+                        id="originalPrice"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="sellingPrice">
+                        Selling price (KES) *
+                    </label>
+
+                    <input
+                        id="sellingPrice"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT IMAGE
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label for="productImageFile">
+                        Product image
+                    </label>
+
+                    <input
+                        id="productImageFile"
+                        type="file"
+                        accept="image/*"
+                    >
+
+                    <small>
+                        Choose an image file or enter an existing
+                        image path below.
+                    </small>
+
+                    <input
+                        id="productImagePath"
+                        type="text"
+                        placeholder="e.g. images.html/product.jpg"
+                    >
+
+                </div>
+
+
+                <!-- =====================================
+                     STOCK STATUS
+                ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="stockStatus">
+                        Stock status
+                    </label>
+
+                    <select id="stockStatus">
+
+                        <option value="true">
+                            In stock
+                        </option>
+
+                        <option value="false">
+                            Out of stock
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT BRAND
+                ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="productBrand">
+                        Brand (optional)
+                    </label>
+
+                    <input
+                        id="productBrand"
+                        type="text"
+                        maxlength="100"
+                    >
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT DESCRIPTION
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label for="productDescription">
+                        Product description (optional)
+                    </label>
+
+                    <textarea
+                        id="productDescription"
+                        maxlength="5000"
+                        placeholder="Add a description if available. This field is optional."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT MODEL
+                ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="productModel">
+                        Model (optional)
+                    </label>
+
+                    <input
+                        id="productModel"
+                        type="text"
+                        maxlength="100"
+                    >
+
+                </div>
+
+
+                <!-- =====================================
+                     AVAILABLE COLOURS
+                ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="productColors">
+                        Available colours
+                    </label>
+
+                    <input
+                        id="productColors"
+                        type="text"
+                        placeholder="Black, Blue, White"
+                    >
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT FEATURES
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label for="productFeatures">
+                        Key features (one per line)
+                    </label>
+
+                    <textarea
+                        id="productFeatures"
+                        maxlength="2000"
+                        placeholder="Fast charging&#10;Bluetooth connectivity"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT SPECIFICATIONS
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label for="productSpecifications">
+                        Specifications (one per line)
+                    </label>
+
+                    <textarea
+                        id="productSpecifications"
+                        maxlength="3000"
+                        placeholder="Battery capacity: ...&#10;Connectivity: ..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT WARRANTY
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label for="productWarranty">
+                        Warranty information (optional)
+                    </label>
+
+                    <input
+                        id="productWarranty"
+                        type="text"
+                        maxlength="300"
+                    >
+
+                </div>
+
+
+                <!-- =====================================
+                     PRODUCT DETAILS VERIFICATION
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label class="checkbox-label">
+
+                        <input
+                            id="detailsVerified"
+                            type="checkbox"
+                        >
+
+                        I have checked the product details for accuracy.
+
+                    </label>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================================
+                 FORM ACTIONS
+            ========================================== -->
+
+            <div class="form-actions">
+
+                <button
+                    id="uploadProductButton"
+                    class="btn primary"
+                    type="submit"
+                >
+                    Upload Product
+                </button>
+
+
+                <button
+                    class="btn secondary"
+                    type="reset"
+                >
+                    Clear Form
+                </button>
+
+            </div>
+
+
+            <!-- UPLOAD MESSAGE -->
+
+            <div
+                id="uploadMessage"
+                class="message"
+                role="status"
+            ></div>
+
+        </form>
+
+    </section>
+
+
+    <!-- =================================================
+         WEBSITE IMAGE MANAGEMENT
+    ================================================== -->
+
+    <section
+        id="assetsPanel"
+        class="panel admin-panel"
+        hidden
+    >
+
+        <div class="panel-heading">
+
+            <div>
+                <h2>Website Image Management</h2>
+
+                <p>
+                    Replace the website logo, hero slides and
+                    circular category images.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="notice">
+
+            Images are currently saved in this browser using IndexedDB.
+
+            This is temporary browser-local storage, not permanent
+            website hosting.
+
+            Homepage integration and backend image storage are still
+            required before visitors on other devices can see replacements.
+
+        </div>
+
+
+        <div
+            id="assetManager"
+            class="asset-manager"
+        ></div>
+
+
+        <div
+            id="assetsMessage"
+            class="message"
+            role="status"
+        ></div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     ADMIN FOOTER
+===================================================== -->
+
+<footer class="admin-footer">
+
+    &copy; 2026 AM Electronics and Accessories. All Rights Reserved.
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="api-config.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
+
+
+
+
