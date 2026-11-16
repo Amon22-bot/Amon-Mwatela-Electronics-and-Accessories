@@ -2491,12 +2491,12 @@ button {
 
     .top-selling-card {
         flex-basis: calc((100% - 8px) / 2);
-        height: 350px;
+        height: 270px;
     }
 
     .top-selling-image {
-        height: 205px;
-        flex-basis: 205px;
+        height: 180px;
+        flex-basis: 180px;
     }
 
     .top-selling-image img {
@@ -2508,8 +2508,8 @@ button {
     }
 
     .top-selling-details {
-        height: 145px;
-        flex-basis: 145px;
+        height: 90px;
+        flex-basis: 90px;
 
         padding: 9px 9px 6px;
     }
