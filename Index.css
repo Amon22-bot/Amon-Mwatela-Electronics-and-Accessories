@@ -1773,7 +1773,7 @@ button {
 .category-circles-track {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 15px;
+    gap: 5px;
     margin-top: 20px;
     width: 100%;
     align-items: start;
@@ -1806,7 +1806,7 @@ button {
     max-width: 175px;
     aspect-ratio: 1 / 1;
 
-    border: 1px solid #e8e8e8;
+    border: none;
     border-radius: 50%;
 
     overflow: hidden;
