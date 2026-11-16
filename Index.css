@@ -2090,14 +2090,14 @@ button {
     flex: 0 0 calc((100% - 40px) / 5);
 
     min-width: 0;
-    height: 350px;
+    height: 270px;
 
     display: flex;
     flex-direction: column;
 
     background: #ffffff;
 
-    border: 1px solid #e5e5e5;
+    border: none;
     border-radius: 8px;
 
     overflow: hidden;
@@ -2125,7 +2125,7 @@ button {
     position: relative;
 
     width: 100%;
-    height: 210px;
+    height: 180px;
 
     flex: 0 0 210px;
 
@@ -2167,7 +2167,7 @@ button {
 
 .top-selling-details {
     width: 100%;
-    height: 140px;
+    height: 90px;
 
     flex: 0 0 140px;
 
