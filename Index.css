@@ -2087,7 +2087,7 @@ button {
    ========================================================= */
 
 .top-selling-card {
-    flex: 0 0 calc((100% - 30px) / 6);
+    flex: 0 0 calc((100% - 20px) / 6);
 
     min-width: 0;
     height: 320px;
