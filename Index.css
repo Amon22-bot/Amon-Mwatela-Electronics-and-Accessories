@@ -3423,7 +3423,7 @@ button {
 
     background: #b81104;
 
-    padding: 10px 12px 12px;
+    padding: 10px 0px 12px 12px;
 
     border-radius: 18px;
 
@@ -3483,6 +3483,7 @@ button {
     justify-content: center;
 
     gap: 6px;
+    margin-right: 20px;
 
     padding: 4px 0;
 
