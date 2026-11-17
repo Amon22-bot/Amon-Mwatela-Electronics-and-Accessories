@@ -1975,7 +1975,7 @@ button {
 
     width: 100%;
 
-    padding: 10px 12px 12px;
+    padding: 10px 0 12px 12px;
 
     background: #ffb800;
 
@@ -2020,6 +2020,7 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    margin-right: 20px;
 
     padding: 5px 0;
 
