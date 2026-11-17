@@ -6172,7 +6172,7 @@ button {
 
     border-radius: 18px;
 
-    padding: 10px 12px 12px;
+    padding: 10px 0px 12px 12px;
 
     overflow: hidden;
 }
@@ -6228,6 +6228,7 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-right: 20px;
 
     gap: 6px;
 
@@ -6988,7 +6989,7 @@ button {
 
     border-radius: 18px;
 
-    padding: 10px 12px 12px;
+    padding: 10px 0px 12px 12px;
 
     overflow: hidden;
 }
@@ -7044,6 +7045,7 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-right: 20px;
 
     gap: 6px;
 
@@ -7819,7 +7821,7 @@ button {
 
     width: 100%;
 
-    padding: 10px 12px 12px;
+    padding: 10px 0px 12px 12px;
 
     background: #ddecff;
 
@@ -7870,6 +7872,7 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-right: 20px;
 
     gap: 6px;
 
