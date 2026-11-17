@@ -2087,7 +2087,7 @@ button {
    ========================================================= */
 
 .top-selling-card {
-    flex: 0 0 calc((100% - 20px) / 6);
+    flex: 0 0 calc((100% - 40px) / 6);
 
     min-width: 0;
     height: 320px;
@@ -2766,7 +2766,7 @@ button {
 .phone-cover-card {
     position: relative;
 
-    flex: 0 0 calc((100% - 40px) / 5);
+    flex: 0 0 calc((100% - 40px) / 6);
 
     width: auto;
     min-width: 0;
