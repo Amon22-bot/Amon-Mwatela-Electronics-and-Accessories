@@ -20,6 +20,13 @@ const ADMIN_TOKEN_KEY = "ameAdminSession";
 let adminToken = sessionStorage.getItem(ADMIN_TOKEN_KEY) || "";
 let cachedProducts = [];
 
+/* IMPORTANT:
+   Declare preview URLs here, before showLogin()
+   or any other function can use them.
+*/
+
+const adminPreviewUrls = new Set();
+
 const $ = selector => document.querySelector(selector);
 
 const loginSection = $("#adminLogin");
@@ -152,6 +159,7 @@ function showAdmin() {
 
 function showLogin(message = "") {
     adminToken = "";
+
     clearAdminPreviewUrls();
 
     sessionStorage.removeItem(ADMIN_TOKEN_KEY);
@@ -218,9 +226,14 @@ if (loginForm) {
             }
 
             adminToken = token;
-            sessionStorage.setItem(ADMIN_TOKEN_KEY, adminToken);
+
+            sessionStorage.setItem(
+                ADMIN_TOKEN_KEY,
+                adminToken
+            );
 
             loginForm.reset();
+
             showAdmin();
 
         } catch (error) {
@@ -251,14 +264,6 @@ $("#logoutButton")?.addEventListener("click", async () => {
 
     showLogin();
 });
-
-/* Restore an existing admin session */
-
-if (adminToken) {
-    showAdmin();
-} else {
-    showLogin();
-}
 
 /* =========================================
    ADMIN NAVIGATION TABS
@@ -1080,8 +1085,6 @@ const ASSET_GROUPS = [
    TEMPORARY ADMIN IMAGE PREVIEW URLS
 ========================================= */
 
-const adminPreviewUrls = new Set();
-
 function clearAdminPreviewUrls() {
     adminPreviewUrls.forEach(url => {
         URL.revokeObjectURL(url);
@@ -1557,5 +1560,16 @@ async function loadWebsiteAssets() {
             "error"
         );
     }
+}
+
+/* =========================================
+   RESTORE EXISTING ADMIN SESSION
+   KEEP THIS AT THE END OF THE FILE
+========================================= */
+
+if (adminToken) {
+    showAdmin();
+} else {
+    showLogin();
 }
 
