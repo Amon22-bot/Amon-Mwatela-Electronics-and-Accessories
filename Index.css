@@ -470,353 +470,508 @@ button {
 
 
 
+/* =========================================================
+   3. FIXED NAVIGATION BAR
+   ========================================================= */
+
+.site-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 78px;
+
+    background: #000000;
+
+    z-index: 1000;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.navbar-container {
+    width: 94%;
+    max-width: 1500px;
+    height: 78px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   4. NAVBAR LOGO
+   ========================================================= */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.navbar-logo img {
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    display: block;
+
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   5. NAVBAR SEARCH BAR
+   ========================================================= */
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 500px;
+    height: 44px;
+
+    background: #ffffff;
+
+    border: 1px solid #f47721;
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Search focus effect */
+
+.navbar-search:focus-within {
+    border-color: none;
+
+    box-shadow: none;
+}
+
+
+/* Search input */
+
+.navbar-search input {
+    flex: 1;
+
+    width: 100%;
+    min-width: 0;
+    height: 100% !important;
+
+    margin: 0;
+    padding: 0 16px;
+
+    border: none;
+    outline: none;
+
+    background: #ffffff;
+    color: #000000;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+
+/* Search placeholder */
+
+.navbar-search input::placeholder {
+    color: #666666;
+    opacity: 1;
+}
+
+
+/* =========================================================
+   6. STYLISH ORANGE SEARCH BUTTON
+   ========================================================= */
+
+.navbar-search button {
+    flex-shrink: 0;
+
+    height: 100%;
+
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 0 25px 25px 0;
+
+    background: linear-gradient(
+        135deg,
+        #000000,
+        #0c0908
+    );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    box-shadow: -2px 0 8px rgba(244, 119, 33, 0.15);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Search button hover */
+
+.navbar-search button:hover {
+    background: linear-gradient(
+        135deg,
+        #24201e
+    );
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Search button click */
+
+.navbar-search button:active {
+    transform: scale(0.96);
+}
+
+
+/* Keyboard accessibility */
+
+.navbar-search button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: -4px;
+}
+
+
+/* =========================================================
+   7. NAVIGATION MENU
+   ========================================================= */
+
+.navbar-menu {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+}
+
+.navbar-menu a {
+    position: relative;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    padding: 8px 0;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color 0.25s ease;
+}
+
+
+/* Orange underline animation */
+
+.navbar-menu a:not(.navbar-cart)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #ffffff;
+
+    border-radius: 3px;
+
+    transition: width 0.25s ease;
+}
+
+
+/* Navigation hover */
+
+.navbar-menu a:not(.navbar-cart):hover {
+    color: #ffffff;
+}
+
+.navbar-menu a:not(.navbar-cart):hover::after {
+    width: 100%;
+}
+
+
+/* Active navigation link */
+
+.navbar-menu a.active {
+    color: #ffffff;
+}
+
+.navbar-menu a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   8. SHOPPING CART
+   ========================================================= */
+
+.navbar-cart {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 13px !important;
+
+    background: transparent;
+    color: #ffffff !important;
+
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Remove navigation underline from cart */
+
+.navbar-cart::after {
+    display: none !important;
+}
+
+
+/* Cart hover */
+
+.navbar-cart:hover {
+    background: #f47721;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+/* Cart icon */
+
+.cart-icon {
+    font-size: 17px;
+    line-height: 1;
+}
+
+
+/* Cart item counter */
+
+.cart-count {
+    min-width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    background: #f47721;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   9. MOBILE MENU BUTTON
+   ========================================================= */
+
+.mobile-menu-button {
+    display: none;
+
+    padding: 9px 12px;
+
+    background: transparent;
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 6px;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* Mobile button hover */
+
+.mobile-menu-button:hover {
+    background: #f47721;
+    border-color: #f47721;
+}
+
+
+/* Keyboard accessibility */
+
+.mobile-menu-button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
 
 /* =========================================================
    10. TABLET RESPONSIVENESS
    ========================================================= */
 
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-
-    /* Main navigation */
-
-    .site-navbar {
-        height: auto;
-    }
+@media screen and (max-width: 1100px) {
 
     .navbar-container {
-        width: 96%;
-        height: auto;
-
-        margin: 0 auto;
-        padding: 10px 0 12px;
-
-        display: flex;
-        flex-wrap: wrap;
-
-        align-items: center;
-
-        column-gap: 10px;
-        row-gap: 12px;
-
-        box-sizing: border-box;
+        gap: 14px;
     }
 
-
-    /* Company logo */
-
-    .navbar-logo {
-        order: 1;
-        flex-shrink: 0;
+    .navbar-search {
+        max-width: 320px;
     }
-
-    .navbar-logo img {
-        width: 52px;
-        height: 52px;
-    }
-
-
-    /* Navigation links */
 
     .navbar-menu {
-        order: 2;
-
-        display: flex !important;
-
-        position: static;
-
-        width: auto;
-
-        margin-left: auto;
-        padding: 0;
-
-        flex-direction: row;
-        align-items: center;
-
-        gap: clamp(7px, 1.5vw, 18px);
-
-        background: transparent;
-
-        box-shadow: none;
+        gap: 16px;
     }
 
     .navbar-menu a {
-        width: auto;
-
-        padding: 8px 0;
-
-        font-size: clamp(11px, 1.3vw, 13px);
-        font-weight: 600;
-
-        white-space: nowrap;
+        font-size: 13px;
     }
-
-
-    /* Navigation underline */
-
-    .navbar-menu a:not(.navbar-cart)::after {
-        bottom: 0;
-    }
-
-
-    /* Shopping cart */
-
-    .navbar-cart {
-        width: auto !important;
-
-        margin: 0 !important;
-
-        padding: 8px 10px !important;
-
-        gap: 6px;
-    }
-
-    .cart-icon {
-        font-size: 16px;
-    }
-
-
-    /* Hide mobile menu button */
-
-    .mobile-menu-button {
-        display: none !important;
-    }
-
-
-    /* Search bar - 50% of screen width */
-
-    .navbar-search {
-        order: 3;
-
-        flex: 0 0 50vw !important;
-
-        width: 50vw;
-        max-width: 50vw;
-
-        height: 45px;
-
-        margin: 0;
-
-        border-radius: 30px;
-
-        box-sizing: border-box;
-    }
-
-    .navbar-search input {
-        padding: 0 16px;
-
-        font-size: 14px;
-    }
-
-    .navbar-search button {
-        padding: 0 20px;
-    }
-
 }
 
 
 /* =========================================================
-   11. MOBILE RESPONSIVENESS
+   11. MOBILE NAVIGATION
+   ========================================================= */
+
+@media screen and (max-width: 850px) {
+
+    .navbar-container {
+        width: 96%;
+        gap: 12px;
+    }
+
+    .navbar-logo img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .navbar-search {
+        flex: 1;
+        max-width: 400px;
+    }
+
+    .mobile-menu-button {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .navbar-menu {
+        display: none;
+
+        position: absolute;
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 15px 20px 20px;
+
+        box-sizing: border-box;
+
+        background: #000000;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+
+    /* JavaScript adds this class when the menu opens */
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu > a {
+        width: 100%;
+
+        padding: 12px 5px;
+
+        box-sizing: border-box;
+    }
+
+    .navbar-menu > a:not(.navbar-cart)::after {
+        bottom: 4px;
+    }
+
+    .navbar-menu .navbar-cart {
+        width: fit-content;
+        margin-top: 8px;
+    }
+}
+
+
+/* =========================================================
+   12. SMALL MOBILE SCREENS
    ========================================================= */
 
 @media screen and (max-width: 480px) {
 
-    /* Main navigation */
-
-    .site-navbar {
-        height: auto;
-    }
-
     .navbar-container {
-        width: 96%;
-        height: auto;
-
-        margin: 0 auto;
-
-        padding: 9px 0 11px;
-
-        display: flex;
-        flex-wrap: wrap;
-
-        align-items: center;
-
-        column-gap: 6px;
-        row-gap: 10px;
-
-        box-sizing: border-box;
-    }
-
-
-    /* Company logo - LEFT */
-
-    .navbar-logo {
-        order: 1;
-
-        flex-shrink: 0;
-    }
-
-    .navbar-logo img {
-        width: 40px;
-        height: 40px;
-    }
-
-
-    /* Navigation links - RIGHT */
-
-    .navbar-menu {
-        order: 2;
-
-        display: flex !important;
-
-        position: static;
-
-        width: auto;
-
-        margin-left: auto;
-        padding: 0;
-
-        flex-direction: row;
-        align-items: center;
-
-        gap: clamp(5px, 2vw, 10px);
-
-        background: transparent;
-
-        box-shadow: none;
-    }
-
-
-    /* Navigation link styling */
-
-    .navbar-menu a {
-        width: auto;
-
-        padding: 7px 0;
-
-        font-size: clamp(10px, 2.7vw, 12px);
-        font-weight: 600;
-
-        white-space: nowrap;
-    }
-
-
-    /* Navigation underline */
-
-    .navbar-menu a:not(.navbar-cart)::after {
-        bottom: 0;
-        height: 2px;
-    }
-
-
-    /* Shopping cart */
-
-    .navbar-cart {
-        width: auto !important;
-
-        margin: 0 !important;
-
-        padding: 6px 7px !important;
-
-        gap: 4px;
-    }
-
-    .cart-icon {
-        font-size: 14px;
-    }
-
-
-    /* Cart counter */
-
-    .cart-count {
-        min-width: 17px;
-        height: 17px;
-
-        padding: 0 4px;
-
-        font-size: 10px;
-    }
-
-
-    /* Hide hamburger button */
-
-    .mobile-menu-button {
-        display: none !important;
-    }
-
-
-    /* Search bar - FULL WIDTH */
-
-    .navbar-search {
-        order: 3;
-
-        flex: 0 0 100% !important;
-
         width: 100%;
-        max-width: 100%;
 
-        height: 42px;
+        padding: 0 10px;
 
-        margin: 0;
-
-        border-radius: 30px;
-
-        box-sizing: border-box;
+        gap: 9px;
     }
-
-    .navbar-search input {
-        padding: 0 12px;
-
-        font-size: 13px;
-    }
-
-    .navbar-search button {
-        padding: 0 13px;
-
-        font-size: 12px;
-    }
-
-}
-
-
-/* =========================================================
-   12. EXTRA SMALL MOBILE SCREENS
-   ========================================================= */
-
-@media screen and (max-width: 360px) {
-
-    /* Logo */
 
     .navbar-logo img {
-        width: 35px;
-        height: 35px;
+        width: 45px;
+        height: 45px;
     }
-
-
-    /* Navigation spacing */
-
-    .navbar-menu {
-        gap: 5px;
-    }
-
-    .navbar-menu a {
-        font-size: 10px;
-    }
-
-
-    /* Cart */
-
-    .navbar-cart {
-        padding: 5px !important;
-    }
-
-    .cart-icon {
-        font-size: 13px;
-    }
-
-
-    /* Search */
 
     .navbar-search {
-        height: 40px;
+        height: 38px;
     }
 
     .navbar-search input {
@@ -828,11 +983,16 @@ button {
     .navbar-search button {
         padding: 0 10px;
 
-        font-size: 11px;
+        font-size: 12px;
+        letter-spacing: 0;
     }
 
-}
+    .mobile-menu-button {
+        padding: 7px 9px;
 
+        font-size: 20px;
+    }
+}
 
 
 
