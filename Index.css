@@ -469,127 +469,354 @@ button {
 }
 
 
+
+
 /* =========================================================
    10. TABLET RESPONSIVENESS
    ========================================================= */
 
-@media screen and (max-width: 1100px) {
+@media screen and (min-width: 481px) and (max-width: 1024px) {
 
-    .navbar-container {
-        gap: 14px;
+    /* Main navigation */
+
+    .site-navbar {
+        height: auto;
     }
-
-    .navbar-search {
-        max-width: 320px;
-    }
-
-    .navbar-menu {
-        gap: 16px;
-    }
-
-    .navbar-menu a {
-        font-size: 13px;
-    }
-}
-
-
-/* =========================================================
-   11. MOBILE NAVIGATION
-   ========================================================= */
-
-@media screen and (max-width: 850px) {
 
     .navbar-container {
         width: 96%;
-        gap: 12px;
+        height: auto;
+
+        margin: 0 auto;
+        padding: 10px 0 12px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        column-gap: 10px;
+        row-gap: 12px;
+
+        box-sizing: border-box;
     }
 
-    .navbar-logo img {
-        width: 55px;
-        height: 55px;
-    }
 
-    .navbar-search {
-        flex: 1;
-        max-width: 400px;
-    }
+    /* Company logo */
 
-    .mobile-menu-button {
-        display: block;
+    .navbar-logo {
+        order: 1;
         flex-shrink: 0;
     }
 
+    .navbar-logo img {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    /* Navigation links */
+
     .navbar-menu {
-        display: none;
+        order: 2;
 
-        position: absolute;
-        top: 78px;
-        left: 0;
+        display: flex !important;
 
-        width: 100%;
+        position: static;
+
+        width: auto;
+
+        margin-left: auto;
+        padding: 0;
+
+        flex-direction: row;
+        align-items: center;
+
+        gap: clamp(7px, 1.5vw, 18px);
+
+        background: transparent;
+
+        box-shadow: none;
+    }
+
+    .navbar-menu a {
+        width: auto;
+
+        padding: 8px 0;
+
+        font-size: clamp(11px, 1.3vw, 13px);
+        font-weight: 600;
+
+        white-space: nowrap;
+    }
+
+
+    /* Navigation underline */
+
+    .navbar-menu a:not(.navbar-cart)::after {
+        bottom: 0;
+    }
+
+
+    /* Shopping cart */
+
+    .navbar-cart {
+        width: auto !important;
+
+        margin: 0 !important;
+
+        padding: 8px 10px !important;
+
+        gap: 6px;
+    }
+
+    .cart-icon {
+        font-size: 16px;
+    }
+
+
+    /* Hide mobile menu button */
+
+    .mobile-menu-button {
+        display: none !important;
+    }
+
+
+    /* Search bar - 50% of screen width */
+
+    .navbar-search {
+        order: 3;
+
+        flex: 0 0 50vw !important;
+
+        width: 50vw;
+        max-width: 50vw;
+
+        height: 45px;
 
         margin: 0;
-        padding: 15px 20px 20px;
 
-        box-sizing: border-box;
-
-        background: #000000;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 5px;
-
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    }
-
-
-    /* JavaScript adds this class when the menu opens */
-
-    .navbar-menu.active {
-        display: flex;
-    }
-
-    .navbar-menu > a {
-        width: 100%;
-
-        padding: 12px 5px;
+        border-radius: 30px;
 
         box-sizing: border-box;
     }
 
-    .navbar-menu > a:not(.navbar-cart)::after {
-        bottom: 4px;
+    .navbar-search input {
+        padding: 0 16px;
+
+        font-size: 14px;
     }
 
-    .navbar-menu .navbar-cart {
-        width: fit-content;
-        margin-top: 8px;
+    .navbar-search button {
+        padding: 0 20px;
     }
+
 }
 
 
 /* =========================================================
-   12. SMALL MOBILE SCREENS
+   11. MOBILE RESPONSIVENESS
    ========================================================= */
 
 @media screen and (max-width: 480px) {
 
+    /* Main navigation */
+
+    .site-navbar {
+        height: auto;
+    }
+
     .navbar-container {
-        width: 100%;
+        width: 96%;
+        height: auto;
 
-        padding: 0 10px;
+        margin: 0 auto;
 
-        gap: 9px;
+        padding: 9px 0 11px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        column-gap: 6px;
+        row-gap: 10px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* Company logo - LEFT */
+
+    .navbar-logo {
+        order: 1;
+
+        flex-shrink: 0;
     }
 
     .navbar-logo img {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
 
+
+    /* Navigation links - RIGHT */
+
+    .navbar-menu {
+        order: 2;
+
+        display: flex !important;
+
+        position: static;
+
+        width: auto;
+
+        margin-left: auto;
+        padding: 0;
+
+        flex-direction: row;
+        align-items: center;
+
+        gap: clamp(5px, 2vw, 10px);
+
+        background: transparent;
+
+        box-shadow: none;
+    }
+
+
+    /* Navigation link styling */
+
+    .navbar-menu a {
+        width: auto;
+
+        padding: 7px 0;
+
+        font-size: clamp(10px, 2.7vw, 12px);
+        font-weight: 600;
+
+        white-space: nowrap;
+    }
+
+
+    /* Navigation underline */
+
+    .navbar-menu a:not(.navbar-cart)::after {
+        bottom: 0;
+        height: 2px;
+    }
+
+
+    /* Shopping cart */
+
+    .navbar-cart {
+        width: auto !important;
+
+        margin: 0 !important;
+
+        padding: 6px 7px !important;
+
+        gap: 4px;
+    }
+
+    .cart-icon {
+        font-size: 14px;
+    }
+
+
+    /* Cart counter */
+
+    .cart-count {
+        min-width: 17px;
+        height: 17px;
+
+        padding: 0 4px;
+
+        font-size: 10px;
+    }
+
+
+    /* Hide hamburger button */
+
+    .mobile-menu-button {
+        display: none !important;
+    }
+
+
+    /* Search bar - FULL WIDTH */
+
     .navbar-search {
-        height: 38px;
+        order: 3;
+
+        flex: 0 0 100% !important;
+
+        width: 100%;
+        max-width: 100%;
+
+        height: 42px;
+
+        margin: 0;
+
+        border-radius: 30px;
+
+        box-sizing: border-box;
+    }
+
+    .navbar-search input {
+        padding: 0 12px;
+
+        font-size: 13px;
+    }
+
+    .navbar-search button {
+        padding: 0 13px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   12. EXTRA SMALL MOBILE SCREENS
+   ========================================================= */
+
+@media screen and (max-width: 360px) {
+
+    /* Logo */
+
+    .navbar-logo img {
+        width: 35px;
+        height: 35px;
+    }
+
+
+    /* Navigation spacing */
+
+    .navbar-menu {
+        gap: 5px;
+    }
+
+    .navbar-menu a {
+        font-size: 10px;
+    }
+
+
+    /* Cart */
+
+    .navbar-cart {
+        padding: 5px !important;
+    }
+
+    .cart-icon {
+        font-size: 13px;
+    }
+
+
+    /* Search */
+
+    .navbar-search {
+        height: 40px;
     }
 
     .navbar-search input {
@@ -601,17 +828,10 @@ button {
     .navbar-search button {
         padding: 0 10px;
 
-        font-size: 12px;
-        letter-spacing: 0;
+        font-size: 11px;
     }
 
-    .mobile-menu-button {
-        padding: 7px 9px;
-
-        font-size: 20px;
-    }
 }
-
 
 
 
