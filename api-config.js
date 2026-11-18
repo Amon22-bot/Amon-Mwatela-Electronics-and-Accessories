@@ -14,7 +14,7 @@
         hostname === "127.0.0.1" ||
         hostname === "::1";
 
-    const RENDER_API_URL = "https://YOUR-RENDER-SERVICE.onrender.com";
+    const RENDER_API_URL = "https://amon-mwatela-electronics-and-accessories.onrender.com";
 
     window.AM_API_BASE_URL = localDevelopment
         ? "http://localhost:5000"
