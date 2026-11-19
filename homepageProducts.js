@@ -11,7 +11,9 @@
    4. Display original prices, discounts and current prices.
    5. Link product cards to the product details page.
    6. Support Power Banks image placeholders.
-   7. Replace static sample cards with backend products.
+   7. Preserve existing HTML cards when no backend
+      products are assigned to a section.
+   8. Remove stock-status badges from product cards.
 ========================================================= */
 
 
@@ -28,14 +30,12 @@ const homepageProductSections = {
         price: ".top-selling-price"
     },
 
-
     /* PHONE COVERS */
     covers: {
         container: "#phoneCoversTrack",
         description: ".phone-covers-details > p",
         price: ".phone-covers-price"
     },
-
 
     /* NEW ARRIVALS */
     "new-arrivals": {
@@ -44,14 +44,12 @@ const homepageProductSections = {
         price: ".new-arrival-price"
     },
 
-
     /* SCREEN PROTECTORS */
     "screen-protectors": {
         container: "#screenProtectorsTrack",
         description: ".screen-protector-description",
         price: ".screen-protector-price"
     },
-
 
     /* HEADPHONES AND EARPODS */
     "headphones-earpods": {
@@ -60,7 +58,6 @@ const homepageProductSections = {
         price: ".headphones-price"
     },
 
-
     /* SMARTWATCHES */
     smartwatches: {
         container: "#smartwatchesTrack",
@@ -68,14 +65,12 @@ const homepageProductSections = {
         price: ".smartwatch-price"
     },
 
-
     /* CHARGERS AND CABLES */
     "chargers-cables": {
         container: "#chargersCablesTrack",
         description: ".chargers-cables-description",
         price: ".chargers-cables-price"
     },
-
 
     /* POWER BANKS */
     "power-banks": {
@@ -113,22 +108,29 @@ async function loadHomepageCategory(category, config) {
     const container = document.querySelector(config.container);
 
     if (!container) {
+
         console.warn(
             `Homepage section container not found: ${category}`
         );
 
         return;
+
     }
 
-    /* Use the first existing card as the template. */
+    /*
+     * Use the first existing HTML card as the template.
+     */
+
     const template = container.firstElementChild;
 
     if (!template) {
+
         console.warn(
             `No product card template found for: ${category}`
         );
 
         return;
+
     }
 
     try {
@@ -155,12 +157,25 @@ async function loadHomepageCategory(category, config) {
 
         }
 
-        /*
-         * Clone the original card template for every
-         * product returned by the backend.
-         *
-         * An empty array clears the static sample cards.
-         */
+
+        /* -------------------------------------------------
+           KEEP EXISTING HTML CARDS IF BACKEND IS EMPTY
+        ------------------------------------------------- */
+
+        if (products.length === 0) {
+
+            console.info(
+                `No backend products assigned to ${category}. Existing cards retained.`
+            );
+
+            return;
+
+        }
+
+
+        /* -------------------------------------------------
+           CREATE CARDS FROM BACKEND PRODUCTS
+        ------------------------------------------------- */
 
         const cards = products.map(product => {
 
@@ -172,6 +187,11 @@ async function loadHomepageCategory(category, config) {
 
         });
 
+
+        /* -------------------------------------------------
+           REPLACE EXISTING CARDS
+        ------------------------------------------------- */
+
         container.replaceChildren(...cards);
 
     } catch (error) {
@@ -180,6 +200,11 @@ async function loadHomepageCategory(category, config) {
             `Could not load homepage section ${category}:`,
             error
         );
+
+        /*
+         * If the backend request fails, existing HTML
+         * cards remain visible.
+         */
 
     }
 
@@ -246,7 +271,9 @@ function updateHomepageCard(card, product, config) {
     card.addEventListener("click", event => {
 
         if (event.target.closest("a, button")) {
+
             return;
+
         }
 
         window.location.href = productUrl;
@@ -273,11 +300,14 @@ function updateHomepageCard(card, product, config) {
 
     let image = card.querySelector("img");
 
+
     /*
-     * Power Banks currently uses a placeholder DIV
+     * POWER BANKS IMAGE SUPPORT
+     *
+     * Power Banks originally uses a placeholder DIV
      * instead of an IMG element.
      *
-     * Create an image inside that existing image container.
+     * Create an image inside the existing image container.
      */
 
     if (!image && product.image) {
@@ -299,8 +329,11 @@ function updateHomepageCard(card, product, config) {
             imageContainer.replaceChildren(image);
 
             image.style.width = "100%";
+
             image.style.height = "100%";
+
             image.style.objectFit = "cover";
+
             image.style.display = "block";
 
         }
@@ -421,6 +454,7 @@ function updatePriceMarkup(priceBox, product) {
 
     const current = Number(product.price);
 
+
     if (!Number.isFinite(current)) {
 
         console.warn(
@@ -432,16 +466,19 @@ function updatePriceMarkup(priceBox, product) {
     }
 
 
+    /* -----------------------------------------------------
+       CHECK WHETHER PRODUCT HAS A VALID DISCOUNT
+    ----------------------------------------------------- */
+
     const hasDiscount =
         Number.isFinite(original) &&
         original > current &&
         original > 0;
 
 
-    /*
-     * Top Selling and New Arrivals use
-     * vertically stacked price layouts.
-     */
+    /* -----------------------------------------------------
+       CHECK PRICE LAYOUT
+    ----------------------------------------------------- */
 
     const isStackedPrice =
         priceBox.classList.contains("top-selling-price") ||
@@ -449,8 +486,8 @@ function updatePriceMarkup(priceBox, product) {
 
 
     /*
-     * Some price containers have an inner paragraph.
-     * Preserve that structure where it exists.
+     * Preserve the inner paragraph if the price container
+     * already uses one.
      */
 
     const contentBox =
@@ -540,3 +577,5 @@ function formatKES(amount) {
     });
 
 }
+
+
