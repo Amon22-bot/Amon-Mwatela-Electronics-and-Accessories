@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Browse products available at AM Electronics and Accessories.">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Shop | AM Electronics</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+    <!-- SHOP STYLESHEET -->
+    <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         SHOP PRODUCT RESULTS
+    ========================================== -->
+
+    <main class="shop-page">
+
+        <section class="shop-results-section"
+                 aria-label="Shop products">
+
+            <!-- PRODUCT GRID -->
+            <div
+                class="shop-product-grid"
+                id="shopProductGrid"
+                aria-live="polite"
+                aria-busy="true">
+
+                <!-- INITIAL LOADING MESSAGE -->
+                <div class="shop-loading" id="shopLoadingState">
+
+                    <div class="shop-loading-spinner"></div>
+
+                    <p>Loading products...</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <!-- API CONFIGURATION -->
+    <script src="api-config.js"></script>
+
+    <!-- SHOP PRODUCT LOADER -->
+    <script src="loadProducts.js"></script>
+
+</body>
+</html>
+
