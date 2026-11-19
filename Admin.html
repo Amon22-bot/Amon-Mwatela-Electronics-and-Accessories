@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -219,7 +218,7 @@
                 <h2>Manage Products</h2>
 
                 <p>
-                    View and remove products currently in your catalogue.
+                    View and manage products in your catalogue.
                 </p>
             </div>
 
@@ -234,11 +233,9 @@
         </div>
 
 
-        <!-- PRODUCT FILTERS -->
+        <!-- PRODUCT DESTINATION FILTER -->
 
         <div class="filter-row">
-
-            <!-- PRODUCT DESTINATION FILTER -->
 
             <select
                 id="productScopeFilter"
@@ -260,19 +257,16 @@
             </select>
 
 
-            <!-- CATEGORY AND PLACEMENT FILTER -->
+            <!-- ACTUAL PRODUCT CATEGORY FILTER -->
 
             <select
                 id="productCategoryFilter"
-                aria-label="Filter product category or homepage placement"
+                aria-label="Filter by product category"
             >
 
                 <option value="all">
-                    All categories and sections
+                    All product categories
                 </option>
-
-
-                <!-- ACTUAL PRODUCT CATEGORIES -->
 
                 <optgroup label="Product Categories">
 
@@ -322,21 +316,33 @@
 
                 </optgroup>
 
+            </select>
 
-                <!-- HOMEPAGE PLACEMENTS -->
 
-                <optgroup label="Homepage Placements">
+            <!-- HOMEPAGE PLACEMENT AND SHOP COLLECTION FILTER -->
+
+            <select
+                id="productAssignmentFilter"
+                aria-label="Filter by homepage placement or Shop collection"
+            >
+
+                <option value="all">
+                    All placements and collections
+                </option>
+
+
+                <optgroup label="Homepage Product Placements">
 
                     <option value="top-selling">
                         Top Selling
                     </option>
 
-                    <option value="covers">
-                        Phone Covers Section
-                    </option>
-
                     <option value="new-arrivals">
                         New Arrivals
+                    </option>
+
+                    <option value="covers">
+                        Phone Covers Section
                     </option>
 
                     <option value="screen-protectors">
@@ -353,6 +359,35 @@
 
                     <option value="chargers-cables">
                         Chargers & Cables Section
+                    </option>
+
+                    <option value="power-banks">
+                        Power Banks Section
+                    </option>
+
+                </optgroup>
+
+
+                <optgroup label="Additional Shop Collections">
+
+                    <option value="trending">
+                        Trending
+                    </option>
+
+                    <option value="featured">
+                        Featured
+                    </option>
+
+                    <option value="recommended">
+                        Recommended
+                    </option>
+
+                    <option value="must-have">
+                        Must Have
+                    </option>
+
+                    <option value="explore">
+                        Explore
                     </option>
 
                 </optgroup>
@@ -399,15 +434,13 @@
                 <h2>Upload Product</h2>
 
                 <p>
-                    Add a product to your Shop catalogue and optionally
-                    feature it on homepage sections.
+                    Add products to your Shop catalogue and optionally
+                    assign them to homepage sections and Shop collections.
                 </p>
             </div>
 
         </div>
 
-
-        <!-- UPLOAD INFORMATION -->
 
         <div class="notice">
 
@@ -415,7 +448,9 @@
 
             Homepage placements are optional and can be multiple.
 
-            Each homepage placement has a maximum of 10 products.
+            Additional Shop collections are also optional and can be multiple.
+
+            Each homepage product placement has a maximum of 10 products.
 
             The general Shop catalogue has no fixed product limit.
 
@@ -496,7 +531,7 @@
 
 
                 <!-- =====================================
-                     OPTIONAL HOMEPAGE PLACEMENTS
+                     HOMEPAGE PLACEMENTS
                 ====================================== -->
 
                 <div class="form-group full">
@@ -506,14 +541,13 @@
                     </label>
 
                     <small>
-                        Select one or more homepage sections where this
-                        product should appear. Leave all unchecked if
-                        the product should appear only in the Shop.
+                        Select the homepage product sections where
+                        this product should appear. You may select
+                        multiple sections.
                     </small>
 
 
                     <div class="homepage-placement-options">
-
 
                         <label class="checkbox-label">
 
@@ -533,10 +567,10 @@
                             <input
                                 type="checkbox"
                                 class="homepage-placement-checkbox"
-                                value="covers"
+                                value="new-arrivals"
                             >
 
-                            Phone Covers
+                            New Arrivals
 
                         </label>
 
@@ -546,10 +580,10 @@
                             <input
                                 type="checkbox"
                                 class="homepage-placement-checkbox"
-                                value="new-arrivals"
+                                value="covers"
                             >
 
-                            New Arrivals
+                            Phone Covers
 
                         </label>
 
@@ -605,6 +639,106 @@
 
                         </label>
 
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="homepage-placement-checkbox"
+                                value="power-banks"
+                            >
+
+                            Power Banks
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =====================================
+                     ADDITIONAL SHOP COLLECTIONS
+                ====================================== -->
+
+                <div class="form-group full">
+
+                    <label>
+                        Additional Shop collections (optional)
+                    </label>
+
+                    <small>
+                        These collections are separate from homepage
+                        product placements. A product can belong to
+                        multiple collections.
+                    </small>
+
+
+                    <div class="shop-collection-options">
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="shop-collection-checkbox"
+                                value="trending"
+                            >
+
+                            Trending
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="shop-collection-checkbox"
+                                value="featured"
+                            >
+
+                            Featured
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="shop-collection-checkbox"
+                                value="recommended"
+                            >
+
+                            Recommended
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="shop-collection-checkbox"
+                                value="must-have"
+                            >
+
+                            Must Have
+
+                        </label>
+
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                class="shop-collection-checkbox"
+                                value="explore"
+                            >
+
+                            Explore
+
+                        </label>
 
                     </div>
 
@@ -671,31 +805,55 @@
 
 
                 <!-- =====================================
-                     PRODUCT IMAGE
+                     PRODUCT IMAGES
                 ====================================== -->
 
                 <div class="form-group full">
 
                     <label for="productImageFile">
-                        Product image
+                        Product images (maximum 4)
                     </label>
 
                     <input
                         id="productImageFile"
                         type="file"
-                        accept="image/*"
+                        accept="image/jpeg,image/png,image/webp,image/gif"
+                        multiple
                     >
 
                     <small>
-                        Choose an image file or enter an existing
-                        image path below.
+                        Select up to four images from your device.
+                        The first image will be the main product image.
                     </small>
 
-                    <input
-                        id="productImagePath"
-                        type="text"
-                        placeholder="e.g. images.html/product.jpg"
-                    >
+                    <div
+                        id="productImagePreview"
+                        class="product-image-preview"
+                        aria-live="polite"
+                    ></div>
+
+
+                    <!-- LEGACY IMAGE PATH SUPPORT -->
+
+                    <details class="legacy-image-option">
+
+                        <summary>
+                            Existing image URL or path (legacy products)
+                        </summary>
+
+                        <input
+                            id="productImagePath"
+                            type="text"
+                            placeholder="e.g. images.html/product.jpg"
+                        >
+
+                        <small>
+                            Use this only when working with an existing
+                            externally hosted or locally referenced image.
+                            New product uploads should use image files.
+                        </small>
+
+                    </details>
 
                 </div>
 
@@ -757,7 +915,7 @@
                     <textarea
                         id="productDescription"
                         maxlength="5000"
-                        placeholder="Add a description if available. This field is optional."
+                        placeholder="Add a product description."
                     ></textarea>
 
                 </div>
@@ -881,9 +1039,7 @@
             </div>
 
 
-            <!-- =========================================
-                 FORM ACTIONS
-            ========================================== -->
+            <!-- FORM ACTIONS -->
 
             <div class="form-actions">
 
@@ -905,8 +1061,6 @@
 
             </div>
 
-
-            <!-- UPLOAD MESSAGE -->
 
             <div
                 id="uploadMessage"
@@ -935,8 +1089,8 @@
                 <h2>Website Image Management</h2>
 
                 <p>
-                    Replace the website logo, hero slides and
-                    circular category images.
+                    Manage the website logo, hero slides, circular
+                    category images and additional Shop collection slides.
                 </p>
             </div>
 
@@ -945,13 +1099,16 @@
 
         <div class="notice">
 
-            Images are currently saved in this browser using IndexedDB.
+            Website images are managed through the backend image-storage
+            system so that updated images can be displayed to visitors
+            across different devices.
 
-            This is temporary browser-local storage, not permanent
-            website hosting.
+            The collection slide images are:
 
-            Homepage integration and backend image storage are still
-            required before visitors on other devices can see replacements.
+            Trending, Featured, Recommended, Must Have and Explore.
+
+            Replacing a collection slide image does not change the
+            products assigned to that collection.
 
         </div>
 
@@ -996,5 +1153,4 @@
 </html>
 
 
-
-
+       
