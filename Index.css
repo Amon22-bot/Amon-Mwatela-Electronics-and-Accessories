@@ -2786,200 +2786,237 @@ button {
 
 
 
+
+
 /* =========================================================
-   MOBILE & TABLET JUMIA-STYLE SHELF OVERRIDE (<= 1024px)
-   Desktop (> 1024px) remains completely unchanged.
+   13. TABLET
+   901PX - 1024PX
+   4.2 CARDS VISIBLE (4 FULL + PEEK OF 5TH)
    ========================================================= */
-@media (max-width: 1024px) {
 
-  /* 1. Vibrant Orange Shelf Container */
-  .top-selling-section {
-    background-color: #F68B1E !important;
-    padding: 14px 0 16px !important;
-    margin: 10px 0 !important;
-  }
+@media (min-width: 901px) and (max-width: 1024px) {
 
-  .top-selling-slider {
-    position: relative;
-    width: 100%;
-    padding: 0 !important;
-  }
+    .top-selling-card {
+        flex: 0 0 calc((100% - 30px) / 4.25);
+        border-radius: 10px;
+    }
 
-  /* 2. Header Row: White Title + White Pill Arrow Button */
-  .top-selling-header {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 0 12px 10px !important;
-    margin: 0 !important;
-  }
+    .top-selling-heading h2 {
+        font-size: 21px;
+    }
 
-  .top-selling-heading h2 {
-    color: #FFFFFF !important;
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    margin: 0 !important;
-    line-height: 1.2 !important;
-  }
-
-  /* Turn "View All" into the compact white pill button with orange arrow */
-  .top-selling-shop-btn {
-    background-color: #FFFFFF !important;
-    color: #F68B1E !important;
-    border-radius: 999px !important;
-    padding: 5px 12px !important;
-    font-size: 0 !important; /* Hides "View All" text on mobile/tablet so only arrow shows */
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-decoration: none !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-  }
-
-  .top-selling-shop-btn i {
-    font-size: 14px !important;
-    color: #F68B1E !important;
-    margin: 0 !important;
-  }
-
-  /* Hide desktop left/right floating arrows on touch screens */
-  .top-selling-arrow {
-    display: none !important;
-  }
-
-  /* 3. Horizontal Touch-Swipe Product Track */
-  .top-selling-track {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    gap: 8px !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0 12px !important;
-    scrollbar-width: none; /* Firefox */
-  }
-
-  .top-selling-track::-webkit-scrollbar {
-    display: none; /* Chrome / Safari */
-  }
-
-  /* 4. Product Card: Tablet Default (~3.3 cards visible) */
-  .top-selling-card {
-    flex: 0 0 28% !important;
-    min-width: 28% !important;
-    background: #FFFFFF !important;
-    border-radius: 8px !important;
-    padding: 8px !important;
-    margin: 0 !important;
-    scroll-snap-align: start;
-    display: flex !important;
-    flex-direction: column !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
-    border: none !important;
-  }
-
-  /* 5. Square 1:1 Image Box */
-  .top-selling-image {
-    position: relative;
-    width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    height: auto !important;
-    background: #FFFFFF !important;
-    border-radius: 6px !important;
-    overflow: hidden !important;
-    margin-bottom: 8px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .top-selling-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-  }
-
-  /* 6. Card Details & Clean Hierarchy */
-  .top-selling-details {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1 !important;
-    padding: 0 !important;
-    text-align: left !important;
-  }
-
-  /* Product Title: Clamped to 2 lines just like Jumia */
-  .top-selling-details h3 {
-    margin: 0 0 6px !important;
-    font-size: 12.5px !important;
-    font-weight: 400 !important;
-    line-height: 1.3 !important;
-    height: 32px !important;
-    overflow: hidden !important;
-  }
-
-  .top-selling-details h3 a {
-    color: #222222 !important;
-    text-decoration: none !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
-  }
-
-  /* Hide long paragraph descriptions on mobile/tablet to keep cards compact */
-  .top-selling-details p {
-    display: none !important;
-  }
-
-  /* 7. Reorder Price Block: Bold Current Price on Top, Old Price + Green Pill Below */
-  .top-selling-price {
-    margin-top: auto !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    gap: 4px 6px !important;
-  }
-
-  /* Put Current Price (<strong>) on its own top row */
-  .top-selling-price strong {
-    order: 1 !important;
-    flex: 0 0 100% !important;
-    font-size: 14.5px !important;
-    font-weight: 700 !important;
-    color: #111111 !important;
-    line-height: 1.2 !important;
-  }
-
-  /* Put Strikethrough Old Price (<del>) below on the left */
-  .top-selling-price del {
-    order: 2 !important;
-    font-size: 11px !important;
-    color: #888888 !important;
-    text-decoration: line-through !important;
-  }
-
-  /* Soft Green Discount Pill (.discount-badge) next to Old Price */
-  .top-selling-price .discount-badge {
-    order: 3 !important;
-    background-color: #E6F4EA !important;
-    color: #137333 !important;
-    font-size: 11px !important;
-    font-weight: 700 !important;
-    padding: 2px 5px !important;
-    border-radius: 4px !important;
-    line-height: 1 !important;
-  }
+    .top-selling-details > p {
+        display: none;
+    }
 }
 
+
 /* =========================================================
-   MOBILE PHONE SPECIFIC TWEAK (<= 600px): 2.3 Cards Visible
+   14. SMALL TABLET
+   601PX - 900PX
+   3.2 CARDS VISIBLE (3 FULL + PEEK OF 4TH)
    ========================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .top-selling-section {
+        padding: 0 12px;
+    }
+
+    .top-selling-card {
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        border-radius: 10px;
+    }
+
+    .top-selling-heading h2 {
+        font-size: 19px;
+    }
+
+    .top-selling-details h3 {
+        font-size: 13px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .top-selling-details > p {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   15. MOBILE
+   600PX AND BELOW
+   2.25 CARDS VISIBLE (2 FULL + PEEK OF 3RD)
+   ========================================================= */
+
 @media (max-width: 600px) {
-  .top-selling-card {
-    flex: 0 0 42.5% !important;
-    min-width: 42.5% !important;
-  }
+
+    .top-selling-section {
+        padding: 0 8px;
+        margin: 12px auto;
+    }
+
+    .top-selling-slider {
+        padding: 12px 10px;
+        border-radius: 14px;
+    }
+
+    .top-selling-header {
+        margin-bottom: 10px;
+        align-items: center;
+    }
+
+    .top-selling-heading h2 {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .top-selling-shop-btn {
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 999px;
+    }
+
+    .top-selling-shop-btn i {
+        font-size: 11px;
+    }
+
+    .top-selling-track {
+        gap: 8px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .top-selling-card {
+        flex: 0 0 calc((100% - 8px) / 2.25);
+        height: auto;
+        border-radius: 8px;
+        overflow: hidden;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top-selling-image {
+        width: 100%;
+        height: 155px;
+        flex-basis: 155px;
+    }
+
+    .top-selling-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .top-selling-details {
+        height: auto;
+        flex: 1;
+        padding: 8px 8px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .top-selling-details h3 {
+        margin-bottom: 6px;
+        font-size: 12.5px;
+        font-weight: 500;
+        line-height: 1.3;
+        min-height: 32px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Hide paragraph descriptions on mobile so cards match Jumia's compact look */
+    .top-selling-details > p {
+        display: none;
+    }
+
+    /* Price Hierarchy: Bold Current Price on top, Strikethrough + Badge below */
+    .top-selling-price {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 3px 6px;
+        margin: 0;
+    }
+
+    .top-selling-price strong,
+    .top-selling-price .current-price {
+        order: 1;
+        flex: 0 0 100%;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .top-selling-price del {
+        order: 2;
+        font-size: 11px;
+        opacity: 0.7;
+    }
+
+    .top-selling-price .discount-badge {
+        order: 3;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 2px 5px;
+        border-radius: 4px;
+    }
+
+    .top-selling-prev,
+    .top-selling-next {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   16. EXTRA SMALL MOBILE
+   380PX AND BELOW
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .top-selling-heading h2 {
+        font-size: 14px;
+    }
+
+    .top-selling-shop-btn {
+        font-size: 11px;
+    }
+
+    .top-selling-card {
+        flex: 0 0 calc((100% - 8px) / 2.15);
+    }
+
+    .top-selling-image {
+        height: 140px;
+        flex-basis: 140px;
+    }
+
+    .top-selling-details {
+        padding: 7px 7px 8px;
+    }
+
+    .top-selling-details h3 {
+        font-size: 11.5px;
+        min-height: 30px;
+    }
+
+    .top-selling-price strong,
+    .top-selling-price .current-price {
+        font-size: 13px;
+    }
 }
 
 
