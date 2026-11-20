@@ -3241,6 +3241,37 @@ button {
     }
 }
 
+/* =========================================================
+   TOP SELLING — REMOVE EXCESS SPACE BELOW PRODUCT DETAILS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-selling-track {
+        align-items: flex-start !important;
+    }
+
+    .top-selling-card {
+        height: auto !important;
+        min-height: 0 !important;
+        align-self: flex-start !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top-selling-details {
+        height: auto !important;
+        min-height: 0 !important;
+        flex: 0 0 auto !important;
+        flex-grow: 0 !important;
+        justify-content: flex-start !important;
+        padding-bottom: 10px !important;
+    }
+
+    .top-selling-price {
+        margin-bottom: 0 !important;
+    }
+}
 
 
 /* =========================================================
