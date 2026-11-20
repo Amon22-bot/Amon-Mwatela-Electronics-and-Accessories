@@ -5,15 +5,15 @@
    HOMEPAGE PRODUCT LOADER
 
    RESPONSIBILITIES:
-   1. Load products from the backend.
-   2. Display products in the correct homepage sections.
-   3. Update product images, titles and descriptions.
-   4. Display original prices, discounts and current prices.
+   1. Load homepage products from the backend.
+   2. Update product images, titles and descriptions.
+   3. Display original prices, discount badges and current prices.
+   4. Preserve existing cards when backend sections are empty.
    5. Link product cards to the product details page.
    6. Support Power Banks image placeholders.
-   7. Preserve existing HTML cards when no backend
-      products are assigned to a section.
-   8. Remove stock-status badges from product cards.
+   7. Preserve existing CSS price layouts.
+   8. Avoid unnecessary line breaks in price containers.
+   9. Do not generate stock-status badges.
 ========================================================= */
 
 
@@ -23,56 +23,48 @@
 
 const homepageProductSections = {
 
-    /* TOP SELLING */
     "top-selling": {
         container: "#topSellingTrack",
         description: ".top-selling-details > p",
         price: ".top-selling-price"
     },
 
-    /* PHONE COVERS */
     covers: {
         container: "#phoneCoversTrack",
         description: ".phone-covers-details > p",
         price: ".phone-covers-price"
     },
 
-    /* NEW ARRIVALS */
     "new-arrivals": {
         container: ".new-arrivals-track",
         description: ".new-arrival-details > p",
         price: ".new-arrival-price"
     },
 
-    /* SCREEN PROTECTORS */
     "screen-protectors": {
         container: "#screenProtectorsTrack",
         description: ".screen-protector-description",
         price: ".screen-protector-price"
     },
 
-    /* HEADPHONES AND EARPODS */
     "headphones-earpods": {
         container: "#headphonesTrack",
         description: ".headphones-details > p",
         price: ".headphones-price"
     },
 
-    /* SMARTWATCHES */
     smartwatches: {
         container: "#smartwatchesTrack",
         description: ".smartwatch-description",
         price: ".smartwatch-price"
     },
 
-    /* CHARGERS AND CABLES */
     "chargers-cables": {
         container: "#chargersCablesTrack",
         description: ".chargers-cables-description",
         price: ".chargers-cables-price"
     },
 
-    /* POWER BANKS */
     "power-banks": {
         container: "#powerBanksTrack",
         description: ".power-banks-description",
@@ -158,9 +150,7 @@ async function loadHomepageCategory(category, config) {
         }
 
 
-        /* -------------------------------------------------
-           KEEP EXISTING HTML CARDS IF BACKEND IS EMPTY
-        ------------------------------------------------- */
+        /* KEEP EXISTING CARDS IF BACKEND IS EMPTY */
 
         if (products.length === 0) {
 
@@ -173,9 +163,7 @@ async function loadHomepageCategory(category, config) {
         }
 
 
-        /* -------------------------------------------------
-           CREATE CARDS FROM BACKEND PRODUCTS
-        ------------------------------------------------- */
+        /* CREATE CARDS FROM BACKEND PRODUCTS */
 
         const cards = products.map(product => {
 
@@ -188,9 +176,7 @@ async function loadHomepageCategory(category, config) {
         });
 
 
-        /* -------------------------------------------------
-           REPLACE EXISTING CARDS
-        ------------------------------------------------- */
+        /* REPLACE EXISTING CARDS */
 
         container.replaceChildren(...cards);
 
@@ -202,8 +188,8 @@ async function loadHomepageCategory(category, config) {
         );
 
         /*
-         * If the backend request fails, existing HTML
-         * cards remain visible.
+         * Existing HTML cards remain visible if the
+         * backend request fails.
          */
 
     }
@@ -217,17 +203,13 @@ async function loadHomepageCategory(category, config) {
 
 function updateHomepageCard(card, product, config) {
 
-    /* -----------------------------------------------------
-       PRODUCT DETAILS URL
-    ----------------------------------------------------- */
+    /* PRODUCT DETAILS URL */
 
     const productUrl =
         `product-details.html?id=${encodeURIComponent(product._id)}`;
 
 
-    /* -----------------------------------------------------
-       DEMO PRODUCT INDICATOR
-    ----------------------------------------------------- */
+    /* DEMO PRODUCT INDICATOR */
 
     if (product.isDemo) {
 
@@ -248,9 +230,7 @@ function updateHomepageCard(card, product, config) {
     }
 
 
-    /* -----------------------------------------------------
-       PRODUCT CARD CLICK BEHAVIOUR
-    ----------------------------------------------------- */
+    /* PRODUCT CARD CLICK BEHAVIOUR */
 
     if (card.tagName === "A") {
 
@@ -294,20 +274,14 @@ function updateHomepageCard(card, product, config) {
     });
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PRODUCT IMAGE
-    ----------------------------------------------------- */
+    ===================================================== */
 
     let image = card.querySelector("img");
 
-
     /*
      * POWER BANKS IMAGE SUPPORT
-     *
-     * Power Banks originally uses a placeholder DIV
-     * instead of an IMG element.
-     *
-     * Create an image inside the existing image container.
      */
 
     if (!image && product.image) {
@@ -352,9 +326,9 @@ function updateHomepageCard(card, product, config) {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PRODUCT TITLE
-    ----------------------------------------------------- */
+    ===================================================== */
 
     const title = card.querySelector("h3");
 
@@ -375,9 +349,9 @@ function updateHomepageCard(card, product, config) {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PRODUCT DESCRIPTION
-    ----------------------------------------------------- */
+    ===================================================== */
 
     const description = card.querySelector(
         config.description
@@ -390,9 +364,9 @@ function updateHomepageCard(card, product, config) {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PRODUCT PRICE
-    ----------------------------------------------------- */
+    ===================================================== */
 
     const priceBox = card.querySelector(config.price);
 
@@ -403,9 +377,9 @@ function updateHomepageCard(card, product, config) {
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        UPDATE PRODUCT LINKS
-    ----------------------------------------------------- */
+    ===================================================== */
 
     card.querySelectorAll("a").forEach(link => {
 
@@ -414,9 +388,9 @@ function updateHomepageCard(card, product, config) {
     });
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PRODUCT DATA ATTRIBUTES
-    ----------------------------------------------------- */
+    ===================================================== */
 
     card.dataset.productId = product._id;
 
@@ -455,6 +429,8 @@ function updatePriceMarkup(priceBox, product) {
     const current = Number(product.price);
 
 
+    /* VALIDATE CURRENT PRICE */
+
     if (!Number.isFinite(current)) {
 
         console.warn(
@@ -466,9 +442,7 @@ function updatePriceMarkup(priceBox, product) {
     }
 
 
-    /* -----------------------------------------------------
-       CHECK WHETHER PRODUCT HAS A VALID DISCOUNT
-    ----------------------------------------------------- */
+    /* CHECK FOR VALID DISCOUNT */
 
     const hasDiscount =
         Number.isFinite(original) &&
@@ -476,54 +450,41 @@ function updatePriceMarkup(priceBox, product) {
         original > 0;
 
 
-    /* -----------------------------------------------------
-       CHECK PRICE LAYOUT
-    ----------------------------------------------------- */
-
-    const isStackedPrice =
-        priceBox.classList.contains("top-selling-price") ||
-        priceBox.classList.contains("new-arrival-price");
-
-
     /*
-     * Preserve the inner paragraph if the price container
-     * already uses one.
+     * PRESERVE EXISTING PRICE CONTAINER STRUCTURE.
+     *
+     * If the HTML contains a direct child paragraph,
+     * use it. Otherwise, use the price container itself.
      */
 
     const contentBox =
         priceBox.querySelector(":scope > p") || priceBox;
 
 
+    /*
+     * Remove old price content without replacing the
+     * outer price container or its CSS classes.
+     */
+
     contentBox.replaceChildren();
 
 
-    /* -----------------------------------------------------
-       ORIGINAL PRICE AND DISCOUNT
-    ----------------------------------------------------- */
+    /* =====================================================
+       ORIGINAL PRICE
+    ===================================================== */
 
     if (hasDiscount) {
 
-        const oldPrice = document.createElement("strong");
+        const oldPrice = document.createElement("del");
 
-        const del = document.createElement("del");
+        oldPrice.className = "original-price";
 
-        del.textContent = formatKES(original);
-
-        oldPrice.appendChild(del);
+        oldPrice.textContent = formatKES(original);
 
         contentBox.appendChild(oldPrice);
 
 
-        if (!isStackedPrice) {
-
-            contentBox.appendChild(
-                document.createElement("br")
-            );
-
-        }
-
-
-        /* DISCOUNT PERCENTAGE */
+        /* DISCOUNT BADGE */
 
         const badge = document.createElement("span");
 
@@ -537,23 +498,16 @@ function updatePriceMarkup(priceBox, product) {
 
         contentBox.appendChild(badge);
 
-
-        if (!isStackedPrice) {
-
-            contentBox.appendChild(
-                document.createElement("br")
-            );
-
-        }
-
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        CURRENT PRICE
-    ----------------------------------------------------- */
+    ===================================================== */
 
     const currentPrice = document.createElement("strong");
+
+    currentPrice.className = "current-price";
 
     currentPrice.textContent = formatKES(current);
 
