@@ -4716,7 +4716,7 @@ button {
     .new-arrival-card {
         flex-basis: calc((100% - 8px) / 2);
 
-        height: 350px;
+        height: 250px;
     }
 
     /* MOBILE IMAGE AREA */
