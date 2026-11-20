@@ -94,7 +94,6 @@ button:disabled {
 
 .admin-header {
     width: 100%;
-
     min-height: 82px;
 
     padding: 16px 5%;
@@ -218,7 +217,6 @@ input,
 select,
 textarea {
     width: 100%;
-
     min-height: 43px;
 
     padding: 10px 12px;
@@ -250,7 +248,6 @@ textarea:focus {
 
 textarea {
     min-height: 115px;
-
     resize: vertical;
 }
 
@@ -400,7 +397,6 @@ input[type="file"] {
 
 .tab-button.active {
     border-bottom-color: var(--primary);
-
     color: var(--primary);
 }
 
@@ -601,7 +597,6 @@ input[type="file"] {
 
 .checkbox-label:hover {
     border-color: var(--primary);
-
     background: var(--primary-light);
 }
 
@@ -724,7 +719,6 @@ input[type="file"] {
     margin-bottom: 5px;
 
     color: var(--dark);
-
     font-size: 15px;
 }
 
@@ -833,7 +827,7 @@ input[type="file"] {
 
 
 /* =========================================================
-   20. ORDERS LIST
+   20. CUSTOMER ORDERS
 ========================================================= */
 
 .orders-list {
@@ -844,40 +838,238 @@ input[type="file"] {
 }
 
 .order-card {
-    padding: 17px;
+    min-width: 0;
+
+    padding: 18px;
 
     border: 1px solid var(--border);
     border-radius: 9px;
 
     background: #FFFFFF;
+
+    transition: var(--transition);
 }
 
-.order-card h3 {
-    margin-bottom: 8px;
+.order-card:hover {
+    border-color: #C8DFF1;
+}
+
+.order-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.order-heading h3 {
+    margin-bottom: 5px;
 
     color: var(--dark);
-    font-size: 15px;
+    font-size: 16px;
 }
 
-.order-card p {
-    margin-top: 5px;
-
+.order-heading p {
     color: var(--muted);
     font-size: 12px;
 }
 
-.order-card select {
-    max-width: 220px;
-    margin-top: 10px;
+.order-status {
+    width: auto;
+    min-width: 145px;
+    max-width: 190px;
+
+    margin: 0;
 }
 
-.order-card button {
-    margin-top: 10px;
+.order-body {
+    padding-top: 16px;
+}
+
+.order-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.order-detail {
+    min-width: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.order-detail strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 
 /* =========================================================
-   21. WEBSITE IMAGE MANAGER
+   21. ORDERED PRODUCT ITEMS
+========================================================= */
+
+.order-items {
+    margin-top: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.order-item {
+    min-width: 0;
+
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: #FAFAFA;
+}
+
+
+/* Product image container */
+
+.order-item-image {
+    width: 110px;
+    height: 110px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: #FFFFFF;
+}
+
+.order-item-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+.order-item-image-unavailable {
+    padding: 8px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+
+/* Product information */
+
+.order-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.order-item-info strong {
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    overflow-wrap: anywhere;
+}
+
+.order-item-info p {
+    margin-top: 6px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* Product subtotal */
+
+.order-item-price {
+    flex-shrink: 0;
+
+    color: var(--dark);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   22. ORDER TOTAL
+========================================================= */
+
+.order-total {
+    margin-top: 17px;
+    padding-top: 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    border-top: 1px solid var(--border);
+}
+
+.order-total span {
+    color: var(--muted);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.order-total strong {
+    color: var(--primary);
+
+    font-size: 19px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   23. WEBSITE IMAGE MANAGER
 ========================================================= */
 
 .asset-manager {
@@ -891,6 +1083,33 @@ input[type="file"] {
     gap: 18px;
 }
 
+.asset-group {
+    min-width: 0;
+}
+
+.asset-group h3 {
+    margin-bottom: 5px;
+
+    color: var(--dark);
+    font-size: 16px;
+}
+
+.asset-group > p {
+    margin-bottom: 14px;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.asset-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
 .asset-card {
     min-width: 0;
 
@@ -902,34 +1121,60 @@ input[type="file"] {
     background: #FFFFFF;
 }
 
-.asset-card h3 {
-    margin-bottom: 5px;
+.asset-card h4 {
+    margin-bottom: 8px;
 
     color: var(--dark);
-    font-size: 15px;
+    font-size: 14px;
 }
 
-.asset-card p {
-    margin-bottom: 12px;
-
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.asset-card img {
-    width: 100%;
-    max-height: 190px;
-
+.asset-card small {
     display: block;
 
-    margin-bottom: 12px;
+    margin-top: 7px;
 
-    object-fit: contain;
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.asset-preview {
+    width: 100%;
+    height: 160px;
+
+    margin-bottom: 13px;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
 
     border: 1px solid var(--border);
     border-radius: 7px;
 
     background: #F8FAFC;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    text-align: center;
+}
+
+.asset-preview img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    margin: 0;
+
+    object-fit: contain;
+
+    border: none;
+    border-radius: 0;
+
+    background: transparent;
 }
 
 .asset-card input,
@@ -946,9 +1191,18 @@ input[type="file"] {
     min-width: 100px;
 }
 
+.asset-status {
+    margin-top: 9px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
 
 /* =========================================================
-   22. ADMIN FOOTER
+   24. ADMIN FOOTER
 ========================================================= */
 
 .admin-footer {
@@ -970,7 +1224,7 @@ input[type="file"] {
 
 
 /* =========================================================
-   23. RESPONSIVE - TABLETS
+   25. RESPONSIVE - TABLETS
 ========================================================= */
 
 @media (max-width: 850px) {
@@ -1006,7 +1260,7 @@ input[type="file"] {
 
 
 /* =========================================================
-   24. RESPONSIVE - MOBILE
+   26. RESPONSIVE - MOBILE
 ========================================================= */
 
 @media (max-width: 650px) {
@@ -1119,11 +1373,55 @@ input[type="file"] {
         grid-template-columns: 1fr 1fr;
     }
 
+
+    /* Order layout */
+
+    .order-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .order-status {
+        width: 100%;
+        max-width: none;
+    }
+
+    .order-details {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .order-item {
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .order-item-image {
+        width: 95px;
+        height: 95px;
+    }
+
+    .order-item-info strong {
+        font-size: 13px;
+    }
+
+    .order-item-price {
+        font-size: 12px;
+    }
+
+    .order-total strong {
+        font-size: 17px;
+    }
+
+    .asset-grid {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 
 /* =========================================================
-   25. RESPONSIVE - SMALL PHONES
+   27. RESPONSIVE - SMALL PHONES
 ========================================================= */
 
 @media (max-width: 380px) {
@@ -1156,6 +1454,28 @@ input[type="file"] {
 
     .product-image-preview-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .order-item-image {
+        width: 82px;
+        height: 82px;
+    }
+
+    .order-item {
+        gap: 9px;
+        padding: 9px;
+    }
+
+    .order-item-info strong {
+        font-size: 12px;
+    }
+
+    .order-item-info p {
+        font-size: 11px;
+    }
+
+    .order-item-price {
+        font-size: 11px;
     }
 
 }
