@@ -3843,168 +3843,376 @@ button {
 }
 
 
+
+
 /* =========================================================
-   13. WIDER TABLET
-   901PX - 1024PX
-   4 CARDS VISIBLE
+   PHONE COVERS SECTION - RESPONSIVE STANDARD
+   Based on Top Selling Carousel Reference
    ========================================================= */
 
-@media screen and (min-width: 901px) and (max-width: 1024px) {
+/* =========================================================
+   1. LARGE TABLETS
+   901px - 1024px
+   4 Full Cards + Peek of 5th
+   ========================================================= */
+@media (min-width: 901px) and (max-width: 1024px) {
 
-    .phone-cover-card {
-        flex-basis: calc((100% - 30px) / 4);
+    .phone-covers-section {
+        padding-right: 0 !important;
+    }
+
+    .phone-covers-slider {
+        padding-right: 0 !important;
+        overflow: hidden;
+    }
+
+    .phone-covers-header {
+        padding-right: 0 !important;
     }
 
     .phone-covers-heading h2 {
         font-size: 21px;
     }
-}
 
-
-/* =========================================================
-   14. SMALLER TABLET
-   601PX - 900PX
-   3 CARDS VISIBLE
-   ========================================================= */
-
-@media screen and (min-width: 601px) and (max-width: 900px) {
-
-    .phone-covers-section {
-        padding: 0 12px;
+    .phone-covers-track {
+        display: flex;
+        gap: 10px;
+        padding-right: 0 !important;
+        margin-right: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
-    .phone-covers-slider {
-        padding: 10px 10px 12px;
+    .phone-covers-track::-webkit-scrollbar {
+        display: none;
     }
 
     .phone-cover-card {
-        flex-basis: calc((100% - 20px) / 3);
+        flex: 0 0 calc((100% - 30px) / 4.25);
+        min-width: 0;
+        scroll-snap-align: start;
+    }
+
+    .phone-covers-image {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .phone-covers-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .phone-covers-details h3 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .phone-covers-details > p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .phone-covers-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 3px;
+        width: 100%;
+    }
+
+    .phone-covers-price del {
+        order: 1;
+    }
+
+    .phone-covers-price .discount-badge {
+        order: 2;
+    }
+
+    .phone-covers-price strong,
+    .phone-covers-price .current-price {
+        order: 3;
+    }
+}
+
+/* =========================================================
+   2. SMALL TABLETS
+   601px - 900px
+   3 Full Cards + Peek of 4th
+   ========================================================= */
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .phone-covers-section {
+        padding-left: 12px !important;
+        padding-right: 0 !important;
+    }
+
+    .phone-covers-slider {
+        padding-left: 10px !important;
+        padding-right: 0 !important;
+        overflow: hidden;
+    }
+
+    .phone-covers-header {
+        padding-right: 0 !important;
     }
 
     .phone-covers-heading h2 {
         font-size: 19px;
     }
 
+    .phone-covers-track {
+        display: flex;
+        gap: 10px;
+        padding-right: 0 !important;
+        margin-right: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .phone-covers-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .phone-cover-card {
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        min-width: 0;
+        scroll-snap-align: start;
+    }
+
+    .phone-covers-image {
+        height: 140px;
+        overflow: hidden;
+    }
+
+    .phone-covers-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
     .phone-covers-details h3 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
         font-size: 13px;
     }
 
-    .phone-covers-details p {
+    .phone-covers-details > p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
         font-size: 12px;
+    }
+
+    .phone-covers-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 3px;
+        width: 100%;
+    }
+
+    .phone-covers-price del {
+        order: 1;
+    }
+
+    .phone-covers-price .discount-badge {
+        order: 2;
+    }
+
+    .phone-covers-price strong,
+    .phone-covers-price .current-price {
+        order: 3;
+    }
+
+    .phone-covers-prev,
+    .phone-covers-next {
+        display: none !important;
     }
 }
 
-
 /* =========================================================
-   15. MOBILE
-   600PX AND BELOW
-   2 CARDS VISIBLE
+   3. MOBILE
+   320px - 600px
+   2 Full Cards + Peek of 3rd
    ========================================================= */
-
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
 
     .phone-covers-section {
-        padding: 0 8px;
-
-        margin: 12px auto;
-    }
-
-    .phone-covers-slider {
-        padding: 9px;
-
-        border-radius: 13px;
+        padding-left: 8px !important;
+        padding-right: 0 !important;
+        overflow: hidden;
     }
 
     .phone-covers-header {
+        padding-right: 0 !important;
         margin-bottom: 10px;
     }
 
     .phone-covers-heading h2 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .phone-covers-view-all {
-        font-size: 12px;
-
-        gap: 4px;
+        font-size: 13px;
     }
 
-    .phone-covers-view-all i {
-        font-size: 11px;
+    .phone-covers-slider {
+        width: 100%;
+        padding: 12px 0 !important;
+        padding-left: 10px !important;
+        margin: 0;
+        overflow: hidden;
     }
 
     .phone-covers-track {
-        gap: 8px;
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: flex-start !important;
+    }
+
+    .phone-covers-track::-webkit-scrollbar {
+        display: none;
     }
 
     .phone-cover-card {
-        flex-basis: calc((100% - 8px) / 2);
-
-        height: 350px;
+        flex: 0 0 calc((100% - 20px) / 2.5);
+        min-width: 0;
+        scroll-snap-align: start;
+        height: auto !important;
+        min-height: 0 !important;
+        align-self: flex-start !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 
-    .phone-cover-card .product-details-link {
-        height: 205px;
-        flex-basis: 205px;
+    .phone-covers-image {
+        width: 100%;
+        height: 130px;
+        overflow: hidden;
+    }
+
+    .phone-covers-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .phone-covers-details {
-        height: 145px;
-        flex-basis: 145px;
-
-        padding: 9px 9px 6px;
+        height: auto !important;
+        min-height: 0 !important;
+        flex: 0 0 auto !important;
+        flex-grow: 0 !important;
+        justify-content: flex-start !important;
+        padding: 7px 8px !important;
+        padding-bottom: 10px !important;
     }
 
     .phone-covers-details h3 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
         font-size: 12px;
-
-        margin-bottom: 3px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
-    .phone-covers-details p {
-        font-size: 11px;
-
-        line-height: 1.35;
+    .phone-covers-details > p {
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 1.3;
+        margin-bottom: 5px;
     }
 
     .phone-covers-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        width: 100%;
         gap: 2px;
-        margin: 5px 0 4px;
+        margin-top: 3px;
+        margin-bottom: 0 !important;
     }
 
     .phone-covers-price del {
-        font-size: 11px;
+        order: 1;
+        font-size: 10px;
     }
 
     .phone-covers-price .discount-badge {
+        order: 2;
         font-size: 10px;
     }
 
     .phone-covers-price strong,
     .phone-covers-price .current-price {
+        order: 3;
         font-size: 14px;
-        line-height: 1.2;
     }
-
-
-    /* MOBILE ARROWS */
 
     .phone-covers-prev,
     .phone-covers-next {
-        width: 30px;
-        height: 30px;
-
-        font-size: 11px;
+        display: none !important;
     }
 }
 
-
 /* =========================================================
-   16. EXTRA SMALL MOBILE
-   380PX AND BELOW
+   4. EXTRA SMALL MOBILE
+   320px - 380px
    ========================================================= */
+@media (max-width: 380px) {
 
-@media screen and (max-width: 380px) {
+    .phone-covers-section {
+        padding-left: 8px !important;
+        padding-right: 0 !important;
+    }
+
+    .phone-cover-card {
+        flex: 0 0 calc((100% - 20px) / 2.5);
+    }
+
+    .phone-covers-image {
+        height: 120px;
+    }
+
+    .phone-covers-details {
+        padding: 6px 7px !important;
+    }
 
     .phone-covers-heading h2 {
         font-size: 14px;
@@ -4014,15 +4222,11 @@ button {
         font-size: 11px;
     }
 
-    .phone-covers-details {
-        padding: 8px 8px 6px;
-    }
-
     .phone-covers-details h3 {
         font-size: 11px;
     }
 
-    .phone-covers-details p {
+    .phone-covers-details > p {
         font-size: 10px;
     }
 
@@ -4032,11 +4236,9 @@ button {
     }
 }
 
-
 /* =========================================================
-   17. ACCESSIBILITY - REDUCED MOTION
+   ACCESSIBILITY - REDUCED MOTION
    ========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
 
     .phone-covers-track {
@@ -4050,7 +4252,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
