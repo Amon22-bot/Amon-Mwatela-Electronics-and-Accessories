@@ -2998,7 +2998,7 @@ button {
    Layout: 2 full cards + half of 3rd card
    ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
 
     .top-selling-section {
         padding-left: 8px !important;
