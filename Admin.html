@@ -2,20 +2,32 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="AM Electronics and Accessories administration portal.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="theme-color" content="#F5F5F5">
+    <meta
+        name="description"
+        content="AM Electronics and Accessories administration portal."
+    >
+
+    <meta
+        name="theme-color"
+        content="#F5F5F5"
+    >
 
     <title>Admin Portal | AM Electronics</title>
 
     <link rel="stylesheet" href="admin.css">
+
 </head>
 
 <body>
+
 
 <!-- =====================================================
      ADMIN HEADER
@@ -24,28 +36,39 @@
 <header class="admin-header">
 
     <div>
+
         <h1>AM Electronics</h1>
+
         <p>Admin Management Portal</p>
+
     </div>
 
-    <span id="connectionStatus" class="connection-status">
+    <span
+        id="connectionStatus"
+        class="connection-status"
+    >
         Not signed in
     </span>
 
 </header>
 
 
+
 <!-- =====================================================
      ADMIN LOGIN
 ===================================================== -->
 
-<section id="adminLogin" class="login-wrapper">
+<section
+    id="adminLogin"
+    class="login-wrapper"
+>
 
     <div class="panel login-panel">
 
         <h2>Admin Login</h2>
 
         <p>Sign in to manage your store.</p>
+
 
         <form id="adminLoginForm">
 
@@ -81,11 +104,16 @@
 </section>
 
 
+
 <!-- =====================================================
      ADMIN APPLICATION
 ===================================================== -->
 
-<main id="adminApp" class="container" hidden>
+<main
+    id="adminApp"
+    class="container"
+    hidden
+>
 
 
     <!-- =================================================
@@ -95,11 +123,13 @@
     <section class="welcome-row">
 
         <div>
+
             <h2>Dashboard</h2>
 
             <p>
                 Manage products, customer orders and website images.
             </p>
+
         </div>
 
         <button
@@ -113,11 +143,15 @@
     </section>
 
 
+
     <!-- =================================================
          ADMIN NAVIGATION
     ================================================== -->
 
-    <nav class="admin-tabs" aria-label="Admin sections">
+    <nav
+        class="admin-tabs"
+        aria-label="Admin sections"
+    >
 
         <button
             class="tab-button active"
@@ -154,6 +188,7 @@
     </nav>
 
 
+
     <!-- =================================================
          CUSTOMER ORDERS
     ================================================== -->
@@ -166,11 +201,13 @@
         <div class="panel-heading">
 
             <div>
+
                 <h2>Customer Orders</h2>
 
                 <p>
                     Review orders and update their status.
                 </p>
+
             </div>
 
             <button
@@ -183,6 +220,7 @@
 
         </div>
 
+
         <div
             id="ordersList"
             class="orders-list"
@@ -194,12 +232,14 @@
 
         </div>
 
+
         <div
             id="ordersMessage"
             class="message"
         ></div>
 
     </section>
+
 
 
     <!-- =================================================
@@ -215,11 +255,13 @@
         <div class="panel-heading">
 
             <div>
+
                 <h2>Manage Products</h2>
 
                 <p>
                     View and manage products in your catalogue.
                 </p>
+
             </div>
 
             <button
@@ -231,6 +273,7 @@
             </button>
 
         </div>
+
 
 
         <!-- PRODUCT DESTINATION FILTER -->
@@ -255,6 +298,7 @@
                 </option>
 
             </select>
+
 
 
             <!-- ACTUAL PRODUCT CATEGORY FILTER -->
@@ -317,6 +361,7 @@
                 </optgroup>
 
             </select>
+
 
 
             <!-- HOMEPAGE PLACEMENT AND SHOP COLLECTION FILTER -->
@@ -397,6 +442,7 @@
         </div>
 
 
+
         <!-- PRODUCT LIST -->
 
         <div
@@ -410,12 +456,14 @@
 
         </div>
 
+
         <div
             id="productsMessage"
             class="message"
         ></div>
 
     </section>
+
 
 
     <!-- =================================================
@@ -431,15 +479,18 @@
         <div class="panel-heading">
 
             <div>
+
                 <h2>Upload Product</h2>
 
                 <p>
                     Add products to your Shop catalogue and optionally
                     assign them to homepage sections and Shop collections.
                 </p>
+
             </div>
 
         </div>
+
 
 
         <div class="notice">
@@ -455,6 +506,7 @@
             The general Shop catalogue has no fixed product limit.
 
         </div>
+
 
 
         <form id="productForm">
@@ -530,6 +582,7 @@
                 </div>
 
 
+
                 <!-- =====================================
                      HOMEPAGE PLACEMENTS
                 ====================================== -->
@@ -548,6 +601,7 @@
 
 
                     <div class="homepage-placement-options">
+
 
                         <label class="checkbox-label">
 
@@ -652,9 +706,11 @@
 
                         </label>
 
+
                     </div>
 
                 </div>
+
 
 
                 <!-- =====================================
@@ -675,6 +731,7 @@
 
 
                     <div class="shop-collection-options">
+
 
                         <label class="checkbox-label">
 
@@ -740,9 +797,11 @@
 
                         </label>
 
+
                     </div>
 
                 </div>
+
 
 
                 <!-- =====================================
@@ -766,6 +825,7 @@
                 </div>
 
 
+
                 <!-- =====================================
                      PRODUCT PRICES
                 ====================================== -->
@@ -773,16 +833,21 @@
                 <div class="form-group">
 
                     <label for="originalPrice">
-                        Original price (KES) *
+                        Original price (KES)
                     </label>
 
                     <input
                         id="originalPrice"
                         type="number"
-                        min="0"
+                        min="0.01"
                         step="0.01"
-                        required
+                        placeholder="Leave blank if not discounted"
                     >
+
+                    <small>
+                        Only enter an original price when the product
+                        is being sold at a discount.
+                    </small>
 
                 </div>
 
@@ -796,12 +861,14 @@
                     <input
                         id="sellingPrice"
                         type="number"
-                        min="0"
+                        min="0.01"
                         step="0.01"
+                        placeholder="Enter selling price"
                         required
                     >
 
                 </div>
+
 
 
                 <!-- =====================================
@@ -826,11 +893,13 @@
                         The first image will be the main product image.
                     </small>
 
+
                     <div
                         id="productImagePreview"
                         class="product-image-preview"
                         aria-live="polite"
                     ></div>
+
 
 
                     <!-- LEGACY IMAGE PATH SUPPORT -->
@@ -858,6 +927,7 @@
                 </div>
 
 
+
                 <!-- =====================================
                      STOCK STATUS
                 ====================================== -->
@@ -883,6 +953,7 @@
                 </div>
 
 
+
                 <!-- =====================================
                      PRODUCT BRAND
                 ====================================== -->
@@ -900,6 +971,7 @@
                     >
 
                 </div>
+
 
 
                 <!-- =====================================
@@ -921,6 +993,7 @@
                 </div>
 
 
+
                 <!-- =====================================
                      PRODUCT MODEL
                 ====================================== -->
@@ -938,6 +1011,7 @@
                     >
 
                 </div>
+
 
 
                 <!-- =====================================
@@ -959,6 +1033,7 @@
                 </div>
 
 
+
                 <!-- =====================================
                      PRODUCT FEATURES
                 ====================================== -->
@@ -976,6 +1051,7 @@
                     ></textarea>
 
                 </div>
+
 
 
                 <!-- =====================================
@@ -997,6 +1073,7 @@
                 </div>
 
 
+
                 <!-- =====================================
                      PRODUCT WARRANTY
                 ====================================== -->
@@ -1014,6 +1091,7 @@
                     >
 
                 </div>
+
 
 
                 <!-- =====================================
@@ -1039,6 +1117,7 @@
             </div>
 
 
+
             <!-- FORM ACTIONS -->
 
             <div class="form-actions">
@@ -1062,6 +1141,7 @@
             </div>
 
 
+
             <div
                 id="uploadMessage"
                 class="message"
@@ -1071,6 +1151,7 @@
         </form>
 
     </section>
+
 
 
     <!-- =================================================
@@ -1086,15 +1167,18 @@
         <div class="panel-heading">
 
             <div>
+
                 <h2>Website Image Management</h2>
 
                 <p>
                     Manage the website logo, hero slides, circular
                     category images and additional Shop collection slides.
                 </p>
+
             </div>
 
         </div>
+
 
 
         <div class="notice">
@@ -1103,9 +1187,13 @@
             system so that updated images can be displayed to visitors
             across different devices.
 
+            <br><br>
+
             The collection slide images are:
 
             Trending, Featured, Recommended, Must Have and Explore.
+
+            <br><br>
 
             Replacing a collection slide image does not change the
             products assigned to that collection.
@@ -1113,10 +1201,12 @@
         </div>
 
 
+
         <div
             id="assetManager"
             class="asset-manager"
         ></div>
+
 
 
         <div
@@ -1131,6 +1221,7 @@
 </main>
 
 
+
 <!-- =====================================================
      ADMIN FOOTER
 ===================================================== -->
@@ -1142,6 +1233,7 @@
 </footer>
 
 
+
 <!-- =====================================================
      JAVASCRIPT
 ===================================================== -->
@@ -1149,8 +1241,6 @@
 <script src="api-config.js"></script>
 <script src="admin.js"></script>
 
+
 </body>
 </html>
-
-
-       
