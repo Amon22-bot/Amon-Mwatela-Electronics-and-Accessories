@@ -1,4 +1,3 @@
-
 "use strict";
 
 /* =========================================
@@ -115,7 +114,11 @@ async function apiRequest(url, options = {}) {
 
     if (!response.ok) {
         const validationErrors = Array.isArray(data.errors)
-            ? data.errors.join(" ")
+            ? data.errors.map(error =>
+                typeof error === "string"
+                    ? error
+                    : error.message || JSON.stringify(error)
+            ).join(" ")
             : "";
 
         throw new Error(
@@ -366,6 +369,80 @@ function getOrderItems(order) {
     return order.items || order.products || order.cart || [];
 }
 
+
+/* =========================================
+   ORDER PRODUCT IMAGE HELPER
+========================================= */
+
+function getOrderItemImage(item) {
+    const image =
+        item.image ||
+        item.productImage ||
+        item.imageUrl;
+
+    if (typeof image === "string" && image.trim()) {
+        const imageValue = image.trim();
+
+        if (
+            imageValue.startsWith("https://") ||
+            imageValue.startsWith("http://") ||
+            imageValue.startsWith("data:") ||
+            imageValue.startsWith("blob:")
+        ) {
+            return imageValue;
+        }
+
+        if (imageValue.startsWith("/")) {
+            return `${API_BASE}${imageValue}`;
+        }
+
+        return `${API_BASE}/${imageValue}`;
+    }
+
+    if (image && typeof image === "object") {
+        if (image.url) {
+            return getOrderItemImage({
+                image: image.url
+            });
+        }
+
+        if (image.fileId) {
+            return `${PRODUCTS_API}/image/${encodeURIComponent(image.fileId)}`;
+        }
+    }
+
+    if (item.imageFileId) {
+        return `${PRODUCTS_API}/image/${encodeURIComponent(item.imageFileId)}`;
+    }
+
+    return "";
+}
+
+
+/* =========================================
+   ORDER PRODUCT IMAGE PLACEHOLDER
+========================================= */
+
+function createOrderImagePlaceholder() {
+    const placeholder = document.createElement("div");
+
+    placeholder.className = "order-item-image-placeholder";
+
+    const icon = document.createElement("i");
+
+    icon.className = "fa-solid fa-image";
+    icon.setAttribute("aria-hidden", "true");
+
+    placeholder.appendChild(icon);
+
+    return placeholder;
+}
+
+
+/* =========================================
+   RENDER CUSTOMER ORDER
+========================================= */
+
 function renderOrder(order) {
     const orderId = order._id || order.id;
 
@@ -390,14 +467,41 @@ function renderOrder(order) {
         const quantity = Number(item.quantity || 1);
         const price = Number(item.price || 0);
 
+        const imageUrl = getOrderItemImage(item);
+
         return `
             <div class="order-item">
-                <div>
-                    <strong>${escapeHTML(name)}</strong>
-                    <p>Quantity: ${quantity}</p>
+
+                <div class="order-item-product">
+
+                    ${
+                        imageUrl
+                            ? `
+                                <img
+                                    class="order-item-image"
+                                    src="${escapeHTML(imageUrl)}"
+                                    alt="${escapeHTML(name)}"
+                                    loading="lazy"
+                                >
+                            `
+                            : `
+                                <div class="order-item-image-placeholder">
+                                    <i class="fa-solid fa-image"></i>
+                                </div>
+                            `
+                    }
+
+                    <div class="order-item-information">
+                        <strong>${escapeHTML(name)}</strong>
+                        <p>Quantity: ${quantity}</p>
+                    </div>
+
                 </div>
 
-                <strong>${money(price * quantity)}</strong>
+                <strong class="order-item-price">
+                    ${money(price * quantity)}
+                </strong>
+
             </div>
         `;
     }).join("");
@@ -410,16 +514,19 @@ function renderOrder(order) {
     );
 
     const article = document.createElement("article");
+
     article.className = "order-card";
 
     article.innerHTML = `
         <div class="order-heading">
+
             <div>
                 <h3>${escapeHTML(reference)}</h3>
                 <p>Placed: ${escapeHTML(date)}</p>
             </div>
 
             <select class="order-status" aria-label="Order status">
+
                 <option value="new" ${status === "new" ? "selected" : ""}>
                     New
                 </option>
@@ -427,10 +534,13 @@ function renderOrder(order) {
                 <option value="dispatched" ${status === "dispatched" ? "selected" : ""}>
                     Dispatched
                 </option>
+
             </select>
+
         </div>
 
         <div class="order-body">
+
             <div class="order-details">
 
                 <div class="order-detail">
@@ -465,15 +575,36 @@ function renderOrder(order) {
             </div>
 
             <div class="order-items">
+
                 ${itemHTML || "<p>No item details returned by the server.</p>"}
+
             </div>
 
             <div class="order-total">
                 <span>Order total</span>
                 <strong>${money(total)}</strong>
             </div>
+
         </div>
     `;
+
+
+    /* =====================================
+       HANDLE BROKEN PRODUCT IMAGES
+    ===================================== */
+
+    article.querySelectorAll(".order-item-image").forEach(image => {
+        image.addEventListener("error", () => {
+            image.replaceWith(
+                createOrderImagePlaceholder()
+            );
+        });
+    });
+
+
+    /* =====================================
+       ORDER STATUS UPDATE
+    ===================================== */
 
     const statusSelect = article.querySelector(".order-status");
 
@@ -530,6 +661,11 @@ function renderOrder(order) {
 
     return article;
 }
+
+
+/* =========================================
+   LOAD CUSTOMER ORDERS
+========================================= */
 
 async function loadOrders() {
     if (!ordersList) return;
