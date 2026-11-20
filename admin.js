@@ -20,12 +20,11 @@ const ADMIN_TOKEN_KEY = "ameAdminSession";
 let adminToken = sessionStorage.getItem(ADMIN_TOKEN_KEY) || "";
 let cachedProducts = [];
 
-/* IMPORTANT:
-   Declare preview URLs here, before showLogin()
-   or any other function can use them.
-*/
-
 const adminPreviewUrls = new Set();
+const productPreviewUrls = new Set();
+
+let editingProductId = null;
+let editingProduct = null;
 
 const $ = selector => document.querySelector(selector);
 
@@ -35,6 +34,7 @@ const loginForm = $("#adminLoginForm");
 const loginMessage = $("#loginMessage");
 const loginButton = $("#loginButton");
 const connectionStatus = $("#connectionStatus");
+
 
 /* =========================================
    GENERAL HELPERS
@@ -114,9 +114,14 @@ async function apiRequest(url, options = {}) {
     }
 
     if (!response.ok) {
+        const validationErrors = Array.isArray(data.errors)
+            ? data.errors.join(" ")
+            : "";
+
         throw new Error(
             data.message ||
             data.error ||
+            validationErrors ||
             `Request failed (${response.status}).`
         );
     }
@@ -140,6 +145,29 @@ function getErrorMessage(error) {
     return error?.message || "Something went wrong. Please try again.";
 }
 
+function getProductId(product) {
+    return product?._id || product?.id || "";
+}
+
+function parseArray(value) {
+    if (Array.isArray(value)) {
+        return value;
+    }
+
+    if (typeof value === "string") {
+        try {
+            const parsed = JSON.parse(value);
+
+            return Array.isArray(parsed) ? parsed : [];
+        } catch {
+            return [];
+        }
+    }
+
+    return [];
+}
+
+
 /* =========================================
    LOGIN AND LOGOUT
 ========================================= */
@@ -161,6 +189,7 @@ function showLogin(message = "") {
     adminToken = "";
 
     clearAdminPreviewUrls();
+    clearProductPreviewUrls();
 
     sessionStorage.removeItem(ADMIN_TOKEN_KEY);
 
@@ -190,6 +219,7 @@ if (loginForm) {
                 "Enter your admin password.",
                 "error"
             );
+
             return;
         }
 
@@ -199,9 +229,11 @@ if (loginForm) {
         try {
             const response = await fetch(`${ORDERS_API}/admin/login`, {
                 method: "POST",
+
                 headers: {
                     "Content-Type": "application/json"
                 },
+
                 body: JSON.stringify({ password })
             });
 
@@ -242,6 +274,7 @@ if (loginForm) {
                 getErrorMessage(error),
                 "error"
             );
+
         } finally {
             loginButton.disabled = false;
             loginButton.textContent = "Sign In";
@@ -255,6 +288,7 @@ $("#logoutButton")?.addEventListener("click", async () => {
             method: "POST",
             headers: getAdminHeaders()
         });
+
     } catch (error) {
         console.warn(
             "Logout request could not be completed:",
@@ -265,29 +299,41 @@ $("#logoutButton")?.addEventListener("click", async () => {
     showLogin();
 });
 
+
 /* =========================================
    ADMIN NAVIGATION TABS
 ========================================= */
 
+function activateAdminPanel(panelId) {
+    document.querySelectorAll(".tab-button").forEach(tab => {
+        tab.classList.remove("active");
+    });
+
+    document.querySelectorAll(".admin-panel").forEach(panel => {
+        panel.hidden = true;
+    });
+
+    const targetPanel = document.getElementById(panelId);
+
+    if (!targetPanel) return;
+
+    targetPanel.hidden = false;
+
+    const targetButton = document.querySelector(
+        `.tab-button[data-panel="${panelId}"]`
+    );
+
+    if (targetButton) {
+        targetButton.classList.add("active");
+    }
+}
+
 document.querySelectorAll(".tab-button").forEach(button => {
     button.addEventListener("click", () => {
-        document.querySelectorAll(".tab-button").forEach(tab => {
-            tab.classList.remove("active");
-        });
-
-        document.querySelectorAll(".admin-panel").forEach(panel => {
-            panel.hidden = true;
-        });
-
-        button.classList.add("active");
-
-        const panel = document.getElementById(button.dataset.panel);
-
-        if (panel) {
-            panel.hidden = false;
-        }
+        activateAdminPanel(button.dataset.panel);
     });
 });
+
 
 /* =========================================
    CUSTOMER ORDERS
@@ -350,6 +396,7 @@ function renderOrder(order) {
                     <strong>${escapeHTML(name)}</strong>
                     <p>Quantity: ${quantity}</p>
                 </div>
+
                 <strong>${money(price * quantity)}</strong>
             </div>
         `;
@@ -385,6 +432,7 @@ function renderOrder(order) {
 
         <div class="order-body">
             <div class="order-details">
+
                 <div class="order-detail">
                     <strong>Customer</strong>
                     ${escapeHTML(getCustomerName(order))}
@@ -413,6 +461,7 @@ function renderOrder(order) {
                         "Not provided"
                     )}
                 </div>
+
             </div>
 
             <div class="order-items">
@@ -435,6 +484,7 @@ function renderOrder(order) {
                 "This order does not have an ID that can be updated.",
                 "error"
             );
+
             return;
         }
 
@@ -447,9 +497,11 @@ function renderOrder(order) {
                 `${ORDERS_API}/admin/orders/${encodeURIComponent(orderId)}/status`,
                 {
                     method: "PATCH",
+
                     headers: {
                         "Content-Type": "application/json"
                     },
+
                     body: JSON.stringify({
                         status: newStatus
                     })
@@ -470,6 +522,7 @@ function renderOrder(order) {
             );
 
             statusSelect.value = status;
+
         } finally {
             statusSelect.disabled = false;
         }
@@ -498,6 +551,7 @@ async function loadOrders() {
         if (!orders.length) {
             ordersList.innerHTML =
                 '<p class="empty-state">No customer orders found.</p>';
+
             return;
         }
 
@@ -519,12 +573,10 @@ async function loadOrders() {
 
 $("#refreshOrders")?.addEventListener("click", loadOrders);
 
-/* =========================================
-   PRODUCT MANAGEMENT
-========================================= */
 
-const productsList = $("#productsList");
-const productsMessage = $("#productsMessage");
+/* =========================================
+   PRODUCT CATEGORY AND ASSIGNMENT LABELS
+========================================= */
 
 const PRODUCT_CATEGORY_LABELS = {
     "covers": "Phone Covers",
@@ -542,31 +594,67 @@ const PRODUCT_CATEGORY_LABELS = {
 
 const HOMEPAGE_PLACEMENT_LABELS = {
     "top-selling": "Top Selling",
-    "covers": "Phone Covers",
     "new-arrivals": "New Arrivals",
+    "covers": "Phone Covers",
     "screen-protectors": "Screen Protectors",
     "headphones-earpods": "Headphones & Earpods",
     "smartwatches": "Smartwatches",
-    "chargers-cables": "Chargers & Cables"
+    "chargers-cables": "Chargers & Cables",
+    "power-banks": "Power Banks"
 };
 
-function getProductPlacements(product) {
-    const placements = Array.isArray(product.placements)
-        ? [...product.placements]
-        : [];
+const SHOP_COLLECTION_LABELS = {
+    "trending": "Trending",
+    "featured": "Featured",
+    "recommended": "Recommended",
+    "must-have": "Must Have",
+    "explore": "Explore"
+};
 
-    if (
-        product.placement &&
-        product.placement !== "regular"
-    ) {
-        placements.push(product.placement);
+const HOMEPAGE_PLACEMENT_VALUES = Object.keys(
+    HOMEPAGE_PLACEMENT_LABELS
+);
+
+const SHOP_COLLECTION_VALUES = Object.keys(
+    SHOP_COLLECTION_LABELS
+);
+
+
+/* =========================================
+   PRODUCT ASSIGNMENT HELPERS
+========================================= */
+
+function getProductPlacements(product) {
+    const rawPlacements = [
+        ...parseArray(product.placements)
+    ];
+
+    if (product.placement && product.placement !== "regular") {
+        rawPlacements.push(product.placement);
     }
 
     return [...new Set(
-        placements.filter(value =>
+        rawPlacements.filter(value =>
             typeof value === "string" &&
-            value &&
-            value !== "regular"
+            HOMEPAGE_PLACEMENT_VALUES.includes(value)
+        )
+    )];
+}
+
+function getProductCollections(product) {
+    const rawCollections = [
+        ...parseArray(product.collections),
+        ...parseArray(product.placements)
+    ];
+
+    if (product.placement && product.placement !== "regular") {
+        rawCollections.push(product.placement);
+    }
+
+    return [...new Set(
+        rawCollections.filter(value =>
+            typeof value === "string" &&
+            SHOP_COLLECTION_VALUES.includes(value)
         )
     )];
 }
@@ -583,13 +671,215 @@ function getPlacementLabels(product) {
     const placements = getProductPlacements(product);
 
     if (!placements.length) {
-        return "Shop only";
+        return "None";
     }
 
     return placements.map(placement =>
-        HOMEPAGE_PLACEMENT_LABELS[placement] || placement
+        HOMEPAGE_PLACEMENT_LABELS[placement]
     ).join(", ");
 }
+
+function getCollectionLabels(product) {
+    const collections = getProductCollections(product);
+
+    if (!collections.length) {
+        return "None";
+    }
+
+    return collections.map(collection =>
+        SHOP_COLLECTION_LABELS[collection]
+    ).join(", ");
+}
+
+
+/* =========================================
+   PRODUCT IMAGE PREVIEW HELPERS
+========================================= */
+
+function clearProductPreviewUrls() {
+    productPreviewUrls.forEach(url => {
+        URL.revokeObjectURL(url);
+    });
+
+    productPreviewUrls.clear();
+}
+
+function getProductImageSource(value, fileId = "") {
+    if (typeof value === "string" && value.trim()) {
+        if (
+            value.startsWith("https://") ||
+            value.startsWith("http://") ||
+            value.startsWith("data:") ||
+            value.startsWith("blob:")
+        ) {
+            return value;
+        }
+
+        if (value.startsWith("/")) {
+            return `${API_BASE}${value}`;
+        }
+
+        return `${API_BASE}/${value}`;
+    }
+
+    if (value && typeof value === "object") {
+        if (value.url) {
+            return getProductImageSource(value.url);
+        }
+
+        if (value.fileId) {
+            return `${PRODUCTS_API}/image/${value.fileId}`;
+        }
+    }
+
+    if (fileId) {
+        return `${PRODUCTS_API}/image/${fileId}`;
+    }
+
+    return "";
+}
+
+function getExistingProductImages(product) {
+    const images = [];
+
+    const mainImage = getProductImageSource(
+        product.image,
+        product.imageFileId
+    );
+
+    if (mainImage) {
+        images.push({
+            url: mainImage,
+            alt: product.title || product.name || "Product image"
+        });
+    }
+
+    const extraImages = Array.isArray(product.extraImages)
+        ? product.extraImages
+        : [];
+
+    extraImages.forEach((image, index) => {
+        const url = getProductImageSource(image);
+
+        if (url) {
+            images.push({
+                url,
+                alt: `${product.title || "Product"} image ${index + 2}`
+            });
+        }
+    });
+
+    return images.slice(0, 4);
+}
+
+function getProductImagePreviewElement() {
+    let preview = $("#productImagePreview");
+
+    if (preview) return preview;
+
+    const imageInput = $("#productImageFile");
+
+    if (!imageInput) return null;
+
+    preview = document.createElement("div");
+
+    preview.id = "productImagePreview";
+    preview.className = "product-image-preview";
+
+    imageInput.insertAdjacentElement("afterend", preview);
+
+    return preview;
+}
+
+function renderProductImagePreview(images, message = "") {
+    const preview = getProductImagePreviewElement();
+
+    if (!preview) return;
+
+    preview.replaceChildren();
+
+    if (message) {
+        const note = document.createElement("p");
+
+        note.className = "image-preview-message";
+        note.textContent = message;
+
+        preview.appendChild(note);
+    }
+
+    if (!images.length) {
+        if (!message) {
+            preview.textContent = "No product images selected.";
+        }
+
+        return;
+    }
+
+    const grid = document.createElement("div");
+
+    grid.className = "product-image-preview-grid";
+
+    images.forEach(item => {
+        const wrapper = document.createElement("div");
+
+        wrapper.className = "product-image-preview-item";
+
+        const image = document.createElement("img");
+
+        image.src = item.url;
+        image.alt = item.alt || "Product image";
+
+        image.loading = "lazy";
+
+        image.onerror = () => {
+            wrapper.textContent = "Preview unavailable";
+        };
+
+        wrapper.appendChild(image);
+        grid.appendChild(wrapper);
+    });
+
+    preview.appendChild(grid);
+}
+
+function previewExistingProductImages(product) {
+    const images = getExistingProductImages(product);
+
+    renderProductImagePreview(
+        images,
+        "Existing images will be retained unless you select replacement images."
+    );
+}
+
+function previewSelectedProductImages(files) {
+    clearProductPreviewUrls();
+
+    const images = [];
+
+    Array.from(files).forEach((file, index) => {
+        const url = URL.createObjectURL(file);
+
+        productPreviewUrls.add(url);
+
+        images.push({
+            url,
+            alt: `Selected product image ${index + 1}`
+        });
+    });
+
+    renderProductImagePreview(
+        images,
+        `${images.length} replacement image(s) selected. They will replace the existing image set.`
+    );
+}
+
+
+/* =========================================
+   PRODUCT MANAGEMENT
+========================================= */
+
+const productsList = $("#productsList");
+const productsMessage = $("#productsMessage");
 
 async function loadProducts() {
     if (!productsList) return;
@@ -627,9 +917,12 @@ function renderProducts() {
 
     const scope = $("#productScopeFilter")?.value || "all";
     const category = $("#productCategoryFilter")?.value || "all";
+    const assignment = $("#productAssignmentFilter")?.value || "all";
 
     const filtered = cachedProducts.filter(product => {
         const placements = getProductPlacements(product);
+        const collections = getProductCollections(product);
+
         const isHomepageProduct = placements.length > 0;
 
         const matchesScope =
@@ -642,49 +935,106 @@ function renderProducts() {
             product.category === category ||
             placements.includes(category);
 
-        return matchesScope && matchesCategory;
+        const matchesAssignment =
+            assignment === "all" ||
+            placements.includes(assignment) ||
+            collections.includes(assignment);
+
+        return (
+            matchesScope &&
+            matchesCategory &&
+            matchesAssignment
+        );
     });
 
     if (!filtered.length) {
         productsList.innerHTML =
             '<p class="empty-state">No products match these filters.</p>';
+
         return;
     }
 
     filtered.forEach(product => {
-        const productId = product._id || product.id;
+        const productId = getProductId(product);
 
         const card = document.createElement("article");
+
         card.className = "product-card";
 
         const information = document.createElement("div");
 
+        information.className = "product-card-information";
+
         const title = document.createElement("h3");
+
         title.textContent =
             product.title || product.name || "Unnamed product";
 
         const price = document.createElement("p");
+
         price.textContent =
             `Selling price: ${money(product.price)}`;
 
+        const originalPrice = document.createElement("p");
+
+        originalPrice.textContent =
+            product.originalPrice
+                ? `Original price: ${money(product.originalPrice)}`
+                : "Original price: Not specified";
+
         const categoryText = document.createElement("p");
+
         categoryText.textContent =
             `Actual category: ${getCategoryLabel(product.category)}`;
 
         const placementText = document.createElement("p");
+
         placementText.textContent =
             `Homepage sections: ${getPlacementLabels(product)}`;
+
+        const collectionText = document.createElement("p");
+
+        collectionText.textContent =
+            `Shop collections: ${getCollectionLabels(product)}`;
+
+        const stockText = document.createElement("p");
+
+        stockText.textContent =
+            `Stock: ${
+                product.inStock === false ||
+                product.stockStatus === "out-of-stock"
+                    ? "Out of stock"
+                    : "In stock"
+            }`;
 
         information.append(
             title,
             price,
+            originalPrice,
             categoryText,
-            placementText
+            placementText,
+            collectionText,
+            stockText
         );
 
+        const actions = document.createElement("div");
+
+        actions.className = "product-card-actions";
+
+        const editButton = document.createElement("button");
+
+        editButton.type = "button";
+        editButton.className = "btn primary";
+        editButton.textContent = "Edit product";
+
+        editButton.addEventListener("click", () => {
+            startProductEdit(product);
+        });
+
         const deleteButton = document.createElement("button");
-        deleteButton.className = "btn danger";
+
         deleteButton.type = "button";
+        deleteButton.className = "btn danger";
         deleteButton.textContent = "Delete product";
 
         deleteButton.addEventListener("click", async () => {
@@ -694,6 +1044,7 @@ function renderProducts() {
                     "This product does not have an ID.",
                     "error"
                 );
+
                 return;
             }
 
@@ -709,12 +1060,18 @@ function renderProducts() {
             try {
                 await apiRequest(
                     `${PRODUCTS_API}/${encodeURIComponent(productId)}`,
-                    { method: "DELETE" }
+                    {
+                        method: "DELETE"
+                    }
                 );
+
+                if (editingProductId === String(productId)) {
+                    resetProductForm();
+                }
 
                 showMessage(
                     productsMessage,
-                    "Product deleted.",
+                    "Product deleted successfully.",
                     "success"
                 );
 
@@ -732,7 +1089,16 @@ function renderProducts() {
             }
         });
 
-        card.append(information, deleteButton);
+        actions.append(
+            editButton,
+            deleteButton
+        );
+
+        card.append(
+            information,
+            actions
+        );
+
         productsList.appendChild(card);
     });
 }
@@ -749,27 +1115,34 @@ $("#productCategoryFilter")?.addEventListener(
     renderProducts
 );
 
+$("#productAssignmentFilter")?.addEventListener(
+    "change",
+    renderProducts
+);
+
+
 /* =========================================
-   PRODUCT UPLOAD FORM
+   PRODUCT FORM
 ========================================= */
 
 const productForm = $("#productForm");
 const uploadMessage = $("#uploadMessage");
 const uploadButton = $("#uploadProductButton");
 
-function readFileAsDataURL(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
+const productFormHeading = productForm
+    ?.closest(".admin-panel")
+    ?.querySelector(".panel-heading h2");
 
-        reader.onload = () => resolve(reader.result);
+const originalFormHeading =
+    productFormHeading?.textContent || "Upload Product";
 
-        reader.onerror = () => {
-            reject(new Error("Could not read image file."));
-        };
+const originalUploadButtonText =
+    uploadButton?.textContent || "Upload Product";
 
-        reader.readAsDataURL(file);
-    });
-}
+
+/* =========================================
+   FORM DATA HELPERS
+========================================= */
 
 function linesToArray(value, limit) {
     return String(value || "")
@@ -786,6 +1159,485 @@ function commaSeparated(value) {
         .filter(Boolean);
 }
 
+function formatSpecifications(value) {
+    if (Array.isArray(value)) {
+        return value.map(item => {
+            if (typeof item === "string") {
+                return item;
+            }
+
+            if (item && typeof item === "object") {
+                const name =
+                    item.name ||
+                    item.key ||
+                    item.label ||
+                    "";
+
+                const specificationValue =
+                    item.value ??
+                    item.description ??
+                    "";
+
+                return name
+                    ? `${name}: ${specificationValue}`
+                    : String(specificationValue);
+            }
+
+            return "";
+        }).filter(Boolean).join("\n");
+    }
+
+    if (value && typeof value === "object") {
+        return Object.entries(value)
+            .map(([key, item]) => `${key}: ${item}`)
+            .join("\n");
+    }
+
+    return String(value || "");
+}
+
+function getSelectedCheckboxValues(selector) {
+    return Array.from(
+        document.querySelectorAll(`${selector}:checked`)
+    ).map(checkbox => checkbox.value);
+}
+
+function setCheckboxValues(selector, values) {
+    const selected = new Set(values);
+
+    document.querySelectorAll(selector).forEach(checkbox => {
+        checkbox.checked = selected.has(checkbox.value);
+    });
+}
+
+function appendFormData(formData, key, value) {
+    if (value === undefined || value === null) {
+        return;
+    }
+
+    formData.append(key, String(value));
+}
+
+
+/* =========================================
+   PRODUCT EDIT FORM CONTROLS
+========================================= */
+
+function getCancelEditButton() {
+    if (!productForm) return null;
+
+    let button = $("#cancelProductEditButton");
+
+    if (button) return button;
+
+    const actions = productForm.querySelector(".form-actions");
+
+    if (!actions) return null;
+
+    button = document.createElement("button");
+
+    button.type = "button";
+    button.id = "cancelProductEditButton";
+    button.className = "btn secondary";
+    button.textContent = "Cancel Edit";
+    button.hidden = true;
+
+    actions.appendChild(button);
+
+    button.addEventListener("click", resetProductForm);
+
+    return button;
+}
+
+function setProductFormMode(isEditing) {
+    if (productFormHeading) {
+        productFormHeading.textContent = isEditing
+            ? "Edit Product"
+            : originalFormHeading;
+    }
+
+    if (uploadButton) {
+        uploadButton.textContent = isEditing
+            ? "Update Product"
+            : originalUploadButtonText;
+    }
+
+    const cancelButton = getCancelEditButton();
+
+    if (cancelButton) {
+        cancelButton.hidden = !isEditing;
+    }
+
+    const submitButton = uploadButton;
+
+    if (submitButton) {
+        submitButton.dataset.mode = isEditing
+            ? "edit"
+            : "create";
+    }
+}
+
+function startProductEdit(product) {
+    if (!productForm) return;
+
+    const productId = getProductId(product);
+
+    if (!productId) {
+        showMessage(
+            productsMessage,
+            "This product cannot be edited because it has no ID.",
+            "error"
+        );
+
+        return;
+    }
+
+    editingProductId = String(productId);
+    editingProduct = product;
+
+    productForm.reset();
+
+    clearProductPreviewUrls();
+
+    clearMessage(uploadMessage);
+
+    $("#productTitle").value =
+        product.title || product.name || "";
+
+    $("#productCategory").value =
+        product.category || "";
+
+    $("#originalPrice").value =
+        product.originalPrice ?? "";
+
+    $("#sellingPrice").value =
+        product.price ?? "";
+
+    $("#productDescription").value =
+        product.description || "";
+
+    $("#stockStatus").value =
+        product.inStock === false ||
+        product.stockStatus === "out-of-stock"
+            ? "false"
+            : "true";
+
+    $("#productBrand").value =
+        product.brand || "";
+
+    $("#productModel").value =
+        product.model || "";
+
+    $("#productColors").value =
+        Array.isArray(product.colors)
+            ? product.colors.join(", ")
+            : "";
+
+    $("#productFeatures").value =
+        Array.isArray(product.features)
+            ? product.features.join("\n")
+            : "";
+
+    $("#productSpecifications").value =
+        formatSpecifications(product.specifications);
+
+    $("#productWarranty").value =
+        product.warranty || "";
+
+    $("#detailsVerified").checked =
+        Boolean(product.detailsVerified);
+
+    setCheckboxValues(
+        ".homepage-placement-checkbox",
+        getProductPlacements(product)
+    );
+
+    setCheckboxValues(
+        ".shop-collection-checkbox",
+        getProductCollections(product)
+    );
+
+    const imagePath = $("#productImagePath");
+
+    if (imagePath) {
+        imagePath.value = "";
+    }
+
+    const imageInput = $("#productImageFile");
+
+    if (imageInput) {
+        imageInput.value = "";
+    }
+
+    previewExistingProductImages(product);
+
+    setProductFormMode(true);
+
+    const formPanel = productForm.closest(".admin-panel");
+
+    if (formPanel?.id) {
+        activateAdminPanel(formPanel.id);
+    }
+
+    showMessage(
+        uploadMessage,
+        `Editing "${product.title || product.name}". Existing images will remain unless you select replacements.`,
+        "info"
+    );
+
+    productForm.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+/* =========================================
+   RESET PRODUCT FORM
+========================================= */
+
+function resetProductForm() {
+    if (!productForm) return;
+
+    productForm.reset();
+
+    editingProductId = null;
+    editingProduct = null;
+
+    clearProductPreviewUrls();
+
+    const imagePreview = $("#productImagePreview");
+
+    if (imagePreview) {
+        imagePreview.replaceChildren();
+
+        imagePreview.textContent =
+            "No product images selected.";
+    }
+
+    const imagePath = $("#productImagePath");
+
+    if (imagePath) {
+        imagePath.value = "";
+    }
+
+    const imageInput = $("#productImageFile");
+
+    if (imageInput) {
+        imageInput.value = "";
+    }
+
+    setProductFormMode(false);
+
+    clearMessage(uploadMessage);
+}
+
+const clearProductButton = productForm?.querySelector(
+    'button[type="reset"]'
+);
+
+clearProductButton?.addEventListener("click", event => {
+    event.preventDefault();
+
+    resetProductForm();
+});
+
+
+/* =========================================
+   PRODUCT IMAGE INPUT PREVIEW
+========================================= */
+
+$("#productImageFile")?.addEventListener("change", event => {
+    const files = Array.from(event.target.files || []);
+
+    if (!files.length) {
+        if (editingProduct) {
+            previewExistingProductImages(editingProduct);
+        } else {
+            renderProductImagePreview([]);
+        }
+
+        return;
+    }
+
+    if (files.length > 4) {
+        showMessage(
+            uploadMessage,
+            "You can upload a maximum of four product images.",
+            "error"
+        );
+
+        event.target.value = "";
+
+        return;
+    }
+
+    previewSelectedProductImages(files);
+});
+
+
+/* =========================================
+   PRODUCT VALIDATION
+========================================= */
+
+const ALLOWED_PRODUCT_IMAGE_TYPES = [
+    "image/png",
+    "image/jpeg",
+    "image/webp",
+    "image/gif"
+];
+
+const MAX_PRODUCT_IMAGE_SIZE = 5 * 1024 * 1024;
+
+function validateProductImages(files) {
+    if (files.length > 4) {
+        return "You can upload a maximum of four product images.";
+    }
+
+    for (const file of files) {
+        if (!ALLOWED_PRODUCT_IMAGE_TYPES.includes(file.type)) {
+            return "Only PNG, JPG, WEBP and GIF product images are allowed.";
+        }
+
+        if (file.size > MAX_PRODUCT_IMAGE_SIZE) {
+            return `The image "${file.name}" exceeds the 5 MB limit.`;
+        }
+    }
+
+    return "";
+}
+
+function validateProductPrices(originalPriceRaw, sellingPriceRaw) {
+    const price = Number(sellingPriceRaw);
+
+    if (
+        sellingPriceRaw === "" ||
+        !Number.isFinite(price) ||
+        price <= 0
+    ) {
+        return "Enter a valid selling price greater than zero.";
+    }
+
+    if (originalPriceRaw !== "") {
+        const originalPrice = Number(originalPriceRaw);
+
+        if (
+            !Number.isFinite(originalPrice) ||
+            originalPrice <= 0
+        ) {
+            return "Original Price must be greater than zero when provided.";
+        }
+
+        if (originalPrice <= price) {
+            return "Original Price must be greater than the Selling Price. Leave it blank if the product is not discounted.";
+        }
+    }
+
+    return "";
+}
+
+
+/* =========================================
+   BUILD PRODUCT FORM DATA
+========================================= */
+
+function buildProductFormData({
+    title,
+    category,
+    price,
+    originalPrice,
+    description,
+    placements,
+    collections,
+    inStock,
+    brand,
+    model,
+    colors,
+    features,
+    specifications,
+    warranty,
+    detailsVerified,
+    files,
+    imagePath
+}) {
+    const formData = new FormData();
+
+    appendFormData(formData, "title", title);
+    appendFormData(formData, "category", category);
+    appendFormData(formData, "price", price);
+
+    appendFormData(
+        formData,
+        "originalPrice",
+        originalPrice === "" ? "" : originalPrice
+    );
+
+    appendFormData(formData, "description", description);
+
+    appendFormData(
+        formData,
+        "placements",
+        JSON.stringify(placements)
+    );
+
+    appendFormData(
+        formData,
+        "collections",
+        JSON.stringify(collections)
+    );
+
+    appendFormData(
+        formData,
+        "inStock",
+        String(inStock)
+    );
+
+    appendFormData(formData, "brand", brand);
+    appendFormData(formData, "model", model);
+
+    appendFormData(
+        formData,
+        "colors",
+        JSON.stringify(colors)
+    );
+
+    appendFormData(
+        formData,
+        "features",
+        JSON.stringify(features)
+    );
+
+    appendFormData(
+        formData,
+        "specifications",
+        JSON.stringify(specifications)
+    );
+
+    appendFormData(formData, "warranty", warranty);
+
+    appendFormData(
+        formData,
+        "detailsVerified",
+        String(detailsVerified)
+    );
+
+    files.forEach(file => {
+        formData.append("images", file);
+    });
+
+    if (!files.length && imagePath) {
+        appendFormData(formData, "image", imagePath);
+    }
+
+    return formData;
+}
+
+
+/* =========================================
+   SUBMIT PRODUCT FORM
+   CREATE OR UPDATE
+========================================= */
+
 if (productForm) {
     productForm.addEventListener("submit", async event => {
         event.preventDefault();
@@ -795,19 +1647,26 @@ if (productForm) {
         const title = $("#productTitle")?.value.trim() || "";
         const category = $("#productCategory")?.value || "";
 
-        const placements = Array.from(
-            document.querySelectorAll(
-                ".homepage-placement-checkbox:checked"
-            )
-        ).map(checkbox => checkbox.value);
+        const originalPriceRaw =
+            $("#originalPrice")?.value.trim() || "";
 
-        const originalPrice = Number(
-            $("#originalPrice")?.value
+        const sellingPriceRaw =
+            $("#sellingPrice")?.value.trim() || "";
+
+        const priceError = validateProductPrices(
+            originalPriceRaw,
+            sellingPriceRaw
         );
 
-        const price = Number(
-            $("#sellingPrice")?.value
-        );
+        if (priceError) {
+            showMessage(
+                uploadMessage,
+                priceError,
+                "error"
+            );
+
+            return;
+        }
 
         if (!title) {
             showMessage(
@@ -815,6 +1674,7 @@ if (productForm) {
                 "Enter a product name.",
                 "error"
             );
+
             return;
         }
 
@@ -824,6 +1684,7 @@ if (productForm) {
                 "Select the actual product category.",
                 "error"
             );
+
             return;
         }
 
@@ -833,76 +1694,20 @@ if (productForm) {
                 "The selected product category is not valid.",
                 "error"
             );
+
             return;
         }
 
-        if (
-            !Number.isFinite(originalPrice) ||
-            !Number.isFinite(price) ||
-            originalPrice < 0 ||
-            price < 0
-        ) {
-            showMessage(
-                uploadMessage,
-                "Enter valid product prices.",
-                "error"
-            );
-            return;
-        }
+        const placements = getSelectedCheckboxValues(
+            ".homepage-placement-checkbox"
+        );
 
-        if (price > originalPrice && originalPrice > 0) {
-            const confirmed = confirm(
-                "The selling price is higher than the original price. Continue?"
-            );
-
-            if (!confirmed) return;
-        }
-
-        const mainImageFile =
-            $("#productImageFile")?.files?.[0];
-
-        if (
-            mainImageFile &&
-            !mainImageFile.type.startsWith("image/")
-        ) {
-            showMessage(
-                uploadMessage,
-                "Choose a valid image file.",
-                "error"
-            );
-            return;
-        }
-
-        const imagePath =
-            $("#productImagePath")?.value.trim() || "";
-
-        if (!mainImageFile && !imagePath) {
-            showMessage(
-                uploadMessage,
-                "Choose a product image or enter an image path.",
-                "error"
-            );
-            return;
-        }
-
-        if (
-            mainImageFile &&
-            mainImageFile.size > 5 * 1024 * 1024
-        ) {
-            showMessage(
-                uploadMessage,
-                "The product image must be 5 MB or smaller.",
-                "error"
-            );
-            return;
-        }
-
-        const validPlacements = Object.keys(
-            HOMEPAGE_PLACEMENT_LABELS
+        const collections = getSelectedCheckboxValues(
+            ".shop-collection-checkbox"
         );
 
         const invalidPlacement = placements.find(
-            placement => !validPlacements.includes(placement)
+            value => !HOMEPAGE_PLACEMENT_VALUES.includes(value)
         );
 
         if (invalidPlacement) {
@@ -911,77 +1716,138 @@ if (productForm) {
                 `Invalid homepage placement: ${invalidPlacement}`,
                 "error"
             );
+
             return;
         }
 
-        uploadButton.disabled = true;
-        uploadButton.textContent = "Uploading...";
+        const invalidCollection = collections.find(
+            value => !SHOP_COLLECTION_VALUES.includes(value)
+        );
+
+        if (invalidCollection) {
+            showMessage(
+                uploadMessage,
+                `Invalid Shop collection: ${invalidCollection}`,
+                "error"
+            );
+
+            return;
+        }
+
+        const files = Array.from(
+            $("#productImageFile")?.files || []
+        );
+
+        const imageError = validateProductImages(files);
+
+        if (imageError) {
+            showMessage(
+                uploadMessage,
+                imageError,
+                "error"
+            );
+
+            return;
+        }
+
+        const imagePath =
+            $("#productImagePath")?.value.trim() || "";
+
+        if (
+            !editingProductId &&
+            !files.length &&
+            !imagePath
+        ) {
+            showMessage(
+                uploadMessage,
+                "Choose at least one product image or enter an image path.",
+                "error"
+            );
+
+            return;
+        }
+
+        const productData = {
+            title,
+            category,
+
+            price: Number(sellingPriceRaw),
+
+            originalPrice: originalPriceRaw,
+
+            description:
+                $("#productDescription")?.value.trim() || "",
+
+            placements,
+            collections,
+
+            inStock:
+                $("#stockStatus")?.value === "true",
+
+            brand:
+                $("#productBrand")?.value.trim() || "",
+
+            model:
+                $("#productModel")?.value.trim() || "",
+
+            colors:
+                commaSeparated($("#productColors")?.value),
+
+            features:
+                linesToArray(
+                    $("#productFeatures")?.value,
+                    12
+                ),
+
+            specifications:
+                linesToArray(
+                    $("#productSpecifications")?.value,
+                    20
+                ),
+
+            warranty:
+                $("#productWarranty")?.value.trim() || "",
+
+            detailsVerified:
+                $("#detailsVerified")?.checked || false,
+
+            files,
+            imagePath
+        };
+
+        const isEditing = Boolean(editingProductId);
+
+        const endpoint = isEditing
+            ? `${PRODUCTS_API}/${encodeURIComponent(editingProductId)}`
+            : PRODUCTS_API;
+
+        const method = isEditing ? "PUT" : "POST";
+
+        const formData = buildProductFormData(productData);
+
+        if (uploadButton) {
+            uploadButton.disabled = true;
+
+            uploadButton.textContent = isEditing
+                ? "Updating..."
+                : "Uploading...";
+        }
 
         try {
-            let image = imagePath;
-
-            if (mainImageFile) {
-                image = await readFileAsDataURL(mainImageFile);
-            }
-
-            const product = {
-                title,
-                price,
-                originalPrice,
-
-                description:
-                    $("#productDescription")?.value.trim() || "",
-
-                image,
-                category,
-                placements,
-
-                inStock:
-                    $("#stockStatus")?.value === "true",
-
-                brand:
-                    $("#productBrand")?.value.trim() || "",
-
-                model:
-                    $("#productModel")?.value.trim() || "",
-
-                colors:
-                    commaSeparated($("#productColors")?.value),
-
-                features:
-                    linesToArray(
-                        $("#productFeatures")?.value,
-                        12
-                    ),
-
-                specifications:
-                    linesToArray(
-                        $("#productSpecifications")?.value,
-                        20
-                    ),
-
-                warranty:
-                    $("#productWarranty")?.value.trim() || "",
-
-                detailsVerified:
-                    $("#detailsVerified")?.checked || false
-            };
-
-            await apiRequest(PRODUCTS_API, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(product)
+            await apiRequest(endpoint, {
+                method,
+                body: formData
             });
 
             showMessage(
                 uploadMessage,
-                "Product uploaded successfully.",
+                isEditing
+                    ? "Product updated successfully."
+                    : "Product uploaded successfully.",
                 "success"
             );
 
-            productForm.reset();
+            resetProductForm();
 
             await loadProducts();
 
@@ -991,12 +1857,19 @@ if (productForm) {
                 getErrorMessage(error),
                 "error"
             );
+
         } finally {
-            uploadButton.disabled = false;
-            uploadButton.textContent = "Upload Product";
+            if (uploadButton) {
+                uploadButton.disabled = false;
+
+                uploadButton.textContent = editingProductId
+                    ? "Update Product"
+                    : originalUploadButtonText;
+            }
         }
     });
 }
+
 
 /* =========================================
    WEBSITE IMAGE MANAGEMENT
@@ -1006,7 +1879,10 @@ if (productForm) {
 const ASSET_GROUPS = [
     {
         title: "Website Logo",
-        description: "Upload or replace your main website logo.",
+
+        description:
+            "Upload or replace your main website logo.",
+
         items: [
             {
                 key: "website-logo",
@@ -1018,7 +1894,10 @@ const ASSET_GROUPS = [
 
     {
         title: "Homepage Hero Slides",
-        description: "Manage your five rotating homepage banner images.",
+
+        description:
+            "Manage your five rotating homepage banner images.",
+
         items: [
             {
                 key: "hero-slide-1",
@@ -1050,7 +1929,10 @@ const ASSET_GROUPS = [
 
     {
         title: "Circular Category Images",
-        description: "Replace the images displayed in your five homepage category circles.",
+
+        description:
+            "Replace the images displayed in your five homepage category circles.",
+
         items: [
             {
                 key: "category-gaming",
@@ -1078,8 +1960,44 @@ const ASSET_GROUPS = [
                 help: "A square PNG image is recommended."
             }
         ]
+    },
+
+    {
+        title: "Shop Collection Slides",
+
+        description:
+            "Manage the five promotional image slides used for the Shop collections.",
+
+        items: [
+            {
+                key: "collection-trending",
+                name: "Trending",
+                help: "Shop Trending collection slide."
+            },
+            {
+                key: "collection-featured",
+                name: "Featured",
+                help: "Shop Featured collection slide."
+            },
+            {
+                key: "collection-recommended",
+                name: "Recommended",
+                help: "Shop Recommended collection slide."
+            },
+            {
+                key: "collection-must-have",
+                name: "Must Have",
+                help: "Shop Must Have collection slide."
+            },
+            {
+                key: "collection-explore",
+                name: "Explore",
+                help: "Shop Explore collection slide."
+            }
+        ]
     }
 ];
+
 
 /* =========================================
    TEMPORARY ADMIN IMAGE PREVIEW URLS
@@ -1093,8 +2011,9 @@ function clearAdminPreviewUrls() {
     adminPreviewUrls.clear();
 }
 
+
 /* =========================================
-   IMAGE URL HELPER
+   WEBSITE IMAGE URL HELPER
 ========================================= */
 
 function getSiteAssetUrl(value) {
@@ -1104,6 +2023,7 @@ function getSiteAssetUrl(value) {
 
     if (typeof value === "string") {
         url = value;
+
     } else if (typeof value === "object") {
         url =
             value.url ||
@@ -1126,6 +2046,7 @@ function getSiteAssetUrl(value) {
 
     return `${API_BASE}/${url.replace(/^\/+/, "")}`;
 }
+
 
 /* =========================================
    FETCH PROTECTED ADMIN IMAGE PREVIEW
@@ -1151,6 +2072,7 @@ async function fetchAdminImagePreview(value) {
 
     const response = await fetch(imageUrl, {
         method: "GET",
+
         headers: {
             Authorization: `Bearer ${adminToken}`
         }
@@ -1185,9 +2107,9 @@ async function fetchAdminImagePreview(value) {
     return objectUrl;
 }
 
+
 /* =========================================
    FETCH CENTRAL WEBSITE IMAGES
-   AUTHENTICATED ADMIN LIST
 ========================================= */
 
 async function fetchCentralAssets() {
@@ -1210,6 +2132,7 @@ async function fetchCentralAssets() {
     return assets;
 }
 
+
 /* =========================================
    DETERMINE WEBSITE IMAGE TYPE
 ========================================= */
@@ -1219,7 +2142,7 @@ function getSiteAssetType(key) {
         return "logo";
     }
 
-    if (key.startsWith("hero-slide-")) {
+    if (/^hero-slide-[1-5]$/.test(key)) {
         return "hero";
     }
 
@@ -1227,8 +2150,15 @@ function getSiteAssetType(key) {
         return "category";
     }
 
+    if (SHOP_COLLECTION_VALUES.some(
+        collection => key === `collection-${collection}`
+    )) {
+        return "collection";
+    }
+
     throw new Error("Invalid website image category.");
 }
+
 
 /* =========================================
    UPLOAD OR REPLACE WEBSITE IMAGE
@@ -1249,6 +2179,7 @@ async function uploadSiteAsset(key, file) {
     });
 }
 
+
 /* =========================================
    REMOVE REPLACEMENT IMAGE
 ========================================= */
@@ -1262,15 +2193,18 @@ async function deleteSiteAsset(key) {
     );
 }
 
+
 /* =========================================
    CREATE WEBSITE IMAGE CARD
 ========================================= */
 
 function createAssetCard(asset, currentAssets) {
     const card = document.createElement("div");
+
     card.className = "asset-card";
 
     const preview = document.createElement("div");
+
     preview.className = "asset-preview";
 
     const currentAsset = currentAssets[asset.key];
@@ -1280,11 +2214,13 @@ function createAssetCard(asset, currentAssets) {
     const hasReplacement = Boolean(currentImage);
 
     const title = document.createElement("h4");
+
     title.textContent = asset.name;
 
     const fileInput = document.createElement("input");
 
     fileInput.type = "file";
+
     fileInput.accept =
         "image/png,image/jpeg,image/webp,image/gif";
 
@@ -1294,9 +2230,11 @@ function createAssetCard(asset, currentAssets) {
     );
 
     const help = document.createElement("small");
+
     help.textContent = asset.help;
 
     const status = document.createElement("div");
+
     status.className = "asset-status";
 
     if (hasReplacement) {
@@ -1313,6 +2251,7 @@ function createAssetCard(asset, currentAssets) {
                 const image = document.createElement("img");
 
                 image.src = previewUrl;
+
                 image.alt =
                     currentAsset.altText || asset.name;
 
@@ -1346,9 +2285,13 @@ function createAssetCard(asset, currentAssets) {
     const removeButton = document.createElement("button");
 
     removeButton.type = "button";
+
     removeButton.className = "btn danger";
+
     removeButton.textContent = "Restore original image";
+
     removeButton.hidden = !hasReplacement;
+
 
     /* =====================================
        UPLOAD IMAGE EVENT
@@ -1374,6 +2317,7 @@ function createAssetCard(asset, currentAssets) {
             );
 
             fileInput.value = "";
+
             return;
         }
 
@@ -1385,6 +2329,7 @@ function createAssetCard(asset, currentAssets) {
             );
 
             fileInput.value = "";
+
             return;
         }
 
@@ -1424,6 +2369,7 @@ function createAssetCard(asset, currentAssets) {
             fileInput.value = "";
         }
     });
+
 
     /* =====================================
        RESTORE ORIGINAL IMAGE EVENT
@@ -1484,18 +2430,21 @@ function createAssetCard(asset, currentAssets) {
     return card;
 }
 
+
 /* =========================================
    LOAD WEBSITE IMAGE MANAGER
 ========================================= */
 
 async function loadWebsiteAssets() {
     const manager = $("#assetManager");
+
     const message = $("#assetsMessage");
 
     if (!manager) {
         console.error(
             "Website image manager container #assetManager was not found."
         );
+
         return;
     }
 
@@ -1518,12 +2467,15 @@ async function loadWebsiteAssets() {
             groupElement.className = "asset-group";
 
             const heading = document.createElement("h3");
+
             heading.textContent = group.title;
 
             const description = document.createElement("p");
+
             description.textContent = group.description;
 
             const grid = document.createElement("div");
+
             grid.className = "asset-grid";
 
             group.items.forEach(asset => {
@@ -1562,6 +2514,7 @@ async function loadWebsiteAssets() {
     }
 }
 
+
 /* =========================================
    RESTORE EXISTING ADMIN SESSION
    KEEP THIS AT THE END OF THE FILE
@@ -1572,4 +2525,3 @@ if (adminToken) {
 } else {
     showLogin();
 }
-
