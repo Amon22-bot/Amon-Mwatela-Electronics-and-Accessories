@@ -3166,7 +3166,80 @@ button {
     }
 }
 
+/* =========================================================
+   TOP SELLING — SPACING AND CARD HEIGHT CORRECTIONS
+   ========================================================= */
 
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .top-selling-slider {
+        padding-left: 10px !important;
+        padding-right: 0 !important;
+    }
+
+    .top-selling-image {
+        height: 140px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    /* Restore left carousel spacing */
+    .top-selling-slider {
+        padding-left: 10px !important;
+        padding-right: 0 !important;
+    }
+
+    /* Keep the right edge free of padding */
+    .top-selling-track {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Reduce card image height */
+    .top-selling-image {
+        height: 130px;
+    }
+
+    .top-selling-details {
+        padding: 7px 8px;
+    }
+
+    .top-selling-details h3 {
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .top-selling-details > p {
+        font-size: 10px;
+        line-height: 1.3;
+        margin-bottom: 5px;
+    }
+
+    .top-selling-price {
+        gap: 2px;
+        margin-top: 3px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .top-selling-slider {
+        padding-left: 10px !important;
+        padding-right: 0 !important;
+    }
+
+    .top-selling-image {
+        height: 120px;
+    }
+
+    .top-selling-details {
+        padding: 6px 7px;
+    }
+}
 
 
 
