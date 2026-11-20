@@ -1,4 +1,3 @@
-
 /* =========================================================
    AM ELECTRONICS AND ACCESSORIES
    PRODUCT DETAILS JAVASCRIPT
@@ -16,40 +15,43 @@ document.addEventListener("DOMContentLoaded", function () {
     const MIN_QUANTITY = 1;
     const MAX_QUANTITY = 10;
 
+    const API_BASE = String(window.AM_API_BASE_URL || "").replace(/\/+$/, "");
+
     const catalogue = Array.isArray(window.products)
         ? window.products
         : (typeof products !== "undefined" ? products : []);
+
     let currentProduct = null;
 
     /* =====================================================
        2. PAGE ELEMENTS
     ===================================================== */
 
-    const mainProductImg =
-        document.getElementById("mainProductImg");
+    const mainProductImg = document.getElementById("mainProductImg");
 
     const thumbnailRow = document.getElementById("thumbnailRow");
+
     const getThumbnails = () => document.querySelectorAll(".thumb");
 
-    const swatches =
-        document.querySelectorAll(".swatch");
+    const quantityInput = document.getElementById("quantity");
 
-    const quantityInput =
-        document.getElementById("quantity");
+    const addToCartButton = document.querySelector(".btn-add-cart");
 
-    const addToCartButton =
-        document.querySelector(".btn-add-cart");
-
-    const cartCount =
-        document.getElementById("cartCount");
+    const cartCount = document.getElementById("cartCount");
 
     /* =====================================================
-       3. HELPERS
+       3. GENERAL HELPERS
     ===================================================== */
 
     function formatMoney(amount) {
 
-        return "KSh " + Number(amount).toLocaleString("en-KE", {
+        const number = Number(amount);
+
+        if (!Number.isFinite(number)) {
+            return "Price unavailable";
+        }
+
+        return "KSh " + number.toLocaleString("en-KE", {
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
         });
@@ -179,20 +181,180 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    function getText(value) {
+
+        if (value === null || value === undefined) {
+            return "";
+        }
+
+        if (typeof value === "string") {
+            return value.trim();
+        }
+
+        if (typeof value === "number" || typeof value === "boolean") {
+            return String(value);
+        }
+
+        return "";
+
+    }
+
     /* =====================================================
-       4. FIND SELECTED PRODUCT
+       4. NORMALIZE PRODUCT SPECIFICATIONS
+
+       Supports:
+       - [{ label: "Battery", value: "5000mAh" }]
+       - [{ name: "Battery", value: "5000mAh" }]
+       - [{ key: "Battery", value: "5000mAh" }]
+       - { Battery: "5000mAh", Display: "6.7 inches" }
+       - "Battery: 5000mAh"
+       - Multiline specification text
+    ===================================================== */
+
+    function normalizeSpecifications(specifications) {
+
+        if (!specifications) return [];
+
+        /* Handle string data. */
+
+        if (typeof specifications === "string") {
+
+            const text = specifications.trim();
+
+            if (!text) return [];
+
+            try {
+
+                const parsed = JSON.parse(text);
+
+                if (parsed !== specifications) {
+                    return normalizeSpecifications(parsed);
+                }
+
+            } catch (error) {
+                // Continue and interpret it as ordinary text.
+            }
+
+            return text
+                .split(/\r?\n/)
+                .map(line => line.trim())
+                .filter(Boolean)
+                .map(line => {
+
+                    const separator = line.indexOf(":");
+
+                    if (separator !== -1) {
+
+                        return {
+                            label: line.substring(0, separator).trim(),
+                            value: line.substring(separator + 1).trim()
+                        };
+
+                    }
+
+                    return {
+                        label: "Specification",
+                        value: line
+                    };
+
+                })
+                .filter(spec => spec.value);
+
+        }
+
+        /* Handle arrays. */
+
+        if (Array.isArray(specifications)) {
+
+            return specifications
+                .map(spec => {
+
+                    if (typeof spec === "string") {
+
+                        return {
+                            label: "Specification",
+                            value: spec.trim()
+                        };
+
+                    }
+
+                    if (!spec || typeof spec !== "object") {
+                        return null;
+                    }
+
+                    const label = getText(
+                        spec.label ??
+                        spec.name ??
+                        spec.key ??
+                        spec.title ??
+                        spec.attribute ??
+                        spec.specification
+                    );
+
+                    const value = getText(
+                        spec.value ??
+                        spec.description ??
+                        spec.detail ??
+                        spec.text
+                    );
+
+                    return {
+                        label: label || "Specification",
+                        value
+                    };
+
+                })
+                .filter(spec => spec && spec.value);
+
+        }
+
+        /* Handle objects. */
+
+        if (typeof specifications === "object") {
+
+            if (
+                "value" in specifications ||
+                "label" in specifications ||
+                "name" in specifications
+            ) {
+
+                return normalizeSpecifications([specifications]);
+
+            }
+
+            return Object.entries(specifications)
+                .map(([label, value]) => ({
+                    label: label.trim(),
+                    value: getText(value)
+                }))
+                .filter(spec => spec.value);
+
+        }
+
+        return [];
+
+    }
+
+    /* =====================================================
+       5. FIND SELECTED PRODUCT
     ===================================================== */
 
     function getSelectedProduct() {
+
         return currentProduct;
+
     }
 
     function getRequestedProductId() {
+
         const params = new URLSearchParams(window.location.search);
+
         return params.get("id") || params.get("product");
+
     }
 
     function normalizeProduct(product) {
+
         if (!product) return null;
 
         const inStock = typeof product.stockStatus === "string"
@@ -200,37 +362,71 @@ document.addEventListener("DOMContentLoaded", function () {
             : product.inStock !== false;
 
         return {
+
             ...product,
+
             id: String(product._id || product.id || ""),
+
             name: product.title || product.name || "Product",
+
             oldPrice: product.originalPrice ?? product.oldPrice ?? product.price,
+
             inStock,
-            colors: Array.isArray(product.colors) ? product.colors : [],
-            features: Array.isArray(product.features) ? product.features : [],
-            specifications: Array.isArray(product.specifications) ? product.specifications : [],
-            extraImages: Array.isArray(product.extraImages) ? product.extraImages : []
+
+            colors: Array.isArray(product.colors)
+                ? product.colors
+                : [],
+
+            features: Array.isArray(product.features)
+                ? product.features
+                : [],
+
+            specifications: normalizeSpecifications(
+                product.specifications
+            ),
+
+            extraImages: Array.isArray(product.extraImages)
+                ? product.extraImages
+                : []
+
         };
+
     }
 
     function categoryLabel(category) {
+
         const labels = {
-            "top-selling": "Top Selling Products",
+
             covers: "Phone Covers",
-            "new-arrivals": "New Arrivals",
+
             "screen-protectors": "Screen Protectors",
+
             "headphones-earpods": "Headphones and Earpods",
+
             smartwatches: "Smartwatches",
+
             "chargers-cables": "Chargers and Cables",
-            "you-may-like": "You May Also Like",
-            phones: "Phones",
-            "bluetooth-speakers": "Bluetooth Speakers",
-            "ring-lights": "Ring Lights"
+
+            "power-banks": "Power Banks",
+
+            "gaming-accessories": "Gaming Accessories",
+
+            "photography-lighting": "Photography and Lighting",
+
+            "audio-sound": "Audio and Sound",
+
+            "storage-memory": "Storage and Memory",
+
+            "computer-accessories": "Computer Accessories"
+
         };
+
         return labels[category] || "Shop Product";
+
     }
 
     /* =====================================================
-       5. LOAD PRODUCT INFORMATION
+       6. DISPLAY PRODUCT INFORMATION
     ===================================================== */
 
     function loadProductDetails(product) {
@@ -238,136 +434,392 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!product) return;
 
         const title = document.querySelector(".product-title");
+
         const currentPrice = document.querySelector(".current-price");
+
         const oldPrice = document.querySelector(".old-price");
-        const discountBadge = document.querySelector(".detail-discount-badge");
-        const description = document.querySelector(".product-description");
+
+        const discountBadge = document.querySelector(
+            ".detail-discount-badge"
+        );
+
+        const description = document.querySelector(
+            ".product-description"
+        );
+
+        /* PRODUCT NAME */
 
         if (title) {
+
             title.textContent = product.name;
+
             document.title = product.name + " | AM Electronics";
+
         }
 
+        /* CURRENT PRICE */
+
         if (currentPrice) {
+
             currentPrice.textContent = formatMoney(product.price);
+
         }
+
+        /* ORIGINAL PRICE */
 
         if (oldPrice) {
 
-            if (
-                Number(product.oldPrice) > Number(product.price)
-            ) {
+            if (Number(product.oldPrice) > Number(product.price)) {
 
                 oldPrice.textContent = formatMoney(product.oldPrice);
+
                 oldPrice.hidden = false;
+
                 oldPrice.style.display = "";
 
             } else {
 
                 oldPrice.textContent = "";
+
                 oldPrice.hidden = true;
+
                 oldPrice.style.display = "";
 
             }
 
         }
 
-        const hasDiscount = Number(product.oldPrice) > Number(product.price) && Number(product.oldPrice) > 0;
+        /* DISCOUNT BADGE */
+
+        const hasDiscount =
+            Number(product.oldPrice) > Number(product.price) &&
+            Number(product.oldPrice) > 0;
+
         if (discountBadge) {
+
             if (hasDiscount) {
-                discountBadge.textContent = `-${Math.round(((Number(product.oldPrice) - Number(product.price)) / Number(product.oldPrice)) * 100)}%`;
+
+                const percentage = Math.round(
+                    (
+                        (Number(product.oldPrice) - Number(product.price)) /
+                        Number(product.oldPrice)
+                    ) * 100
+                );
+
+                discountBadge.textContent = `-${percentage}%`;
+
                 discountBadge.style.display = "inline-block";
+
             } else {
+
                 discountBadge.textContent = "";
+
                 discountBadge.style.display = "none";
+
             }
+
         }
+
+        /* DESCRIPTION */
+
         if (description) {
+
             description.textContent = product.description || "";
+
         }
+
+        /* =================================================
+           PRODUCT IMAGES
+        ================================================= */
 
         if (mainProductImg && product.image) {
 
             mainProductImg.src = product.image;
+
             mainProductImg.alt = product.name;
 
         }
 
-        const galleryImages = [product.image, ...product.extraImages].filter(Boolean);
+        const galleryImages = [
+            product.image,
+            ...product.extraImages
+        ].filter(Boolean);
+
         if (thumbnailRow) {
-            thumbnailRow.replaceChildren(...galleryImages.map((src, index) => {
-                const thumbnail = document.createElement("img");
-                thumbnail.className = `thumb${index === 0 ? " active" : ""}`;
-                thumbnail.src = src;
-                thumbnail.dataset.fullImage = src;
-                thumbnail.alt = `${product.name} image ${index + 1}`;
-                thumbnail.loading = "lazy";
-                thumbnail.tabIndex = 0;
-                thumbnail.setAttribute("role", "button");
-                return thumbnail;
-            }));
+
+            thumbnailRow.replaceChildren(
+                ...galleryImages.map((src, index) => {
+
+                    const thumbnail = document.createElement("img");
+
+                    thumbnail.className =
+                        `thumb${index === 0 ? " active" : ""}`;
+
+                    thumbnail.src = src;
+
+                    thumbnail.dataset.fullImage = src;
+
+                    thumbnail.alt =
+                        `${product.name} image ${index + 1}`;
+
+                    thumbnail.loading = "lazy";
+
+                    thumbnail.tabIndex = 0;
+
+                    thumbnail.setAttribute("role", "button");
+
+                    return thumbnail;
+
+                })
+            );
+
         }
 
-        const extraInfo = document.getElementById("productExtraInfo");
-        const brandModel = document.getElementById("productBrandModel");
-        const brandModelText = [product.brand, product.model].filter(Boolean).join(" · ");
-        if (brandModel) brandModel.textContent = brandModelText;
-        if (brandModel) brandModel.hidden = !brandModelText;
+        /* =================================================
+           BRAND AND MODEL
+        ================================================= */
 
-        const featuresList = document.getElementById("productFeatures");
-        if (featuresList) featuresList.replaceChildren(...product.features.map((feature) => {
-            const item = document.createElement("li");
-            item.textContent = feature;
-            return item;
-        }));
-        const featuresSection = document.getElementById("featuresSection");
-        if (featuresSection) featuresSection.hidden = !product.features.length;
+        const extraInfo = document.getElementById(
+            "productExtraInfo"
+        );
 
-        const specsBody = document.getElementById("productSpecifications");
-        if (specsBody) specsBody.replaceChildren(...product.specifications.map((spec) => {
-            const row = document.createElement("tr");
-            if (typeof spec === "string") {
-                const value = document.createElement("td");
-                value.className = "spec-value";
-                value.colSpan = 2;
-                value.textContent = spec;
-                row.append(value);
-            } else if (spec && typeof spec.label === "string" && typeof spec.value === "string") {
+        const brandModel = document.getElementById(
+            "productBrandModel"
+        );
+
+        const brandModelText = [
+            product.brand,
+            product.model
+        ]
+            .map(getText)
+            .filter(Boolean)
+            .join(" · ");
+
+        if (brandModel) {
+
+            brandModel.textContent = brandModelText;
+
+            brandModel.hidden = !brandModelText;
+
+        }
+
+        /* =================================================
+           KEY FEATURES
+        ================================================= */
+
+        const featuresList = document.getElementById(
+            "productFeatures"
+        );
+
+        if (featuresList) {
+
+            featuresList.replaceChildren();
+
+            product.features
+                .map(getText)
+                .filter(Boolean)
+                .forEach(function (feature) {
+
+                    const item = document.createElement("li");
+
+                    item.textContent = feature;
+
+                    featuresList.appendChild(item);
+
+                });
+
+        }
+
+        const featuresSection = document.getElementById(
+            "featuresSection"
+        );
+
+        const validFeatures = product.features
+            .map(getText)
+            .filter(Boolean);
+
+        if (featuresSection) {
+
+            featuresSection.hidden = validFeatures.length === 0;
+
+        }
+
+        /* =================================================
+           PRODUCT SPECIFICATIONS
+        ================================================= */
+
+        const specsBody = document.getElementById(
+            "productSpecifications"
+        );
+
+        const specsSection = document.getElementById(
+            "specificationsSection"
+        );
+
+        const specifications = normalizeSpecifications(
+            product.specifications
+        );
+
+        if (specsBody) {
+
+            specsBody.replaceChildren();
+
+            specifications.forEach(function (spec) {
+
+                const row = document.createElement("tr");
+
                 const label = document.createElement("td");
-                const value = document.createElement("td");
+
                 label.className = "spec-label";
+
+                label.textContent =
+                    spec.label || "Specification";
+
+                const value = document.createElement("td");
+
                 value.className = "spec-value";
-                label.textContent = spec.label;
+
                 value.textContent = spec.value;
+
                 row.append(label, value);
-            }
-            return row;
-        }).filter((row) => row.childElementCount));
-        const specsSection = document.getElementById("specificationsSection");
-        if (specsSection) specsSection.hidden = !product.specifications.length;
 
-        const colorsSection = document.getElementById("colorsSection");
-        const colorsText = document.getElementById("productColors");
-        if (colorsText) colorsText.textContent = product.colors.join(", ");
-        if (colorsSection) colorsSection.hidden = !product.colors.length;
+                specsBody.appendChild(row);
 
-        const warrantySection = document.getElementById("warrantySection");
-        const warrantyText = document.getElementById("productWarranty");
-        if (warrantyText) warrantyText.textContent = product.warranty || "";
-        if (warrantySection) warrantySection.hidden = !product.warranty;
+            });
 
-        const verifiedBadge = document.getElementById("detailsVerifiedBadge");
-        if (verifiedBadge) verifiedBadge.hidden = product.detailsVerified !== true;
-        if (extraInfo) extraInfo.hidden = !(brandModelText || product.features.length || product.specifications.length || product.colors.length || product.warranty || product.detailsVerified);
+        }
 
-        const specName = document.getElementById("specProductName");
-        const specCategory = document.getElementById("specProductCategory");
-        const specStock = document.getElementById("specProductStock");
-        if (specName) specName.textContent = product.name;
-        if (specCategory) specCategory.textContent = categoryLabel(product.category);
-        if (specStock) specStock.textContent = product.inStock ? "In Stock" : "Out of Stock";
+        if (specsSection) {
 
-        /* Update product availability if the status element exists. */
+            specsSection.hidden = specifications.length === 0;
+
+        }
+
+        /* =================================================
+           AVAILABLE COLOURS
+        ================================================= */
+
+        const colorsSection = document.getElementById(
+            "colorsSection"
+        );
+
+        const colorsText = document.getElementById(
+            "productColors"
+        );
+
+        const validColors = product.colors
+            .map(getText)
+            .filter(Boolean);
+
+        if (colorsText) {
+
+            colorsText.textContent = validColors.join(", ");
+
+        }
+
+        if (colorsSection) {
+
+            colorsSection.hidden = validColors.length === 0;
+
+        }
+
+        /* =================================================
+           WARRANTY
+        ================================================= */
+
+        const warrantySection = document.getElementById(
+            "warrantySection"
+        );
+
+        const warrantyText = document.getElementById(
+            "productWarranty"
+        );
+
+        const warranty = getText(product.warranty);
+
+        if (warrantyText) {
+
+            warrantyText.textContent = warranty;
+
+        }
+
+        if (warrantySection) {
+
+            warrantySection.hidden = !warranty;
+
+        }
+
+        /* =================================================
+           VERIFIED DETAILS BADGE
+        ================================================= */
+
+        const verifiedBadge = document.getElementById(
+            "detailsVerifiedBadge"
+        );
+
+        if (verifiedBadge) {
+
+            verifiedBadge.hidden =
+                product.detailsVerified !== true;
+
+        }
+
+        /* SHOW OR HIDE EXTRA PRODUCT INFORMATION */
+
+        const hasExtraInfo =
+            Boolean(brandModelText) ||
+            validFeatures.length > 0 ||
+            specifications.length > 0 ||
+            validColors.length > 0 ||
+            Boolean(warranty) ||
+            product.detailsVerified === true;
+
+        if (extraInfo) {
+
+            extraInfo.hidden = !hasExtraInfo;
+
+        }
+
+        /* =================================================
+           BASIC PRODUCT INFORMATION TABLE
+        ================================================= */
+
+        const specName = document.getElementById(
+            "specProductName"
+        );
+
+        const specCategory = document.getElementById(
+            "specProductCategory"
+        );
+
+        const specStock = document.getElementById(
+            "specProductStock"
+        );
+
+        if (specName) {
+
+            specName.textContent = product.name;
+
+        }
+
+        if (specCategory) {
+
+            specCategory.textContent =
+                categoryLabel(product.category);
+
+        }
+
+        if (specStock) {
+
+            specStock.textContent = product.inStock
+                ? "In Stock"
+                : "Out of Stock";
+
+        }
+
+        /* =================================================
+           STOCK STATUS
+        ================================================= */
 
         const stockElement = document.querySelector(
             ".product-status, .stock-status"
@@ -385,15 +837,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        /* Remember which product is currently displayed. */
+        /* REMEMBER CURRENT PRODUCT */
 
         document.body.dataset.productId = product.id;
 
-        /* Build colour options from the catalogue. */
+        /* RENDER COLOUR OPTIONS */
 
         renderColours(product);
 
-        /* Prevent adding products that are out of stock. */
+        /* UPDATE ADD TO CART BUTTON */
 
         if (addToCartButton) {
 
@@ -408,7 +860,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =====================================================
-       6. COLOUR SELECTION
+       7. COLOUR SELECTION
     ===================================================== */
 
     function renderColours(product) {
@@ -425,10 +877,16 @@ document.addEventListener("DOMContentLoaded", function () {
             ? product.colors
             : [];
 
-        if (colours.length === 0) {
+        const validColours = colours
+            .map(getText)
+            .filter(Boolean);
+
+        if (validColours.length === 0) {
 
             const message = document.createElement("p");
-            message.textContent = "Colour options not specified.";
+
+            message.textContent =
+                "Colour options not specified.";
 
             colourContainer.appendChild(message);
 
@@ -436,23 +894,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        colours.forEach(function (colour, index) {
+        validColours.forEach(function (colour, index) {
 
             const button = document.createElement("button");
 
             button.type = "button";
+
             button.className = "swatch";
 
             button.dataset.color = colour;
+
             button.setAttribute("aria-label", colour);
+
             button.setAttribute("title", colour);
+
             button.setAttribute("aria-pressed", "false");
 
             button.textContent = colour;
 
             if (index === 0) {
+
                 button.classList.add("selected");
+
                 button.setAttribute("aria-pressed", "true");
+
             }
 
             button.addEventListener("click", function () {
@@ -488,7 +953,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =====================================================
-       7. IMAGE GALLERY
+       8. IMAGE GALLERY
     ===================================================== */
 
     function changeImage(element) {
@@ -517,21 +982,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (thumbnailRow) {
-        thumbnailRow.addEventListener("click", (event) => {
+
+        thumbnailRow.addEventListener("click", function (event) {
+
             const thumbnail = event.target.closest(".thumb");
-            if (thumbnail) changeImage(thumbnail);
-        });
-        thumbnailRow.addEventListener("keydown", (event) => {
-            const thumbnail = event.target.closest(".thumb");
-            if (thumbnail && (event.key === "Enter" || event.key === " ")) {
-                event.preventDefault();
+
+            if (thumbnail) {
+
                 changeImage(thumbnail);
+
             }
+
         });
+
+        thumbnailRow.addEventListener("keydown", function (event) {
+
+            const thumbnail = event.target.closest(".thumb");
+
+            if (
+                thumbnail &&
+                (event.key === "Enter" || event.key === " ")
+            ) {
+
+                event.preventDefault();
+
+                changeImage(thumbnail);
+
+            }
+
+        });
+
     }
 
     /* =====================================================
-       8. QUANTITY CONTROLS
+       9. QUANTITY CONTROLS
     ===================================================== */
 
     function getQuantity() {
@@ -541,7 +1025,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let quantity = parseInt(quantityInput.value, 10);
 
         if (!Number.isFinite(quantity)) {
+
             quantity = MIN_QUANTITY;
+
         }
 
         quantity = Math.max(
@@ -559,7 +1045,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!quantityInput) return;
 
-        const newQuantity = getQuantity() + Number(change);
+        const newQuantity =
+            getQuantity() + Number(change);
 
         if (
             Number.isInteger(newQuantity) &&
@@ -576,7 +1063,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (quantityInput) {
 
         quantityInput.min = MIN_QUANTITY;
+
         quantityInput.max = MAX_QUANTITY;
+
         quantityInput.step = 1;
 
         quantityInput.addEventListener("change", getQuantity);
@@ -584,7 +1073,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =====================================================
-       9. ADD TO CART
+       10. ADD TO CART
     ===================================================== */
 
     function addProductToCart() {
@@ -613,8 +1102,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        if (quantityInput && !quantityInput.reportValidity()) {
+        if (
+            quantityInput &&
+            !quantityInput.reportValidity()
+        ) {
+
             return;
+
         }
 
         const quantity = getQuantity();
@@ -644,6 +1138,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 Number(existingProduct.quantity || 0) + quantity;
 
             existingProduct.price = Number(product.price);
+
             existingProduct.image = product.image;
 
         } else {
@@ -651,10 +1146,15 @@ document.addEventListener("DOMContentLoaded", function () {
             cart.push({
 
                 id: product.id,
+
                 name: product.name,
+
                 price: Number(product.price),
+
                 image: product.image,
+
                 color: colour,
+
                 quantity: quantity
 
             });
@@ -680,7 +1180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 addToCartButton.textContent = "Add to Cart";
 
-                addToCartButton.disabled = false;
+                addToCartButton.disabled = !product.inStock;
 
             }, 1200);
 
@@ -698,42 +1198,123 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =====================================================
-       10. INITIALIZE PAGE
+       11. LOAD PRODUCT FROM BACKEND
     ===================================================== */
 
     async function initializeProductDetails() {
+
         const requestedId = getRequestedProductId();
+
         const title = document.querySelector(".product-title");
-        const description = document.querySelector(".product-description");
+
+        const description = document.querySelector(
+            ".product-description"
+        );
 
         if (!requestedId) {
-            if (title) title.textContent = "Product not selected";
-            if (description) description.textContent = "Open this page by selecting a product from the Home or Shop page.";
-            if (addToCartButton) addToCartButton.textContent = "Product unavailable";
+
+            if (title) {
+
+                title.textContent = "Product not selected";
+
+            }
+
+            if (description) {
+
+                description.textContent =
+                    "Open this page by selecting a product from the Shop page.";
+
+            }
+
+            if (addToCartButton) {
+
+                addToCartButton.textContent = "Product unavailable";
+
+                addToCartButton.disabled = true;
+
+            }
+
             return;
+
         }
 
         try {
-            const response = await fetch(`${window.AM_API_BASE_URL}/api/products/${encodeURIComponent(requestedId)}`);
-            if (!response.ok) throw new Error(`Product request failed (${response.status})`);
-            currentProduct = normalizeProduct(await response.json());
+
+            if (!API_BASE) {
+
+                throw new Error(
+                    "The backend API address is not configured."
+                );
+
+            }
+
+            const response = await fetch(
+                `${API_BASE}/api/products/${encodeURIComponent(requestedId)}`
+            );
+
+            if (!response.ok) {
+
+                throw new Error(
+                    `Product request failed (${response.status})`
+                );
+
+            }
+
+            const productData = await response.json();
+
+            currentProduct = normalizeProduct(productData);
+
         } catch (error) {
-            console.error("Could not load product from the backend:", error);
-            const fallback = catalogue.find((item) => String(item.id || item._id) === requestedId);
+
+            console.error(
+                "Could not load product from the backend:",
+                error
+            );
+
+            const fallback = catalogue.find(function (item) {
+
+                return String(item.id || item._id) === requestedId;
+
+            });
+
             currentProduct = normalizeProduct(fallback);
+
         }
 
         if (!currentProduct) {
-            if (title) title.textContent = "Product not found";
-            if (description) description.textContent = "This product may have been removed. Return to the Home or Shop page and choose another product.";
-            if (addToCartButton) addToCartButton.textContent = "Product unavailable";
+
+            if (title) {
+
+                title.textContent = "Product not found";
+
+            }
+
+            if (description) {
+
+                description.textContent =
+                    "This product may have been removed. Return to the Shop page and choose another product.";
+
+            }
+
+            if (addToCartButton) {
+
+                addToCartButton.textContent = "Product unavailable";
+
+                addToCartButton.disabled = true;
+
+            }
+
             return;
+
         }
 
         loadProductDetails(currentProduct);
+
     }
 
-    initializeProductDetails();
+    /* =====================================================
+       12. INITIALIZE PAGE
+    ===================================================== */
 
     if (quantityInput) {
 
@@ -746,13 +1327,15 @@ document.addEventListener("DOMContentLoaded", function () {
     /* Preserve compatibility with existing inline handlers. */
 
     window.changeImage = changeImage;
+
     window.selectSwatch = selectSwatch;
+
     window.updateQty = updateQty;
+
+    initializeProductDetails();
 
     console.log(
         "AM Electronics product details initialized."
     );
 
 });
-
-
