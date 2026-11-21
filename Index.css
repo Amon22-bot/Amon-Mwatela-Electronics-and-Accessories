@@ -3973,23 +3973,32 @@ button {
 
 
 
+
 /* =========================================================
-   PHONE COVERS SECTION - RESPONSIVE STANDARD
-   Based on Top Selling Carousel Reference
+   PHONE COVERS SECTION - RESPONSIVE CSS
+   Based on Finalized Top Selling Reference
    ========================================================= */
+
 
 /* =========================================================
    1. LARGE TABLETS
    901px - 1024px
    4 Full Cards + Peek of 5th
+   Card Height: 280px
    ========================================================= */
+
 @media (min-width: 901px) and (max-width: 1024px) {
 
     .phone-covers-section {
-        padding-right: 0 !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        overflow: hidden;
     }
 
     .phone-covers-slider {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px !important;
         padding-right: 0 !important;
         overflow: hidden;
     }
@@ -4005,14 +4014,17 @@ button {
     .phone-covers-track {
         display: flex;
         gap: 10px;
-        padding-right: 0 !important;
-        margin-right: 0 !important;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
         overflow-x: auto;
         overflow-y: hidden;
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
     }
 
     .phone-covers-track::-webkit-scrollbar {
@@ -4022,26 +4034,50 @@ button {
     .phone-cover-card {
         flex: 0 0 calc((100% - 30px) / 4.25);
         min-width: 0;
+        height: 280px !important;
+        min-height: 280px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
         scroll-snap-align: start;
+        box-sizing: border-box;
     }
 
     .phone-covers-image {
         width: 100%;
+        height: 145px;
+        flex: 0 0 145px;
         overflow: hidden;
     }
 
     .phone-covers-image img {
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
     }
 
-    .phone-covers-details h3 {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
+    .phone-covers-details {
+        height: 135px !important;
+        min-height: 135px !important;
+        flex: 0 0 135px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px !important;
         overflow: hidden;
+    }
+
+    .phone-covers-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 13px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .phone-covers-details > p {
@@ -4049,14 +4085,19 @@ button {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .phone-covers-price {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 3px;
+        gap: 2px;
         width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
     }
 
     .phone-covers-price del {
@@ -4073,20 +4114,26 @@ button {
     }
 }
 
+
 /* =========================================================
    2. SMALL TABLETS
    601px - 900px
    3 Full Cards + Peek of 4th
+   Card Height: 260px
    ========================================================= */
+
 @media (min-width: 601px) and (max-width: 900px) {
 
     .phone-covers-section {
-        padding-left: 12px !important;
-        padding-right: 0 !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        overflow: hidden;
     }
 
     .phone-covers-slider {
-        padding-left: 10px !important;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px !important;
         padding-right: 0 !important;
         overflow: hidden;
     }
@@ -4102,14 +4149,17 @@ button {
     .phone-covers-track {
         display: flex;
         gap: 10px;
-        padding-right: 0 !important;
-        margin-right: 0 !important;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
         overflow-x: auto;
         overflow-y: hidden;
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
     }
 
     .phone-covers-track::-webkit-scrollbar {
@@ -4119,27 +4169,50 @@ button {
     .phone-cover-card {
         flex: 0 0 calc((100% - 20px) / 3.25);
         min-width: 0;
+        height: 260px !important;
+        min-height: 260px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
         scroll-snap-align: start;
+        box-sizing: border-box;
     }
 
     .phone-covers-image {
-        height: 140px;
+        width: 100%;
+        height: 130px;
+        flex: 0 0 130px;
         overflow: hidden;
     }
 
     .phone-covers-image img {
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
     }
 
-    .phone-covers-details h3 {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
+    .phone-covers-details {
+        height: 130px !important;
+        min-height: 130px !important;
+        flex: 0 0 130px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px !important;
         overflow: hidden;
-        font-size: 13px;
+    }
+
+    .phone-covers-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .phone-covers-details > p {
@@ -4147,15 +4220,19 @@ button {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .phone-covers-price {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 3px;
+        gap: 2px;
         width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
     }
 
     .phone-covers-price del {
@@ -4177,16 +4254,19 @@ button {
     }
 }
 
+
 /* =========================================================
    3. MOBILE
    320px - 600px
    2 Full Cards + Peek of 3rd
+   Card Height: 245px
    ========================================================= */
+
 @media (max-width: 600px) {
 
     .phone-covers-section {
-        padding-left: 8px !important;
-        padding-right: 0 !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
         overflow: hidden;
     }
 
@@ -4205,8 +4285,11 @@ button {
 
     .phone-covers-slider {
         width: 100%;
-        padding: 12px 0 !important;
-        padding-left: 10px !important;
+        box-sizing: border-box;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
         margin: 0;
         overflow: hidden;
     }
@@ -4224,7 +4307,7 @@ button {
         scrollbar-width: none;
         -ms-overflow-style: none;
         -webkit-overflow-scrolling: touch;
-        align-items: flex-start !important;
+        align-items: stretch;
     }
 
     .phone-covers-track::-webkit-scrollbar {
@@ -4234,18 +4317,20 @@ button {
     .phone-cover-card {
         flex: 0 0 calc((100% - 20px) / 2.5);
         min-width: 0;
-        scroll-snap-align: start;
-        height: auto !important;
-        min-height: 0 !important;
-        align-self: flex-start !important;
+        width: auto;
+        height: 245px !important;
+        min-height: 245px !important;
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
     }
 
     .phone-covers-image {
         width: 100%;
-        height: 130px;
+        height: 125px;
+        flex: 0 0 125px;
         overflow: hidden;
     }
 
@@ -4258,20 +4343,22 @@ button {
     }
 
     .phone-covers-details {
-        height: auto !important;
-        min-height: 0 !important;
-        flex: 0 0 auto !important;
-        flex-grow: 0 !important;
-        justify-content: flex-start !important;
+        height: 120px !important;
+        min-height: 120px !important;
+        flex: 0 0 120px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
         padding: 7px 8px !important;
-        padding-bottom: 10px !important;
+        overflow: hidden;
     }
 
     .phone-covers-details h3 {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
         overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 12px;
         line-height: 1.3;
         margin-bottom: 4px;
@@ -4284,7 +4371,7 @@ button {
         overflow: hidden;
         font-size: 10px;
         line-height: 1.3;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
     }
 
     .phone-covers-price {
@@ -4293,7 +4380,7 @@ button {
         align-items: flex-start !important;
         width: 100%;
         gap: 2px;
-        margin-top: 3px;
+        margin-top: auto !important;
         margin-bottom: 0 !important;
     }
 
@@ -4319,26 +4406,35 @@ button {
     }
 }
 
+
 /* =========================================================
    4. EXTRA SMALL MOBILE
    320px - 380px
+   Card Height: 235px
    ========================================================= */
+
 @media (max-width: 380px) {
 
     .phone-covers-section {
-        padding-left: 8px !important;
-        padding-right: 0 !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
     }
 
     .phone-cover-card {
         flex: 0 0 calc((100% - 20px) / 2.5);
+        height: 235px !important;
+        min-height: 235px !important;
     }
 
     .phone-covers-image {
         height: 120px;
+        flex: 0 0 120px;
     }
 
     .phone-covers-details {
+        height: 115px !important;
+        min-height: 115px !important;
+        flex: 0 0 115px !important;
         padding: 6px 7px !important;
     }
 
@@ -4364,9 +4460,11 @@ button {
     }
 }
 
+
 /* =========================================================
-   ACCESSIBILITY - REDUCED MOTION
+   5. ACCESSIBILITY - REDUCED MOTION
    ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
 
     .phone-covers-track {
@@ -4380,7 +4478,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
@@ -4979,76 +5076,314 @@ button {
 }
 
 
+
+
+
+
 /* =========================================================
-   16. WIDER TABLET
-   901PX - 1024PX
-   4 CARDS VISIBLE
+   NEW ARRIVALS - RESPONSIVE CSS
+   Based on Finalized Top Selling Carousel Reference
+   Preserves Cherry-Red Carousel Design
+   ========================================================= */
+
+
+/* =========================================================
+   1. LARGE TABLETS
+   901px - 1024px
+   4 Full Cards + Peek of 5th
+   Card Height: 280px
    ========================================================= */
 
 @media screen and (min-width: 901px) and (max-width: 1024px) {
 
-    .new-arrival-card {
-        flex-basis: calc((100% - 30px) / 4);
+    .new-arrivals-section {
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+    }
+
+    .new-arrivals-slider {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+        overflow: hidden;
     }
 
     .new-arrivals-heading h2 {
         font-size: 21px;
     }
+
+    .new-arrivals-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .new-arrivals-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .new-arrival-card {
+        flex: 0 0 calc((100% - 30px) / 4.25);
+        min-width: 0;
+        height: 280px !important;
+        min-height: 280px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+    }
+
+    .new-arrival-card > a:first-child {
+        height: 145px;
+        flex: 0 0 145px;
+        overflow: hidden;
+    }
+
+    .new-arrival-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .new-arrival-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .new-arrival-details {
+        height: 135px !important;
+        min-height: 135px !important;
+        flex: 0 0 135px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px !important;
+        overflow: hidden;
+    }
+
+    .new-arrival-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 13px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .new-arrival-details p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .new-arrival-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    .new-arrival-price del {
+        order: 1;
+    }
+
+    .new-arrival-price .discount-badge {
+        order: 2;
+    }
+
+    .new-arrival-price strong,
+    .new-arrival-price .current-price {
+        order: 3;
+    }
 }
 
 
 /* =========================================================
-   17. SMALLER TABLET
-   601PX - 900PX
-   3 CARDS VISIBLE
+   2. SMALL TABLETS
+   601px - 900px
+   3 Full Cards + Peek of 4th
+   Card Height: 260px
    ========================================================= */
 
 @media screen and (min-width: 601px) and (max-width: 900px) {
 
     .new-arrivals-section {
-        padding: 0 12px;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
     }
 
     .new-arrivals-slider {
-        padding: 10px 10px 12px;
-    }
-
-    .new-arrival-card {
-        flex-basis: calc((100% - 20px) / 3);
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+        overflow: hidden;
     }
 
     .new-arrivals-heading h2 {
         font-size: 19px;
     }
 
+    .new-arrivals-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .new-arrivals-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .new-arrival-card {
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        min-width: 0;
+        height: 260px !important;
+        min-height: 260px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+    }
+
+    .new-arrival-card > a:first-child {
+        height: 130px;
+        flex: 0 0 130px;
+        overflow: hidden;
+    }
+
+    .new-arrival-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .new-arrival-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .new-arrival-details {
+        height: 130px !important;
+        min-height: 130px !important;
+        flex: 0 0 130px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px !important;
+        overflow: hidden;
+    }
+
     .new-arrival-details h3 {
-        font-size: 13px;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .new-arrival-details p {
-        font-size: 12px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .new-arrival-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    .new-arrival-price del {
+        order: 1;
+    }
+
+    .new-arrival-price .discount-badge {
+        order: 2;
+    }
+
+    .new-arrival-price strong,
+    .new-arrival-price .current-price {
+        order: 3;
+    }
+
+    .new-arrivals-arrow {
+        display: none !important;
     }
 }
 
 
 /* =========================================================
-   18. MOBILE
-   600PX AND BELOW
-   2 CARDS VISIBLE
+   3. MOBILE
+   320px - 600px
+   2 Full Cards + Peek of 3rd
+   Card Height: 245px
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
     .new-arrivals-section {
         margin: 12px auto;
-
-        padding: 0 8px;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
     }
 
     .new-arrivals-slider {
-        padding: 9px;
-
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 0 !important;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
         border-radius: 13px;
+        overflow: hidden;
     }
 
     .new-arrivals-header {
@@ -5061,7 +5396,6 @@ button {
 
     .new-arrivals-shop-btn {
         font-size: 12px;
-
         gap: 4px;
     }
 
@@ -5070,96 +5404,151 @@ button {
     }
 
     .new-arrivals-track {
-        gap: 8px;
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .new-arrivals-track::-webkit-scrollbar {
+        display: none;
     }
 
     .new-arrival-card {
-        flex-basis: calc((100% - 8px) / 2);
-
-        height: 250px;
+        flex: 0 0 calc((100% - 20px) / 2.5);
+        min-width: 0;
+        height: 245px !important;
+        min-height: 245px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
     }
 
-    /* MOBILE IMAGE AREA */
-
     .new-arrival-card > a:first-child {
-        height: 205px;
+        height: 125px;
+        flex: 0 0 125px;
+        overflow: hidden;
+    }
 
-        flex-basis: 205px;
+    .new-arrival-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
 
     .new-arrival-image img {
+        display: block;
         width: 100%;
         height: 100%;
-
         object-fit: contain;
         object-position: center;
     }
 
-
-    /* MOBILE DETAILS AREA */
-
     .new-arrival-details {
-        height: 145px;
-
-        flex-basis: 145px;
-
-        padding: 9px 9px 6px;
+        height: 120px !important;
+        min-height: 120px !important;
+        flex: 0 0 120px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 7px 8px !important;
+        overflow: hidden;
     }
 
     .new-arrival-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 12px;
-
-        margin-bottom: 3px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .new-arrival-details p {
-        font-size: 11px;
-
-        line-height: 1.35;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
-
-    /* MOBILE PRICING */
-
     .new-arrival-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
         gap: 2px;
-
-        margin: 5px 0 4px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
     }
 
     .new-arrival-price del {
-        font-size: 11px;
+        order: 1;
+        font-size: 10px;
     }
 
     .new-arrival-price .discount-badge {
+        order: 2;
         font-size: 10px;
     }
 
     .new-arrival-price strong,
     .new-arrival-price .current-price {
+        order: 3;
         font-size: 14px;
-
         line-height: 1.2;
     }
 
-
-    /* MOBILE ARROWS */
-
     .new-arrivals-arrow {
-        width: 30px;
-        height: 30px;
-
-        font-size: 11px;
+        display: none !important;
     }
 }
 
 
 /* =========================================================
-   19. EXTRA SMALL MOBILE
-   380PX AND BELOW
+   4. EXTRA SMALL MOBILE
+   320px - 380px
+   Card Height: 235px
    ========================================================= */
 
 @media screen and (max-width: 380px) {
+
+    .new-arrivals-section {
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+    }
+
+    .new-arrival-card {
+        height: 235px !important;
+        min-height: 235px !important;
+    }
+
+    .new-arrival-card > a:first-child {
+        height: 120px;
+        flex: 0 0 120px;
+    }
+
+    .new-arrival-details {
+        height: 115px !important;
+        min-height: 115px !important;
+        flex: 0 0 115px !important;
+        padding: 6px 7px !important;
+    }
 
     .new-arrivals-heading h2 {
         font-size: 14px;
@@ -5167,10 +5556,6 @@ button {
 
     .new-arrivals-shop-btn {
         font-size: 11px;
-    }
-
-    .new-arrival-details {
-        padding: 8px 8px 6px;
     }
 
     .new-arrival-details h3 {
@@ -5189,7 +5574,7 @@ button {
 
 
 /* =========================================================
-   20. ACCESSIBILITY - REDUCED MOTION
+   5. ACCESSIBILITY - REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -5206,6 +5591,7 @@ button {
         transition: none;
     }
 }
+
 
 
 
@@ -6116,89 +6502,320 @@ button {
 }
 
 
+
+
+
+
 /* =========================================================
-   15. WIDE TABLET
-   901px – 1024px
-   FOUR CARDS VISIBLE
+   SCREEN PROTECTORS - RESPONSIVE CSS
+   Based on Finalized Top Selling Carousel Reference
    ========================================================= */
 
-@media screen and (max-width: 1024px) and (min-width: 901px) {
+
+/* =========================================================
+   1. LARGE TABLETS
+   901px - 1024px
+   4 Full Cards + Peek of 5th
+   Card Height: 280px
+   ========================================================= */
+
+@media screen and (min-width: 901px) and (max-width: 1024px) {
 
     .screen-protectors-section {
-        padding: 0 12px;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        overflow: hidden;
     }
 
     .screen-protectors-slider {
-        padding: 10px 10px 12px;
-    }
-
-    .screen-protector-card {
-        flex: 0 0 calc((100% - 30px) / 4);
-
-        width: calc((100% - 30px) / 4);
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+        overflow: hidden;
     }
 
     .screen-protectors-heading h2 {
         font-size: 21px;
     }
+
+    .screen-protectors-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .screen-protectors-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .screen-protector-card {
+        flex: 0 0 calc((100% - 30px) / 4.25);
+        min-width: 0;
+        height: 280px !important;
+        min-height: 280px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+    }
+
+    .screen-protector-card .screen-protector-image-link {
+        width: 100%;
+        height: 145px;
+        flex: 0 0 145px;
+        overflow: hidden;
+    }
+
+    .screen-protector-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .screen-protector-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .screen-protector-details {
+        height: 135px !important;
+        min-height: 135px !important;
+        flex: 0 0 135px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px !important;
+        overflow: hidden;
+    }
+
+    .screen-protector-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 13px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .screen-protector-details p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .screen-protector-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    .screen-protector-price del {
+        order: 1;
+    }
+
+    .screen-protector-price .discount-badge {
+        order: 2;
+    }
+
+    .screen-protector-price strong,
+    .screen-protector-price .current-price {
+        order: 3;
+    }
 }
 
 
 /* =========================================================
-   16. SMALL TABLET
-   601px – 900px
-   THREE CARDS VISIBLE
+   2. SMALL TABLETS
+   601px - 900px
+   3 Full Cards + Peek of 4th
+   Card Height: 260px
    ========================================================= */
 
-@media screen and (max-width: 900px) and (min-width: 601px) {
+@media screen and (min-width: 601px) and (max-width: 900px) {
 
     .screen-protectors-section {
-        padding: 0 12px;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        overflow: hidden;
     }
 
     .screen-protectors-slider {
-        padding: 10px 10px 12px;
-    }
-
-    .screen-protector-card {
-        flex: 0 0 calc((100% - 20px) / 3);
-
-        width: calc((100% - 20px) / 3);
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+        overflow: hidden;
     }
 
     .screen-protectors-heading h2 {
         font-size: 19px;
     }
 
+    .screen-protectors-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .screen-protectors-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .screen-protector-card {
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        min-width: 0;
+        height: 260px !important;
+        min-height: 260px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+    }
+
+    .screen-protector-card .screen-protector-image-link {
+        width: 100%;
+        height: 130px;
+        flex: 0 0 130px;
+        overflow: hidden;
+    }
+
+    .screen-protector-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .screen-protector-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
     .screen-protector-details {
-        padding: 10px;
+        height: 130px !important;
+        min-height: 130px !important;
+        flex: 0 0 130px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px !important;
+        overflow: hidden;
     }
 
     .screen-protector-details h3 {
-        font-size: 13px;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .screen-protector-details p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
         font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .screen-protector-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    .screen-protector-price del {
+        order: 1;
+    }
+
+    .screen-protector-price .discount-badge {
+        order: 2;
+    }
+
+    .screen-protector-price strong,
+    .screen-protector-price .current-price {
+        order: 3;
+    }
+
+    .screen-protectors-prev,
+    .screen-protectors-next {
+        display: none !important;
     }
 }
 
 
 /* =========================================================
-   17. MOBILE
-   TWO CARDS VISIBLE
+   3. MOBILE
+   320px - 600px
+   2 Full Cards + Peek of 3rd
+   Card Height: 245px
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
     .screen-protectors-section {
-        padding: 0 8px;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
         margin: 12px auto;
+        overflow: hidden;
     }
 
     .screen-protectors-slider {
-        padding: 9px;
+        width: 100%;
+        box-sizing: border-box;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
         border-radius: 13px;
+        overflow: hidden;
     }
 
     .screen-protectors-header {
@@ -6219,69 +6836,153 @@ button {
     }
 
     .screen-protectors-track {
-        gap: 8px;
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .screen-protectors-track::-webkit-scrollbar {
+        display: none;
     }
 
     .screen-protector-card {
-        flex: 0 0 calc((100% - 8px) / 2);
-
-        width: calc((100% - 8px) / 2);
-
-        height: 350px;
+        flex: 0 0 calc((100% - 20px) / 2.5);
+        min-width: 0;
+        height: 245px !important;
+        min-height: 245px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
     }
 
     .screen-protector-card .screen-protector-image-link {
-        height: 205px;
-        flex: 0 0 205px;
+        width: 100%;
+        height: 125px;
+        flex: 0 0 125px;
+        overflow: hidden;
+    }
+
+    .screen-protector-image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .screen-protector-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .screen-protector-details {
-        height: 145px;
-        flex: 0 0 145px;
-
-        padding: 9px;
+        height: 120px !important;
+        min-height: 120px !important;
+        flex: 0 0 120px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 7px 8px !important;
+        overflow: hidden;
     }
 
     .screen-protector-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 12px;
+        line-height: 1.3;
         margin-bottom: 4px;
     }
 
     .screen-protector-details p {
-        font-size: 11px;
-        line-height: 1.35;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .screen-protector-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
     }
 
     .screen-protector-price del {
-        font-size: 11px;
+        order: 1;
+        font-size: 10px;
     }
 
     .screen-protector-price .discount-badge {
+        order: 2;
         font-size: 10px;
     }
 
     .screen-protector-price strong,
     .screen-protector-price .current-price {
+        order: 3;
         font-size: 14px;
+        line-height: 1.2;
     }
-
-    /* MOBILE ARROWS */
 
     .screen-protectors-prev,
     .screen-protectors-next {
-        width: 30px;
-        height: 30px;
-
-        font-size: 11px;
+        display: none !important;
     }
 }
 
 
 /* =========================================================
-   18. VERY SMALL MOBILE SCREENS
+   4. EXTRA SMALL MOBILE
+   320px - 380px
+   Card Height: 235px
    ========================================================= */
 
 @media screen and (max-width: 380px) {
+
+    .screen-protectors-section {
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+    }
+
+    .screen-protector-card {
+        height: 235px !important;
+        min-height: 235px !important;
+    }
+
+    .screen-protector-card .screen-protector-image-link {
+        height: 120px;
+        flex: 0 0 120px;
+    }
+
+    .screen-protector-details {
+        height: 115px !important;
+        min-height: 115px !important;
+        flex: 0 0 115px !important;
+        padding: 6px 7px !important;
+    }
 
     .screen-protectors-heading h2 {
         font-size: 14px;
@@ -6289,10 +6990,6 @@ button {
 
     .screen-protectors-view-all {
         font-size: 11px;
-    }
-
-    .screen-protector-details {
-        padding: 8px;
     }
 
     .screen-protector-details h3 {
@@ -6311,7 +7008,7 @@ button {
 
 
 /* =========================================================
-   19. ACCESSIBILITY - REDUCED MOTION
+   5. ACCESSIBILITY - REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -6327,6 +7024,7 @@ button {
         transition: none;
     }
 }
+
 
 
 
