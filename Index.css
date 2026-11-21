@@ -3837,19 +3837,19 @@ button {
 
    REFERENCE: NEW ARRIVALS RESPONSIVE CSS
 
+   Aligned elements:
+   - External section width
+   - Heading typography
+   - View All button typography
+   - Carousel spacing
+   - Track layout and scrolling
+   - Card widths and heights
+   - Image heights
+   - Product details typography
+   - Price positioning
+   - Reduced motion
+
    Preserves Phone Covers' unique visual design.
-
-   Card heights:
-   Large tablet: 280px
-   Small tablet: 260px
-   Mobile:       245px
-   Extra-small:  235px
-
-   Image heights:
-   Large tablet: 145px
-   Small tablet: 130px
-   Mobile:       125px
-   Extra-small:  120px
 ========================================================= */
 
 
@@ -3879,6 +3879,25 @@ button {
         overflow: hidden;
     }
 
+    /* Heading */
+
+    .phone-covers-heading h2 {
+        font-size: 21px;
+    }
+
+    /* View All button */
+
+    .phone-covers-shop-btn {
+        font-size: 14px;
+        gap: 5px;
+    }
+
+    .phone-covers-shop-btn i {
+        font-size: 13px;
+    }
+
+    /* Carousel track */
+
     .phone-covers-track {
         display: flex;
         gap: 10px;
@@ -3899,6 +3918,8 @@ button {
         display: none;
     }
 
+    /* Product card */
+
     .phone-cover-card {
         flex: 0 0 calc((100% - 30px) / 4.25);
         min-width: 0;
@@ -3910,6 +3931,8 @@ button {
         scroll-snap-align: start;
         box-sizing: border-box;
     }
+
+    /* Product image */
 
     .phone-cover-card > a:first-child,
     .phone-cover-card .product-details-link {
@@ -3929,6 +3952,8 @@ button {
         overflow: hidden;
     }
 
+    /* Product details */
+
     .phone-covers-details {
         width: 100%;
         height: 135px !important;
@@ -3937,14 +3962,19 @@ button {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
+        padding: 8px !important;
         overflow: hidden;
     }
 
     .phone-covers-details h3 {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
         overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 13px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .phone-covers-details p {
@@ -3952,16 +3982,21 @@ button {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
+    /* Price order: Original → Discount → Current */
+
     .phone-covers-price {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
         gap: 2px;
         width: 100%;
-        margin-top: auto;
-        margin-bottom: 0;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
         flex-shrink: 0;
     }
 
@@ -4008,6 +4043,25 @@ button {
         overflow: hidden;
     }
 
+    /* Heading */
+
+    .phone-covers-heading h2 {
+        font-size: 19px;
+    }
+
+    /* View All button */
+
+    .phone-covers-shop-btn {
+        font-size: 13px;
+        gap: 4px;
+    }
+
+    .phone-covers-shop-btn i {
+        font-size: 12px;
+    }
+
+    /* Carousel track */
+
     .phone-covers-track {
         display: flex;
         gap: 10px;
@@ -4028,6 +4082,8 @@ button {
         display: none;
     }
 
+    /* Product card */
+
     .phone-cover-card {
         flex: 0 0 calc((100% - 20px) / 3.25);
         min-width: 0;
@@ -4039,6 +4095,8 @@ button {
         scroll-snap-align: start;
         box-sizing: border-box;
     }
+
+    /* Product image */
 
     .phone-cover-card > a:first-child,
     .phone-cover-card .product-details-link {
@@ -4058,6 +4116,8 @@ button {
         overflow: hidden;
     }
 
+    /* Product details */
+
     .phone-covers-details {
         width: 100%;
         height: 130px !important;
@@ -4066,14 +4126,19 @@ button {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
+        padding: 8px !important;
         overflow: hidden;
     }
 
     .phone-covers-details h3 {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
         overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .phone-covers-details p {
@@ -4081,16 +4146,21 @@ button {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
+    /* Price order: Original → Discount → Current */
+
     .phone-covers-price {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
         gap: 2px;
         width: 100%;
-        margin-top: auto;
-        margin-bottom: 0;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
         flex-shrink: 0;
     }
 
@@ -4105,6 +4175,10 @@ button {
     .phone-covers-price strong,
     .phone-covers-price .current-price {
         order: 3;
+    }
+
+    .phone-covers-arrow {
+        display: none !important;
     }
 }
 
@@ -4132,8 +4206,34 @@ button {
         padding: 10px 0 !important;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 13px;
         overflow: hidden;
     }
+
+    /* Header */
+
+    .phone-covers-header {
+        margin-bottom: 10px;
+    }
+
+    /* Heading */
+
+    .phone-covers-heading h2 {
+        font-size: 16px;
+    }
+
+    /* View All button */
+
+    .phone-covers-shop-btn {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .phone-covers-shop-btn i {
+        font-size: 11px;
+    }
+
+    /* Carousel track */
 
     .phone-covers-track {
         display: flex;
@@ -4155,6 +4255,8 @@ button {
         display: none;
     }
 
+    /* Product card */
+
     .phone-cover-card {
         flex: 0 0 calc((100% - 20px) / 2.5);
         min-width: 0;
@@ -4166,6 +4268,8 @@ button {
         scroll-snap-align: start;
         box-sizing: border-box;
     }
+
+    /* Product image */
 
     .phone-cover-card > a:first-child,
     .phone-cover-card .product-details-link {
@@ -4184,6 +4288,8 @@ button {
         object-fit: cover;
         object-position: center;
     }
+
+    /* Product details */
 
     .phone-covers-details {
         width: 100%;
@@ -4218,7 +4324,7 @@ button {
         margin-bottom: 4px;
     }
 
-    /* Original price → Discount → Current price */
+    /* Price order: Original → Discount → Current */
 
     .phone-covers-price {
         display: flex !important;
@@ -4247,6 +4353,10 @@ button {
         font-size: 14px;
         line-height: 1.2;
     }
+
+    .phone-covers-arrow {
+        display: none !important;
+    }
 }
 
 
@@ -4265,10 +4375,14 @@ button {
         box-sizing: border-box;
     }
 
+    /* Product card */
+
     .phone-cover-card {
         height: 235px !important;
         min-height: 235px !important;
     }
+
+    /* Product image */
 
     .phone-cover-card > a:first-child,
     .phone-cover-card .product-details-link {
@@ -4281,6 +4395,8 @@ button {
         height: 100%;
     }
 
+    /* Product details */
+
     .phone-covers-details {
         height: 115px !important;
         min-height: 115px !important;
@@ -4288,19 +4404,20 @@ button {
         padding: 6px 7px !important;
     }
 
+    .phone-covers-heading h2 {
+        font-size: 14px;
+    }
+
+    .phone-covers-shop-btn {
+        font-size: 11px;
+    }
+
     .phone-covers-details h3 {
         font-size: 11px;
-        line-height: 1.2;
     }
 
     .phone-covers-details p {
         font-size: 10px;
-        line-height: 1.25;
-    }
-
-    .phone-covers-price {
-        gap: 2px;
-        margin-top: auto !important;
     }
 
     .phone-covers-price strong,
@@ -4319,9 +4436,15 @@ button {
     .phone-covers-track {
         scroll-behavior: auto;
     }
+
+    .phone-cover-card,
+    .phone-covers-image,
+    .phone-covers-arrow,
+    .phone-covers-shop-btn,
+    .phone-covers-shop-btn i {
+        transition: none;
+    }
 }
-
-
 
 
 
