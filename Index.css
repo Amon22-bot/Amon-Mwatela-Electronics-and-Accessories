@@ -4065,7 +4065,6 @@ button {
 
 
 
-
 /* =========================================================
    PHONE COVERS SECTION - RESPONSIVE CSS
    Based on Finalized Top Selling Reference
@@ -4190,6 +4189,7 @@ button {
         width: 100%;
         margin-top: auto !important;
         margin-bottom: 0 !important;
+        flex-shrink: 0;
     }
 
     .phone-covers-price del {
@@ -4325,6 +4325,7 @@ button {
         width: 100%;
         margin-top: auto !important;
         margin-bottom: 0 !important;
+        flex-shrink: 0;
     }
 
     .phone-covers-price del {
@@ -4352,6 +4353,8 @@ button {
    320px - 600px
    2 Full Cards + Peek of 3rd
    Card Height: 245px
+   Image: 105px
+   Details: 140px
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -4421,8 +4424,9 @@ button {
 
     .phone-covers-image {
         width: 100%;
-        height: 125px;
-        flex: 0 0 125px;
+        height: 105px;
+        min-height: 105px;
+        flex: 0 0 105px;
         overflow: hidden;
     }
 
@@ -4435,9 +4439,9 @@ button {
     }
 
     .phone-covers-details {
-        height: 120px !important;
-        min-height: 120px !important;
-        flex: 0 0 120px !important;
+        height: 140px !important;
+        min-height: 140px !important;
+        flex: 0 0 140px !important;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -4474,6 +4478,7 @@ button {
         gap: 2px;
         margin-top: auto !important;
         margin-bottom: 0 !important;
+        flex-shrink: 0;
     }
 
     .phone-covers-price del {
@@ -4503,6 +4508,8 @@ button {
    4. EXTRA SMALL MOBILE
    320px - 380px
    Card Height: 235px
+   Image: 100px
+   Details: 135px
    ========================================================= */
 
 @media (max-width: 380px) {
@@ -4519,14 +4526,15 @@ button {
     }
 
     .phone-covers-image {
-        height: 120px;
-        flex: 0 0 120px;
+        height: 100px;
+        min-height: 100px;
+        flex: 0 0 100px;
     }
 
     .phone-covers-details {
-        height: 115px !important;
-        min-height: 115px !important;
-        flex: 0 0 115px !important;
+        height: 135px !important;
+        min-height: 135px !important;
+        flex: 0 0 135px !important;
         padding: 6px 7px !important;
     }
 
