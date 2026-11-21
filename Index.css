@@ -7619,89 +7619,310 @@ button {
 }
 
 
+
+
+
+
 /* =========================================================
-   16. WIDE TABLET
-   901px – 1024px
-   FOUR CARDS VISIBLE
+   HEADPHONES & EARPODS - RESPONSIVE CSS
+   Based on Finalized Top Selling Carousel Reference
    ========================================================= */
 
-@media screen and (max-width: 1024px) and (min-width: 901px) {
+
+/* =========================================================
+   1. LARGE TABLETS
+   901px - 1024px
+   4 Full Cards + Peek of 5th
+   Card Height: 280px
+   ========================================================= */
+
+@media screen and (min-width: 901px) and (max-width: 1024px) {
 
     .headphones-section {
-        padding: 0 12px;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        overflow: hidden;
     }
 
     .headphones-slider {
-        padding: 10px 10px 12px;
-    }
-
-    .headphones-card {
-        flex: 0 0 calc((100% - 30px) / 4);
-
-        width: calc((100% - 30px) / 4);
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+        overflow: hidden;
     }
 
     .headphones-heading h2 {
         font-size: 21px;
     }
+
+    .headphones-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .headphones-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .headphones-card {
+        flex: 0 0 calc((100% - 30px) / 4.25);
+        min-width: 0;
+        height: 280px !important;
+        min-height: 280px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+    }
+
+    .headphones-image {
+        width: 100%;
+        height: 145px;
+        flex: 0 0 145px;
+        overflow: hidden;
+    }
+
+    .headphones-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .headphones-details {
+        height: 135px !important;
+        min-height: 135px !important;
+        flex: 0 0 135px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px !important;
+        overflow: hidden;
+    }
+
+    .headphones-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 13px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .headphones-details p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .headphones-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    .headphones-price del,
+    .headphones-price .deleted-price {
+        order: 1;
+    }
+
+    .headphones-price .discount-badge {
+        order: 2;
+    }
+
+    .headphones-price strong,
+    .headphones-price .current-price {
+        order: 3;
+    }
 }
 
 
 /* =========================================================
-   17. SMALL TABLET
-   601px – 900px
-   THREE CARDS VISIBLE
+   2. SMALL TABLETS
+   601px - 900px
+   3 Full Cards + Peek of 4th
+   Card Height: 260px
    ========================================================= */
 
-@media screen and (max-width: 900px) and (min-width: 601px) {
+@media screen and (min-width: 601px) and (max-width: 900px) {
 
     .headphones-section {
-        padding: 0 12px;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        overflow: hidden;
     }
 
     .headphones-slider {
-        padding: 10px 10px 12px;
-    }
-
-    .headphones-card {
-        flex: 0 0 calc((100% - 20px) / 3);
-
-        width: calc((100% - 20px) / 3);
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+        overflow: hidden;
     }
 
     .headphones-heading h2 {
         font-size: 19px;
     }
 
+    .headphones-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .headphones-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .headphones-card {
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        min-width: 0;
+        height: 260px !important;
+        min-height: 260px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+    }
+
+    .headphones-image {
+        width: 100%;
+        height: 130px;
+        flex: 0 0 130px;
+        overflow: hidden;
+    }
+
+    .headphones-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
     .headphones-details {
-        padding: 10px;
+        height: 130px !important;
+        min-height: 130px !important;
+        flex: 0 0 130px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 8px !important;
+        overflow: hidden;
     }
 
     .headphones-details h3 {
-        font-size: 13px;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 4px;
     }
 
     .headphones-details p {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
         font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .headphones-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    .headphones-price del,
+    .headphones-price .deleted-price {
+        order: 1;
+    }
+
+    .headphones-price .discount-badge {
+        order: 2;
+    }
+
+    .headphones-price strong,
+    .headphones-price .current-price {
+        order: 3;
+    }
+
+    .headphones-prev,
+    .headphones-next {
+        display: none !important;
     }
 }
 
 
 /* =========================================================
-   18. MOBILE
-   TWO CARDS VISIBLE
+   3. MOBILE
+   320px - 600px
+   2 Full Cards + Peek of 3rd
+   Card Height: 245px
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
     .headphones-section {
-        padding: 0 8px;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
         margin: 12px auto;
+        overflow: hidden;
     }
 
     .headphones-slider {
-        padding: 9px;
+        width: 100%;
+        box-sizing: border-box;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
         border-radius: 13px;
+        overflow: hidden;
     }
 
     .headphones-header {
@@ -7722,70 +7943,148 @@ button {
     }
 
     .headphones-track {
-        gap: 8px;
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .headphones-track::-webkit-scrollbar {
+        display: none;
     }
 
     .headphones-card {
-        flex: 0 0 calc((100% - 8px) / 2);
-
-        width: calc((100% - 8px) / 2);
-
-        height: 350px;
+        flex: 0 0 calc((100% - 20px) / 2.5);
+        min-width: 0;
+        height: 245px !important;
+        min-height: 245px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-sizing: border-box;
     }
 
     .headphones-image {
-        height: 205px;
-        flex: 0 0 205px;
+        width: 100%;
+        height: 125px;
+        flex: 0 0 125px;
+        overflow: hidden;
+    }
+
+    .headphones-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .headphones-details {
-        height: 145px;
-        flex: 0 0 145px;
-
-        padding: 9px;
+        height: 120px !important;
+        min-height: 120px !important;
+        flex: 0 0 120px !important;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 7px 8px !important;
+        overflow: hidden;
     }
 
     .headphones-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 12px;
+        line-height: 1.3;
         margin-bottom: 4px;
     }
 
     .headphones-details p {
-        font-size: 11px;
-        line-height: 1.35;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    .headphones-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
     }
 
     .headphones-price del,
     .headphones-price .deleted-price {
-        font-size: 11px;
+        order: 1;
+        font-size: 10px;
     }
 
     .headphones-price .discount-badge {
+        order: 2;
         font-size: 10px;
     }
 
     .headphones-price strong,
     .headphones-price .current-price {
+        order: 3;
         font-size: 14px;
+        line-height: 1.2;
     }
-
-    /* MOBILE NAVIGATION ARROWS */
 
     .headphones-prev,
     .headphones-next {
-        width: 30px;
-        height: 30px;
-
-        font-size: 11px;
+        display: none !important;
     }
 }
 
 
 /* =========================================================
-   19. VERY SMALL MOBILE SCREENS
+   4. EXTRA SMALL MOBILE
+   320px - 380px
+   Card Height: 235px
    ========================================================= */
 
 @media screen and (max-width: 380px) {
+
+    .headphones-section {
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+    }
+
+    .headphones-card {
+        height: 235px !important;
+        min-height: 235px !important;
+    }
+
+    .headphones-image {
+        height: 120px;
+        flex: 0 0 120px;
+    }
+
+    .headphones-details {
+        height: 115px !important;
+        min-height: 115px !important;
+        flex: 0 0 115px !important;
+        padding: 6px 7px !important;
+    }
 
     .headphones-heading h2 {
         font-size: 14px;
@@ -7793,10 +8092,6 @@ button {
 
     .headphones-view-all {
         font-size: 11px;
-    }
-
-    .headphones-details {
-        padding: 8px;
     }
 
     .headphones-details h3 {
@@ -7815,7 +8110,7 @@ button {
 
 
 /* =========================================================
-   20. ACCESSIBILITY - REDUCED MOTION
+   5. ACCESSIBILITY - REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -7831,6 +8126,7 @@ button {
         transition: none;
     }
 }
+
 
 
 
@@ -8437,26 +8733,95 @@ button {
 }
 
 
+
+
+
 /* =========================================================
-   17. WIDE TABLET
+   SMARTWATCHES SECTION — RESPONSIVE CSS
+   Standardized using the finalized Top Selling layout
+   ========================================================= */
+
+
+/* =========================================================
+   1. LARGE TABLET
    901px – 1024px
-   FOUR CARDS VISIBLE
+   FOUR FULL CARDS + PEEK OF FIFTH
    ========================================================= */
 
 @media screen and (max-width: 1024px) and (min-width: 901px) {
 
     .smartwatches-section {
-        padding: 0 12px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
     .smartwatches-slider {
-        padding: 10px 10px 12px;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+    }
+
+    .smartwatches-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .smartwatches-track::-webkit-scrollbar {
+        display: none;
     }
 
     .smartwatch-card {
-        flex: 0 0 calc((100% - 30px) / 4);
+        flex: 0 0 calc((100% - 30px) / 4.25);
+        width: calc((100% - 30px) / 4.25);
+        height: 280px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
 
-        width: calc((100% - 30px) / 4);
+    .smartwatch-image {
+        height: 145px;
+        flex: 0 0 145px;
+    }
+
+    .smartwatch-details {
+        height: 135px;
+        flex: 0 0 135px;
+        min-height: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .smartwatch-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .smartwatch-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .smartwatch-price {
+        margin-top: auto;
     }
 
     .smartwatches-heading h2 {
@@ -8466,59 +8831,118 @@ button {
 
 
 /* =========================================================
-   18. SMALL TABLET
+   2. SMALL TABLET
    601px – 900px
-   THREE CARDS VISIBLE
+   THREE FULL CARDS + PEEK OF FOURTH
    ========================================================= */
 
 @media screen and (max-width: 900px) and (min-width: 601px) {
 
     .smartwatches-section {
-        padding: 0 12px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
     .smartwatches-slider {
-        padding: 10px 10px 12px;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+    }
+
+    .smartwatches-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .smartwatches-track::-webkit-scrollbar {
+        display: none;
     }
 
     .smartwatch-card {
-        flex: 0 0 calc((100% - 20px) / 3);
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        width: calc((100% - 20px) / 3.25);
+        height: 260px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
 
-        width: calc((100% - 20px) / 3);
+    .smartwatch-image {
+        height: 130px;
+        flex: 0 0 130px;
+    }
+
+    .smartwatch-details {
+        height: 130px;
+        flex: 0 0 130px;
+        min-height: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .smartwatch-details h3 {
+        display: block;
+        width: 100%;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .smartwatch-description {
+        font-size: 11px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .smartwatch-price {
+        margin-top: auto;
     }
 
     .smartwatches-heading h2 {
         font-size: 19px;
     }
 
-    .smartwatch-details {
-        padding: 10px;
-    }
-
-    .smartwatch-details h3 {
-        font-size: 13px;
-    }
-
-    .smartwatch-description {
-        font-size: 11px;
+    .smartwatches-prev,
+    .smartwatches-next {
+        display: none;
     }
 }
 
 
 /* =========================================================
-   19. MOBILE
-   TWO CARDS VISIBLE
+   3. MOBILE
+   320px – 600px
+   TWO FULL CARDS + PEEK OF THIRD
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
     .smartwatches-section {
-        padding: 0 8px;
+        padding-left: 3px;
+        padding-right: 3px;
         margin: 12px auto;
     }
 
     .smartwatches-slider {
-        padding: 9px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 6px !important;
         border-radius: 13px;
     }
 
@@ -8540,37 +8964,72 @@ button {
     }
 
     .smartwatches-track {
-        gap: 8px;
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .smartwatches-track::-webkit-scrollbar {
+        display: none;
     }
 
     .smartwatch-card {
-        flex: 0 0 calc((100% - 8px) / 2);
-
-        width: calc((100% - 8px) / 2);
-
-        height: 350px;
+        flex: 0 0 calc((100% - 20px) / 2.5);
+        width: calc((100% - 20px) / 2.5);
+        height: 245px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
     }
 
     .smartwatch-image {
-        height: 205px;
-        flex: 0 0 205px;
+        height: 125px;
+        flex: 0 0 125px;
+        min-height: 0;
     }
 
     .smartwatch-details {
-        height: 145px;
-        flex: 0 0 145px;
-
+        height: 120px;
+        flex: 0 0 120px;
+        min-height: 0;
         padding: 9px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
     }
 
     .smartwatch-details h3 {
+        display: block;
+        width: 100%;
         font-size: 12px;
         margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .smartwatch-description {
         font-size: 11px;
         line-height: 1.35;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .smartwatch-price {
+        margin-top: auto;
     }
 
     .smartwatch-price del,
@@ -8587,24 +9046,34 @@ button {
         font-size: 14px;
     }
 
-
-    /* MOBILE NAVIGATION ARROWS */
-
     .smartwatches-prev,
     .smartwatches-next {
-        width: 30px;
-        height: 30px;
-
-        font-size: 11px;
+        display: none;
     }
 }
 
 
 /* =========================================================
-   20. VERY SMALL MOBILE SCREENS
+   4. EXTRA-SMALL MOBILE
+   380px AND BELOW
    ========================================================= */
 
 @media screen and (max-width: 380px) {
+
+    .smartwatch-card {
+        height: 235px;
+    }
+
+    .smartwatch-image {
+        height: 120px;
+        flex: 0 0 120px;
+    }
+
+    .smartwatch-details {
+        height: 115px;
+        flex: 0 0 115px;
+        padding: 8px;
+    }
 
     .smartwatches-heading h2 {
         font-size: 14px;
@@ -8612,10 +9081,6 @@ button {
 
     .smartwatches-view-all {
         font-size: 11px;
-    }
-
-    .smartwatch-details {
-        padding: 8px;
     }
 
     .smartwatch-details h3 {
@@ -8634,7 +9099,7 @@ button {
 
 
 /* =========================================================
-   21. ACCESSIBILITY - REDUCED MOTION
+   5. ACCESSIBILITY — REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -8650,7 +9115,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
@@ -9268,83 +9732,217 @@ button {
 }
 
 
+
+
+
+
 /* =========================================================
-   17. WIDE TABLETS
+   CHARGERS & CABLES SECTION — RESPONSIVE CSS
+   Standardized using the finalized Top Selling layout
+   ========================================================= */
+
+
+/* =========================================================
+   1. LARGE TABLET
    901px – 1024px
-   4 CARDS VISIBLE
+   FOUR FULL CARDS + PEEK OF FIFTH
    ========================================================= */
 
 @media screen and (max-width: 1024px) and (min-width: 901px) {
 
     .chargers-cables-section {
-        padding: 0 12px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
     .chargers-cables-slider {
-        padding: 10px 10px 12px;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+    }
+
+    .chargers-cables-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .chargers-cables-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .chargers-cables-card {
+        flex: 0 0 calc((100% - 30px) / 4.25);
+        width: calc((100% - 30px) / 4.25);
+        height: 280px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .chargers-cables-image {
+        height: 145px;
+        flex: 0 0 145px;
+        min-height: 0;
+    }
+
+    .chargers-cables-details {
+        height: 135px;
+        flex: 0 0 135px;
+        min-height: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chargers-cables-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .chargers-cables-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .chargers-cables-price {
+        margin-top: auto;
     }
 
     .chargers-cables-heading h2 {
         font-size: 20px;
     }
-
-    .chargers-cables-card {
-        flex: 0 0 calc((100% - 30px) / 4);
-
-        width: calc((100% - 30px) / 4);
-    }
 }
 
 
 /* =========================================================
-   18. SMALL TABLETS
+   2. SMALL TABLET
    601px – 900px
-   3 CARDS VISIBLE
+   THREE FULL CARDS + PEEK OF FOURTH
    ========================================================= */
 
 @media screen and (max-width: 900px) and (min-width: 601px) {
 
     .chargers-cables-section {
-        padding: 0 12px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
     .chargers-cables-slider {
-        padding: 10px 10px 12px;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+    }
+
+    .chargers-cables-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .chargers-cables-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .chargers-cables-card {
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        width: calc((100% - 20px) / 3.25);
+        height: 260px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .chargers-cables-image {
+        height: 130px;
+        flex: 0 0 130px;
+        min-height: 0;
+    }
+
+    .chargers-cables-details {
+        height: 130px;
+        flex: 0 0 130px;
+        min-height: 0;
+        padding: 9px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chargers-cables-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .chargers-cables-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .chargers-cables-price {
+        margin-top: auto;
     }
 
     .chargers-cables-heading h2 {
         font-size: 19px;
     }
 
-    .chargers-cables-card {
-        flex: 0 0 calc((100% - 20px) / 3);
-
-        width: calc((100% - 20px) / 3);
-    }
-
-    .chargers-cables-details {
-        padding: 9px;
+    .chargers-cables-prev,
+    .chargers-cables-next {
+        display: none;
     }
 }
 
 
 /* =========================================================
-   19. MOBILE
-   600px AND BELOW
-   2 CARDS VISIBLE
+   3. MOBILE
+   320px – 600px
+   TWO FULL CARDS + PEEK OF THIRD
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
     .chargers-cables-section {
-        padding: 0 8px;
-
+        padding-left: 3px;
+        padding-right: 3px;
         margin: 12px auto;
     }
 
     .chargers-cables-slider {
-        padding: 9px;
-
+        box-sizing: border-box;
+        padding: 10px 0 10px 6px !important;
         border-radius: 13px;
     }
 
@@ -9358,7 +9956,6 @@ button {
 
     .chargers-cables-view-all {
         font-size: 12px;
-
         gap: 4px;
     }
 
@@ -9367,47 +9964,73 @@ button {
     }
 
     .chargers-cables-track {
-        gap: 8px;
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .chargers-cables-track::-webkit-scrollbar {
+        display: none;
     }
 
     .chargers-cables-card {
-        flex: 0 0 calc((100% - 8px) / 2);
-
-        width: calc((100% - 8px) / 2);
-
-        height: 350px;
+        flex: 0 0 calc((100% - 20px) / 2.5);
+        width: calc((100% - 20px) / 2.5);
+        height: 245px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
     }
 
     .chargers-cables-image {
-        height: 205px;
-
-        flex: 0 0 205px;
+        height: 125px;
+        flex: 0 0 125px;
+        min-height: 0;
     }
 
     .chargers-cables-details {
-        height: 145px;
-
-        flex: 0 0 145px;
-
+        height: 120px;
+        flex: 0 0 120px;
+        min-height: 0;
         padding: 9px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
     }
 
     .chargers-cables-details h3 {
+        display: block;
+        width: 100%;
         font-size: 12px;
-
         margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .chargers-cables-description {
         font-size: 11px;
-
         line-height: 1.35;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
     }
 
     .chargers-cables-price {
         gap: 2px;
-
-        margin-top: 5px;
+        margin-top: auto;
     }
 
     .chargers-cables-price del,
@@ -9424,24 +10047,34 @@ button {
         font-size: 14px;
     }
 
-
-    /* MOBILE NAVIGATION ARROWS */
-
     .chargers-cables-prev,
     .chargers-cables-next {
-        width: 30px;
-        height: 30px;
-
-        font-size: 11px;
+        display: none;
     }
 }
 
 
 /* =========================================================
-   20. VERY SMALL MOBILE SCREENS
+   4. EXTRA-SMALL MOBILE
+   380px AND BELOW
    ========================================================= */
 
 @media screen and (max-width: 380px) {
+
+    .chargers-cables-card {
+        height: 235px;
+    }
+
+    .chargers-cables-image {
+        height: 120px;
+        flex: 0 0 120px;
+    }
+
+    .chargers-cables-details {
+        height: 115px;
+        flex: 0 0 115px;
+        padding: 8px;
+    }
 
     .chargers-cables-heading h2 {
         font-size: 14px;
@@ -9449,10 +10082,6 @@ button {
 
     .chargers-cables-view-all {
         font-size: 11px;
-    }
-
-    .chargers-cables-details {
-        padding: 8px;
     }
 
     .chargers-cables-details h3 {
@@ -9476,7 +10105,7 @@ button {
 
 
 /* =========================================================
-   21. ACCESSIBILITY - REDUCED MOTION
+   5. ACCESSIBILITY — REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -9492,6 +10121,7 @@ button {
         transition: none;
     }
 }
+
 
 
 
@@ -9976,72 +10606,214 @@ button {
 }
 
 
+
+
 /* =========================================================
-   WIDE TABLETS: 901px – 1024px
-   FOUR CARDS
+   POWER BANKS SECTION — RESPONSIVE CSS
+   Standardized using the finalized Top Selling layout
+   ========================================================= */
+
+
+/* =========================================================
+   1. LARGE TABLET
+   901px – 1024px
+   FOUR FULL CARDS + PEEK OF FIFTH
    ========================================================= */
 
 @media screen and (max-width: 1024px) and (min-width: 901px) {
 
     .power-banks-section {
-        padding: 0 12px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
     .power-banks-slider {
-        padding: 10px 10px 12px;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+    }
+
+    .power-banks-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .power-banks-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .power-banks-card {
+        flex: 0 0 calc((100% - 30px) / 4.25);
+        width: calc((100% - 30px) / 4.25);
+        height: 280px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .power-banks-product-link {
+        height: 145px;
+        flex: 0 0 145px;
+        min-height: 0;
+    }
+
+    .power-banks-details {
+        height: 135px;
+        flex: 0 0 135px;
+        min-height: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .power-banks-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .power-banks-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .power-banks-price {
+        margin-top: auto;
     }
 
     .power-banks-heading h2 {
         font-size: 20px;
     }
-
-    .power-banks-card {
-        flex: 0 0 calc((100% - 30px) / 4);
-        width: calc((100% - 30px) / 4);
-    }
 }
 
 
 /* =========================================================
-   SMALL TABLETS: 601px – 900px
-   THREE CARDS
+   2. SMALL TABLET
+   601px – 900px
+   THREE FULL CARDS + PEEK OF FOURTH
    ========================================================= */
 
 @media screen and (max-width: 900px) and (min-width: 601px) {
 
     .power-banks-section {
-        padding: 0 12px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
     .power-banks-slider {
-        padding: 10px 10px 12px;
+        box-sizing: border-box;
+        padding-left: 6px !important;
+        padding-right: 0 !important;
+    }
+
+    .power-banks-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .power-banks-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .power-banks-card {
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        width: calc((100% - 20px) / 3.25);
+        height: 260px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .power-banks-product-link {
+        height: 130px;
+        flex: 0 0 130px;
+        min-height: 0;
+    }
+
+    .power-banks-details {
+        height: 130px;
+        flex: 0 0 130px;
+        min-height: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .power-banks-details h3 {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .power-banks-description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .power-banks-price {
+        margin-top: auto;
     }
 
     .power-banks-heading h2 {
         font-size: 19px;
     }
 
-    .power-banks-card {
-        flex: 0 0 calc((100% - 20px) / 3);
-        width: calc((100% - 20px) / 3);
+    .power-banks-prev,
+    .power-banks-next {
+        display: none;
     }
 }
 
 
 /* =========================================================
-   MOBILE: 600px AND BELOW
-   TWO CARDS
+   3. MOBILE
+   320px – 600px
+   TWO FULL CARDS + PEEK OF THIRD
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
     .power-banks-section {
         margin: 12px auto;
-        padding: 0 8px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 
     .power-banks-slider {
-        padding: 9px;
+        box-sizing: border-box;
+        padding: 10px 0 10px 6px !important;
         border-radius: 13px;
     }
 
@@ -10064,37 +10836,68 @@ button {
     }
 
     .power-banks-track {
-        gap: 8px;
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .power-banks-track::-webkit-scrollbar {
+        display: none;
     }
 
     .power-banks-card {
-        flex: 0 0 calc((100% - 8px) / 2);
-
-        width: calc((100% - 8px) / 2);
-
-        height: 350px;
+        flex: 0 0 calc((100% - 20px) / 2.5);
+        width: calc((100% - 20px) / 2.5);
+        height: 245px;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
     }
 
     .power-banks-product-link {
-        height: 205px;
-        flex: 0 0 205px;
+        height: 125px;
+        flex: 0 0 125px;
+        min-height: 0;
     }
 
     .power-banks-details {
-        height: 145px;
-        flex: 0 0 145px;
-
+        height: 120px;
+        flex: 0 0 120px;
+        min-height: 0;
         padding: 9px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
     }
 
     .power-banks-details h3 {
+        display: block;
+        width: 100%;
         font-size: 12px;
         margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .power-banks-description {
         font-size: 11px;
         line-height: 1.35;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
     }
 
     .power-bank-placeholder i {
@@ -10106,32 +10909,51 @@ button {
     }
 
     .power-banks-price {
-        margin-top: 5px;
+        margin-top: auto;
     }
 
-    .power-banks-price del {
+    .power-banks-price del,
+    .power-banks-price .deleted-price {
         font-size: 11px;
     }
 
+    .power-banks-price .discount-badge {
+        font-size: 10px;
+    }
+
+    .power-banks-price strong,
     .power-banks-price .current-price {
         font-size: 14px;
     }
 
     .power-banks-prev,
     .power-banks-next {
-        width: 30px;
-        height: 30px;
-
-        font-size: 11px;
+        display: none;
     }
 }
 
 
 /* =========================================================
-   VERY SMALL MOBILE: 380px AND BELOW
+   4. EXTRA-SMALL MOBILE
+   380px AND BELOW
    ========================================================= */
 
 @media screen and (max-width: 380px) {
+
+    .power-banks-card {
+        height: 235px;
+    }
+
+    .power-banks-product-link {
+        height: 120px;
+        flex: 0 0 120px;
+    }
+
+    .power-banks-details {
+        height: 115px;
+        flex: 0 0 115px;
+        padding: 8px;
+    }
 
     .power-banks-heading h2 {
         font-size: 14px;
@@ -10139,10 +10961,6 @@ button {
 
     .power-banks-view-all {
         font-size: 11px;
-    }
-
-    .power-banks-details {
-        padding: 8px;
     }
 
     .power-banks-details h3 {
@@ -10153,6 +10971,12 @@ button {
         font-size: 10px;
     }
 
+    .power-banks-price del,
+    .power-banks-price .deleted-price {
+        font-size: 10px;
+    }
+
+    .power-banks-price strong,
     .power-banks-price .current-price {
         font-size: 13px;
     }
@@ -10160,7 +10984,7 @@ button {
 
 
 /* =========================================================
-   REDUCED MOTION
+   5. ACCESSIBILITY — REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -10177,7 +11001,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
