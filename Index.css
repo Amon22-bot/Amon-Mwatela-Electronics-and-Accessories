@@ -5141,7 +5141,7 @@ button {
 /* =========================================================
    NEW ARRIVALS - RESPONSIVE CSS
 
-   EXTERNAL WIDTH ALIGNED WITH CATEGORY DISCOVERY SLIDES
+   ALIGNED WITH FINALIZED RESPONSIVE CAROUSEL STANDARDS
    PRESERVES CHERRY-RED CAROUSEL DESIGN
    ========================================================= */
 
@@ -5158,8 +5158,8 @@ button {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
     }
 
@@ -5168,6 +5168,7 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 17px;
         overflow: hidden;
     }
 
@@ -5177,7 +5178,7 @@ button {
 
     .new-arrivals-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -5196,7 +5197,7 @@ button {
     }
 
     .new-arrival-card {
-        flex: 0 0 calc((100% - 30px) / 4.25);
+        flex: 0 0 calc((100% - 18px) / 4.25);
         min-width: 0;
         height: 280px !important;
         min-height: 280px !important;
@@ -5281,6 +5282,10 @@ button {
     .new-arrival-price .current-price {
         order: 3;
     }
+
+    .new-arrivals-arrow {
+        display: none !important;
+    }
 }
 
 
@@ -5296,8 +5301,8 @@ button {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
     }
 
@@ -5306,6 +5311,7 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 15px;
         overflow: hidden;
     }
 
@@ -5315,7 +5321,7 @@ button {
 
     .new-arrivals-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -5334,7 +5340,7 @@ button {
     }
 
     .new-arrival-card {
-        flex: 0 0 calc((100% - 20px) / 3.25);
+        flex: 0 0 calc((100% - 12px) / 3.25);
         min-width: 0;
         height: 260px !important;
         min-height: 260px !important;
@@ -5428,17 +5434,17 @@ button {
 
 /* =========================================================
    3. MOBILE
-   320px - 600px
+   381px - 600px
    ========================================================= */
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 381px) and (max-width: 600px) {
 
     .new-arrivals-section {
         width: 100%;
         max-width: 100%;
         margin: 12px auto;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
     }
 
@@ -5448,7 +5454,7 @@ button {
         padding: 10px 0 !important;
         padding-left: 6px !important;
         padding-right: 0 !important;
-        border-radius: 13px;
+        border-radius: 12px;
         overflow: hidden;
     }
 
@@ -5471,7 +5477,7 @@ button {
 
     .new-arrivals-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -5490,7 +5496,7 @@ button {
     }
 
     .new-arrival-card {
-        flex: 0 0 calc((100% - 20px) / 2.5);
+        flex: 0 0 calc((100% - 12px) / 2.5);
         min-width: 0;
         height: 245px !important;
         min-height: 245px !important;
@@ -5596,9 +5602,13 @@ button {
     .new-arrivals-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
+    }
+
+    .new-arrivals-slider {
+        border-radius: 10px;
     }
 
     .new-arrival-card {
@@ -5637,6 +5647,10 @@ button {
     .new-arrival-price strong,
     .new-arrival-price .current-price {
         font-size: 13px;
+    }
+
+    .new-arrivals-arrow {
+        display: none !important;
     }
 }
 
@@ -5955,7 +5969,8 @@ button {
         width: 100%;
         max-width: 100%;
         margin: 8px auto;
-        padding: 0 3px;
+        padding: 0 6px;
+        box-sizing: border-box;
     }
 
     .discovery-slides-wrapper {
@@ -5965,7 +5980,7 @@ button {
     .discovery-slides-track {
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 6px;
 
         width: 100%;
         box-sizing: border-box;
@@ -5991,10 +6006,10 @@ button {
     /* Two complete slides visible */
 
     .discovery-slide {
-        flex: 0 0 calc((100% - 10px) / 2);
-        width: calc((100% - 10px) / 2);
-        min-width: calc((100% - 10px) / 2);
-        max-width: calc((100% - 10px) / 2);
+        flex: 0 0 calc((100% - 6px) / 2);
+        width: calc((100% - 6px) / 2);
+        min-width: calc((100% - 6px) / 2);
+        max-width: calc((100% - 6px) / 2);
 
         height: 175px;
         min-height: 175px;
@@ -6020,7 +6035,8 @@ button {
         max-width: 100%;
 
         margin: 8px auto;
-        padding: 0 3px;
+        padding: 0 6px;
+        box-sizing: border-box;
     }
 
     .discovery-slides-wrapper {
@@ -6030,7 +6046,7 @@ button {
     .discovery-slides-track {
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 6px;
 
         width: 100%;
         box-sizing: border-box;
@@ -6097,6 +6113,10 @@ button {
 
 @media screen and (max-width: 380px) {
 
+    .discovery-slide {
+        border-radius: 10px;
+    }
+
     .discovery-slide-content {
         padding: 10px 12px;
     }
@@ -6116,6 +6136,7 @@ button {
         font-size: 8px;
     }
 }
+
 
 
 
@@ -6678,7 +6699,7 @@ button {
 
 /* =========================================================
    SCREEN PROTECTORS - RESPONSIVE CSS
-   External Section Width Matched to Discovery Slides
+   ALIGNED WITH FINALIZED RESPONSIVE CAROUSEL STANDARDS
    ========================================================= */
 
 
@@ -6694,8 +6715,8 @@ button {
     .screen-protectors-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
         overflow: hidden;
     }
@@ -6705,6 +6726,7 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 17px;
         overflow: hidden;
     }
 
@@ -6714,7 +6736,7 @@ button {
 
     .screen-protectors-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -6733,7 +6755,7 @@ button {
     }
 
     .screen-protector-card {
-        flex: 0 0 calc((100% - 30px) / 4.25);
+        flex: 0 0 calc((100% - 18px) / 4.25);
         min-width: 0;
         height: 280px !important;
         min-height: 280px !important;
@@ -6819,6 +6841,11 @@ button {
     .screen-protector-price .current-price {
         order: 3;
     }
+
+    .screen-protectors-prev,
+    .screen-protectors-next {
+        display: none !important;
+    }
 }
 
 
@@ -6834,8 +6861,8 @@ button {
     .screen-protectors-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
         overflow: hidden;
     }
@@ -6845,6 +6872,7 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 15px;
         overflow: hidden;
     }
 
@@ -6854,7 +6882,7 @@ button {
 
     .screen-protectors-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -6873,7 +6901,7 @@ button {
     }
 
     .screen-protector-card {
-        flex: 0 0 calc((100% - 20px) / 3.25);
+        flex: 0 0 calc((100% - 12px) / 3.25);
         min-width: 0;
         height: 260px !important;
         min-height: 260px !important;
@@ -6969,18 +6997,18 @@ button {
 
 /* =========================================================
    3. MOBILE
-   320px - 600px
+   381px - 600px
    2 Full Cards + Peek of 3rd
    Card Height: 245px
    ========================================================= */
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 381px) and (max-width: 600px) {
 
     .screen-protectors-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         margin: 12px auto;
         box-sizing: border-box;
         overflow: hidden;
@@ -6993,7 +7021,7 @@ button {
         padding-bottom: 10px !important;
         padding-left: 6px !important;
         padding-right: 0 !important;
-        border-radius: 13px;
+        border-radius: 12px;
         overflow: hidden;
     }
 
@@ -7016,7 +7044,7 @@ button {
 
     .screen-protectors-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -7035,7 +7063,7 @@ button {
     }
 
     .screen-protector-card {
-        flex: 0 0 calc((100% - 20px) / 2.5);
+        flex: 0 0 calc((100% - 12px) / 2.5);
         min-width: 0;
         height: 245px !important;
         min-height: 245px !important;
@@ -7144,9 +7172,13 @@ button {
     .screen-protectors-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
+    }
+
+    .screen-protectors-slider {
+        border-radius: 10px;
     }
 
     .screen-protector-card {
@@ -7186,6 +7218,11 @@ button {
     .screen-protector-price .current-price {
         font-size: 13px;
     }
+
+    .screen-protectors-prev,
+    .screen-protectors-next {
+        display: none !important;
+    }
 }
 
 
@@ -7206,7 +7243,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
@@ -7802,10 +7838,9 @@ button {
 
 
 
-
 /* =========================================================
    HEADPHONES & EARPODS - RESPONSIVE CSS
-   External Section Width Matched to Discovery Slides
+   ALIGNED WITH FINALIZED RESPONSIVE CAROUSEL STANDARDS
    ========================================================= */
 
 
@@ -7821,8 +7856,8 @@ button {
     .headphones-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
         overflow: hidden;
     }
@@ -7832,6 +7867,7 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 17px;
         overflow: hidden;
     }
 
@@ -7841,7 +7877,7 @@ button {
 
     .headphones-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -7860,7 +7896,7 @@ button {
     }
 
     .headphones-card {
-        flex: 0 0 calc((100% - 30px) / 4.25);
+        flex: 0 0 calc((100% - 18px) / 4.25);
         min-width: 0;
         height: 280px !important;
         min-height: 280px !important;
@@ -7941,6 +7977,11 @@ button {
     .headphones-price .current-price {
         order: 3;
     }
+
+    .headphones-prev,
+    .headphones-next {
+        display: none !important;
+    }
 }
 
 
@@ -7956,8 +7997,8 @@ button {
     .headphones-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
         overflow: hidden;
     }
@@ -7967,6 +8008,7 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 15px;
         overflow: hidden;
     }
 
@@ -7976,7 +8018,7 @@ button {
 
     .headphones-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -7995,7 +8037,7 @@ button {
     }
 
     .headphones-card {
-        flex: 0 0 calc((100% - 20px) / 3.25);
+        flex: 0 0 calc((100% - 12px) / 3.25);
         min-width: 0;
         height: 260px !important;
         min-height: 260px !important;
@@ -8086,18 +8128,18 @@ button {
 
 /* =========================================================
    3. MOBILE
-   320px - 600px
+   381px - 600px
    2 Full Cards + Peek of 3rd
    Card Height: 245px
    ========================================================= */
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 381px) and (max-width: 600px) {
 
     .headphones-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         margin: 12px auto;
         box-sizing: border-box;
         overflow: hidden;
@@ -8110,7 +8152,7 @@ button {
         padding-bottom: 10px !important;
         padding-left: 6px !important;
         padding-right: 0 !important;
-        border-radius: 13px;
+        border-radius: 12px;
         overflow: hidden;
     }
 
@@ -8133,7 +8175,7 @@ button {
 
     .headphones-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -8152,7 +8194,7 @@ button {
     }
 
     .headphones-card {
-        flex: 0 0 calc((100% - 20px) / 2.5);
+        flex: 0 0 calc((100% - 12px) / 2.5);
         min-width: 0;
         height: 245px !important;
         min-height: 245px !important;
@@ -8256,9 +8298,13 @@ button {
     .headphones-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
         box-sizing: border-box;
+    }
+
+    .headphones-slider {
+        border-radius: 10px;
     }
 
     .headphones-card {
@@ -8298,6 +8344,11 @@ button {
     .headphones-price .current-price {
         font-size: 13px;
     }
+
+    .headphones-prev,
+    .headphones-next {
+        display: none !important;
+    }
 }
 
 
@@ -8318,7 +8369,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
@@ -8925,10 +8975,9 @@ button {
 
 
 
-
 /* =========================================================
    SMARTWATCHES SECTION — RESPONSIVE CSS
-   External Section Width Matched to Discovery Slides
+   EXTERNAL WIDTH ALIGNED WITH CATEGORY DISCOVERY SLIDES
    ========================================================= */
 
 
@@ -8943,8 +8992,8 @@ button {
     .smartwatches-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
         box-sizing: border-box;
     }
 
@@ -8952,11 +9001,12 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 17px;
     }
 
     .smartwatches-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -8975,8 +9025,8 @@ button {
     }
 
     .smartwatch-card {
-        flex: 0 0 calc((100% - 30px) / 4.25);
-        width: calc((100% - 30px) / 4.25);
+        flex: 0 0 calc((100% - 18px) / 4.25);
+        width: calc((100% - 18px) / 4.25);
         height: 280px;
         scroll-snap-align: start;
         display: flex;
@@ -9020,6 +9070,11 @@ button {
     .smartwatches-heading h2 {
         font-size: 21px;
     }
+
+    .smartwatches-prev,
+    .smartwatches-next {
+        display: none;
+    }
 }
 
 
@@ -9034,8 +9089,8 @@ button {
     .smartwatches-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
         box-sizing: border-box;
     }
 
@@ -9043,11 +9098,12 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 15px;
     }
 
     .smartwatches-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -9066,8 +9122,8 @@ button {
     }
 
     .smartwatch-card {
-        flex: 0 0 calc((100% - 20px) / 3.25);
-        width: calc((100% - 20px) / 3.25);
+        flex: 0 0 calc((100% - 12px) / 3.25);
+        width: calc((100% - 12px) / 3.25);
         height: 260px;
         scroll-snap-align: start;
         display: flex;
@@ -9133,8 +9189,8 @@ button {
     .smartwatches-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
         margin: 12px auto;
         box-sizing: border-box;
     }
@@ -9142,7 +9198,7 @@ button {
     .smartwatches-slider {
         box-sizing: border-box;
         padding: 10px 0 10px 6px !important;
-        border-radius: 13px;
+        border-radius: 12px;
     }
 
     .smartwatches-header {
@@ -9164,7 +9220,7 @@ button {
 
     .smartwatches-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -9183,8 +9239,8 @@ button {
     }
 
     .smartwatch-card {
-        flex: 0 0 calc((100% - 20px) / 2.5);
-        width: calc((100% - 20px) / 2.5);
+        flex: 0 0 calc((100% - 12px) / 2.5);
+        width: calc((100% - 12px) / 2.5);
         height: 245px;
         scroll-snap-align: start;
         display: flex;
@@ -9262,9 +9318,13 @@ button {
     .smartwatches-section {
         width: 100%;
         max-width: 100%;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
         box-sizing: border-box;
+    }
+
+    .smartwatches-slider {
+        border-radius: 10px;
     }
 
     .smartwatch-card {
@@ -9301,6 +9361,11 @@ button {
     .smartwatch-price strong,
     .smartwatch-price .current-price {
         font-size: 13px;
+    }
+
+    .smartwatches-prev,
+    .smartwatches-next {
+        display: none;
     }
 }
 
@@ -9942,6 +10007,7 @@ button {
 
 
 
+
 /* =========================================================
    CHARGERS & CABLES SECTION — RESPONSIVE CSS
    Standardized using the finalized Top Selling layout
@@ -9960,19 +10026,20 @@ button {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     .chargers-cables-slider {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 17px;
     }
 
     .chargers-cables-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -9991,8 +10058,8 @@ button {
     }
 
     .chargers-cables-card {
-        flex: 0 0 calc((100% - 30px) / 4.25);
-        width: calc((100% - 30px) / 4.25);
+        flex: 0 0 calc((100% - 18px) / 4.25);
+        width: calc((100% - 18px) / 4.25);
         height: 280px;
         scroll-snap-align: start;
         display: flex;
@@ -10037,6 +10104,11 @@ button {
     .chargers-cables-heading h2 {
         font-size: 20px;
     }
+
+    .chargers-cables-prev,
+    .chargers-cables-next {
+        display: none;
+    }
 }
 
 
@@ -10052,19 +10124,20 @@ button {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     .chargers-cables-slider {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 15px;
     }
 
     .chargers-cables-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -10083,8 +10156,8 @@ button {
     }
 
     .chargers-cables-card {
-        flex: 0 0 calc((100% - 20px) / 3.25);
-        width: calc((100% - 20px) / 3.25);
+        flex: 0 0 calc((100% - 12px) / 3.25);
+        width: calc((100% - 12px) / 3.25);
         height: 260px;
         scroll-snap-align: start;
         display: flex;
@@ -10150,15 +10223,15 @@ button {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
         margin: 12px auto;
     }
 
     .chargers-cables-slider {
         box-sizing: border-box;
         padding: 10px 0 10px 6px !important;
-        border-radius: 13px;
+        border-radius: 12px;
     }
 
     .chargers-cables-header {
@@ -10180,7 +10253,7 @@ button {
 
     .chargers-cables-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -10199,8 +10272,8 @@ button {
     }
 
     .chargers-cables-card {
-        flex: 0 0 calc((100% - 20px) / 2.5);
-        width: calc((100% - 20px) / 2.5);
+        flex: 0 0 calc((100% - 12px) / 2.5);
+        width: calc((100% - 12px) / 2.5);
         height: 245px;
         scroll-snap-align: start;
         display: flex;
@@ -10276,6 +10349,15 @@ button {
 
 @media screen and (max-width: 380px) {
 
+    .chargers-cables-section {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .chargers-cables-slider {
+        border-radius: 10px;
+    }
+
     .chargers-cables-card {
         height: 235px;
     }
@@ -10316,6 +10398,11 @@ button {
     .chargers-cables-price .current-price {
         font-size: 13px;
     }
+
+    .chargers-cables-prev,
+    .chargers-cables-next {
+        display: none;
+    }
 }
 
 
@@ -10336,8 +10423,6 @@ button {
         transition: none;
     }
 }
-
-
 
 
 
@@ -10841,19 +10926,20 @@ button {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     .power-banks-slider {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 17px;
     }
 
     .power-banks-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -10872,8 +10958,8 @@ button {
     }
 
     .power-banks-card {
-        flex: 0 0 calc((100% - 30px) / 4.25);
-        width: calc((100% - 30px) / 4.25);
+        flex: 0 0 calc((100% - 18px) / 4.25);
+        width: calc((100% - 18px) / 4.25);
         height: 280px;
         scroll-snap-align: start;
         display: flex;
@@ -10918,6 +11004,11 @@ button {
     .power-banks-heading h2 {
         font-size: 20px;
     }
+
+    .power-banks-prev,
+    .power-banks-next {
+        display: none;
+    }
 }
 
 
@@ -10933,19 +11024,20 @@ button {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     .power-banks-slider {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        border-radius: 15px;
     }
 
     .power-banks-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -10964,8 +11056,8 @@ button {
     }
 
     .power-banks-card {
-        flex: 0 0 calc((100% - 20px) / 3.25);
-        width: calc((100% - 20px) / 3.25);
+        flex: 0 0 calc((100% - 12px) / 3.25);
+        width: calc((100% - 12px) / 3.25);
         height: 260px;
         scroll-snap-align: start;
         display: flex;
@@ -11031,14 +11123,14 @@ button {
         max-width: 100%;
         box-sizing: border-box;
         margin: 12px auto;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     .power-banks-slider {
         box-sizing: border-box;
         padding: 10px 0 10px 6px !important;
-        border-radius: 13px;
+        border-radius: 12px;
     }
 
     .power-banks-header {
@@ -11061,7 +11153,7 @@ button {
 
     .power-banks-track {
         display: flex;
-        gap: 10px;
+        gap: 6px;
         width: 100%;
         padding: 0 !important;
         margin: 0 !important;
@@ -11080,8 +11172,8 @@ button {
     }
 
     .power-banks-card {
-        flex: 0 0 calc((100% - 20px) / 2.5);
-        width: calc((100% - 20px) / 2.5);
+        flex: 0 0 calc((100% - 12px) / 2.5);
+        width: calc((100% - 12px) / 2.5);
         height: 245px;
         scroll-snap-align: start;
         display: flex;
@@ -11164,6 +11256,15 @@ button {
 
 @media screen and (max-width: 380px) {
 
+    .power-banks-section {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .power-banks-slider {
+        border-radius: 10px;
+    }
+
     .power-banks-card {
         height: 235px;
     }
@@ -11204,6 +11305,11 @@ button {
     .power-banks-price .current-price {
         font-size: 13px;
     }
+
+    .power-banks-prev,
+    .power-banks-next {
+        display: none;
+    }
 }
 
 
@@ -11225,6 +11331,7 @@ button {
         transition: none;
     }
 }
+
 
 
 
@@ -11397,8 +11504,10 @@ button {
 }
 
 
+
 /* =========================================================
    TABLET RESPONSIVENESS
+   551px – 900px
 ========================================================= */
 
 @media (min-width: 551px) and (max-width: 900px) {
@@ -11406,14 +11515,12 @@ button {
     .faq-section {
         width: 100%;
         box-sizing: border-box;
-
-        padding: 22px 3px;
+        padding: 22px 6px;
     }
 
     .faq-container {
         width: 100%;
         box-sizing: border-box;
-
         padding: 22px 18px;
     }
 
@@ -11438,6 +11545,7 @@ button {
 
 /* =========================================================
    MOBILE RESPONSIVENESS
+   381px – 550px
 ========================================================= */
 
 @media (max-width: 550px) {
@@ -11445,14 +11553,12 @@ button {
     .faq-section {
         width: 100%;
         box-sizing: border-box;
-
-        padding: 18px 3px;
+        padding: 18px 6px;
     }
 
     .faq-container {
         width: 100%;
         box-sizing: border-box;
-
         padding: 18px 13px;
     }
 
@@ -11484,9 +11590,15 @@ button {
 
 /* =========================================================
    EXTRA SMALL PHONES
+   380px AND BELOW
 ========================================================= */
 
 @media (max-width: 380px) {
+
+    .faq-section {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
 
     .faq-container {
         padding: 16px 11px;
@@ -11504,7 +11616,6 @@ button {
         font-size: 11px;
     }
 }
-
 
 
 /* =========================================================
