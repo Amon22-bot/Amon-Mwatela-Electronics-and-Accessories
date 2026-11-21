@@ -2657,6 +2657,8 @@ button {
 @media (min-width: 901px) and (max-width: 1024px) {
 
     .top-selling-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
         box-sizing: border-box;
@@ -2826,6 +2828,8 @@ button {
 @media (min-width: 601px) and (max-width: 900px) {
 
     .top-selling-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
         box-sizing: border-box;
@@ -3001,6 +3005,8 @@ button {
 @media (max-width: 600px) {
 
     .top-selling-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
 
@@ -3825,25 +3831,29 @@ button {
 
 
 
-
 /* =========================================================
    PHONE COVERS SECTION - RESPONSIVE CSS
-   Based on Finalized Top Selling Reference
+
+   EXTERNAL WIDTH ALIGNED WITH CATEGORY DISCOVERY SLIDES
+
    ========================================================= */
 
 
 /* =========================================================
    1. LARGE TABLETS
    901px - 1024px
-   4 Full Cards + Peek of 5th
-   Card Height: 280px
    ========================================================= */
 
 @media (min-width: 901px) and (max-width: 1024px) {
 
     .phone-covers-section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -3971,15 +3981,18 @@ button {
 /* =========================================================
    2. SMALL TABLETS
    601px - 900px
-   3 Full Cards + Peek of 4th
-   Card Height: 260px
    ========================================================= */
 
 @media (min-width: 601px) and (max-width: 900px) {
 
     .phone-covers-section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -3988,6 +4001,8 @@ button {
         box-sizing: border-box;
         padding-left: 6px !important;
         padding-right: 0 !important;
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
         overflow: hidden;
     }
 
@@ -4112,21 +4127,23 @@ button {
 /* =========================================================
    3. MOBILE
    320px - 600px
-   2 Full Cards + Peek of 3rd
-   Card Height: 245px
-   Image: 105px
-   Details: 140px
    ========================================================= */
 
 @media (max-width: 600px) {
 
     .phone-covers-section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
     .phone-covers-header {
+        padding-left: 0 !important;
         padding-right: 0 !important;
         margin-bottom: 10px;
     }
@@ -4268,16 +4285,18 @@ button {
 /* =========================================================
    4. EXTRA SMALL MOBILE
    320px - 380px
-   Card Height: 235px
-   Image: 100px
-   Details: 135px
    ========================================================= */
 
 @media (max-width: 380px) {
 
     .phone-covers-section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .phone-cover-card {
@@ -4943,23 +4962,27 @@ button {
 
 /* =========================================================
    NEW ARRIVALS - RESPONSIVE CSS
-   Based on Finalized Top Selling Carousel Reference
-   Preserves Cherry-Red Carousel Design
+
+   EXTERNAL WIDTH ALIGNED WITH CATEGORY DISCOVERY SLIDES
+   PRESERVES CHERRY-RED CAROUSEL DESIGN
    ========================================================= */
 
 
 /* =========================================================
    1. LARGE TABLETS
    901px - 1024px
-   4 Full Cards + Peek of 5th
-   Card Height: 280px
    ========================================================= */
 
 @media screen and (min-width: 901px) and (max-width: 1024px) {
 
     .new-arrivals-section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .new-arrivals-slider {
@@ -5086,15 +5109,18 @@ button {
 /* =========================================================
    2. SMALL TABLETS
    601px - 900px
-   3 Full Cards + Peek of 4th
-   Card Height: 260px
    ========================================================= */
 
 @media screen and (min-width: 601px) and (max-width: 900px) {
 
     .new-arrivals-section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .new-arrivals-slider {
@@ -5225,16 +5251,17 @@ button {
 /* =========================================================
    3. MOBILE
    320px - 600px
-   2 Full Cards + Peek of 3rd
-   Card Height: 245px
    ========================================================= */
 
 @media screen and (max-width: 600px) {
 
     .new-arrivals-section {
+        width: 100%;
+        max-width: 100%;
         margin: 12px auto;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .new-arrivals-slider {
@@ -5384,14 +5411,16 @@ button {
 /* =========================================================
    4. EXTRA SMALL MOBILE
    320px - 380px
-   Card Height: 235px
    ========================================================= */
 
 @media screen and (max-width: 380px) {
 
     .new-arrivals-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .new-arrival-card {
@@ -5452,7 +5481,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
@@ -6470,10 +6498,9 @@ button {
 
 
 
-
 /* =========================================================
    SCREEN PROTECTORS - RESPONSIVE CSS
-   Based on Finalized Top Selling Carousel Reference
+   External Section Width Matched to Discovery Slides
    ========================================================= */
 
 
@@ -6487,8 +6514,11 @@ button {
 @media screen and (min-width: 901px) and (max-width: 1024px) {
 
     .screen-protectors-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -6624,8 +6654,11 @@ button {
 @media screen and (min-width: 601px) and (max-width: 900px) {
 
     .screen-protectors-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -6766,9 +6799,12 @@ button {
 @media screen and (max-width: 600px) {
 
     .screen-protectors-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
         margin: 12px auto;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -6928,8 +6964,11 @@ button {
 @media screen and (max-width: 380px) {
 
     .screen-protectors-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .screen-protector-card {
@@ -6989,7 +7028,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
@@ -7587,10 +7625,9 @@ button {
 
 
 
-
 /* =========================================================
    HEADPHONES & EARPODS - RESPONSIVE CSS
-   Based on Finalized Top Selling Carousel Reference
+   External Section Width Matched to Discovery Slides
    ========================================================= */
 
 
@@ -7604,8 +7641,11 @@ button {
 @media screen and (min-width: 901px) and (max-width: 1024px) {
 
     .headphones-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -7736,8 +7776,11 @@ button {
 @media screen and (min-width: 601px) and (max-width: 900px) {
 
     .headphones-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -7873,9 +7916,12 @@ button {
 @media screen and (max-width: 600px) {
 
     .headphones-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
         margin: 12px auto;
+        box-sizing: border-box;
         overflow: hidden;
     }
 
@@ -8030,8 +8076,11 @@ button {
 @media screen and (max-width: 380px) {
 
     .headphones-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px !important;
         padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .headphones-card {
@@ -8091,8 +8140,6 @@ button {
         transition: none;
     }
 }
-
-
 
 
 
@@ -8703,7 +8750,7 @@ button {
 
 /* =========================================================
    SMARTWATCHES SECTION — RESPONSIVE CSS
-   Standardized using the finalized Top Selling layout
+   External Section Width Matched to Discovery Slides
    ========================================================= */
 
 
@@ -8716,8 +8763,11 @@ button {
 @media screen and (max-width: 1024px) and (min-width: 901px) {
 
     .smartwatches-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px;
         padding-right: 3px;
+        box-sizing: border-box;
     }
 
     .smartwatches-slider {
@@ -8804,8 +8854,11 @@ button {
 @media screen and (max-width: 900px) and (min-width: 601px) {
 
     .smartwatches-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px;
         padding-right: 3px;
+        box-sizing: border-box;
     }
 
     .smartwatches-slider {
@@ -8900,9 +8953,12 @@ button {
 @media screen and (max-width: 600px) {
 
     .smartwatches-section {
+        width: 100%;
+        max-width: 100%;
         padding-left: 3px;
         padding-right: 3px;
         margin: 12px auto;
+        box-sizing: border-box;
     }
 
     .smartwatches-slider {
@@ -9024,6 +9080,14 @@ button {
    ========================================================= */
 
 @media screen and (max-width: 380px) {
+
+    .smartwatches-section {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 3px;
+        padding-right: 3px;
+        box-sizing: border-box;
+    }
 
     .smartwatch-card {
         height: 235px;
@@ -9700,7 +9764,6 @@ button {
 
 
 
-
 /* =========================================================
    CHARGERS & CABLES SECTION — RESPONSIVE CSS
    Standardized using the finalized Top Selling layout
@@ -9716,6 +9779,9 @@ button {
 @media screen and (max-width: 1024px) and (min-width: 901px) {
 
     .chargers-cables-section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         padding-left: 3px;
         padding-right: 3px;
     }
@@ -9805,6 +9871,9 @@ button {
 @media screen and (max-width: 900px) and (min-width: 601px) {
 
     .chargers-cables-section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         padding-left: 3px;
         padding-right: 3px;
     }
@@ -9900,6 +9969,9 @@ button {
 @media screen and (max-width: 600px) {
 
     .chargers-cables-section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         padding-left: 3px;
         padding-right: 3px;
         margin: 12px auto;
@@ -10588,6 +10660,9 @@ button {
 @media screen and (max-width: 1024px) and (min-width: 901px) {
 
     .power-banks-section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         padding-left: 3px;
         padding-right: 3px;
     }
@@ -10677,6 +10752,9 @@ button {
 @media screen and (max-width: 900px) and (min-width: 601px) {
 
     .power-banks-section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         padding-left: 3px;
         padding-right: 3px;
     }
@@ -10771,6 +10849,9 @@ button {
 @media screen and (max-width: 600px) {
 
     .power-banks-section {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         margin: 12px auto;
         padding-left: 3px;
         padding-right: 3px;
@@ -10966,7 +11047,6 @@ button {
         transition: none;
     }
 }
-
 
 
 
