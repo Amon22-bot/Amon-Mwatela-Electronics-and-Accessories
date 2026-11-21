@@ -2789,6 +2789,7 @@ button {
 
 /* =========================================================
    TOP SELLING SECTION — TABLET & MOBILE RESPONSIVE CSS
+   REFERENCE STANDARD FOR ALL HOMEPAGE PRODUCT SECTIONS
    ========================================================= */
 
 
@@ -2801,10 +2802,14 @@ button {
 @media (min-width: 901px) and (max-width: 1024px) {
 
     .top-selling-section {
-        padding-right: 0 !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .top-selling-slider {
+        width: 100%;
+        padding-left: 0 !important;
         padding-right: 0 !important;
         overflow: hidden;
     }
@@ -2817,38 +2822,68 @@ button {
         font-size: 21px;
     }
 
+    /* Carousel track */
+
     .top-selling-track {
         display: flex;
         gap: 10px;
-        padding-right: 0 !important;
-        margin-right: 0 !important;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
         overflow-x: auto;
         overflow-y: hidden;
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
     }
 
     .top-selling-track::-webkit-scrollbar {
         display: none;
     }
 
+    /* Product cards */
+
     .top-selling-card {
         flex: 0 0 calc((100% - 30px) / 4.25);
+        height: 300px;
         min-width: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
         scroll-snap-align: start;
     }
 
+    /* Product image */
+
     .top-selling-image {
         width: 100%;
+        height: 150px;
+        flex: 0 0 150px;
         overflow: hidden;
     }
 
     .top-selling-image img {
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
+    }
+
+    /* Product information */
+
+    .top-selling-details {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 150px;
+        min-height: 150px;
+        box-sizing: border-box;
+        padding: 9px;
+        overflow: hidden;
     }
 
     .top-selling-details h3 {
@@ -2865,12 +2900,16 @@ button {
         overflow: hidden;
     }
 
+    /* Prices always at bottom-left */
+
     .top-selling-price {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 3px;
         width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
     }
 
     .top-selling-price del {
@@ -2897,13 +2936,15 @@ button {
 @media (min-width: 601px) and (max-width: 900px) {
 
     .top-selling-section {
-        padding-left: 12px !important;
-        padding-right: 0 !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        box-sizing: border-box;
     }
 
     .top-selling-slider {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        width: 100%;
+        padding: 12px 0 !important;
+        margin: 0;
         overflow: hidden;
     }
 
@@ -2915,124 +2956,13 @@ button {
         font-size: 19px;
     }
 
-    .top-selling-track {
-        display: flex;
-        gap: 10px;
-        padding-right: 0 !important;
-        margin-right: 0 !important;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-
-    .top-selling-track::-webkit-scrollbar {
-        display: none;
-    }
-
-    .top-selling-card {
-        flex: 0 0 calc((100% - 20px) / 3.25);
-        min-width: 0;
-        scroll-snap-align: start;
-    }
-
-    .top-selling-image {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .top-selling-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .top-selling-details h3 {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-    }
-
-    .top-selling-details > p {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-    }
-
-    .top-selling-price {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 3px;
-        width: 100%;
-    }
-
-    .top-selling-price del {
-        order: 1;
-    }
-
-    .top-selling-price .discount-badge {
-        order: 2;
-    }
-
-    .top-selling-price strong,
-    .top-selling-price .current-price {
-        order: 3;
-    }
-
-    /* Hide carousel arrows on smaller tablets */
-    .top-selling-prev,
-    .top-selling-next {
-        display: none !important;
-    }
-}
-
-
-/* =========================================================
-   3. MOBILE PHONES
-   Screens: 320px – 600px
-   Layout: 2 full cards + half of 3rd card
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    .top-selling-section {
-        padding-left: 8px !important;
-        padding-right: 0 !important;
-        overflow: hidden;
-    }
-
-    .top-selling-header {
-        padding-right: 0 !important;
-        margin-bottom: 10px;
-    }
-
-    .top-selling-heading h2 {
-        font-size: 18px;
-    }
-
-    .top-selling-shop-btn {
-        font-size: 13px;
-    }
-
-    .top-selling-slider {
-        width: 100%;
-        padding: 12px 0 12px 0 !important;
-        margin: 0;
-        overflow: hidden;
-        margin-left: 2px;
-    }
+    /* Carousel track */
 
     .top-selling-track {
         display: flex;
         gap: 10px;
         width: 100%;
         padding: 0 !important;
-        padding-right: 0 !important;
         margin: 0 !important;
         overflow-x: auto;
         overflow-y: hidden;
@@ -3047,16 +2977,25 @@ button {
         display: none;
     }
 
+    /* Product cards */
+
     .top-selling-card {
-        flex: 0 0 calc((100% - 20px) / 2.5);
+        flex: 0 0 calc((100% - 20px) / 3.25);
+        height: 290px;
         min-width: 0;
-        scroll-snap-align: start;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
+        scroll-snap-align: start;
     }
+
+    /* Product image */
 
     .top-selling-image {
         width: 100%;
-        height: 155px;
+        height: 140px;
+        flex: 0 0 140px;
         overflow: hidden;
     }
 
@@ -3068,9 +3007,17 @@ button {
         object-position: center;
     }
 
+    /* Product information */
+
     .top-selling-details {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 150px;
+        min-height: 150px;
+        box-sizing: border-box;
         padding: 9px;
-        min-width: 0;
+        overflow: hidden;
     }
 
     .top-selling-details h3 {
@@ -3078,41 +3025,209 @@ button {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
-        font-size: 13px;
-        line-height: 1.35;
-        margin-bottom: 5px;
     }
 
-    /* Product description remains visible */
     .top-selling-details > p {
-        display: -webkit-box !important;
+        display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
-        font-size: 11px;
-        line-height: 1.4;
-        margin-bottom: 7px;
     }
 
-    /* Original price → Discount badge → Current price */
+    /* Prices always at bottom-left */
+
     .top-selling-price {
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 3px;
         width: 100%;
-        margin-top: 5px;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
     }
+
+    .top-selling-price del {
+        order: 1;
+    }
+
+    .top-selling-price .discount-badge {
+        order: 2;
+    }
+
+    .top-selling-price strong,
+    .top-selling-price .current-price {
+        order: 3;
+    }
+
+    /* Hide carousel arrows on small tablets */
+
+    .top-selling-prev,
+    .top-selling-next {
+        display: none !important;
+    }
+}
+
+
+/* =========================================================
+   3. MOBILE PHONES
+   Screens: 320px – 600px
+   Layout: 2 full cards + peek of 3rd
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-selling-section {
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    /* Section header */
+
+    .top-selling-header {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 10px;
+    }
+
+    .top-selling-heading h2 {
+        font-size: 18px;
+    }
+
+    .top-selling-shop-btn {
+        font-size: 13px;
+    }
+
+    /* Carousel container */
+
+    .top-selling-slider {
+        width: 100%;
+        padding: 12px 0 !important;
+        margin: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    /* Carousel track */
+
+    .top-selling-track {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+        align-items: stretch;
+    }
+
+    .top-selling-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Product cards */
+
+    .top-selling-card {
+        flex: 0 0 calc((100% - 20px) / 2.5);
+        height: 280px;
+        min-width: 0;
+        min-height: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        overflow: hidden;
+        scroll-snap-align: start;
+    }
+
+    /* Product image */
+
+    .top-selling-image {
+        width: 100%;
+        height: 130px;
+        flex: 0 0 130px;
+        overflow: hidden;
+    }
+
+    .top-selling-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Product information */
+
+    .top-selling-details {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 150px;
+        min-height: 150px;
+        box-sizing: border-box;
+        padding: 7px 8px;
+        overflow: hidden;
+    }
+
+    /* Product name */
+
+    .top-selling-details h3 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+
+    /* Product description */
+
+    .top-selling-details > p {
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 1.3;
+        margin-bottom: 5px;
+    }
+
+    /* Prices always at bottom-left */
+
+    .top-selling-price {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 2px;
+        width: 100%;
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+        flex-shrink: 0;
+    }
+
+    /* Original price */
 
     .top-selling-price del {
         order: 1;
         font-size: 10px;
     }
 
+    /* Discount badge */
+
     .top-selling-price .discount-badge {
         order: 2;
         font-size: 10px;
     }
+
+    /* Current price */
 
     .top-selling-price strong,
     .top-selling-price .current-price {
@@ -3121,6 +3236,7 @@ button {
     }
 
     /* Hide carousel arrows on mobile */
+
     .top-selling-prev,
     .top-selling-next {
         display: none !important;
@@ -3131,35 +3247,43 @@ button {
 /* =========================================================
    4. EXTRA-SMALL MOBILE PHONES
    Screens: 320px – 380px
-   Maintain 2 full cards + peek of 3rd
+   Layout: 2 full cards + peek of 3rd
    ========================================================= */
 
 @media (max-width: 380px) {
 
-    .top-selling-section {
-        padding-left: 8px !important;
-        padding-right: 0 !important;
+    .top-selling-card {
+        height: 270px;
     }
 
-    .top-selling-card {
-        flex: 0 0 calc((100% - 20px) / 2.5);
-    }
+    /* Product image */
 
     .top-selling-image {
-        height: 140px;
+        height: 120px;
+        flex: 0 0 120px;
     }
 
+    /* Product information */
+
     .top-selling-details {
-        padding: 8px;
+        height: 150px;
+        min-height: 150px;
+        padding: 6px 7px;
     }
+
+    /* Product name */
 
     .top-selling-details h3 {
         font-size: 12px;
     }
 
+    /* Product description */
+
     .top-selling-details > p {
         font-size: 10px;
     }
+
+    /* Current price */
 
     .top-selling-price strong,
     .top-selling-price .current-price {
@@ -3167,112 +3291,8 @@ button {
     }
 }
 
-/* =========================================================
-   TOP SELLING — SPACING AND CARD HEIGHT CORRECTIONS
-   ========================================================= */
-
-@media (min-width: 601px) and (max-width: 900px) {
-
-    .top-selling-slider {
-        padding-left: 10px !important;
-        padding-right: 0 !important;
-    }
-
-    .top-selling-image {
-        height: 140px;
-    }
-}
 
 
-@media (max-width: 600px) {
-
-    /* Restore left carousel spacing */
-    .top-selling-slider {
-        padding-left: 10px !important;
-        padding-right: 0 !important;
-    }
-
-    /* Keep the right edge free of padding */
-    .top-selling-track {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    /* Reduce card image height */
-    .top-selling-image {
-        height: 130px;
-    }
-
-    .top-selling-details {
-        padding: 7px 8px;
-    }
-
-    .top-selling-details h3 {
-        font-size: 12px;
-        line-height: 1.3;
-        margin-bottom: 4px;
-    }
-
-    .top-selling-details > p {
-        font-size: 10px;
-        line-height: 1.3;
-        margin-bottom: 5px;
-    }
-
-    .top-selling-price {
-        gap: 2px;
-        margin-top: 3px;
-    }
-}
-
-
-@media (max-width: 380px) {
-
-    .top-selling-slider {
-        padding-left: 10px !important;
-        padding-right: 0 !important;
-    }
-
-    .top-selling-image {
-        height: 120px;
-    }
-
-    .top-selling-details {
-        padding: 6px 7px;
-    }
-}
-
-/* =========================================================
-   TOP SELLING — REMOVE EXCESS SPACE BELOW PRODUCT DETAILS
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    .top-selling-track {
-        align-items: flex-start !important;
-    }
-
-    .top-selling-card {
-        height: auto !important;
-        min-height: 0 !important;
-        align-self: flex-start !important;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .top-selling-details {
-        height: auto !important;
-        min-height: 0 !important;
-        flex: 0 0 auto !important;
-        flex-grow: 0 !important;
-        justify-content: flex-start !important;
-        padding-bottom: 10px !important;
-    }
-
-    .top-selling-price {
-        margin-bottom: 0 !important;
-    }
-}
 
 
 /* =========================================================
