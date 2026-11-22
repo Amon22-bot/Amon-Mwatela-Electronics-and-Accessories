@@ -1410,9 +1410,6 @@ button {
 
 
 
-
-
-
 /* =========================================================
    9. LARGE TABLET
    901PX - 1024PX
@@ -1552,12 +1549,12 @@ button {
 @media (min-width: 381px) and (max-width: 600px) {
 
     .hero {
-        width: calc(100% - 12px);
+        width: 100%;
 
         height: 230px;
         aspect-ratio: auto;
 
-        margin: 12px auto 48px;
+        margin: 12px 0 48px;
 
         border-radius: 12px;
 
@@ -1578,7 +1575,7 @@ button {
         width: 100%;
         height: 100%;
 
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
 
         display: block;
@@ -1622,12 +1619,12 @@ button {
 @media (max-width: 380px) {
 
     .hero {
-        width: calc(100% - 12px);
+        width: 100%;
 
         height: 230px;
         aspect-ratio: auto;
 
-        margin: 12px auto 48px;
+        margin: 12px 0 48px;
 
         border-radius: 10px;
 
@@ -1648,7 +1645,7 @@ button {
         width: 100%;
         height: 100%;
 
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
 
         display: block;
