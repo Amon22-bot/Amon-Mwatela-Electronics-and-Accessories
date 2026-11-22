@@ -997,15 +997,20 @@ button {
 
 
 
+
 /* =========================================================
-   8. AM ELECTRONICS HERO SECTION
+   AM ELECTRONICS HERO SECTION
    ---------------------------------------------------------
-   RESPONSIVE HERO SLIDER
-   - Matches homepage carousel width
-   - Separate text and image areas on tablet/mobile
-   - External navigation dots
-   - No tablet/mobile navigation arrows
-   - Prevents product image clipping
+   CLEAN IMAGE-FOCUSED HERO SLIDER
+
+   - No text headings or descriptions
+   - No dark gradients or image overlays
+   - Transparent View All-style Shop Now button
+   - Font Awesome arrow
+   - Button positioned bottom-left on all devices
+   - Desktop navigation arrows
+   - External pagination dots
+   - Responsive image positioning
 ========================================================= */
 
 
@@ -1061,6 +1066,8 @@ button {
 
     width: 100%;
     height: 100%;
+
+    display: block;
 
     opacity: 0;
     visibility: hidden;
@@ -1129,128 +1136,48 @@ button {
 
 
 /* =========================================================
-   5. HERO IMAGE/TEXT SEPARATION
+   5. REMOVE IMAGE OVERLAYS
 ========================================================= */
 
 .hero-slide::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 1;
-
-    pointer-events: none;
-
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.82) 0%,
-        rgba(0, 0, 0, 0.68) 30%,
-        rgba(0, 0, 0, 0.35) 43%,
-        rgba(0, 0, 0, 0.05) 58%,
-        transparent 70%
-    );
+    content: none;
 
     display: none;
 }
 
 
 /* =========================================================
-   6. HERO TEXT CONTENT
-========================================================= */
-
-.hero-content {
-    position: absolute;
-
-    left: 5%;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    width: 42%;
-    max-width: 480px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    color: #ffffff;
-
-    z-index: 2;
-}
-
-
-/* =========================================================
-   7. HERO HEADING
-========================================================= */
-
-.hero-content h1 {
-    width: 100%;
-
-    margin: 0 0 12px;
-
-    color: #ffffff;
-
-    font-family: 'Roboto', sans-serif;
-
-    font-size: clamp(25px, 2.8vw, 36px);
-
-    font-weight: 800;
-
-    line-height: 1.12;
-
-    overflow-wrap: break-word;
-}
-
-
-/* =========================================================
-   8. HERO DESCRIPTION
-========================================================= */
-
-.hero-content p {
-    width: 100%;
-
-    margin: 0 0 20px;
-
-    color: #ffffff;
-
-    font-family: 'Roboto', sans-serif;
-
-    font-size: clamp(13px, 1.3vw, 17px);
-
-    font-weight: 400;
-
-    line-height: 1.45;
-
-    overflow-wrap: break-word;
-}
-
-
-/* =========================================================
-   9. HERO BUTTON
+   6. SHOP NOW BUTTON
+   TRANSPARENT VIEW ALL-STYLE DESIGN
 ========================================================= */
 
 .hero-button {
+    position: absolute;
+
+    left: 5%;
+    bottom: 20px;
+
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    padding: 11px 23px;
+    gap: 9px;
 
-    background: #ffffff;
+    width: fit-content;
 
-    color: #000000;
+    padding: 0;
+
+    background: transparent;
+
+    color: #ffffff;
 
     border: none;
-
-    border-radius: 6px;
+    border-radius: 0;
 
     font-family: 'Roboto', sans-serif;
 
-    font-size: 14px;
+    font-size: 15px;
 
     font-weight: 700;
 
@@ -1258,24 +1185,54 @@ button {
 
     white-space: nowrap;
 
+    cursor: pointer;
+
+    z-index: 3;
+
     transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+        gap 0.25s ease,
+        opacity 0.25s ease;
 }
 
 
+/* FONT AWESOME ARROW */
+
+.hero-button i {
+    display: inline-block;
+
+    font-size: 14px;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* BUTTON HOVER */
+
 .hero-button:hover {
-    background: #ff9800;
+    gap: 13px;
 
     color: #ffffff;
+}
 
-    transform: translateY(-2px);
+
+/* ARROW HOVER */
+
+.hero-button:hover i {
+    transform: translateX(3px);
+}
+
+
+/* KEYBOARD FOCUS */
+
+.hero-button:focus-visible {
+    outline: 2px solid #ffffff;
+
+    outline-offset: 5px;
 }
 
 
 /* =========================================================
-   10. HERO SLIDER NAVIGATION ARROWS
+   7. HERO SLIDER NAVIGATION ARROWS
    DESKTOP ONLY
 ========================================================= */
 
@@ -1284,12 +1241,14 @@ button {
     position: absolute;
 
     top: 50%;
+
     transform: translateY(-50%);
 
     width: 44px;
     height: 44px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -1308,6 +1267,7 @@ button {
 
     opacity: 0;
     visibility: hidden;
+
     pointer-events: none;
 
     transition:
@@ -1389,7 +1349,7 @@ button {
 
 
 /* =========================================================
-   11. HERO NAVIGATION DOTS
+   8. HERO NAVIGATION DOTS
    POSITIONED BELOW THE HERO
 ========================================================= */
 
@@ -1449,10 +1409,8 @@ button {
 }
 
 
-
-
 /* =========================================================
-   12. LARGE TABLET
+   9. LARGE TABLET
    901PX - 1024PX
 ========================================================= */
 
@@ -1460,75 +1418,43 @@ button {
 
     .hero {
         width: calc(100% - 12px);
+
         height: 280px;
+
         border-radius: 17px;
+
         margin: 16px auto 40px;
+
         box-sizing: border-box;
     }
+
 
     /* FULL BACKGROUND IMAGE */
 
     .hero-slide img {
         position: absolute;
+
         inset: 0;
 
         width: 100%;
         height: 100%;
 
         object-fit: cover;
+
         object-position: center;
     }
 
-    /* DARK GRADIENT BEHIND TEXT */
 
-    .hero-slide::after {
-        display: block;
-
-        content: "";
-
-        position: absolute;
-        inset: 0;
-
-        background: linear-gradient(
-            to right,
-            rgba(17, 17, 17, 0.96) 0%,
-            rgba(17, 17, 17, 0.88) 28%,
-            rgba(17, 17, 17, 0.62) 43%,
-            rgba(17, 17, 17, 0.20) 60%,
-            transparent 75%
-        );
-
-        pointer-events: none;
-    }
-
-    /* TEXT AREA */
-
-    .hero-content {
-        left: 5%;
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        width: 44%;
-        max-width: 420px;
-
-        z-index: 2;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(23px, 3vw, 30px);
-        margin-bottom: 9px;
-    }
-
-    .hero-content p {
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
+    /* SHOP NOW BUTTON */
 
     .hero-button {
-        padding: 9px 19px;
-        font-size: 13px;
+        left: 5%;
+
+        bottom: 18px;
+
+        font-size: 14px;
     }
+
 
     /* HIDE ARROWS ON TABLETS */
 
@@ -1536,91 +1462,58 @@ button {
     .hero-next {
         display: none !important;
     }
+
 }
 
 
 /* =========================================================
-   13. SMALL TABLET
+   10. SMALL TABLET
    601PX - 900PX
-
-   FULL BACKGROUND IMAGE
 ========================================================= */
 
 @media (min-width: 601px) and (max-width: 900px) {
 
     .hero {
         width: calc(100% - 12px);
+
         height: 260px;
+
         margin: 16px auto 40px;
+
         border-radius: 15px;
+
         box-sizing: border-box;
     }
+
 
     /* FULL BACKGROUND IMAGE */
 
     .hero-slide img {
         position: absolute;
+
         inset: 0;
 
         width: 100%;
         height: 100%;
 
         object-fit: cover;
+
         object-position: center right;
     }
 
-    /* DARK GRADIENT BEHIND TEXT */
 
-    .hero-slide::after {
-        display: block;
-
-        content: "";
-
-        position: absolute;
-        inset: 0;
-
-        background: linear-gradient(
-            to right,
-            rgba(17, 17, 17, 0.97) 0%,
-            rgba(17, 17, 17, 0.90) 28%,
-            rgba(17, 17, 17, 0.70) 43%,
-            rgba(17, 17, 17, 0.28) 60%,
-            transparent 78%
-        );
-
-        pointer-events: none;
-    }
-
-    /* TEXT AREA */
-
-    .hero-content {
-        left: 5%;
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        width: 45%;
-        max-width: 350px;
-
-        z-index: 2;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(19px, 2.8vw, 25px);
-        line-height: 1.12;
-        margin-bottom: 8px;
-    }
-
-    .hero-content p {
-        font-size: 12px;
-        line-height: 1.4;
-        margin-bottom: 12px;
-    }
+    /* SHOP NOW BUTTON */
 
     .hero-button {
-        padding: 8px 15px;
-        font-size: 12px;
+        left: 5%;
+
+        bottom: 16px;
+
+        font-size: 14px;
+
+        gap: 8px;
     }
+
 
     /* HIDE ARROWS */
 
@@ -1629,104 +1522,79 @@ button {
         display: none !important;
     }
 
+
     /* DOTS BELOW HERO */
 
     .hero-dots {
         bottom: -28px;
+
         gap: 8px;
     }
+
 
     .hero-dot {
         width: 8px;
         height: 8px;
+
         flex-basis: 8px;
     }
+
 }
 
 
 /* =========================================================
-   14. MOBILE
+   11. MOBILE
    381PX - 600PX
-
-   FULL BACKGROUND IMAGE
 ========================================================= */
 
 @media (min-width: 381px) and (max-width: 600px) {
 
     .hero {
         width: calc(100% - 12px);
+
         height: 220px;
+
         margin: 12px auto 38px;
+
         border-radius: 12px;
+
         box-sizing: border-box;
     }
+
 
     /* FULL BACKGROUND IMAGE */
 
     .hero-slide img {
         position: absolute;
+
         inset: 0;
 
         width: 100%;
         height: 100%;
 
         object-fit: cover;
+
         object-position: center right;
     }
 
-    /* DARK GRADIENT BEHIND TEXT */
 
-    .hero-slide::after {
-        display: block;
-
-        content: "";
-
-        position: absolute;
-        inset: 0;
-
-        background: linear-gradient(
-            to right,
-            rgba(17, 17, 17, 0.97) 0%,
-            rgba(17, 17, 17, 0.91) 27%,
-            rgba(17, 17, 17, 0.72) 43%,
-            rgba(17, 17, 17, 0.32) 61%,
-            transparent 80%
-        );
-
-        pointer-events: none;
-    }
-
-    /* TEXT AREA */
-
-    .hero-content {
-        left: 4%;
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        width: 46%;
-        max-width: none;
-
-        z-index: 2;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(15px, 3.8vw, 20px);
-        line-height: 1.13;
-        margin-bottom: 6px;
-    }
-
-    .hero-content p {
-        font-size: clamp(10px, 2.5vw, 12px);
-        line-height: 1.35;
-        margin-bottom: 9px;
-    }
+    /* SHOP NOW BUTTON */
 
     .hero-button {
-        padding: 7px 11px;
-        font-size: 10px;
-        border-radius: 5px;
+        left: 4%;
+
+        bottom: 14px;
+
+        font-size: 13px;
+
+        gap: 7px;
     }
+
+
+    .hero-button i {
+        font-size: 12px;
+    }
+
 
     /* HIDE ARROWS */
 
@@ -1735,23 +1603,28 @@ button {
         display: none !important;
     }
 
+
     /* DOTS */
 
     .hero-dots {
         bottom: -27px;
+
         gap: 7px;
     }
+
 
     .hero-dot {
         width: 7px;
         height: 7px;
+
         flex-basis: 7px;
     }
+
 }
 
 
 /* =========================================================
-   15. EXTRA SMALL MOBILE
+   12. EXTRA SMALL MOBILE
    380PX AND BELOW
 ========================================================= */
 
@@ -1759,78 +1632,50 @@ button {
 
     .hero {
         width: calc(100% - 12px);
+
         height: 190px;
+
         margin: 12px auto 38px;
+
         border-radius: 10px;
+
         box-sizing: border-box;
     }
+
 
     /* FULL BACKGROUND IMAGE */
 
     .hero-slide img {
         position: absolute;
+
         inset: 0;
 
         width: 100%;
         height: 100%;
 
         object-fit: cover;
+
         object-position: center right;
     }
 
-    /* DARK GRADIENT BEHIND TEXT */
 
-    .hero-slide::after {
-        display: block;
-
-        content: "";
-
-        position: absolute;
-        inset: 0;
-
-        background: linear-gradient(
-            to right,
-            rgba(17, 17, 17, 0.98) 0%,
-            rgba(17, 17, 17, 0.92) 27%,
-            rgba(17, 17, 17, 0.74) 44%,
-            rgba(17, 17, 17, 0.35) 62%,
-            transparent 82%
-        );
-
-        pointer-events: none;
-    }
-
-    /* TEXT AREA */
-
-    .hero-content {
-        left: 4%;
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        width: 46%;
-        max-width: none;
-
-        z-index: 2;
-    }
-
-    .hero-content h1 {
-        font-size: 14px;
-        line-height: 1.12;
-        margin-bottom: 5px;
-    }
-
-    .hero-content p {
-        font-size: 9px;
-        line-height: 1.3;
-        margin-bottom: 7px;
-    }
+    /* SHOP NOW BUTTON */
 
     .hero-button {
-        padding: 6px 9px;
-        font-size: 9px;
-        border-radius: 4px;
+        left: 4%;
+
+        bottom: 12px;
+
+        font-size: 12px;
+
+        gap: 6px;
     }
+
+
+    .hero-button i {
+        font-size: 11px;
+    }
+
 
     /* HIDE ARROWS */
 
@@ -1839,35 +1684,43 @@ button {
         display: none !important;
     }
 
+
     /* DOTS */
 
     .hero-dots {
         bottom: -27px;
+
         gap: 6px;
     }
+
 
     .hero-dot {
         width: 6px;
         height: 6px;
+
         flex-basis: 6px;
     }
+
 }
 
 
 /* =========================================================
-   16. ACCESSIBILITY
+   13. ACCESSIBILITY
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
     .hero-slide,
     .hero-button,
+    .hero-button i,
     .hero-prev,
     .hero-next,
     .hero-dot {
         transition: none;
     }
+
 }
+
 
 
 
