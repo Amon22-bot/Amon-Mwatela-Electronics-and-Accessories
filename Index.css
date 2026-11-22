@@ -1024,8 +1024,8 @@ button {
 }
 
 .hero {
-    width: 93%;
-    max-width: 1400px;
+    width: 100%;
+    max-width: 1302px;
 
     height: 350px;
 
