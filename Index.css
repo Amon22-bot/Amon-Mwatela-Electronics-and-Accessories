@@ -1412,6 +1412,7 @@ button {
 
 
 
+
 /* =========================================================
    9. LARGE TABLET
    901PX - 1024PX
@@ -1553,8 +1554,8 @@ button {
     .hero {
         width: calc(100% - 12px);
 
-        height: auto;
-        aspect-ratio: 2048 / 680;
+        height: 230px;
+        aspect-ratio: auto;
 
         margin: 12px auto 48px;
 
@@ -1623,8 +1624,8 @@ button {
     .hero {
         width: calc(100% - 12px);
 
-        height: auto;
-        aspect-ratio: 2048 / 680;
+        height: 230px;
+        aspect-ratio: auto;
 
         margin: 12px auto 48px;
 
@@ -1699,7 +1700,6 @@ button {
     }
 
 }
-
 
 
 
