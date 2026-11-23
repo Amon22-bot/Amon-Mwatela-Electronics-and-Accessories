@@ -997,7 +997,6 @@ button {
 
 
 
-
 /* =========================================================
    AM ELECTRONICS HERO SECTION
    ---------------------------------------------------------
@@ -1010,7 +1009,8 @@ button {
    - Button positioned bottom-left on all devices
    - Desktop navigation arrows
    - External pagination dots
-   - Responsive image positioning
+   - Separate desktop and mobile images
+   - Desktop images used on desktop and tablets
 ========================================================= */
 
 
@@ -1089,7 +1089,26 @@ button {
 
 
 /* =========================================================
-   3. HERO IMAGE
+   3. HERO PICTURE ELEMENT
+   SUPPORTS DESKTOP AND MOBILE IMAGE SOURCES
+========================================================= */
+
+.hero-slide picture {
+    position: absolute;
+
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   4. HERO IMAGE
 ========================================================= */
 
 .hero-slide img {
@@ -1111,7 +1130,7 @@ button {
 
 
 /* =========================================================
-   4. INDIVIDUAL SLIDE IMAGE POSITIONING
+   5. INDIVIDUAL SLIDE IMAGE POSITIONING
 ========================================================= */
 
 .hero-slide:nth-child(1) {
@@ -1136,7 +1155,7 @@ button {
 
 
 /* =========================================================
-   5. REMOVE IMAGE OVERLAYS
+   6. REMOVE IMAGE OVERLAYS
 ========================================================= */
 
 .hero-slide::after {
@@ -1147,7 +1166,7 @@ button {
 
 
 /* =========================================================
-   6. SHOP NOW BUTTON
+   7. SHOP NOW BUTTON
    TRANSPARENT VIEW ALL-STYLE DESIGN
 ========================================================= */
 
@@ -1232,7 +1251,7 @@ button {
 
 
 /* =========================================================
-   7. HERO SLIDER NAVIGATION ARROWS
+   8. HERO SLIDER NAVIGATION ARROWS
    DESKTOP ONLY
 ========================================================= */
 
@@ -1349,7 +1368,7 @@ button {
 
 
 /* =========================================================
-   8. HERO NAVIGATION DOTS
+   9. HERO NAVIGATION DOTS
    POSITIONED BELOW THE HERO
 ========================================================= */
 
@@ -1409,11 +1428,8 @@ button {
 }
 
 
-
-
-
 /* =========================================================
-   9. LARGE TABLET
+   10. LARGE TABLET
    901PX - 1024PX
 ========================================================= */
 
@@ -1478,7 +1494,7 @@ button {
 
 
 /* =========================================================
-   10. SMALL TABLET
+   11. SMALL TABLET
    601PX - 900PX
 ========================================================= */
 
@@ -1544,7 +1560,7 @@ button {
 
 
 /* =========================================================
-   11. MOBILE
+   12. MOBILE
    381PX - 600PX
 ========================================================= */
 
@@ -1614,7 +1630,7 @@ button {
 
 
 /* =========================================================
-   12. EXTRA SMALL MOBILE
+   13. EXTRA SMALL MOBILE
    380PX AND BELOW
 ========================================================= */
 
@@ -1684,7 +1700,7 @@ button {
 
 
 /* =========================================================
-   13. ACCESSIBILITY
+   14. ACCESSIBILITY
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1699,6 +1715,7 @@ button {
     }
 
 }
+
 
 
 
