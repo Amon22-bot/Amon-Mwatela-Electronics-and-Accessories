@@ -4184,9 +4184,9 @@ button {
     .phone-cover-card .product-details-link {
         display: block;
         width: 100%;
-        height: 125px !important;
-        min-height: 125px !important;
-        flex: 0 0 125px !important;
+        height: 140px !important;
+        min-height: 140px !important;
+        flex: 0 0 140px !important;
         overflow: hidden;
     }
 
@@ -5346,8 +5346,8 @@ button {
     .new-arrival-card {
         flex: 0 0 calc((100% - 12px) / 2.5);
         min-width: 0;
-        height: 245px !important;
-        min-height: 245px !important;
+        height: 260px !important;
+        min-height: 260px !important;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -5356,8 +5356,8 @@ button {
     }
 
     .new-arrival-card > a:first-child {
-        height: 125px;
-        flex: 0 0 125px;
+        height: 140px;
+        flex: 0 0 140px;
         overflow: hidden;
     }
 
@@ -5460,19 +5460,20 @@ button {
     }
 
     .new-arrival-card {
-        height: 235px !important;
-        min-height: 235px !important;
+        height: 260px !important;
+        min-height: 260px !important;
+        flex: 0 0 calc((100% - 12px) / 2.5);
     }
 
     .new-arrival-card > a:first-child {
-        height: 120px;
-        flex: 0 0 120px;
+        height: 140px;
+        flex: 0 0 140px;
     }
 
     .new-arrival-details {
-        height: 115px !important;
-        min-height: 115px !important;
-        flex: 0 0 115px !important;
+        height: 120px !important;
+        min-height: 120px !important;
+        flex: 0 0 120px !important;
         padding: 6px 7px !important;
     }
 
@@ -6913,8 +6914,8 @@ button {
     .screen-protector-card {
         flex: 0 0 calc((100% - 12px) / 2.5);
         min-width: 0;
-        height: 245px !important;
-        min-height: 245px !important;
+        height: 260px !important;
+        min-height: 260px !important;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -6924,8 +6925,8 @@ button {
 
     .screen-protector-card .screen-protector-image-link {
         width: 100%;
-        height: 125px;
-        flex: 0 0 125px;
+        height: 140px;
+        flex: 0 0 140px;
         overflow: hidden;
     }
 
@@ -7030,19 +7031,20 @@ button {
     }
 
     .screen-protector-card {
-        height: 235px !important;
-        min-height: 235px !important;
+        height: 260px !important;
+        min-height: 260px !important;
+        flex: 0 0 calc((100% - 12px) / 2.5);
     }
 
     .screen-protector-card .screen-protector-image-link {
-        height: 120px;
-        flex: 0 0 120px;
+        height: 140px;
+        flex: 0 0 140px;
     }
 
     .screen-protector-details {
-        height: 115px !important;
-        min-height: 115px !important;
-        flex: 0 0 115px !important;
+        height: 120px !important;
+        min-height: 120px !important;
+        flex: 0 0 120px !important;
         padding: 6px 7px !important;
     }
 
@@ -8044,8 +8046,8 @@ button {
     .headphones-card {
         flex: 0 0 calc((100% - 12px) / 2.5);
         min-width: 0;
-        height: 245px !important;
-        min-height: 245px !important;
+        height: 260px !important;
+        min-height: 260px !important;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -8055,8 +8057,8 @@ button {
 
     .headphones-image {
         width: 100%;
-        height: 125px;
-        flex: 0 0 125px;
+        height: 140px;
+        flex: 0 0 140px;
         overflow: hidden;
     }
 
@@ -8156,19 +8158,20 @@ button {
     }
 
     .headphones-card {
-        height: 235px !important;
-        min-height: 235px !important;
+        height: 260px !important;
+        min-height: 260px !important;
+        flex: 0 0 calc((100% - 12px) / 2.5);
     }
 
     .headphones-image {
-        height: 120px;
-        flex: 0 0 120px;
+        height: 140px;
+        flex: 0 0 140px;
     }
 
     .headphones-details {
-        height: 115px !important;
-        min-height: 115px !important;
-        flex: 0 0 115px !important;
+        height: 120px !important;
+        min-height: 120px !important;
+        flex: 0 0 120px !important;
         padding: 6px 7px !important;
     }
 
@@ -9089,7 +9092,7 @@ button {
     .smartwatch-card {
         flex: 0 0 calc((100% - 12px) / 2.5);
         width: calc((100% - 12px) / 2.5);
-        height: 245px;
+        height: 260px;
         scroll-snap-align: start;
         display: flex;
         flex-direction: column;
@@ -9097,8 +9100,8 @@ button {
     }
 
     .smartwatch-image {
-        height: 125px;
-        flex: 0 0 125px;
+        height: 140px;
+        flex: 0 0 140px;
         min-height: 0;
     }
 
@@ -9177,6 +9180,7 @@ button {
 
     .smartwatch-card {
         height: 235px;
+        flex: 0 0 calc((100% - 12px) / 2.5);
     }
 
     .smartwatch-image {
@@ -10122,7 +10126,7 @@ button {
     .chargers-cables-card {
         flex: 0 0 calc((100% - 12px) / 2.5);
         width: calc((100% - 12px) / 2.5);
-        height: 245px;
+        height: 260px;
         scroll-snap-align: start;
         display: flex;
         flex-direction: column;
@@ -10130,8 +10134,8 @@ button {
     }
 
     .chargers-cables-image {
-        height: 125px;
-        flex: 0 0 125px;
+        height: 140px;
+        flex: 0 0 140px;
         min-height: 0;
     }
 
@@ -10207,17 +10211,18 @@ button {
     }
 
     .chargers-cables-card {
-        height: 235px;
+        height: 260px;
+        flex: 0 0 calc((100% - 12px) / 2.5);
     }
 
     .chargers-cables-image {
-        height: 120px;
-        flex: 0 0 120px;
+        height: 140px;
+        flex: 0 0 140px;
     }
 
     .chargers-cables-details {
-        height: 115px;
-        flex: 0 0 115px;
+        height: 120px;
+        flex: 0 0 120px;
         padding: 8px;
     }
 
@@ -11022,7 +11027,7 @@ button {
     .power-banks-card {
         flex: 0 0 calc((100% - 12px) / 2.5);
         width: calc((100% - 12px) / 2.5);
-        height: 245px;
+        height: 260px;
         scroll-snap-align: start;
         display: flex;
         flex-direction: column;
@@ -11030,8 +11035,8 @@ button {
     }
 
     .power-banks-product-link {
-        height: 125px;
-        flex: 0 0 125px;
+        height: 140px;
+        flex: 0 0 140px;
         min-height: 0;
     }
 
@@ -11114,17 +11119,18 @@ button {
     }
 
     .power-banks-card {
-        height: 235px;
+        height: 260px;
+        flex: 0 0 calc((100% - 12px) / 2.5);
     }
 
     .power-banks-product-link {
-        height: 120px;
-        flex: 0 0 120px;
+        height: 140px;
+        flex: 0 0 140px;
     }
 
     .power-banks-details {
-        height: 115px;
-        flex: 0 0 115px;
+        height: 120px;
+        flex: 0 0 120px;
         padding: 8px;
     }
 
